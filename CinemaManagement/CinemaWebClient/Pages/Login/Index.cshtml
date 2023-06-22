@@ -1,7 +1,14 @@
 ﻿@page
 @model CinemaWebClient.Pages.Login.IndexModel
 @{
-    Layout = null;
+    //Layout = null;
 }
 
 Login
+<script>
+    $(document).ready(function onDocumentReady() {
+        setInterval(function doThisEveryTwoSeconds() {
+            toastr.success("Hello World!");
+        }, 2000);   
+    });
+</script>
