@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaWebAPI", "CinemaManagementWebAPI\CinemaWebAPI.csproj", "{85D7F15D-6B8F-4066-880C-0B8AA3070415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaWebAPI", "CinemaManagementWebAPI\CinemaWebAPI.csproj", "{85D7F15D-6B8F-4066-880C-0B8AA3070415}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaWebClient", "CinemaWebClient\CinemaWebClient.csproj", "{E34089B0-5025-4D16-B276-93CBC741281C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaWebClient", "CinemaWebClient\CinemaWebClient.csproj", "{E34089B0-5025-4D16-B276-93CBC741281C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObject", "BusinessObject\BusinessObject.csproj", "{EAC24E1A-E1C2-4740-B51B-25A55CE567EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessObject", "BusinessObject\BusinessObject.csproj", "{EAC24E1A-E1C2-4740-B51B-25A55CE567EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{04565764-E801-4D07-B201-417AD011B33D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{04565764-E801-4D07-B201-417AD011B33D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOs", "DTOs\DTOs.csproj", "{D8A92703-717C-468D-85A1-EE2D0993A28B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTOs", "DTOs\DTOs.csproj", "{D8A92703-717C-468D-85A1-EE2D0993A28B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
