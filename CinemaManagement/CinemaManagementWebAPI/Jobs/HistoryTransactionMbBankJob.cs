@@ -39,7 +39,13 @@ namespace CinemaWebAPI.Jobs
             var options = new JsonSerializerOptions();
             options.Converters.Add(new JsonSerializerDateTimeConverter());
             options.Converters.Add(new JsonSerializerIntConverter());
+
             var data = JsonSerializer.Deserialize<MbBankResponeHistoryTransactionData>(respone, options);
+
+            if(data.result.responseCode == "00")// do change data
+            {
+
+            }
 
         }
     }
