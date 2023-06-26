@@ -1,4 +1,3 @@
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\appsettings.json
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\DataAccess.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\DataAccess.pdb

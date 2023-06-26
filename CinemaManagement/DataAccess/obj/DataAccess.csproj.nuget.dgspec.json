@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj": {}
+    "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "E:\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj": {
+    "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "E:\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj",
+        "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj",
         "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-        "outputPath": "E:\\cinema-management\\CinemaManagement\\BusinessObject\\obj\\",
+        "outputPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -81,17 +85,21 @@
         }
       }
     },
-    "E:\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj": {
+    "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "E:\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj",
+        "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-        "outputPath": "E:\\cinema-management\\CinemaManagement\\DataAccess\\obj\\",
+        "outputPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -105,8 +113,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "E:\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj"
+              "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }
