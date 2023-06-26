@@ -15,6 +15,10 @@ namespace BusinessObject
 		{
 		}
 
+		public CinemaContext(DbContextOptions options) : base(options)
+		{
+		}
+
 		public virtual DbSet<Role> Role { get; set; } = null!;
 		public virtual DbSet<User> User { get; set; } = null!;
 		public virtual DbSet<RefreshToken> RefreshToken { get; set; } = null!;
@@ -27,7 +31,7 @@ namespace BusinessObject
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			//var directory = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().LastIndexOf("/")) + "/CinemaWebAPI";
+			//var directory = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().LastIndexOf("\\")) + "/CinemaWebAPI";
 			//var conf = new ConfigurationBuilder()
 			//	.SetBasePath(directory)
 			//	.AddJsonFile("appsettings.json", true, true)

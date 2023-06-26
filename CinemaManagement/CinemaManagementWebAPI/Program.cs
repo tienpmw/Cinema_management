@@ -1,14 +1,19 @@
-using AutoMapper;
+﻿using AutoMapper;
+using BusinessObject;
 using CinemaWebAPI;
 using CinemaWebAPI.Jobs;
 using DataAccess.IRepositories;
 using DataAccess.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
 using Quartz;
 using System.Data;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace CinemaManagementWebAPI
@@ -26,6 +31,11 @@ namespace CinemaManagementWebAPI
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
 
+			// Add database
+			builder.Services.AddDbContext<CinemaContext>(opts =>
+			{
+				opts.UseSqlServer(builder.Configuration.GetConnectionString("DB"));
+			});
 
             // add job scheduler get history transaction bank
             builder.Services.AddQuartz(q =>
@@ -54,7 +64,14 @@ namespace CinemaManagementWebAPI
 			var mapper = configAutoMapper.CreateMapper();
 			builder.Services.AddSingleton(mapper);
 			//Add DI
-			//builder.Services.AddSingleton<IRoleRepository, RoleRepository>();
+			builder.Services.AddSingleton<IRoleRepository, RoleRepository>();
+			builder.Services.AddSingleton<IFilmRepository, FilmRepository>();
+			builder.Services.AddSingleton<IShowRepository, ShowRepository>();
+			builder.Services.AddSingleton<IUserRepository, UserRepository>();
+			builder.Services.AddSingleton<IBookingRepository, BookingRepository>();
+			builder.Services.AddSingleton<IRoomRepository, RoomRepository>();
+			builder.Services.AddSingleton<IGenreRepository, GenreRepository>();
+			builder.Services.AddSingleton<ICountryRepository, CountryRepository>();
 			builder.Services.AddSingleton<ISendMailRepository, SendMailRepository>();
 
 			//Add Odata
@@ -72,7 +89,23 @@ namespace CinemaManagementWebAPI
 					policy.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
 				});
 			});
+			//Add JWT
+			builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+				.AddJwtBearer(opt =>
+				{
+					opt.TokenValidationParameters = new TokenValidationParameters
+					{
+						//tự cấp token
+						ValidateIssuer = false,
+						ValidateAudience = false,
 
+						//ký vào token
+						ValidateIssuerSigningKey = true,
+						IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"])),
+
+						ClockSkew = TimeSpan.Zero // using for validate token
+					};
+				});
 			// Remove cycle object's data in json respone
 			builder.Services.AddControllers().AddJsonOptions(options =>
 			{
@@ -108,7 +141,7 @@ namespace CinemaManagementWebAPI
 		private static IEdmModel GetEdmModel()
 		{
 			ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
-			//builder.EntitySet<User>("Users");
+			builder.EntitySet<User>("Users");
 			return builder.GetEdmModel();
 		}
 	}
