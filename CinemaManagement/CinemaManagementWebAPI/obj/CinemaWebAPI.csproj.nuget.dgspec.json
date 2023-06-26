@@ -138,6 +138,14 @@
               "target": "Package",
               "version": "[8.2.0, )"
             },
+            "Quartz.AspNetCore": {
+              "target": "Package",
+              "version": "[3.6.3, )"
+            },
+            "Quartz.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[3.6.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
