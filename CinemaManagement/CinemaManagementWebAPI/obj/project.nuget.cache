@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z3lFAuCRnWvv+Ig9LdBBqWlScUi2Izr7w7DkO/6mhq1iwEtMbxnsGG3jLyDUlLYm6Q1OdvDAzA7TJvcKM7wIWg==",
+  "dgSpecHash": "G3mE/p6MwYej2laY18mKMPCa+BLYRTPtV0kTGYEmN+X7DnAVULe5WPvc6EXwa0Q9pFGgMdvybe8x4USZd872fA==",
   "success": true,
-  "projectFilePath": "E:\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\CinemaWebAPI.csproj",
+  "projectFilePath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\CinemaWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.19\\microsoft.aspnetcore.authentication.jwtbearer.6.0.19.nupkg.sha512",

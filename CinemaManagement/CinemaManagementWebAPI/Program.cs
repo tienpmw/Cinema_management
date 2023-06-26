@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessObject;
 using CinemaWebAPI;
+using CinemaWebAPI.Jobs;
 using DataAccess.IRepositories;
 using DataAccess.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -10,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
+using Quartz;
 using System.Data;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -18,7 +20,7 @@ namespace CinemaManagementWebAPI
 {
 	public class Program
 	{
-		public static void Main(string[] args)
+        public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
@@ -35,8 +37,27 @@ namespace CinemaManagementWebAPI
 				opts.UseSqlServer(builder.Configuration.GetConnectionString("DB"));
 			});
 
-			//Add Auto Mapper
-			var configAutoMapper = new MapperConfiguration(config =>
+            // add job scheduler get history transaction bank
+            builder.Services.AddQuartz(q =>
+            {
+                q.UseMicrosoftDependencyInjectionScopedJobFactory();
+                var jobKey = new JobKey("GetHistoryTransactionJob");
+                q.AddJob<HistoryTransactionMbBankJob>(opts => opts.WithIdentity(jobKey));
+                q.AddTrigger(opts => opts
+                    .ForJob(jobKey)
+                    .StartNow()
+                    .WithSimpleSchedule(x =>
+                        x.WithIntervalInSeconds(1000)
+                        .RepeatForever()
+                        )
+                    );
+            });
+
+            builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+
+
+            //Add Auto Mapper
+            var configAutoMapper = new MapperConfiguration(config =>
 			{
 				config.AddProfile(new AutoMapperProfile());
 			});
@@ -96,7 +117,9 @@ namespace CinemaManagementWebAPI
 				opts.SuppressModelStateInvalidFilter = true;
 			});
 
-			var app = builder.Build();
+			
+
+            var app = builder.Build();
 
 			// Configure the HTTP request pipeline.
 			if (app.Environment.IsDevelopment())
