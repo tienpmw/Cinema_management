@@ -12,7 +12,7 @@ namespace BusinessObject
 	public class Booking
 	{
 		[Key]
-		public string? BookingId { get; set; }
+		public Guid BookingId { get; set; }
 		public long ShowId { get; set; }
 		public long UserId { get; set; }
 		public string? SeatBooking { get; set; }

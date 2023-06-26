@@ -17,6 +17,7 @@ namespace BusinessObject
 
 		public virtual DbSet<Role> Role { get; set; } = null!;
 		public virtual DbSet<User> User { get; set; } = null!;
+		public virtual DbSet<RefreshToken> RefreshToken { get; set; } = null!;
 		public virtual DbSet<Booking> Booking { get; set; } = null!;
 		public virtual DbSet<Show> Show { get; set; } = null!;
 		public virtual DbSet<Room> Room { get; set; } = null!;
@@ -26,16 +27,16 @@ namespace BusinessObject
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			var directory = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().LastIndexOf("/")) + "/CinemaWebAPI";
-			var conf = new ConfigurationBuilder()
-				.SetBasePath(directory)
-				.AddJsonFile("appsettings.json", true, true)
-				.Build();
-			if (!optionsBuilder.IsConfigured)
-			{
-				//optionsBuilder.UseSqlServer("server=localhost; database=CinemaFinal; uid=sa; pwd=sa");
-				optionsBuilder.UseSqlServer(conf.GetConnectionString("DB"));
-			}
+			//var directory = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().LastIndexOf("/")) + "/CinemaWebAPI";
+			//var conf = new ConfigurationBuilder()
+			//	.SetBasePath(directory)
+			//	.AddJsonFile("appsettings.json", true, true)
+			//	.Build();
+			//if (!optionsBuilder.IsConfigured)
+			//{
+			optionsBuilder.UseSqlServer("server=localhost; database=CinemaManagement; uid=sa; pwd=sa");
+			//optionsBuilder.UseSqlServer(conf.GetConnectionString("DB"));
+			//}
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)

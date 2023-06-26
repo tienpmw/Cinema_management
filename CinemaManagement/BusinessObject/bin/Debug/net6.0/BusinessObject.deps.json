@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "BusinessObject/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "6.0.18",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.18",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.18",
           "Microsoft.Extensions.Configuration.Json": "7.0.0"
