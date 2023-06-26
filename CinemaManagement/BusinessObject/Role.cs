@@ -17,7 +17,7 @@ namespace BusinessObject
 
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int RoleId { get; set; }
+		public long RoleId { get; set; }
 		public string? RoleName { get; set; }
 
 		public virtual ICollection<User> Users { get; set;}

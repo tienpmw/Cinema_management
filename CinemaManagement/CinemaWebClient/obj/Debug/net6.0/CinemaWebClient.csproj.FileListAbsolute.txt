@@ -32,3 +32,37 @@ D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\D
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.pdb
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.genruntimeconfig.cache
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\ref\CinemaWebClient.dll
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\appsettings.Development.json
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\appsettings.json
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.staticwebassets.runtime.json
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.exe
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.deps.json
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.runtimeconfig.json
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.dll
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.pdb
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\DTOs.dll
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\DTOs.pdb
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.csproj.AssemblyReference.cache
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.GeneratedMSBuildEditorConfig.editorconfig
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.AssemblyInfoInputs.cache
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.AssemblyInfo.cs
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.csproj.CoreCompileInputs.cache
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.MvcApplicationPartsAssemblyInfo.cache
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.RazorAssemblyInfo.cache
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.RazorAssemblyInfo.cs
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.CinemaWebClient.Microsoft.AspNetCore.StaticWebAssets.props
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.build.CinemaWebClient.props
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CinemaWebClient.props
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.CinemaWebClient.props
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets.pack.json
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets.build.json
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets.development.json
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\scopedcss\bundle\CinemaWebClient.styles.css
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\scopedcss\projectbundle\CinemaWebClient.bundle.scp.css
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.csproj.CopyComplete
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.dll
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\refint\CinemaWebClient.dll
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.pdb
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.genruntimeconfig.cache
+E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\ref\CinemaWebClient.dll

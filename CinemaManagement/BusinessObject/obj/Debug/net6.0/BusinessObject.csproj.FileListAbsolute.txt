@@ -13,3 +13,17 @@ D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\BusinessObject\obj\De
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.pdb
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.genruntimeconfig.cache
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll
+E:\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.AssemblyReference.cache
+E:\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+E:\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfoInputs.cache
+E:\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfo.cs
+E:\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.CoreCompileInputs.cache
+E:\cinema-management\CinemaManagement\BusinessObject\bin\Debug\net6.0\BusinessObject.deps.json
+E:\cinema-management\CinemaManagement\BusinessObject\bin\Debug\net6.0\BusinessObject.runtimeconfig.json
+E:\cinema-management\CinemaManagement\BusinessObject\bin\Debug\net6.0\BusinessObject.dll
+E:\cinema-management\CinemaManagement\BusinessObject\bin\Debug\net6.0\BusinessObject.pdb
+E:\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.dll
+E:\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\refint\BusinessObject.dll
+E:\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.pdb
+E:\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\BusinessObject.genruntimeconfig.cache
+E:\cinema-management\CinemaManagement\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,10 +12,11 @@ namespace BusinessObject
 	public class Booking
 	{
 		[Key]
-		public Guid BookingId { get; set; }
-		public int ShowId { get; set; }
-		public int UserId { get; set; }
-		public int SeatBooking { get; set; }
+		public string? BookingId { get; set; }
+		public long ShowId { get; set; }
+		public long UserId { get; set; }
+		public string? SeatBooking { get; set; }
+		[Precision(18,2)]
 		public decimal Amount { get; set; }
 		public DateTime DateBooking { get; set; }
 		public string? ContentBill { get; set; }

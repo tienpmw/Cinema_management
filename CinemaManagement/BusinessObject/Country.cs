@@ -16,8 +16,8 @@ namespace BusinessObject
 		}
 
 		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int CountryId{ get; set; }
+		[StringLength(5)]
+		public string? CountryCode{ get; set; }
 		public string? CountryName { get; set; }
 
 		public virtual ICollection<Film> Films { get; set; }

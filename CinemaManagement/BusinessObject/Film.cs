@@ -13,8 +13,8 @@ namespace BusinessObject
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public long FilmId { get; set; }
-		public int GenreId { get; set; }
-		public int CountryId { get; set; }
+		public long GenreId { get; set; }
+		public string? CountryCode { get; set; }
 		public string? Title { get; set; }
 		[DataType(DataType.MultilineText)]
 		public string? Description { get; set; }
@@ -23,7 +23,7 @@ namespace BusinessObject
 		public DateTime DateRelease { get; set; }
 		[ForeignKey(nameof(GenreId))]
 		public virtual Genre? Genre { get; set; } = null!;
-		[ForeignKey(nameof(CountryId))]
+		[ForeignKey(nameof(CountryCode))]
 		public virtual Country? Country { get; set; } = null!;
 
 

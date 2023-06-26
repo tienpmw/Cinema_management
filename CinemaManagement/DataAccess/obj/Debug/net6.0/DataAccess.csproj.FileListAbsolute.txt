@@ -14,3 +14,18 @@ D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DataAccess\obj\Debug\
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+E:\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+E:\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\DataAccess.dll
+E:\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+E:\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\BusinessObject.dll
+E:\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\BusinessObject.pdb
+E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\DataAccess.dll
+E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll

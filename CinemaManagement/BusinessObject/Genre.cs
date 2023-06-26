@@ -17,7 +17,7 @@ namespace BusinessObject
 
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int GenreId { get; set; }
+		public long GenreId { get; set; }
 		public string? GenreName { get; set; }
 
 		public virtual ICollection<Film> Films { get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,9 +13,10 @@ namespace BusinessObject
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int ShowId { get; set; }
-		public int RoomId { get; set; }
-		public int FilmId { get; set; }
+		public long ShowId { get; set; }
+		public long RoomId { get; set; }
+		public long FilmId { get; set; }
+		[Precision(18,2)]
 		public decimal Price { get; set; }
 		public string? SeatStatus { get; set; }
 		public DateTime ShowDate { get; set; }

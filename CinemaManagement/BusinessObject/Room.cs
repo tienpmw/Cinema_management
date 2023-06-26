@@ -17,7 +17,7 @@ namespace BusinessObject
 
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int RoomId { get; set; }
+		public long RoomId { get; set; }
 		public string? RoomName { get; set; }
 		public int NumberRow { get; set; }
 		public int NumberColumn { get; set; }
