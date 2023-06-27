@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using DataAccess.IRepositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -17,11 +18,13 @@ namespace CinemaWebAPI.Controllers
 	{
 		private readonly IConfiguration _configuration;
 		private readonly CinemaContext _context;
+		private readonly ISendMailRepository _sendMailRepository;
 
-		public UsersController(IConfiguration configuration, CinemaContext context)
+		public UsersController(IConfiguration configuration, CinemaContext context, ISendMailRepository sendMailRepository)
 		{
 			_configuration = configuration;
 			_context = context;
+			_sendMailRepository = sendMailRepository;
 		}
 
 		[EnableQuery]
