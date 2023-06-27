@@ -8,19 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\dell\\.nuget\\packages\\": {}
+    "C:\\Users\\dell\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj",
+      "projectUniqueName": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj",
       "projectName": "DTOs",
-      "projectPath": "E:\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj",
+      "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj",
       "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-      "outputPath": "E:\\cinema-management\\CinemaManagement\\DTOs\\obj\\",
+      "outputPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

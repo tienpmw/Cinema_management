@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "yiURqxbnuVhLGBVlhPF6cjUgt2keamvpYTlVxxmEM+tf9k72aBSZSrjTcwqzytll+5ERh4k7JqS/VlRu1CePWA==",
   "success": true,
   "projectFilePath": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj",
@@ -9,5 +10,11 @@
     "C:\\Users\\dell\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "KRXC6blRAX7mmygfyvOJQRDy5aXxIUYyG3l6gh5bmSEMS7MJI/Zfgnzuii+xhS5z4zDvhtTqUwuthkf7kD7OOg==",
+  "success": true,
+  "projectFilePath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> 9279964eece91a66fa218ab796569be963dd7b39
   "logs": []
 }

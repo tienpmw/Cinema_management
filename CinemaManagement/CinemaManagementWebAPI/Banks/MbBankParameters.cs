@@ -2,7 +2,7 @@
 {
     public class MbBankParameters
     {
-        public static string API = "https://online.mbbank.com.vn/api/retail-web-transactionservice/transaction/getTransactionAccountHistory";
+        public static string APIHistoryTransaction = "https://online.mbbank.com.vn/api/retail-web-transactionservice/transaction/getTransactionAccountHistory";
         public static string AccountNo = "0336687454";
         public static string DeviceIdCommon = "xp4czbl7-mbib-0000-0000-2023060214073587";
         public static string RefNo = "0336687454-2023062609580818";
