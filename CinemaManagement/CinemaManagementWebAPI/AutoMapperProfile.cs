@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using BusinessObject;
+using DTOs;
 using System.Data;
 
 namespace CinemaWebAPI
@@ -7,7 +9,7 @@ namespace CinemaWebAPI
     {
         public AutoMapperProfile()
         {
-            //CreateMap<User, UserDTO>().ReverseMap();
+            CreateMap<User, UserDTO>().ReverseMap();
         }
     }
 }

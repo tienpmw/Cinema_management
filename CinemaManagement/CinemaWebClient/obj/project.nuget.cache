@@ -1,8 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "KRXC6blRAX7mmygfyvOJQRDy5aXxIUYyG3l6gh5bmSEMS7MJI/Zfgnzuii+xhS5z4zDvhtTqUwuthkf7kD7OOg==",
+  "dgSpecHash": "LgA4EXH2B8O9L3nEjFf4NP3Q5Fa9Z3tsLnXoTcKOGWt4WUsRhADY7hXTU1WIXHcEwznb1NqlrQPPA7767JzHng==",
   "success": true,
   "projectFilePath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\dell\\.nuget\\packages\\google.apis\\1.61.0\\google.apis.1.61.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\google.apis.auth\\1.61.0\\google.apis.auth.1.61.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
