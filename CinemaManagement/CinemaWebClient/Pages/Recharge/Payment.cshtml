@@ -1,0 +1,47 @@
+﻿@page
+@model CinemaWebClient.Pages.Recharge.PaymentModel
+@{
+}
+
+<h1 class="modal-title fs-5" id="exampleModalLabel">Payment</h1>
+
+<hr/>
+
+<div class="row">
+    <div>
+        <div id="qrCode"></div>
+        <ul style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
+            <li>Số tiền: <b><span style="color:red;" id="qrAmount"></span></b> </li>
+            <li>Nội dung chuyển khoản: <b><span style="color:red;" id="qrContent">@Model.Code</span></b> </li>
+            <li>Tên chủ tài khoản: <b><span style="color:red;">Lê Đức Hiếu</span></b> </li>
+            <li>Số tài khoản: <b><span style="color:red;">0336687454</span></b></li>
+            <li><b><span style="color:red;">Ngân hàng Quân đội </span></b></li>
+        </ul>
+
+        <h3 style="color:red;">Chú ý mỗi mã QRCode chỉ chuyển 1 lần duy nhất</h3>
+        <p>
+            Nếu chuyển thủ công điền sai thông tin chuyển khoản hoặc chuyển nhiều lần cùng 1 mã giao dịch, hệ thống sẽ
+        </p>
+        <ul>
+            <li><strong>không</strong> cộng tiền vào tài khoản của quý khách</li>
+            <li><strong>không</strong> hoàn trả tiền</li>
+            <li><strong>không</strong> chịu trách nhiệm về khoản tiền chuyển nhầm hoặc chuyển thừa</li>
+        </ul>
+        <h4>
+            Vui lòng chờ đợi 1 vài phút để hệ thống cập nhật số dư sau khi đã chuyển khoản.<br>
+        </h4>
+    </div>
+</div>
+<script>
+    window.addEventListener("load", (event) => {
+        var qrAmount = "@(Model.Amount)";
+        var qrInfo = "@(Model.Code)";
+        document.getElementById("qrAmount").innerHTML = formatStringToCurrencyVND(qrAmount);
+        var vietQrUrl = "https://img.vietqr.io/image/MB-0336687454-compact.png?accountName=LE%20DUC%20HIEU";
+        vietQrUrl += "&amount=" + qrAmount;
+        vietQrUrl += "&addInfo=" + qrInfo;
+
+        var img = `<img src='` + vietQrUrl + `' alt="QR Thanh toán" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">`;
+        document.getElementById("qrCode").innerHTML = img;
+    });
+</script>

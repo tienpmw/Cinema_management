@@ -26,10 +26,13 @@ namespace BusinessObject
 		public bool IsActive { get; set; }
 		public bool IsConfirmEmail { get; set; }
 		public bool IsLoginGoogle { get; set; }
+		public long AccountBalance { get; set; }	
 
-		[ForeignKey(nameof(RoleId))]
+        [ForeignKey(nameof(RoleId))]
 		public virtual Role? Role { get; set; } = null!;
 		public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<RechargeRequest> RechargeRequests { get; set; }
 
-	}
+
+    }
 }

@@ -2,6 +2,7 @@
 using BusinessObject;
 using CinemaWebAPI;
 using CinemaWebAPI.Jobs;
+using CinemaWebAPI.Utilities;
 using DataAccess.IRepositories;
 using DataAccess.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -64,7 +65,7 @@ namespace CinemaManagementWebAPI
 			var mapper = configAutoMapper.CreateMapper();
 			builder.Services.AddSingleton(mapper);
 			//Add DI
-			builder.Services.AddSingleton<IRoleRepository, RoleRepository>();
+            builder.Services.AddSingleton<IRoleRepository, RoleRepository>();
 			builder.Services.AddSingleton<IFilmRepository, FilmRepository>();
 			builder.Services.AddSingleton<IShowRepository, ShowRepository>();
 			builder.Services.AddSingleton<IUserRepository, UserRepository>();
@@ -73,9 +74,10 @@ namespace CinemaManagementWebAPI
 			builder.Services.AddSingleton<IGenreRepository, GenreRepository>();
 			builder.Services.AddSingleton<ICountryRepository, CountryRepository>();
 			builder.Services.AddSingleton<ISendMailRepository, SendMailRepository>();
+            builder.Services.AddSingleton<IRechargeRequestRepository, RechargeRequestRepository>();
 
-			//Add Odata
-			builder.Services.AddControllers()
+            //Add Odata
+            builder.Services.AddControllers()
 				.AddOData(options =>
 				{
 					options.Select().Filter().Count().OrderBy().SetMaxTop(100).Expand()

@@ -10,6 +10,7 @@ namespace CinemaWebAPI
         public AutoMapperProfile()
         {
             CreateMap<User, UserDTO>().ReverseMap();
+            CreateMap<RechargeRequest, RechargeRequestDTO>().ReverseMap();
         }
     }
 }
