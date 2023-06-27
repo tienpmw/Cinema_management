@@ -32,7 +32,7 @@ namespace CinemaWebAPI.Jobs
 
             var jsonData = JsonSerializer.Serialize(mbBank);
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var request = await client.PostAsync(MbBankParameters.API, content);
+            var request = await client.PostAsync(MbBankParameters.APIHistoryTransaction, content);
 
             var respone = await request.Content.ReadAsStringAsync();
 
@@ -42,7 +42,7 @@ namespace CinemaWebAPI.Jobs
 
             var data = JsonSerializer.Deserialize<MbBankResponeHistoryTransactionData>(respone, options);
 
-            if(data.result.responseCode == "00")// do change data
+            if(data.result.responseCode == "00")// get data success
             {
 
             }
