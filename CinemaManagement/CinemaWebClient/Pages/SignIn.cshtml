@@ -1,0 +1,58 @@
+﻿@page
+@model CinemaWebClient.Pages.SignInModel
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin-allow-popups" />
+	<meta name="google-signin-scope" content="profile email">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>SignIn</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+</head>
+<body>
+	<div id="g_id_onload"
+		 data-client_id="965301919060-vi54tl3925kjdhprfvusnoshavhhn31k.apps.googleusercontent.com"
+		 data-context="signin"
+		 data-ux_mode="popup"
+		 data-callback="onSignIn"
+		 data-itp_support="true"
+		 data-auto_prompt="false">
+	</div>
+
+	<div class="g_id_signin"
+		 data-type="standard"
+		 data-shape="rectangular"
+		 data-theme="outline"
+		 data-text="signin_with"
+		 data-size="large"
+		 data-logo_alignment="left">
+	</div>
+	<script>
+		function onSignIn(googleUser) {
+				var id_token = googleUser.credential;
+				console.log(id_token)
+				window.location.href = "/SignIn?handler=SignInGoogle&idToken="+id_token
+		};
+		window.onload = function () {
+			google.accounts.id.initialize({
+			client_id: '965301919060-vi54tl3925kjdhprfvusnoshavhhn31k.apps.googleusercontent.com',
+			callback: onSignIn
+		  });
+		  google.accounts.id.prompt((notification) => {
+			  if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+			  }
+		  });
+		};
+		function handleCredentialResponse(response) {
+		   onSignIn(response);
+		}
+	</script>
+</body>
+</html>

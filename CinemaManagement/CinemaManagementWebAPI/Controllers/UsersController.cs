@@ -1,5 +1,6 @@
 ﻿using BusinessObject;
 using DataAccess.IRepositories;
+using DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -19,12 +20,14 @@ namespace CinemaWebAPI.Controllers
 		private readonly IConfiguration _configuration;
 		private readonly CinemaContext _context;
 		private readonly ISendMailRepository _sendMailRepository;
+		private readonly IUserRepository _userRepository;
 
-		public UsersController(IConfiguration configuration, CinemaContext context, ISendMailRepository sendMailRepository)
+		public UsersController(IConfiguration configuration, CinemaContext context, ISendMailRepository sendMailRepository, IUserRepository userRepository)
 		{
 			_configuration = configuration;
 			_context = context;
 			_sendMailRepository = sendMailRepository;
+			_userRepository = userRepository;
 		}
 
 		[EnableQuery]
@@ -35,19 +38,82 @@ namespace CinemaWebAPI.Controllers
 		}
 
 		[HttpPost("SignIn")]
-		public async Task<IActionResult> SignIn(User uerSignIn)
+		public async Task<IActionResult> SignIn(UserSignInRequestDTO userSignIn)
 		{
-			User? user = _context.User.FirstOrDefault(x => x.Email == uerSignIn.Email);
+			User? user = _context.User.FirstOrDefault(x => x.Email == userSignIn.Email);
 			if (user == null)
 			{
-				return NotFound();
+				return NotFound("Email or Password not correct!");
 			}
-			await GenerateToken(user);
-			return Ok();
+			if (!user.IsActive)
+			{
+				return Conflict("This user was banned, contact admin!");
+			}
+			var response = await GenerateToken(user);
+			return Ok(response);
+		}
+		[HttpPost("SignInGoogle")]
+		public async Task<IActionResult> SignInGoogle(UserSignUpRequestDTO userSignIn)
+		{
+			User? user = _context.User.FirstOrDefault(x => x.Email == userSignIn.Email);
+			if (user == null)
+			{
+				try
+				{
+					// Add user
+					_userRepository.AddUserLoginGoogle(new User { Email = userSignIn.Email, FirstName = userSignIn.FirstName, LastName = userSignIn.LastName});
+					// Add success
+					user = _context.User.FirstOrDefault(x => x.Email == userSignIn.Email);
+				}
+				catch (Exception)
+				{
+					return Conflict("Login failed, try later!");
+				}
+			}
+			var response = await GenerateToken(user);
+			return Ok(response);
 		}
 		[HttpPost("SignUp")]
-		public async Task<IActionResult> SignUp(User uerSignIn)
+		public async Task<IActionResult> SignUp(User userSignUp)
 		{
+			string confirmToken = await GenerateConfirmToken(userSignUp);
+			return Ok();
+		}
+
+		[HttpPost("ConfirmEmail")]
+		public async Task<IActionResult> ConfirmEmail(string confirmToken)
+		{
+			// validate token
+			var jwtTokenHandler = new JwtSecurityTokenHandler();
+			var secretKeyBytes = Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]);
+			var tokenValidateParam = new TokenValidationParameters
+			{
+				// tự cấp token
+				ValidateIssuer = false,
+				ValidateAudience = false,
+
+				// ký vào token
+				ValidateIssuerSigningKey = true,
+				IssuerSigningKey = new SymmetricSecurityKey(secretKeyBytes),
+
+				ClockSkew = TimeSpan.Zero,
+				ValidateLifetime = false //ko kiểm tra token hết hạn
+			};
+			// check token valid format
+			ClaimsPrincipal tokenVerification = jwtTokenHandler.ValidateToken(confirmToken,
+				tokenValidateParam, out var validatedToken);
+			// check algorithm
+			if (validatedToken is JwtSecurityToken jwtSecurityToken)
+			{
+				bool result = jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha512,
+					StringComparison.InvariantCultureIgnoreCase);
+				if (!result)
+				{
+					return Conflict();
+				}
+			}
+
+			string email = tokenVerification.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Email).Value;
 
 			return Ok();
 		}
@@ -132,7 +198,26 @@ namespace CinemaWebAPI.Controllers
 			}
 		}
 
-		private async Task<dynamic> GenerateToken(User model)
+		private async Task<string> GenerateConfirmToken(User model)
+		{
+			var jwtTokenHandler = new JwtSecurityTokenHandler();
+			var secretKeyBytes = Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]);
+			var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(secretKeyBytes), SecurityAlgorithms.HmacSha512Signature);
+			var claims = new[]
+			{
+				new Claim(JwtRegisteredClaimNames.Email, model.Email),
+			};
+			var tokenDescription = new SecurityTokenDescriptor
+			{
+				Subject = new ClaimsIdentity(claims),
+				Expires = DateTime.UtcNow.AddMinutes(10),
+				SigningCredentials = signingCredentials
+			};
+			var token = jwtTokenHandler.CreateToken(tokenDescription);
+			return jwtTokenHandler.WriteToken(token);
+
+		}
+		private async Task<UserSignInResponseDTO> GenerateToken(User model)
 		{
 			var jwtTokenHandler = new JwtSecurityTokenHandler();
 			var secretKeyBytes = Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]);
@@ -165,11 +250,17 @@ namespace CinemaWebAPI.Controllers
 			_context.RefreshToken.Add(refreshTokenModel);
 			await _context.SaveChangesAsync();
 
-			return new
+			var response = new UserSignInResponseDTO
 			{
-				accessToken = accessToken,
-				refreshToken = refreshToken
+				UserId = model.UserId,
+				Email = model.Email,
+				FirstName = model.FirstName,
+				LastName = model.LastName,
+				RoleName = model.Role.RoleName,
+				AccessToken = accessToken,
+				RefreshToken = refreshToken
 			};
+			return response;
 		}
 
 		private string GenerateRefreshToken()

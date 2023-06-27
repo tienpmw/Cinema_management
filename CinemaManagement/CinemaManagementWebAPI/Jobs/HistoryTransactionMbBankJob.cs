@@ -20,6 +20,7 @@ namespace CinemaWebAPI.Jobs
 
         public async Task Execute(IJobExecutionContext context)
         {
+            return;
             MbBankRequestBodyHistoryTransaction mbBank = new MbBankRequestBodyHistoryTransaction()
             {
                 accountNo = MbBankParameters.AccountNo,

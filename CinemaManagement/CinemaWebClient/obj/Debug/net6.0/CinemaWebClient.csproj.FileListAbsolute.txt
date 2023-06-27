@@ -66,3 +66,8 @@ E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\refint\Ci
 E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.pdb
 E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.genruntimeconfig.cache
 E:\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\ref\CinemaWebClient.dll
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.dll
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.Auth.PlatformServices.dll
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.Auth.dll
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.Core.dll
+E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Newtonsoft.Json.dll
