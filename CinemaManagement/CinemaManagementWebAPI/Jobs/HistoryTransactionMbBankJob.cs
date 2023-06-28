@@ -52,6 +52,12 @@ namespace CinemaWebAPI.Jobs
                 string dataPreviousText = Util.Instance.ReadFile("Data/historyTransactionMbBank.json");
                 List<TransactionHistory>? dataPrevious = JsonSerializer.Deserialize<List<TransactionHistory>>(dataPreviousText);
 
+                // checking is first time run project
+                if (true)
+                {
+
+                }
+
                 // compare previous data with current data
                 bool isSame = dataPrevious.SequenceEqual(transactionHistoryCreditList, new MbBankResponeHistoryTransactionDataEqualityComparer());
                 if (isSame) return;
@@ -61,8 +67,7 @@ namespace CinemaWebAPI.Jobs
                 // save new data into file
                 Util.Instance.WriteFile("Data/historyTransactionMbBank.json", transactionHistoryCreditList);
                 //update DB
-                RechargeRequestDAO.Instance.CheckingRecharge(transactionHistoryCreditList);
-
+                //RechargeRequestDAO.Instance.CheckingRecharge(transactionHistoryCreditList);
             }
 
         }
