@@ -1,8 +1,12 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "c9qc0v5Z7DtLnNMFGALFn2OLKAjLIlUpy+0X+w+PlnJmCpZS+U3LJmuAHzR67e/pWV58zoci53N2W3Wu0bdz1g==",
+=======
+  "dgSpecHash": "Pa4av8zTQ+SuejCApfotu2yKL0VV/fhFGrOARWTIWs6HPlweDlzI3V1GlHU+LWJjTN4gM4XIv7dG4Tn13+AKZw==",
+>>>>>>> 0bdcfeeb95f5e645fea37ac755ea848af2a439dc
   "success": true,
-  "projectFilePath": "E:\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

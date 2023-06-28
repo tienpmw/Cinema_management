@@ -3,6 +3,15 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+## Ignore folders
+CinemaManagement/BusinessObject/Migrations/
+CinemaManagement/CinemaManagementWebAPI/bin/
+CinemaManagement/CinemaManagementWebAPI/bin/
+CinemaManagement/CinemaWebClient/bin/
+CinemaManagement/DataAccess/bin/
+CinemaManagement/DTOs/bin/
+
+
 # User-specific files
 *.rsuser
 *.suo
