@@ -12,30 +12,34 @@ namespace CinemaWebAPI.Jobs
     public class HistoryTransactionMbBankJob : IJob
     {
         private readonly HttpClient client = null;
-
+        private IConfigurationRoot Appsettings;
         public HistoryTransactionMbBankJob()
         {
+            Appsettings = new ConfigurationBuilder()
+                            .SetBasePath(Directory.GetCurrentDirectory())
+                            .AddJsonFile("appsettings.json", true, true)
+                            .Build();
             client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("Authorization", "Basic " + MbBankParameters.BasicAuthBase64);
+            client.DefaultRequestHeaders.Add("Authorization", "Basic " + Appsettings["MbBank:BasicAuthBase64"]);
         }
 
         public async Task Execute(IJobExecutionContext context)
         {
-            return;
+
             MbBankRequestBodyHistoryTransactionDTO mbBank = new MbBankRequestBodyHistoryTransactionDTO()
             {
-                accountNo = MbBankParameters.AccountNo,
-                deviceIdCommon = MbBankParameters.DeviceIdCommon,
-                refNo = MbBankParameters.RefNo,
-                fromDate = MbBankParameters.FromDate,
-                sessionId = MbBankParameters.SessionId,
-                toDate = MbBankParameters.ToDate
+                accountNo = Appsettings["MbBank:AccountNo"],
+                deviceIdCommon = Appsettings["MbBank:DeviceIdCommon"],
+                refNo = Appsettings["MbBank:RefNo"],
+                fromDate = DateTime.Now.AddDays(-5).ToString("dd/MM/yyyy"),
+                sessionId = Appsettings["MbBank:SessionId"],
+                toDate = DateTime.Now.ToString("dd/MM/yyyy")
             };
 
             var jsonData = JsonSerializer.Serialize(mbBank);
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var request = await client.PostAsync(MbBankParameters.APIHistoryTransaction, content);
+            var request = await client.PostAsync(Appsettings["MbBank:APIHistoryTransaction"], content);
 
             var respone = await request.Content.ReadAsStringAsync();
 
@@ -51,12 +55,6 @@ namespace CinemaWebAPI.Jobs
             {
                 string dataPreviousText = Util.Instance.ReadFile("Data/historyTransactionMbBank.json");
                 List<TransactionHistory>? dataPrevious = JsonSerializer.Deserialize<List<TransactionHistory>>(dataPreviousText);
-
-                // checking is first time run project
-                if (true)
-                {
-
-                }
 
                 // compare previous data with current data
                 bool isSame = dataPrevious.SequenceEqual(transactionHistoryCreditList, new MbBankResponeHistoryTransactionDataEqualityComparer());
