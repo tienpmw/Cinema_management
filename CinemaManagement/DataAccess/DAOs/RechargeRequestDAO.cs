@@ -34,6 +34,7 @@ namespace DataAccess.DAOs
             rechargeRequest.RequestDate = DateTime.Now;
             rechargeRequest.PaidDate = null;
             rechargeRequest.IsPay = false;
+            rechargeRequest.UserId = 1;
             CinemaContext.Instance.RechargeRequest.Add(rechargeRequest);
             CinemaContext.Instance.SaveChanges();
         }

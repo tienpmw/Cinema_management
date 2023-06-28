@@ -33,18 +33,18 @@ namespace CinemaWebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromForm]long userId, [FromForm]long amount)
+        public IActionResult Post(RechargeRequestDTO rechargeRequestDTO)
+
         {
-            
             try
             {
                 RechargeRequest rechargeRequest = new RechargeRequest()
                 {
-                    Amount = amount,
-                    UserId = userId
+                    Amount = rechargeRequestDTO.Amount,
+                    UserId = rechargeRequestDTO.UserId
                 };
                 rechargeRequest.Code = Util.Instance.GetRandomString(7);
-                //_rechargeRequestRepository.CreateRechargeRequest(rechargeRequest);
+                _rechargeRequestRepository.CreateRechargeRequest(rechargeRequest);
                 return Ok(rechargeRequest.Code);
             }
             catch (Exception ex) 
