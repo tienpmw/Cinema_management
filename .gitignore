@@ -5,6 +5,18 @@
 
 ## Ignore Migrations folder
 CinemaManagement/BusinessObject/Migrations/
+CinemaManagement/BusinessObject/bin/
+CinemaManagement/BusinessObject/bin/
+CinemaManagement/CinemaManagementWebAPI/bin/
+CinemaManagement/CinemaManagementWebAPI/obj/
+CinemaManagement/CinemaManagementWebAPI/bin/
+CinemaManagement/CinemaWebClient/bin/
+CinemaManagement/CinemaWebClient/obj/
+CinemaManagement/DataAccess/bin/
+CinemaManagement/DataAccess/obj/
+CinemaManagement/DTOs/bin/
+CinemaManagement/DTOs/obj/
+
 
 # User-specific files
 *.rsuser
