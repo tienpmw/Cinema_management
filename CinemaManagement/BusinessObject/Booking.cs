@@ -16,8 +16,7 @@ namespace BusinessObject
 		public long ShowId { get; set; }
 		public long UserId { get; set; }
 		public string? SeatBooking { get; set; }
-		[Precision(18,2)]
-		public decimal Amount { get; set; }
+		public long Amount { get; set; }
 		public DateTime DateBooking { get; set; }
 		public string? ContentBill { get; set; }
 		public bool IsPay { get; set; }

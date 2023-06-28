@@ -11,9 +11,9 @@ namespace DataAccess.Repositories
 {
     public class RechargeRequestRepository : IRechargeRequestRepository
     {
-        public void CreateRechargeRequest(RechargeRequest rechargeRequest)
+        public void CreateRechargeRequest(Transaction rechargeRequest)
         {
-            RechargeRequestDAO.Instance.Create(rechargeRequest);
+            TransactionDAO.Instance.Create(rechargeRequest);
         }
     }
 }

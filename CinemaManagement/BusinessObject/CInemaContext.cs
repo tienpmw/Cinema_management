@@ -11,22 +11,22 @@ namespace BusinessObject
 	public class CinemaContext : DbContext
 	{
 
-        //add singleton
-        private static CinemaContext instance = null;
-        private static readonly object instanceLook = new object();
+		//add singleton
+		private static CinemaContext instance = null;
+		private static readonly object instanceLook = new object();
 
-        public static CinemaContext Instance
-        {
-            get
-            {
-                lock (instanceLook)
-                {
-                    if (instance == null) instance = new CinemaContext();
-                }
-                return instance;
-            }
-        }
-        public CinemaContext()
+		public static CinemaContext Instance
+		{
+			get
+			{
+				lock (instanceLook)
+				{
+					if (instance == null) instance = new CinemaContext();
+				}
+				return instance;
+			}
+		}
+		public CinemaContext()
 		{
 		}
 
@@ -44,11 +44,11 @@ namespace BusinessObject
 		public virtual DbSet<Country> Country { get; set; } = null!;
         public virtual DbSet<Genre> Genre { get; set; } = null!;
 
-        public virtual DbSet<RechargeRequest> RechargeRequest { get; set; } = null!;
+        public virtual DbSet<Transaction> Transaction { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			//var directory = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().LastIndexOf("\\")) + "/CinemaWebAPI";
+			//var directory = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().LastIndexOf("\\")) + "\\CinemaWebAPI";
 			//var conf = new ConfigurationBuilder()
 			//	.SetBasePath(directory)
 			//	.AddJsonFile("appsettings.json", true, true)

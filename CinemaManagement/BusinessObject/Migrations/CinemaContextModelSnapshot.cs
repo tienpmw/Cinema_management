@@ -28,9 +28,8 @@ namespace BusinessObject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("Amount")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<long>("Amount")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("ContentBill")
                         .HasColumnType("nvarchar(max)");
@@ -1344,39 +1343,6 @@ namespace BusinessObject.Migrations
                     b.ToTable("Genre");
                 });
 
-            modelBuilder.Entity("BusinessObject.RechargeRequest", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<long>("Amount")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsPay")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("PaidDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("RequestDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("UserId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("RechargeRequest");
-                });
-
             modelBuilder.Entity("BusinessObject.RefreshToken", b =>
                 {
                     b.Property<long>("Id")
@@ -1465,9 +1431,8 @@ namespace BusinessObject.Migrations
                     b.Property<long>("FilmId")
                         .HasColumnType("bigint");
 
-                    b.Property<decimal>("Price")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<long>("Price")
+                        .HasColumnType("bigint");
 
                     b.Property<long>("RoomId")
                         .HasColumnType("bigint");
@@ -1485,6 +1450,39 @@ namespace BusinessObject.Migrations
                     b.HasIndex("RoomId");
 
                     b.ToTable("Show");
+                });
+
+            modelBuilder.Entity("BusinessObject.Transaction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<long>("Amount")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsPay")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("PaidDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("RequestDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Transaction");
                 });
 
             modelBuilder.Entity("BusinessObject.User", b =>
@@ -1565,17 +1563,6 @@ namespace BusinessObject.Migrations
                     b.Navigation("Genre");
                 });
 
-            modelBuilder.Entity("BusinessObject.RechargeRequest", b =>
-                {
-                    b.HasOne("BusinessObject.User", "User")
-                        .WithMany("RechargeRequests")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("BusinessObject.RefreshToken", b =>
                 {
                     b.HasOne("BusinessObject.User", "User")
@@ -1604,6 +1591,17 @@ namespace BusinessObject.Migrations
                     b.Navigation("Film");
 
                     b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("BusinessObject.Transaction", b =>
+                {
+                    b.HasOne("BusinessObject.User", "User")
+                        .WithMany("RechargeRequests")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BusinessObject.User", b =>

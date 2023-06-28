@@ -30,3 +30,5 @@ E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 E:\cinema-management\CinemaManagement\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\DTOs.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\DTOs.pdb
+E:\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\DTOs.dll
+E:\cinema-management\CinemaManagement\DataAccess\bin\Debug\net6.0\DTOs.pdb

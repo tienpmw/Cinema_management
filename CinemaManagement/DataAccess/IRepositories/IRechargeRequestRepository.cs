@@ -9,6 +9,6 @@ namespace DataAccess.IRepositories
 {
     public interface IRechargeRequestRepository
     {
-        void CreateRechargeRequest(RechargeRequest rechargeRequest);
+        void CreateRechargeRequest(Transaction rechargeRequest);
     }
 }

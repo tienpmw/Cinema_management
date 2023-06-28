@@ -4,55 +4,87 @@
 	Layout = null;
 }
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 	<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin-allow-popups" />
-	<meta name="google-signin-scope" content="profile email">
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 	<title>SignIn</title>
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link href="~/css/style.css" rel="stylesheet" />
 	<script src="https://accounts.google.com/gsi/client" async defer></script>
-
+	<script nonce="4aefb833-97bc-41de-82c7-e80ee3b2f156">(function (w, d) { !function (dK, dL, dM, dN) { dK[dM] = dK[dM] || {}; dK[dM].executed = []; dK.zaraz = { deferred: [], listeners: [] }; dK.zaraz.q = []; dK.zaraz._f = function (dO) { return function () { var dP = Array.prototype.slice.call(arguments); dK.zaraz.q.push({ m: dO, a: dP }) } }; for (const dQ of ["track", "set", "debug"]) dK.zaraz[dQ] = dK.zaraz._f(dQ); dK.zaraz.init = () => { var dR = dL.getElementsByTagName(dN)[0], dS = dL.createElement(dN), dT = dL.getElementsByTagName("title")[0]; dT && (dK[dM].t = dL.getElementsByTagName("title")[0].text); dK[dM].x = Math.random(); dK[dM].w = dK.screen.width; dK[dM].h = dK.screen.height; dK[dM].j = dK.innerHeight; dK[dM].e = dK.innerWidth; dK[dM].l = dK.location.href; dK[dM].r = dL.referrer; dK[dM].k = dK.screen.colorDepth; dK[dM].n = dL.characterSet; dK[dM].o = (new Date).getTimezoneOffset(); if (dK.dataLayer) for (const dX of Object.entries(Object.entries(dataLayer).reduce(((dY, dZ) => ({ ...dY[1], ...dZ[1] })), {}))) zaraz.set(dX[0], dX[1], { scope: "page" }); dK[dM].q = []; for (; dK.zaraz.q.length;) { const d_ = dK.zaraz.q.shift(); dK[dM].q.push(d_) } dS.defer = !0; for (const ea of [localStorage, sessionStorage]) Object.keys(ea || {}).filter((ec => ec.startsWith("_zaraz_"))).forEach((eb => { try { dK[dM]["z_" + eb.slice(7)] = JSON.parse(ea.getItem(eb)) } catch { dK[dM]["z_" + eb.slice(7)] = ea.getItem(eb) } })); dS.referrerPolicy = "origin"; dS.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(dK[dM]))); dR.parentNode.insertBefore(dS, dR) };["complete", "interactive"].includes(dL.readyState) ? zaraz.init() : dK.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, "zarazData", "script"); })(window, document);</script>
 </head>
-<body>
-	<div id="g_id_onload"
-		 data-client_id="965301919060-vi54tl3925kjdhprfvusnoshavhhn31k.apps.googleusercontent.com"
-		 data-context="signin"
-		 data-ux_mode="popup"
-		 data-callback="onSignIn"
-		 data-itp_support="true"
-		 data-auto_prompt="false">
-	</div>
+<body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">SignIn</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+						<h3 class="mb-4 text-center">Have an account?</h3>
+						<form action="#" class="signin-form">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Username" required>
+							</div>
+							<div class="form-group">
+								<input id="password-field" type="password" class="form-control" placeholder="Password" required>
+								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+							</div>
+							<div class="form-group d-md-flex">
+								<div class="w-50">
+									<label class="checkbox-wrap checkbox-primary">
+										Remember Me
+										<input type="checkbox" checked>
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="#" style="color: #fff">Forgot Password</a>
+								</div>
+							</div>
+						</form>
+						<p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+						<div class="social d-flex text-center">
+							@*<a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>*@
+							<div 
+								 id="g_id_onload"
+								 data-client_id="965301919060-vi54tl3925kjdhprfvusnoshavhhn31k.apps.googleusercontent.com"
+								 data-context="signin"
+								 data-ux_mode="popup"
+								 data-callback="onSignIn"
+								 data-itp_support="true"
+								 data-auto_prompt="false">
+							</div>
 
-	<div class="g_id_signin"
-		 data-type="standard"
-		 data-shape="rectangular"
-		 data-theme="outline"
-		 data-text="signin_with"
-		 data-size="large"
-		 data-logo_alignment="left">
-	</div>
-	<script>
-		function onSignIn(googleUser) {
-				var id_token = googleUser.credential;
-				console.log(id_token)
-				window.location.href = "/SignIn?handler=SignInGoogle&idToken="+id_token
-		};
-		window.onload = function () {
-			google.accounts.id.initialize({
-			client_id: '965301919060-vi54tl3925kjdhprfvusnoshavhhn31k.apps.googleusercontent.com',
-			callback: onSignIn
-		  });
-		  google.accounts.id.prompt((notification) => {
-			  if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-			  }
-		  });
-		};
-		function handleCredentialResponse(response) {
-		   onSignIn(response);
-		}
-	</script>
+							<div
+								 class="g_id_signin px-2 py-2 mr-md-1 rounded"
+								 data-type="standard"
+								 data-shape="rectangular"
+								 data-theme="outline"
+								 data-text="signin_with"
+								 data-size="large"
+								 data-logo_alignment="left">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="~/js/signin.js"></script>
+	<script src="~/js/popper.js"></script>
+	<script src="~/js/main.js"></script>
+	<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7de5f102b8fca123","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.4.0","si":100}' crossorigin="anonymous"></script>
 </body>
 </html>

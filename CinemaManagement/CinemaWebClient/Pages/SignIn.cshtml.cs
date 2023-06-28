@@ -15,9 +15,9 @@ namespace CinemaWebClient.Pages
 		private readonly HttpClient _httpClient;
 		private readonly string UserApi = "";
 
-		public SignInModel(HttpClient httpClient)
+		public SignInModel()
 		{
-			_httpClient = httpClient;
+			_httpClient = new HttpClient();
 			var contentType = new MediaTypeWithQualityHeaderValue("application/json");
 			_httpClient.DefaultRequestHeaders.Accept.Add(contentType);
 			UserApi = "http://localhost:5001/api/Users";

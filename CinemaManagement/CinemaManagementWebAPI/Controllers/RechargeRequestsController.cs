@@ -29,7 +29,7 @@ namespace CinemaWebAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(CinemaContext.Instance.RechargeRequest.AsQueryable());
+            return Ok(CinemaContext.Instance.Transaction.AsQueryable());
         }
 
         [HttpPost]
@@ -38,7 +38,7 @@ namespace CinemaWebAPI.Controllers
         {
             try
             {
-                var rechargeRequest = _mapper.Map<RechargeRequest>(rechargeRequestDTO);
+                var rechargeRequest = _mapper.Map<Transaction>(rechargeRequestDTO);
                 rechargeRequest.Code = Util.Instance.GetRandomString(10);
                 _rechargeRequestRepository.CreateRechargeRequest(rechargeRequest);
                 return Ok(rechargeRequest.Code);
