@@ -133,13 +133,13 @@ namespace CinemaWebAPI.Controllers
 				return Conflict("Something wrong, try later!");
 			}
 			string confirmToken = GenerateConfirmToken(user);
-			string body = $"<div>Please click <a href='http://localhost:5006/SignUp?confirmToken={confirmToken}&handler=ConfirmEmail'>here</a> to confirm email!</div>";
+			string body = $"<div>Please click <a href='http://localhost:5006/SignUp?confirmToken={confirmToken}&email={user.Email}&handler=ConfirmEmail'>here</a> to confirm email!</div>";
 			await _sendMailRepository.SendEmailAsync(user.Email, "Confirm SignUp Account", body);
 			return Ok();
 		}
 
 		[HttpPost("ConfirmEmail")]
-		public IActionResult ConfirmEmail([FromBody]string confirmToken)
+		public IActionResult ConfirmEmail(ConfirmEmailRequestDTO model)
 		{
 			// validate token
 			var jwtTokenHandler = new JwtSecurityTokenHandler();
@@ -158,7 +158,7 @@ namespace CinemaWebAPI.Controllers
 				ValidateLifetime = false //ko kiểm tra token hết hạn
 			};
 			// check token valid format
-			ClaimsPrincipal tokenVerification = jwtTokenHandler.ValidateToken(confirmToken,
+			ClaimsPrincipal tokenVerification = jwtTokenHandler.ValidateToken(model.ConfirmToken,
 				tokenValidateParam, out var validatedToken);
 			// check algorithm
 			if (validatedToken is JwtSecurityToken jwtSecurityToken)
@@ -181,6 +181,16 @@ namespace CinemaWebAPI.Controllers
 			}
 
 			string? email = tokenVerification.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+			User? user = _userRepository.GetUserByEmail(email);
+			if(user.IsConfirmEmail)
+			{
+				return Ok();
+			}
+			if (email != model.Email)
+			{
+				return Conflict("Email not match!");
+			}
+			
 			_userRepository.UpdateConfirmEmail(email);
 			return Ok();
 		}

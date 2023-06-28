@@ -46,9 +46,14 @@ namespace CinemaWebClient.Pages
 			return RedirectToPage("/SignIn");
 		}
 
-		public async Task<IActionResult> OnGetConfirmEmail(string confirmToken)
+		public async Task<IActionResult> OnGetConfirmEmail(string confirmToken, string email)
 		{
-			string dataStr = JsonSerializer.Serialize<string>(confirmToken);
+			var request = new ConfirmEmailRequestDTO
+			{
+				Email = email,
+				ConfirmToken = confirmToken
+			};
+			string dataStr = JsonSerializer.Serialize(request);
 			var content = new StringContent(dataStr, Encoding.UTF8, "application/json");
 			HttpResponseMessage response = await _httpClient.PostAsync($"{UserApi}/ConfirmEmail", content);
 			if (!response.IsSuccessStatusCode)

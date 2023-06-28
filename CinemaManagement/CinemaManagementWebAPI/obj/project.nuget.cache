@@ -1,12 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "NKh/ZPhG9tndNm7jVIQmyup0u9UWrGMhwoaiCGqi8h7AYRw25UbWBOCoffh+FttjQso5MHfX8fy+8V9Q5CWcmQ==",
-=======
-  "dgSpecHash": "F3LQBa0GfyVa9hmNSx8e/rX9+h0A2f6c6l9kYut7S1Li3lkgMNE7TSCnA2dPFZfKkioys2enWSNVsdcDnRaDPg==",
->>>>>>> 0bdcfeeb95f5e645fea37ac755ea848af2a439dc
   "success": true,
-  "projectFilePath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\CinemaWebAPI.csproj",
+  "projectFilePath": "E:\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\CinemaWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.19\\microsoft.aspnetcore.authentication.jwtbearer.6.0.19.nupkg.sha512",
@@ -79,5 +75,12 @@
     "C:\\Users\\dell\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

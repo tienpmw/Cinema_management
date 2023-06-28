@@ -1,10 +1,9 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj": {}
+    "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj": {}
   },
   "projects": {
-<<<<<<< HEAD
     "E:\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -83,23 +82,16 @@
       }
     },
     "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj": {
-=======
-    "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj": {
->>>>>>> 0bdcfeeb95f5e645fea37ac755ea848af2a439dc
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj",
+        "projectUniqueName": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj",
         "projectName": "CinemaWebClient",
-        "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj",
+        "projectPath": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj",
         "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-        "outputPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\",
+        "outputPath": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -114,8 +106,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj": {
-                "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj"
+              "E:\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj": {
+                "projectPath": "E:\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj"
               }
             }
           }
@@ -158,21 +150,17 @@
         }
       }
     },
-    "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj": {
+    "E:\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj",
+        "projectUniqueName": "E:\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj",
         "projectName": "DTOs",
-        "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj",
+        "projectPath": "E:\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj",
         "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-        "outputPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\obj\\",
+        "outputPath": "E:\\cinema-management\\CinemaManagement\\DTOs\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
