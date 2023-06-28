@@ -1,5 +1,10 @@
-﻿using DataAccess.DAOs;
+﻿using BusinessObject;
+using DataAccess.DAOs;
+using DataAccess.IRepositories;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Text;
+using System.Text.Json;
 
 namespace CinemaWebAPI.Utilities
 {
@@ -23,6 +28,7 @@ namespace CinemaWebAPI.Utilities
             }
         }
 
+
         public string GetRandomString(int length)
         {
             StringBuilder str_build = new StringBuilder();
@@ -38,6 +44,21 @@ namespace CinemaWebAPI.Utilities
                 str_build.Append(letter);
             }
             return str_build.ToString();
+        }
+
+        public void WriteFile(string fileName, object data)
+        {
+            string fullPath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(data, options);
+            File.WriteAllText(fullPath, json);
+        }
+
+        public string ReadFile(string fileName)
+        {
+            string fullPath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+            string text = File.ReadAllText(fullPath);
+            return text;
         }
     }
 }

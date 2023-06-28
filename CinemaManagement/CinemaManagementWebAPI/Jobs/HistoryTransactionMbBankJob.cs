@@ -4,6 +4,8 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Text;
 using CinemaWebAPI.Utilities;
+using DataAccess.DAOs;
+using DTOs;
 
 namespace CinemaWebAPI.Jobs
 {
@@ -21,7 +23,7 @@ namespace CinemaWebAPI.Jobs
         public async Task Execute(IJobExecutionContext context)
         {
             return;
-            MbBankRequestBodyHistoryTransaction mbBank = new MbBankRequestBodyHistoryTransaction()
+            MbBankRequestBodyHistoryTransactionDTO mbBank = new MbBankRequestBodyHistoryTransactionDTO()
             {
                 accountNo = MbBankParameters.AccountNo,
                 deviceIdCommon = MbBankParameters.DeviceIdCommon,
@@ -41,10 +43,25 @@ namespace CinemaWebAPI.Jobs
             options.Converters.Add(new JsonSerializerDateTimeConverter());
             options.Converters.Add(new JsonSerializerIntConverter());
 
-            var data = JsonSerializer.Deserialize<MbBankResponeHistoryTransactionData>(respone, options);
+            var data = JsonSerializer.Deserialize<MbBankResponeHistoryTransactionDataDTO>(respone, options);
+            var transactionHistoryCreditList = data.transactionHistoryList.Where(x => x.creditAmount != 0).ToList();
 
-            if(data.result.responseCode == "00")// get data success
+
+            if (data.result.responseCode == "00")// get data success
             {
+                string dataPreviousText = Util.Instance.ReadFile("Data/historyTransactionMbBank.json");
+                List<TransactionHistory>? dataPrevious = JsonSerializer.Deserialize<List<TransactionHistory>>(dataPreviousText);
+
+                // compare previous data with current data
+                bool isSame = dataPrevious.SequenceEqual(transactionHistoryCreditList, new MbBankResponeHistoryTransactionDataEqualityComparer());
+                if (isSame) return;
+
+                //have new recharge info
+
+                // save new data into file
+                Util.Instance.WriteFile("Data/historyTransactionMbBank.json", transactionHistoryCreditList);
+                //update DB
+                RechargeRequestDAO.Instance.CheckingRecharge(transactionHistoryCreditList);
 
             }
 

@@ -921,6 +921,16 @@
         "runtime": {
           "bin/placeholder/BusinessObject.dll": {}
         }
+      },
+      "DTOs/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DTOs.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTOs.dll": {}
+        }
       }
     }
   },
@@ -2367,11 +2377,17 @@
       "type": "project",
       "path": "../BusinessObject/BusinessObject.csproj",
       "msbuildProject": "../BusinessObject/BusinessObject.csproj"
+    },
+    "DTOs/1.0.0": {
+      "type": "project",
+      "path": "../DTOs/DTOs.csproj",
+      "msbuildProject": "../DTOs/DTOs.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "BusinessObject >= 1.0.0"
+      "BusinessObject >= 1.0.0",
+      "DTOs >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2408,6 +2424,9 @@
           "projectReferences": {
             "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj": {
               "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj"
+            },
+            "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj": {
+              "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj"
             }
           }
         }

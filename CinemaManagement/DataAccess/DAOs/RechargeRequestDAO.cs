@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,43 @@ namespace DataAccess.DAOs
             CinemaContext.Instance.SaveChanges();
         }
 
-        
+        public void CheckingRecharge(List<TransactionHistory> transactionHistoryCreditList)
+        {
+            var transaction = CinemaContext.Instance.Database.BeginTransaction();
+            try
+            {
+                foreach (var item in transactionHistoryCreditList)
+                {
+                    if (IsRechargeRequestExisted(item.description, item.creditAmount))
+                    {
+                        var recharge = CinemaContext.Instance.RechargeRequest.First(x => x.Code == item.description && x.Amount == item.creditAmount);
+                        if (recharge.IsPay == true) continue;
+                        //update sataus recharge
+                        recharge.IsPay = true;
+                        //update accout balace user
+                        var user = CinemaContext.Instance.User.First(x => x.UserId == recharge.UserId);
+                        user.AccountBalance = user.AccountBalance + item.creditAmount;  
+                    }
+                }
+                CinemaContext.Instance.SaveChanges();
+                transaction.Commit();
+            }
+            catch(Exception ex) 
+            {
+                transaction.Rollback();
+            }
+        }
+
+        public bool IsRechargeRequestExisted(string desription, long amount)
+        {
+            var recharge = CinemaContext.Instance.RechargeRequest.FirstOrDefault(x => x.Code == desription && x.Amount == amount);
+            return recharge != null;
+        }
+
+        public RechargeRequest GetRechargeRequest(string desription, long amount)
+        {
+            var recharge = CinemaContext.Instance.RechargeRequest.FirstOrDefault(x => x.Code == desription && x.Amount == amount);
+            return recharge;
+        }
     }
 }

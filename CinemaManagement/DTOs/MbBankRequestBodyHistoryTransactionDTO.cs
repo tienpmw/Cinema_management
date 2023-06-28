@@ -1,6 +1,6 @@
 ﻿namespace CinemaWebAPI.Banks
 {
-    public class MbBankRequestBodyHistoryTransaction
+    public class MbBankRequestBodyHistoryTransactionDTO
     {
         public string? accountNo { get; set; }
         public string? deviceIdCommon { get; set; }

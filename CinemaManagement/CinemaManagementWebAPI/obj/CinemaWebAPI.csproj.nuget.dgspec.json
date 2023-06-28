@@ -214,6 +214,9 @@
             "projectReferences": {
               "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj": {
                 "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj"
+              },
+              "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj": {
+                "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj"
               }
             }
           }
