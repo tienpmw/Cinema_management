@@ -21,7 +21,7 @@ namespace CinemaManagementWebAPI
 {
 	public class Program
 	{
-        public static void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
@@ -38,34 +38,34 @@ namespace CinemaManagementWebAPI
 				opts.UseSqlServer(builder.Configuration.GetConnectionString("DB"));
 			});
 
-            // add job scheduler get history transaction bank
-            builder.Services.AddQuartz(q =>
-            {
-                q.UseMicrosoftDependencyInjectionScopedJobFactory();
-                var jobKey = new JobKey("GetHistoryTransactionJob");
-                q.AddJob<HistoryTransactionMbBankJob>(opts => opts.WithIdentity(jobKey));
-                q.AddTrigger(opts => opts
-                    .ForJob(jobKey)
-                    .StartNow()
-                    .WithSimpleSchedule(x =>
-                        x.WithIntervalInMinutes(5)
-                        .RepeatForever()
-                        )
-                    );
-            });
+			// add job scheduler get history transaction bank
+			builder.Services.AddQuartz(q =>
+			{
+				q.UseMicrosoftDependencyInjectionScopedJobFactory();
+				var jobKey = new JobKey("GetHistoryTransactionJob");
+				q.AddJob<HistoryTransactionMbBankJob>(opts => opts.WithIdentity(jobKey));
+				q.AddTrigger(opts => opts
+					.ForJob(jobKey)
+					.StartNow()
+					.WithSimpleSchedule(x =>
+						x.WithIntervalInMinutes(5)
+						.RepeatForever()
+						)
+					);
+			});
 
-            builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+			builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
 
-            //Add Auto Mapper
-            var configAutoMapper = new MapperConfiguration(config =>
+			//Add Auto Mapper
+			var configAutoMapper = new MapperConfiguration(config =>
 			{
 				config.AddProfile(new AutoMapperProfile());
 			});
 			var mapper = configAutoMapper.CreateMapper();
 			builder.Services.AddSingleton(mapper);
 			//Add DI
-            builder.Services.AddSingleton<IRoleRepository, RoleRepository>();
+			builder.Services.AddSingleton<IRoleRepository, RoleRepository>();
 			builder.Services.AddSingleton<IFilmRepository, FilmRepository>();
 			builder.Services.AddSingleton<IShowRepository, ShowRepository>();
 			builder.Services.AddSingleton<IUserRepository, UserRepository>();
@@ -74,10 +74,11 @@ namespace CinemaManagementWebAPI
 			builder.Services.AddSingleton<IGenreRepository, GenreRepository>();
 			builder.Services.AddSingleton<ICountryRepository, CountryRepository>();
 			builder.Services.AddSingleton<ISendMailRepository, SendMailRepository>();
-            builder.Services.AddSingleton<IRechargeRequestRepository, RechargeRequestRepository>();
+			builder.Services.AddSingleton<IRechargeRequestRepository, RechargeRequestRepository>();
+			builder.Services.AddSingleton<IRefreshTokenRepository, RefreshTokenRepository>();
 
-            //Add Odata
-            builder.Services.AddControllers()
+			//Add Odata
+			builder.Services.AddControllers()
 				.AddOData(options =>
 				{
 					options.Select().Filter().Count().OrderBy().SetMaxTop(100).Expand()
@@ -119,9 +120,9 @@ namespace CinemaManagementWebAPI
 				opts.SuppressModelStateInvalidFilter = true;
 			});
 
-			
 
-            var app = builder.Build();
+
+			var app = builder.Build();
 
 			// Configure the HTTP request pipeline.
 			if (app.Environment.IsDevelopment())

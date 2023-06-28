@@ -1,4 +1,5 @@
 ﻿function onSignIn(googleUser) {
+	signOut();
 	var id_token = googleUser.credential;
 	console.log(id_token)
 	window.location.href = "/SignIn?handler=SignInGoogle&idToken=" + id_token
@@ -15,4 +16,7 @@ window.onload = function () {
 };
 function handleCredentialResponse(response) {
 	onSignIn(response);
+}
+function signOut() {
+	google.accounts.id.disableAutoSelect();
 }

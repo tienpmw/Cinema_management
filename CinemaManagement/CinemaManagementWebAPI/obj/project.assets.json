@@ -1307,6 +1307,9 @@
       "DTOs/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BusinessObject": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/DTOs.dll": {}
         },
