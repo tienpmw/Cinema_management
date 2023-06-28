@@ -26,7 +26,7 @@ namespace CinemaWebAPI.Jobs
 
         public async Task Execute(IJobExecutionContext context)
         {
-
+            return;
             MbBankRequestBodyHistoryTransactionDTO mbBank = new MbBankRequestBodyHistoryTransactionDTO()
             {
                 accountNo = Appsettings["MbBank:AccountNo"],
@@ -61,7 +61,6 @@ namespace CinemaWebAPI.Jobs
                 if (isSame) return;
 
                 //have new recharge info
-
                 // save new data into file
                 Util.Instance.WriteFile("Data/historyTransactionMbBank.json", transactionHistoryCreditList);
                 //update DB

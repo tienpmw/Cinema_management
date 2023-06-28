@@ -48,7 +48,7 @@ namespace CinemaManagementWebAPI
                     .ForJob(jobKey)
                     .StartNow()
                     .WithSimpleSchedule(x =>
-                        x.WithIntervalInMinutes(10)
+                        x.WithIntervalInMinutes(5)
                         .RepeatForever()
                         )
                     );

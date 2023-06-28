@@ -48,10 +48,11 @@ namespace DataAccess.DAOs
                 {
                     if (IsRechargeRequestExisted(item.description, item.creditAmount))
                     {
-                        var recharge = CinemaContext.Instance.RechargeRequest.First(x => x.Code == item.description && x.Amount == item.creditAmount);
+                        var recharge = CinemaContext.Instance.RechargeRequest.First(x => item.description.Contains(x.Code) && x.Amount == item.creditAmount);
                         if (recharge.IsPay == true) continue;
                         //update sataus recharge
                         recharge.IsPay = true;
+                        recharge.PaidDate = System.DateTime.Now;
                         //update accout balace user
                         var user = CinemaContext.Instance.User.First(x => x.UserId == recharge.UserId);
                         user.AccountBalance = user.AccountBalance + item.creditAmount;  
@@ -68,14 +69,9 @@ namespace DataAccess.DAOs
 
         public bool IsRechargeRequestExisted(string desription, long amount)
         {
-            var recharge = CinemaContext.Instance.RechargeRequest.FirstOrDefault(x => x.Code == desription && x.Amount == amount);
+            var recharge = CinemaContext.Instance.RechargeRequest.FirstOrDefault(x => desription.Contains(x.Code) && x.Amount == amount);
             return recharge != null;
         }
 
-        public RechargeRequest GetRechargeRequest(string desription, long amount)
-        {
-            var recharge = CinemaContext.Instance.RechargeRequest.FirstOrDefault(x => x.Code == desription && x.Amount == amount);
-            return recharge;
-        }
     }
 }

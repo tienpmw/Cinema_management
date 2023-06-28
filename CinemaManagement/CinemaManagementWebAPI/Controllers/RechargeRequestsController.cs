@@ -38,15 +38,11 @@ namespace CinemaWebAPI.Controllers
         {
             try
             {
-                RechargeRequest rechargeRequest = new RechargeRequest()
-                {
-                    Amount = rechargeRequestDTO.Amount,
-                    UserId = rechargeRequestDTO.UserId
-                };
-                rechargeRequest.Code = Util.Instance.GetRandomString(7);
+                var rechargeRequest = _mapper.Map<RechargeRequest>(rechargeRequestDTO);
+                rechargeRequest.Code = Util.Instance.GetRandomString(10);
                 _rechargeRequestRepository.CreateRechargeRequest(rechargeRequest);
                 return Ok(rechargeRequest.Code);
-            }
+            }           
             catch (Exception ex) 
             {
                 return Conflict("Some things went wrong!");
