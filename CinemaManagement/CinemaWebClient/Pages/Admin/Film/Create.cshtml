@@ -1,0 +1,76 @@
+﻿@page
+@model CinemaWebClient.Pages.Admin.Film.CreateModel
+@{
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+
+<div style="display:flex; margin-bottom:50px">
+    <i class="fa-solid fa-door-open" style="font-size:50px; margin-right:5px"></i>
+    <h1>Create Room</h1>
+</div>
+
+<hr />
+<form method="post" class="col-md-5" style="margin-left:10%" enctype="multipart/form-data">
+
+    <div class="mb-3">
+        <label class="form-label"><b>Title</b></label>
+        <input asp-for="@Model.FilmDTO.Title" type="text" class="form-control">
+        <span asp-validation-for="@Model.FilmDTO.Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="formFile" class="form-label">Image</label>
+        <input class="form-control" type="file" id="formFile" asp-for="@Model.ImageFile" name="imageFile">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label"><b>Genre</b></label>
+        <select asp-items="@(new SelectList(Model.Genres,"GenreId","GenreName"))" asp-for="@Model.FilmDTO.GenreId" class="form-control"></select>
+        <span asp-validation-for="@Model.FilmDTO.GenreId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label"><b>Duration</b></label>
+        <input asp-for="@Model.FilmDTO.FilmDuration" type="number" class="form-control" placeholder="Input number column" value="0">
+        <span asp-validation-for="@Model.FilmDTO.FilmDuration" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label"><b>Country</b></label>
+        <select asp-items="@(new SelectList(Model.Countries,"CountryCode","CountryName"))" asp-for="@Model.FilmDTO.CountryCode" class="form-control"></select>
+        <span asp-validation-for="@Model.FilmDTO.CountryCode" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label"><b>Description</b></label>
+        <textarea asp-for="@Model.FilmDTO.Description" id="editor"></textarea>
+        <span asp-validation-for="@Model.FilmDTO.Description" class="text-danger"></span>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == false)
+    {
+        <div class="mb-3 d-flex">
+            <span class="text-danger">@Model.Message</span>
+        </div>
+    }
+    <input type="submit" class="btn btn-primary" value="Save" />
+</form>
+@if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == true)
+{
+    <script>
+        $(document).ready(function () {
+            NotificationMessageSuccess('@Model.Message.ToString()');
+        });
+    </script>
+}
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable', 'imageUpload', 'undo', 'redo'],
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
