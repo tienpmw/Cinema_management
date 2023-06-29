@@ -277,7 +277,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

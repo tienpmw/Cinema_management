@@ -4,6 +4,7 @@ using DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
+using Microsoft.AspNetCore.OData.Routing.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -18,21 +19,23 @@ namespace CinemaWebAPI.Controllers
 	public class UsersController : ControllerBase
 	{
 		private readonly IConfiguration _configuration;
-		private readonly CinemaContext _context;
 		private readonly ISendMailRepository _sendMailRepository;
 		private readonly IUserRepository _userRepository;
+		private readonly IRefreshTokenRepository _refreshTokenRepository;
 
-		public UsersController(IConfiguration configuration, CinemaContext context, ISendMailRepository sendMailRepository, IUserRepository userRepository)
+		public UsersController(IConfiguration configuration, ISendMailRepository sendMailRepository,
+			IUserRepository userRepository, IRefreshTokenRepository refreshTokenRepository)
 		{
 			_configuration = configuration;
-			_context = context;
 			_sendMailRepository = sendMailRepository;
 			_userRepository = userRepository;
+			_refreshTokenRepository = refreshTokenRepository;
 		}
 
 		[EnableQuery]
+		[ODataAttributeRouting]
 		[HttpGet]
-		public async Task<IActionResult> Get()
+		public IActionResult Get()
 		{
 			return Ok();
 		}
@@ -40,7 +43,7 @@ namespace CinemaWebAPI.Controllers
 		[HttpPost("SignIn")]
 		public async Task<IActionResult> SignIn(UserSignInRequestDTO userSignIn)
 		{
-			User? user = _context.User.FirstOrDefault(x => x.Email == userSignIn.Email);
+			User? user = _userRepository.GetUserByEmail(userSignIn.Email);
 			if (user == null)
 			{
 				return NotFound("Email or Password not correct!");
@@ -49,39 +52,94 @@ namespace CinemaWebAPI.Controllers
 			{
 				return Conflict("This user was banned, contact admin!");
 			}
+			if (!user.IsConfirmEmail)
+			{
+				return Conflict("Let's confirm email before login!");
+			}
+			if (user.IsLoginGoogle)
+			{
+				return Conflict("Let's login account with google option!");
+			}
 			var response = await GenerateToken(user);
 			return Ok(response);
 		}
 		[HttpPost("SignInGoogle")]
 		public async Task<IActionResult> SignInGoogle(UserSignUpRequestDTO userSignIn)
 		{
-			User? user = _context.User.FirstOrDefault(x => x.Email == userSignIn.Email);
+			User? user = _userRepository.GetUserByEmail(userSignIn.Email);
 			if (user == null)
 			{
 				try
 				{
-					// Add user
-					_userRepository.AddUserLoginGoogle(new User { Email = userSignIn.Email, FirstName = userSignIn.FirstName, LastName = userSignIn.LastName});
-					// Add success
-					user = _context.User.FirstOrDefault(x => x.Email == userSignIn.Email);
+					var newUser = new User
+					{
+						Email = userSignIn.Email,
+						Password = null,
+						FirstName = userSignIn.FirstName,
+						LastName = userSignIn.LastName,
+						IsConfirmEmail = true,
+						IsLoginGoogle = true,
+						AccountBalance = 0,
+						IsActive = true,
+						RoleId = 2
+					};
+					_userRepository.AddUser(newUser);
+					user = _userRepository.GetUserByEmail(userSignIn.Email);
 				}
 				catch (Exception)
 				{
 					return Conflict("Login failed, try later!");
 				}
 			}
+			if (!user.IsActive)
+			{
+				return Conflict("This user was banned, contact admin!");
+			}
+			if (!user.IsLoginGoogle)
+			{
+				return Conflict("Let's login account with password!");
+			}
 			var response = await GenerateToken(user);
 			return Ok(response);
 		}
 		[HttpPost("SignUp")]
-		public async Task<IActionResult> SignUp(User userSignUp)
+		public async Task<IActionResult> SignUp(UserSignUpRequestDTO userSignUp)
 		{
-			string confirmToken = await GenerateConfirmToken(userSignUp);
+			User? user = _userRepository.GetUserByEmail(userSignUp.Email);
+			if (user != null)
+			{
+				return Conflict("Account has existed!");
+			}
+			try
+			{
+				var newUser = new User
+				{
+					Email = userSignUp.Email,
+					Password = userSignUp.Password,
+					FirstName = userSignUp.FirstName,
+					LastName = userSignUp.LastName,
+					IsConfirmEmail = false,
+					IsLoginGoogle = false,
+					AccountBalance = 0,
+					IsActive = true,
+					RoleId = 2
+				};
+				_userRepository.AddUser(newUser);
+				user = _userRepository.GetUserByEmail(newUser.Email);
+			}
+			catch (Exception)
+			{
+
+				return Conflict("Something wrong, try later!");
+			}
+			string confirmToken = GenerateConfirmToken(user);
+			string body = $"<div>Please click <a href='http://localhost:5006/SignUp?confirmToken={confirmToken}&email={user.Email}&handler=ConfirmEmail'>here</a> to confirm email!</div>";
+			await _sendMailRepository.SendEmailAsync(user.Email, "Confirm SignUp Account", body);
 			return Ok();
 		}
 
 		[HttpPost("ConfirmEmail")]
-		public async Task<IActionResult> ConfirmEmail(string confirmToken)
+		public IActionResult ConfirmEmail(ConfirmEmailRequestDTO model)
 		{
 			// validate token
 			var jwtTokenHandler = new JwtSecurityTokenHandler();
@@ -100,7 +158,7 @@ namespace CinemaWebAPI.Controllers
 				ValidateLifetime = false //ko kiểm tra token hết hạn
 			};
 			// check token valid format
-			ClaimsPrincipal tokenVerification = jwtTokenHandler.ValidateToken(confirmToken,
+			ClaimsPrincipal tokenVerification = jwtTokenHandler.ValidateToken(model.ConfirmToken,
 				tokenValidateParam, out var validatedToken);
 			// check algorithm
 			if (validatedToken is JwtSecurityToken jwtSecurityToken)
@@ -111,15 +169,34 @@ namespace CinemaWebAPI.Controllers
 				{
 					return Conflict();
 				}
+			} else
+			{
+				return Conflict();
+			}
+			long utcexpireDate = long.Parse(tokenVerification.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Exp).Value);
+			DateTime expireDate = ConvertUnitTimeToDateTime(utcexpireDate);
+			if (expireDate < DateTime.UtcNow)
+			{
+				return Conflict("Token expired!");
 			}
 
-			string email = tokenVerification.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Email).Value;
-
+			string? email = tokenVerification.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+			User? user = _userRepository.GetUserByEmail(email);
+			if(user.IsConfirmEmail)
+			{
+				return Ok();
+			}
+			if (email != model.Email)
+			{
+				return Conflict("Email not match!");
+			}
+			
+			_userRepository.UpdateConfirmEmail(email);
 			return Ok();
 		}
 
 		[HttpPost("RefreshToken")]
-		public async Task<IActionResult> RefreshToken(User uerSignIn)
+		public async Task<IActionResult> RefreshToken(RefreshTokenRequestDTO rfToken)
 		{
 			var jwtTokenHandler = new JwtSecurityTokenHandler();
 			var secretKeyBytes = Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]);
@@ -139,7 +216,7 @@ namespace CinemaWebAPI.Controllers
 			try
 			{
 				// check token valid format
-				ClaimsPrincipal tokenVerification = jwtTokenHandler.ValidateToken("accesstoken",
+				ClaimsPrincipal tokenVerification = jwtTokenHandler.ValidateToken(rfToken.AccessToken,
 					tokenValidateParam, out var validatedToken);
 
 				// check algorithm
@@ -149,48 +226,53 @@ namespace CinemaWebAPI.Controllers
 						StringComparison.InvariantCultureIgnoreCase);
 					if (!result)
 					{
-						return Conflict();
+						return Conflict("Access token not correct!");
 					}
+				} else
+				{
+					return Conflict("");
 				}
-
 				// check accessToken expire not yet
 				long utcexpireDate = long.Parse(tokenVerification.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Exp).Value);
 				DateTime expireDate = ConvertUnitTimeToDateTime(utcexpireDate);
 				if (expireDate > DateTime.UtcNow)
 				{
-					return Conflict();
+					return Conflict("Access token not expired!");
 				}
 
 				// check refreshToken exist DB
-				var refreshToken = _context.RefreshToken.FirstOrDefault(x => x.TokenRefresh == "refreshToken");
+				var refreshToken = _refreshTokenRepository.GetRefreshToken(rfToken.RefreshToken);
 				if (refreshToken == null)
 				{
-					return Conflict();
+					return Conflict("Refresh token not correct!");
 				}
 
 				// check refreshToken used yet
 				if (refreshToken.IsUsed)
 				{
-					return Conflict();
+					return Conflict("Refresh Token was used!");
 				}
 
 				// check accessToken id equal jwtId of refreshToken yet
 				var jti = tokenVerification.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Jti).Value;
 				if (refreshToken.JwtId != jti)
 				{
-					return Conflict();
+					return Conflict("Id Token not match!");
+				}
+				try
+				{
+					_refreshTokenRepository.UpdateRefreshToken(refreshToken);
+				}
+				catch (Exception)
+				{
+
+					return Conflict("Something wrong, try later!");
 				}
 
-				refreshToken.IsUsed = true;
-				_context.RefreshToken.Update(refreshToken);
-				await _context.SaveChangesAsync();
-
 				//create new token
-				var user = await _context.User.FirstOrDefaultAsync(x => x.UserId == refreshToken.UserId);
+				var user = _userRepository.GetUserById(refreshToken.UserId);
 				var token = await GenerateToken(user);
-
 				return Ok(token);
-
 			}
 			catch (Exception ex)
 			{
@@ -198,7 +280,7 @@ namespace CinemaWebAPI.Controllers
 			}
 		}
 
-		private async Task<string> GenerateConfirmToken(User model)
+		private string GenerateConfirmToken(User model)
 		{
 			var jwtTokenHandler = new JwtSecurityTokenHandler();
 			var secretKeyBytes = Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]);
@@ -210,7 +292,7 @@ namespace CinemaWebAPI.Controllers
 			var tokenDescription = new SecurityTokenDescriptor
 			{
 				Subject = new ClaimsIdentity(claims),
-				Expires = DateTime.UtcNow.AddMinutes(10),
+				Expires = DateTime.UtcNow.AddMinutes(30),
 				SigningCredentials = signingCredentials
 			};
 			var token = jwtTokenHandler.CreateToken(tokenDescription);
@@ -247,9 +329,7 @@ namespace CinemaWebAPI.Controllers
 				JwtId = token.Id, // same jti
 				IsUsed = false,
 			};
-			_context.RefreshToken.Add(refreshTokenModel);
-			await _context.SaveChangesAsync();
-
+			_refreshTokenRepository.AddRefreshToken(refreshTokenModel);
 			var response = new UserSignInResponseDTO
 			{
 				UserId = model.UserId,
@@ -276,8 +356,7 @@ namespace CinemaWebAPI.Controllers
 		private DateTime ConvertUnitTimeToDateTime(long utcExpireDate)
 		{
 			var dateTimeInterval = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-			dateTimeInterval.AddSeconds(utcExpireDate).ToUniversalTime();
-
+			dateTimeInterval = dateTimeInterval.AddSeconds(utcExpireDate).ToUniversalTime();
 			return dateTimeInterval;
 		}
 	}

@@ -12,9 +12,9 @@ namespace CinemaWebClient.Filters
 
         private void AddRequestAccept()
         {
-            allowAnonymous.Add("/Login/Index");
+            allowAnonymous.Add("/SignIn");
+            allowAnonymous.Add("/SignUp");
             allowAnonymous.Add("/AccessDenied");
-            allowAnonymous.Add("/User/Register");
 
             allowUser.Add("/Author/Index");
             allowUser.Add("/Book/Index");

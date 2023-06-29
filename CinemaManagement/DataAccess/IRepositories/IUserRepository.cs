@@ -9,6 +9,9 @@ namespace DataAccess.IRepositories
 {
 	public interface IUserRepository
 	{
-		void AddUserLoginGoogle(User userSignIn);
+		void AddUser(User userSignIn);
+		User? GetUserByEmail(string email);
+		User? GetUserById(long userId);
+		void UpdateConfirmEmail(string email);
 	}
 }

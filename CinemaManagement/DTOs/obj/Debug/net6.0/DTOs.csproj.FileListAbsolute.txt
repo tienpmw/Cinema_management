@@ -22,3 +22,6 @@ E:\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.dll
 E:\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\refint\DTOs.dll
 E:\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.pdb
 E:\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\ref\DTOs.dll
+E:\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\BusinessObject.dll
+E:\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\BusinessObject.pdb
+E:\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.csproj.CopyComplete

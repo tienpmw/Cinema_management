@@ -14,7 +14,7 @@ namespace CinemaWebClient
 			builder.Services.AddMvc()
 				.AddRazorPagesOptions(options =>
 				{
-					options.Conventions.AddPageRoute("/Privacy", "");
+					options.Conventions.AddPageRoute("/SignIn", "");
 				});
 
 			// add session
@@ -23,7 +23,7 @@ namespace CinemaWebClient
 				options.IdleTimeout = TimeSpan.FromSeconds(300);
 				options.Cookie.HttpOnly = true;
 			});
-			
+
 			builder.Services.AddMvc(options =>
 			{
 				options.Filters.Add(new AuthorizationUserPageFilter());
