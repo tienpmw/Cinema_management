@@ -40,18 +40,24 @@ namespace CinemaWebClient.Pages.Admin.Room
         {
             ModelState.Remove("Message");
             if (!ModelState.IsValid) return Page();
-
+            
             var jsonData = JsonSerializer.Serialize(RoomDTO);
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-
-            var request = await client.PostAsync("http://localhost:5001/api/Rooms", content);
-
-            Message = await request.Content.ReadAsStringAsync();
-            if(request.StatusCode != System.Net.HttpStatusCode.Conflict && request.StatusCode != System.Net.HttpStatusCode.OK)
+            HttpResponseMessage request;
+            try
+            {
+                request = await client.PostAsync("http://localhost:5001/api/Rooms", content);
+                Message = await request.Content.ReadAsStringAsync();
+                if (request.StatusCode != System.Net.HttpStatusCode.Conflict && request.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    Message = "Some thing went wrong! Try again!";
+                }
+                if (request.IsSuccessStatusCode) StatusRequest = true;
+            }
+            catch (HttpRequestException)
             {
                 Message = "Cannot connect to server!";
             }
-            if (request.IsSuccessStatusCode) StatusRequest = true;
             return Page();
         }
     }
