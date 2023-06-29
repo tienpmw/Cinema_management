@@ -1,6 +1,9 @@
 ﻿using BusinessObject;
+using CinemaWebAPI.Utilities;
 using DataAccess.IRepositories;
 using DTOs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -169,7 +172,8 @@ namespace CinemaWebAPI.Controllers
 				{
 					return Conflict();
 				}
-			} else
+			}
+			else
 			{
 				return Conflict();
 			}
@@ -182,7 +186,7 @@ namespace CinemaWebAPI.Controllers
 
 			string? email = tokenVerification.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
 			User? user = _userRepository.GetUserByEmail(email);
-			if(user.IsConfirmEmail)
+			if (user.IsConfirmEmail)
 			{
 				return Ok();
 			}
@@ -190,11 +194,11 @@ namespace CinemaWebAPI.Controllers
 			{
 				return Conflict("Email not match!");
 			}
-			
+
 			_userRepository.UpdateConfirmEmail(email);
 			return Ok();
 		}
-
+		[Authorize(Policy ="Permission")]
 		[HttpPost("RefreshToken")]
 		public async Task<IActionResult> RefreshToken(RefreshTokenRequestDTO rfToken)
 		{
@@ -228,10 +232,20 @@ namespace CinemaWebAPI.Controllers
 					{
 						return Conflict("Access token not correct!");
 					}
-				} else
+				}
+				else
 				{
 					return Conflict("");
 				}
+
+				// check device Id
+				string? deviceId = tokenVerification.Claims.FirstOrDefault(x => x.Type == "DeviceId").Value;
+
+				if (string.IsNullOrEmpty(deviceId) || deviceId != Util.Instance.GetHexDeviceId())
+				{
+					return Conflict("Device Id not match!");
+				}
+
 				// check accessToken expire not yet
 				long utcexpireDate = long.Parse(tokenVerification.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Exp).Value);
 				DateTime expireDate = ConvertUnitTimeToDateTime(utcexpireDate);
@@ -310,6 +324,7 @@ namespace CinemaWebAPI.Controllers
 				new Claim(JwtRegisteredClaimNames.Email, model.Email),
 				new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
 				new Claim("Id", model.UserId.ToString()),
+				new Claim("DeviceId", Util.Instance.GetHexDeviceId()),
 				new Claim(ClaimTypes.Role, model.Role.RoleName)
 			};
 			var tokenDescription = new SecurityTokenDescriptor

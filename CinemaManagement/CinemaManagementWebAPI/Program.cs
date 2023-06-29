@@ -2,10 +2,12 @@
 using BusinessObject;
 using CinemaWebAPI;
 using CinemaWebAPI.Jobs;
+using CinemaWebAPI.Policies;
 using CinemaWebAPI.Utilities;
 using DataAccess.IRepositories;
 using DataAccess.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
@@ -89,7 +91,7 @@ namespace CinemaManagementWebAPI
 			{
 				options.AddDefaultPolicy(policy =>
 				{
-					policy.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+					policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
 				});
 			});
 			//Add JWT
@@ -109,6 +111,20 @@ namespace CinemaManagementWebAPI
 						ClockSkew = TimeSpan.Zero // using for validate token
 					};
 				});
+
+
+			// Add authorization policy
+			builder.Services.AddSingleton<IAuthorizationHandler, PermissionHandler>();
+			builder.Services.AddAuthorization(opts =>
+			{
+				opts.AddPolicy("Permission", policy =>
+				{
+					policy.AddRequirements(new PermissionRequirement());
+					policy.RequireAuthenticatedUser()
+					.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme);
+				});
+				opts.DefaultPolicy = opts.GetPolicy("Permission"); // set default policy
+			});
 			// Remove cycle object's data in json respone
 			builder.Services.AddControllers().AddJsonOptions(options =>
 			{
@@ -119,8 +135,6 @@ namespace CinemaManagementWebAPI
 			{
 				opts.SuppressModelStateInvalidFilter = true;
 			});
-
-
 
 			var app = builder.Build();
 
@@ -133,6 +147,7 @@ namespace CinemaManagementWebAPI
 
 			app.UseCors();
 
+			app.UseAuthentication();
 			app.UseAuthorization();
 
 			app.MapControllers();

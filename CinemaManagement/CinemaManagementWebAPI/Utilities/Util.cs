@@ -3,6 +3,7 @@ using DataAccess.DAOs;
 using DataAccess.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.Json;
 
@@ -60,5 +61,29 @@ namespace CinemaWebAPI.Utilities
             string text = File.ReadAllText(fullPath);
             return text;
         }
-    }
+
+		public string GetHexDeviceId()
+		{
+			// asciiBytes will have your MAC address in decimal
+			byte[] unicodeBytes = Encoding.Unicode.GetBytes(GetDeviceId());
+			byte[] asciiBytes = Encoding.Convert(Encoding.Unicode, Encoding.ASCII, unicodeBytes);
+			// show the MAC address in hex
+			return BitConverter.ToString(asciiBytes);
+		}
+		private string GetDeviceId()
+		{
+			string macAddresses = string.Empty;
+
+			foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+			{
+				if (nic.OperationalStatus == OperationalStatus.Up)
+				{
+					macAddresses += nic.GetPhysicalAddress().ToString();
+					break;
+				}
+			}
+
+			return macAddresses;
+		}
+	}
 }
