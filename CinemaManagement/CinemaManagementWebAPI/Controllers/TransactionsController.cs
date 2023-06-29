@@ -13,12 +13,12 @@ namespace CinemaWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RechargeRequestsController : ControllerBase
+    public class TransactionsController : ControllerBase
     {
         private readonly IRechargeRequestRepository _rechargeRequestRepository;
         private readonly IMapper _mapper;
 
-        public RechargeRequestsController(IRechargeRequestRepository rechargeRequestRepository, IMapper mapper)
+        public TransactionsController(IRechargeRequestRepository rechargeRequestRepository, IMapper mapper)
         {
             _rechargeRequestRepository = rechargeRequestRepository;
             _mapper = mapper;
@@ -33,7 +33,7 @@ namespace CinemaWebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(RechargeRequestDTO rechargeRequestDTO)
+        public IActionResult Post(TransactionDTO rechargeRequestDTO)
 
         {
             try

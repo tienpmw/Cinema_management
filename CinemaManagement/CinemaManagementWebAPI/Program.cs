@@ -144,7 +144,8 @@ namespace CinemaManagementWebAPI
 		{
 			ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
 			builder.EntitySet<User>("Users");
-			return builder.GetEdmModel();
+            builder.EntitySet<Transaction>("Transactions");
+            return builder.GetEdmModel();
 		}
 	}
 }
