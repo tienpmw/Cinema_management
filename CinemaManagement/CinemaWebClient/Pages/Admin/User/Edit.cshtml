@@ -1,0 +1,52 @@
+﻿@page "{id}"
+@model CinemaWebClient.Pages.Admin.User.EditModel
+@{
+	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+<div style="display:flex; margin-bottom:50px">
+	<i class="fa-solid fa-door-open" style="font-size:50px; margin-right:5px"></i>
+	<h1>Edit User</h1>
+</div>
+
+<hr />
+<form method="post" class="col-md-4" style="margin-left:10%">
+
+	<div class="mb-3">
+		<label class="form-label"><b>User ID</b></label>
+		<input asp-for="User.UserId" type="text" class="form-control" readonly>
+	</div>
+	<div class="mb-3">
+		<label class="form-label"><b>Email</b></label>
+		<input asp-for="User.Email" class="form-control" readonly>
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label"><b>FirstName</b></label>
+		<input asp-for="User.FirstName" class="form-control" readonly>
+	</div>
+	<div class="mb-3">
+		<label class="form-label"><b>LastName</b></label>
+		<input asp-for="User.LastName" class="form-control" readonly>
+	</div>
+	<div class="mb-3">
+		<label class="form-label"><b>Role</b></label>
+		<select asp-for="User.RoleId" class="form-control" asp-items="Model.Roles">
+		</select>
+	</div>
+	<div class="mb-3">
+		<label class="form-label"><b>Status</b></label>
+		<select asp-for="User.IsActive" class="form-control">
+			@foreach (var item in Model.Status)
+			{
+				if (item.Key == (Model.User.IsActive ? 1 : 0))
+				{
+					<option value="@item.Key" selected>@item.Value</option>
+				} else
+				{
+					<option value="@item.Key">@item.Value</option>
+				}
+			}
+		</select>
+	</div>
+	<input type="submit" class="btn btn-primary" value="Save" />
+</form>

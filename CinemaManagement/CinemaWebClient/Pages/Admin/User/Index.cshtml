@@ -1,0 +1,111 @@
+﻿@page
+@model CinemaWebClient.Pages.Admin.User.IndexModel
+@{
+	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+<div style="display:flex; margin-bottom:50px">
+	<i class="fa-solid fa-users" style="font-size:50px; margin-right:5px"></i>
+	<h1>User</h1>
+</div>
+<hr />
+
+<div class="userTable" style="margin-top:30px;">
+	<table id="myTable" class="table table-bordered">
+		<thead class="thead-dark">
+			<tr>
+				<th>ID</th>
+				<th>Email</th>
+				<th>FirstName</th>
+				<th>LastName</th>
+				<th>AccountBalance</th>
+				<th>Role</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody id="tableContent">
+		</tbody>
+	</table>
+</div>
+<script>
+	$(document).ready(function () {
+		$('#myTable').DataTable({
+			"searching": true,
+			"lengthChange": false,
+			"info": false,
+			"ordering": false,
+		});
+
+		LoadData('http://localhost:5001/odata/Users?$expand=Role');
+
+	});
+
+	function LoadData(link) {
+		var tableContent = document.getElementById('tableContent');
+		tableContent.innerHTML = "";
+		$.ajax({
+			url: link,
+			type: 'GET',
+			data: {
+			},
+			success: (response) => {
+				var data = response.value;
+				var tr = '';
+				for (var i = 0; i < data.length; i++) {
+					tr +=
+						`
+									<tr>
+										<td>${data[i].UserId}</td>
+										<td>${data[i].Email}</td>
+										<td>${data[i].FirstName}</td>
+										<td>${data[i].LastName}</td>
+										<td>${data[i].AccountBalance}</td>
+										<td>${data[i].Role.RoleName}</td>
+										<td>${data[i].IsActive == true ? "Actived" : "Banned"}</td>
+										<td><a href="/Admin/User/Edit/${data[i].UserId}">Edit</a></td>
+									</tr>`;
+				}
+				tableContent.innerHTML = tr;
+			},
+			error: (err) => {
+				NotificationMessageError("Server not respone!");
+			}
+		});
+	}
+
+	var querySearch = "http://localhost:5001/odata/Users?$expand=Role ";
+	function Search() {
+		LoadData(querySearch + query);
+	}
+</script>
+@if (TempData["ErrorMsg"] != null)
+{
+	<script>
+		$(document).ready(function () {
+			NotificationMessageSuccess('@TempData["ErrorMsg"].ToString()');
+		});
+	</script>
+}
+else if (TempData["SuccessMsg"] != null)
+{
+	<script>
+		$(document).ready(function () {
+			NotificationMessageSuccess('@TempData["SuccessMsg"].ToString()');
+		});
+	</script>
+}
+
+<style>
+	.userTable {
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.create-link {
+		margin-left: 5%;
+	}
+
+	.mt-10 {
+		margin-top: 10px;
+	}
+</style>

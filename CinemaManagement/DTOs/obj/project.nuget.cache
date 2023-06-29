@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ut7sxL1WmxVSQ2Uaj/yH1Y9q+EimGxgh+wpFQTBQJk83R0TxTN+Rtx/37xBYUZSrczHbBP0ADpyTwFVBmyozWQ==",
+  "dgSpecHash": "rKkS0qnmog/CnIrTSiFbw4U7gDDyQDglEbW8vBDlm1Th+Cn6jg72YI11m1by0Gx5HN+D6xOkO2ODR4FnGF698A==",
   "success": true,
-  "projectFilePath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj",
+  "projectFilePath": "E:\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

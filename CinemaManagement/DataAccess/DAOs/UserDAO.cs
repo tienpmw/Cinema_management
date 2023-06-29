@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -56,11 +57,41 @@ namespace DataAccess.DAOs
 
 		public void UpdateConfirmEmail(string email)
 		{
+			try
+			{
+				var context = new CinemaContext();
+				User? user = GetUserByEmail(email);
+				user.IsConfirmEmail = true;
+				context.Update(user);
+				context.SaveChanges();
+			}
+			catch (Exception ex)
+			{
+
+				throw new Exception(ex.Message);
+			}
+			
+		}
+
+		public List<User> GetAll()
+		{
 			var context = new CinemaContext();
-			User? user = GetUserByEmail(email);
-			user.IsConfirmEmail = true;
-			context.Update(user);
-			context.SaveChanges();
+			return context.User.Include(x => x.Role).ToList();
+		}
+
+		public void Update(User user)
+		{
+			try
+			{
+				CinemaContext context = new CinemaContext();
+				context.Entry(user).State = EntityState.Modified;
+				context.SaveChanges();
+			}
+			catch (Exception ex)
+			{
+
+				throw new Exception(ex.Message);
+			}
 		}
 	}
 }
