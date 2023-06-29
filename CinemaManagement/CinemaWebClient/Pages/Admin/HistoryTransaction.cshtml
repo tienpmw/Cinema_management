@@ -70,7 +70,7 @@
             "searching": false,
             "lengthChange": false,
             "info": false,
-            "ordering": true,
+            "ordering": false,
         });
 
         LoadData('http://localhost:5001/api/Transactions?$expand=User&$orderby=RequestDate,PaidDate');
@@ -135,7 +135,7 @@
                 tableContent.innerHTML = tr;
             },
             error: (err) => {
-                alert("worng");
+                NotificationMessageError("Server not respone!");
             }
         });
     }

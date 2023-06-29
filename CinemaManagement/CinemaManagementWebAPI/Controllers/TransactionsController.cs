@@ -15,12 +15,12 @@ namespace CinemaWebAPI.Controllers
     [ApiController]
     public class TransactionsController : ControllerBase
     {
-        private readonly IRechargeRequestRepository _rechargeRequestRepository;
+        private readonly ITransactionRepository _transactionRepository;
         private readonly IMapper _mapper;
 
-        public TransactionsController(IRechargeRequestRepository rechargeRequestRepository, IMapper mapper)
+        public TransactionsController(ITransactionRepository transactionRepository, IMapper mapper)
         {
-            _rechargeRequestRepository = rechargeRequestRepository;
+            _transactionRepository = transactionRepository;
             _mapper = mapper;
         }
 
@@ -33,15 +33,15 @@ namespace CinemaWebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(TransactionDTO rechargeRequestDTO)
+        public IActionResult Post(TransactionDTO transactionDTO)
 
         {
             try
             {
-                var rechargeRequest = _mapper.Map<Transaction>(rechargeRequestDTO);
-                rechargeRequest.Code = Util.Instance.GetRandomString(10);
-                _rechargeRequestRepository.CreateRechargeRequest(rechargeRequest);
-                return Ok(rechargeRequest.Code);
+                var transaction = _mapper.Map<Transaction>(transactionDTO);
+                transaction.Code = Util.Instance.GetRandomString(10);
+                _transactionRepository.CreateTransaction(transaction);
+                return Ok(transaction.Code);
             }           
             catch (Exception ex) 
             {
