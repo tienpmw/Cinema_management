@@ -1,6 +1,7 @@
 ﻿using BusinessObject;
 using CinemaWebAPI.Utilities;
 using DataAccess.IRepositories;
+using DataAccess.Repositories;
 using DTOs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -198,7 +199,7 @@ namespace CinemaWebAPI.Controllers
 			_userRepository.UpdateConfirmEmail(email);
 			return Ok();
 		}
-		[Authorize(Policy ="Permission")]
+		[Authorize]
 		[HttpPost("RefreshToken")]
 		public async Task<IActionResult> RefreshToken(RefreshTokenRequestDTO rfToken)
 		{
@@ -273,6 +274,10 @@ namespace CinemaWebAPI.Controllers
 				{
 					return Conflict("Id Token not match!");
 				}
+				if(refreshToken.IsRevoked)
+				{
+					return Conflict("Token was revoked!");
+				}
 				try
 				{
 					_refreshTokenRepository.UpdateRefreshToken(refreshToken);
@@ -344,6 +349,7 @@ namespace CinemaWebAPI.Controllers
 				JwtId = token.Id, // same jti
 				IsUsed = false,
 			};
+			_refreshTokenRepository.UpdateRevokeOldToken(model.UserId);
 			_refreshTokenRepository.AddRefreshToken(refreshTokenModel);
 			var response = new UserSignInResponseDTO
 			{

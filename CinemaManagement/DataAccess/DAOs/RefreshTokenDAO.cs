@@ -68,5 +68,28 @@ namespace DataAccess.DAOs
 
 			}
 		}
+
+		public void UpdateRevokeOldToken(long userId)
+		{
+			using (var context = new CinemaContext())
+			{
+				try
+				{
+					List<RefreshToken> refreshTokens = context.RefreshToken.Where(x => x.UserId == userId && x.IsUsed != true && x.IsRevoked == false).ToList();
+					foreach (var item in refreshTokens)
+					{
+						item.IsRevoked = true;
+					}
+					context.UpdateRange(refreshTokens);
+					context.SaveChanges();
+				}
+				catch (Exception ex)
+				{
+
+					throw new Exception(ex.Message);
+				}
+
+			}
+		}
 	}
 }

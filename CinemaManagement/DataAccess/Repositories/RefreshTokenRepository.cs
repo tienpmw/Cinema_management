@@ -16,5 +16,7 @@ namespace DataAccess.Repositories
 		public RefreshToken? GetRefreshToken(string refreshToken) => RefreshTokenDAO.Instance.GetRefreshToken(refreshToken);
 
 		public void UpdateRefreshToken(RefreshToken refreshToken) => RefreshTokenDAO.Instance.UpdateRefreshToken(refreshToken);
+
+		public void UpdateRevokeOldToken(long userId) => RefreshTokenDAO.Instance.UpdateRevokeOldToken(userId);
 	}
 }

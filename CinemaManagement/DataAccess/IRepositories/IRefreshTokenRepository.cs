@@ -12,5 +12,6 @@ namespace DataAccess.IRepositories
 		void AddRefreshToken(RefreshToken refreshTokenModel);
 		RefreshToken? GetRefreshToken(string refreshToken);
 		void UpdateRefreshToken(RefreshToken refreshToken);
+		void UpdateRevokeOldToken(long userId);
 	}
 }
