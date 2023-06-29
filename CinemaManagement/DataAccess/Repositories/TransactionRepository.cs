@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public class RechargeRequestRepository : IRechargeRequestRepository
+    public class TransactionRepository : ITransactionRepository
     {
-        public void CreateRechargeRequest(Transaction rechargeRequest)
+        public void CreateTransaction(Transaction rechargeRequest)
         {
             TransactionDAO.Instance.Create(rechargeRequest);
         }

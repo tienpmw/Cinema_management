@@ -76,7 +76,7 @@ namespace CinemaManagementWebAPI
 			builder.Services.AddSingleton<IGenreRepository, GenreRepository>();
 			builder.Services.AddSingleton<ICountryRepository, CountryRepository>();
 			builder.Services.AddSingleton<ISendMailRepository, SendMailRepository>();
-			builder.Services.AddSingleton<IRechargeRequestRepository, RechargeRequestRepository>();
+			builder.Services.AddSingleton<ITransactionRepository, TransactionRepository>();
 			builder.Services.AddSingleton<IRefreshTokenRepository, RefreshTokenRepository>();
 
 			//Add Odata
@@ -160,7 +160,8 @@ namespace CinemaManagementWebAPI
 		{
 			ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
 			builder.EntitySet<User>("Users");
-			return builder.GetEdmModel();
+            builder.EntitySet<Transaction>("Transactions");
+            return builder.GetEdmModel();
 		}
 	}
 }

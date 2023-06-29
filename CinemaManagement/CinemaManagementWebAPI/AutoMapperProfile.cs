@@ -10,7 +10,8 @@ namespace CinemaWebAPI
         public AutoMapperProfile()
         {
             CreateMap<User, UserDTO>().ReverseMap();
-            CreateMap<Transaction, RechargeRequestDTO>().ReverseMap();
+            CreateMap<Transaction, TransactionDTO>().ReverseMap();
+            CreateMap<Room, RoomDTO>().ReverseMap();
         }
     }
 }

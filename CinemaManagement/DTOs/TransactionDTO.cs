@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTOs
 {
-    public class RechargeRequestDTO
+    public class TransactionDTO
     {
         public long UserId { get; set; }
         public long Amount { get; set; }

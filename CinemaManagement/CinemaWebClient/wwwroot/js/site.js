@@ -95,3 +95,28 @@ function formatStringToCurrencyVND(number) {
     }
     return x;
 }
+
+function MakeQueryEqual(field, value, isFirst) {
+    if (isFirst) return `$filter=${field} eq ${value}`;
+    return ` and ${field} eq ${value}`
+}
+
+function MakeQueryConditionContainString(field, value, isFirst) {
+    if (isFirst) {
+        var query = "$filter=contains(" + field + ", '" + value + "') eq true";
+    } else {
+        var query = " and contains(" + field + ", '" + value + "') eq true";
+    }
+
+    return query;
+}
+
+function MakeQueryConditionContainStringCastingNumToString(field, value, isFirst) {
+    if (isFirst) {
+        var query = "$filter=contains(cast(" + field + ",Edm.String),'" + value + "') eq true";
+    } else {
+        var query = " and contains(cast(" + field + ",Edm.String),'" + value + "') eq true";
+    }
+    return query;
+}
+

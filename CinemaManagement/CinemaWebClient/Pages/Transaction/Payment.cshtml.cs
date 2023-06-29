@@ -26,7 +26,7 @@ namespace CinemaWebClient.Pages.Recharge
         {
             string[] raws = rawAmount.Split(',');
             long amount = long.Parse(string.Join("", raws));
-            RechargeRequestDTO data = new RechargeRequestDTO()
+            TransactionDTO data = new TransactionDTO()
             {
                 UserId = id,
                 Amount= amount
@@ -35,7 +35,7 @@ namespace CinemaWebClient.Pages.Recharge
             var jsonData = JsonSerializer.Serialize(data);
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
-            var request = await client.PostAsync("http://localhost:5001/api/RechargeRequests", content);
+            var request = await client.PostAsync("http://localhost:5001/api/Transactions", content);
 
             var respone = await request.Content.ReadAsStringAsync();
 

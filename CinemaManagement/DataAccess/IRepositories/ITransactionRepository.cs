@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.IRepositories
 {
-    public interface IRechargeRequestRepository
+    public interface ITransactionRepository
     {
-        void CreateRechargeRequest(Transaction rechargeRequest);
+        void CreateTransaction(Transaction rechargeRequest);
     }
 }

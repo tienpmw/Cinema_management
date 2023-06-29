@@ -1,0 +1,48 @@
+﻿@page
+@model CinemaWebClient.Pages.Admin.Room.CreateModel
+@{
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+
+<div style="display:flex; margin-bottom:50px">
+    <i class="fa-solid fa-door-open" style="font-size:50px; margin-right:5px"></i>
+    <h1>Create Room</h1>
+</div>
+
+<hr/>
+<form method="post" style="width:40%; margin: 0 auto">
+
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input asp-for="@Model.RoomDTO.RoomName" type="text" class="form-control">
+        <span asp-validation-for="@Model.RoomDTO.RoomName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Number of Rows</label>
+        <input asp-for="@Model.RoomDTO.NumberRow" type="number" class="form-control">
+        <span asp-validation-for="@Model.RoomDTO.NumberRow" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Number of Columns</label>
+        <input asp-for="@Model.RoomDTO.NumberColumn" type="number" class="form-control">
+        <span asp-validation-for="@Model.RoomDTO.NumberColumn" class="text-danger"></span>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == false)
+    {
+        <div class="mb-3 d-flex">
+            <span class="text-danger">@Model.Message</span>
+        </div>
+    }
+    <input type="submit" class="btn btn-primary" value="Save" />
+</form>
+@if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == true)
+{
+    <script>
+        $(document).ready(function () {
+            NotificationMessageSuccess('@Model.Message.ToString()');
+        });
+    </script>
+}
