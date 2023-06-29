@@ -10,8 +10,10 @@ namespace DataAccess.IRepositories
 	public interface IUserRepository
 	{
 		void AddUser(User userSignIn);
-		User? GetUserByEmail(string email);
+        List<User> GetAll();
+        User? GetUserByEmail(string email);
 		User? GetUserById(long userId);
+		void Update(User user);
 		void UpdateConfirmEmail(string email);
 	}
 }

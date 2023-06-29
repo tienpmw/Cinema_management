@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using AutoMapper;
 using BusinessObject;
 using DataAccess.IRepositories;
@@ -29,4 +30,16 @@ namespace CinemaWebAPI.Controllers
             return Ok(CinemaContext.Instance.Genre.AsQueryable());
         }
     }
+=======
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CinemaWebAPI.Controllers
+{
+	[Route("api/[controller]")]
+	[ApiController]
+	public class GenresController : ControllerBase
+	{
+	}
+>>>>>>> 04391482f60e5a934538660b0b3fedf887618f7f
 }

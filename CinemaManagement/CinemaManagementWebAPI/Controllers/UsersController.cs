@@ -1,4 +1,5 @@
-﻿using BusinessObject;
+﻿using AutoMapper;
+using BusinessObject;
 using CinemaWebAPI.Utilities;
 using DataAccess.IRepositories;
 using DataAccess.Repositories;
@@ -26,14 +27,16 @@ namespace CinemaWebAPI.Controllers
 		private readonly ISendMailRepository _sendMailRepository;
 		private readonly IUserRepository _userRepository;
 		private readonly IRefreshTokenRepository _refreshTokenRepository;
+		private readonly IMapper _mapper;
 
 		public UsersController(IConfiguration configuration, ISendMailRepository sendMailRepository,
-			IUserRepository userRepository, IRefreshTokenRepository refreshTokenRepository)
+			IUserRepository userRepository, IRefreshTokenRepository refreshTokenRepository, IMapper mapper)
 		{
 			_configuration = configuration;
 			_sendMailRepository = sendMailRepository;
 			_userRepository = userRepository;
 			_refreshTokenRepository = refreshTokenRepository;
+			_mapper = mapper;
 		}
 
 		[EnableQuery]
@@ -41,6 +44,32 @@ namespace CinemaWebAPI.Controllers
 		[HttpGet]
 		public IActionResult Get()
 		{
+			return Ok(_userRepository.GetAll());
+		}
+		[HttpGet("{id}")]
+		public IActionResult GetUserById(long id)
+		{
+			return Ok(_mapper.Map<UserDTO>(_userRepository.GetUserById(id)));
+		}
+		[HttpPost("Edit")]
+		public IActionResult Edit(UserDTO userEdit)
+		{
+			User? user = _userRepository.GetUserById(userEdit.UserId);
+			if (user == null)
+			{
+				return Conflict();
+			}
+			user.RoleId = userEdit.RoleId;
+			user.IsActive = userEdit.IsActive;
+			try
+			{
+				_userRepository.Update(user);
+			}
+			catch (Exception)
+			{
+				return Conflict();
+			}
+
 			return Ok();
 		}
 
@@ -199,7 +228,6 @@ namespace CinemaWebAPI.Controllers
 			_userRepository.UpdateConfirmEmail(email);
 			return Ok();
 		}
-		[Authorize]
 		[HttpPost("RefreshToken")]
 		public async Task<IActionResult> RefreshToken(RefreshTokenRequestDTO rfToken)
 		{
@@ -274,7 +302,7 @@ namespace CinemaWebAPI.Controllers
 				{
 					return Conflict("Id Token not match!");
 				}
-				if(refreshToken.IsRevoked)
+				if (refreshToken.IsRevoked)
 				{
 					return Conflict("Token was revoked!");
 				}

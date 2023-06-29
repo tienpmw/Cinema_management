@@ -1,8 +1,12 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "aFeku4bbOLPP6z7CVU/x3ZkzFZ6iqg2e1kZg4PejrRBfVZNCnU0wjzX5qUmdwQuq2zvx2dXBNeJGzg+YigRJGA==",
+=======
+  "dgSpecHash": "c9qc0v5Z7DtLnNMFGALFn2OLKAjLIlUpy+0X+w+PlnJmCpZS+U3LJmuAHzR67e/pWV58zoci53N2W3Wu0bdz1g==",
+>>>>>>> 04391482f60e5a934538660b0b3fedf887618f7f
   "success": true,
-  "projectFilePath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "E:\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

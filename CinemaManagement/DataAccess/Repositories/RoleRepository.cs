@@ -1,4 +1,6 @@
-﻿using DataAccess.IRepositories;
+﻿using BusinessObject;
+using DataAccess.DAOs;
+using DataAccess.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-	public class RoleRepository : IRoleRepository
-	{
-	}
+    public class RoleRepository : IRoleRepository
+    {
+        public List<Role> GetAll() => RoleDAO.Instance.GetAll();
+    }
 }
