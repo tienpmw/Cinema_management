@@ -199,7 +199,6 @@ namespace CinemaWebAPI.Controllers
 			_userRepository.UpdateConfirmEmail(email);
 			return Ok();
 		}
-		[Authorize]
 		[HttpPost("RefreshToken")]
 		public async Task<IActionResult> RefreshToken(RefreshTokenRequestDTO rfToken)
 		{
