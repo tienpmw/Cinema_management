@@ -11,22 +11,22 @@
 </div>
 
 <hr/>
-<form method="post" style="width:40%; margin: 0 auto">
+<form method="post" class="col-md-4" style="margin-left:10%">
 
     <div class="mb-3">
-        <label class="form-label">Name</label>
-        <input asp-for="@Model.RoomDTO.RoomName" type="text" class="form-control">
+        <label class="form-label"><b>Name</b></label>
+        <input asp-for="@Model.RoomDTO.RoomName" type="text" class="form-control" placeholder="Input room's name'">
         <span asp-validation-for="@Model.RoomDTO.RoomName" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label class="form-label">Number of Rows</label>
-        <input asp-for="@Model.RoomDTO.NumberRow" type="number" class="form-control">
+        <label class="form-label"><b>Number of Rows</b></label>
+        <input asp-for="@Model.RoomDTO.NumberRow" type="number" class="form-control" placeholder="Input number row" value="0">
         <span asp-validation-for="@Model.RoomDTO.NumberRow" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Number of Columns</label>
-        <input asp-for="@Model.RoomDTO.NumberColumn" type="number" class="form-control">
+        <label class="form-label"><b>Number of Columns</b></label>
+        <input asp-for="@Model.RoomDTO.NumberColumn" type="number" class="form-control" placeholder="Input number column" value="0">
         <span asp-validation-for="@Model.RoomDTO.NumberColumn" class="text-danger"></span>
     </div>
 

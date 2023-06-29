@@ -3264,19 +3264,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dell\\.nuget\\packages\\": {}
+    "C:\\Users\\dell\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\CinemaWebAPI.csproj",
+      "projectUniqueName": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\CinemaWebAPI.csproj",
       "projectName": "CinemaWebAPI",
-      "projectPath": "E:\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\CinemaWebAPI.csproj",
+      "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\CinemaWebAPI.csproj",
       "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-      "outputPath": "E:\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\obj\\",
+      "outputPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3291,14 +3296,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj": {
-              "projectPath": "E:\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj"
+            "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj": {
+              "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj"
             },
-            "E:\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "E:\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj"
+            "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DataAccess\\DataAccess.csproj"
             },
-            "E:\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj": {
-              "projectPath": "E:\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj"
+            "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj": {
+              "projectPath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\DTOs\\DTOs.csproj"
             }
           }
         }
