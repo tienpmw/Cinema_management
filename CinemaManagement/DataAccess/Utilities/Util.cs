@@ -11,11 +11,12 @@ namespace DataAccess.Utilities
     {
         public void SaveFile(IFormFile file, string path)
         {
+            string filenmae = Guid.NewGuid().ToString()+ file.FileName.Substring(file.FileName.LastIndexOf("."));            
             try
             {
                 if (file != null && file.Length > 0)
                 {
-                    using (var stream = new FileStream(path, FileMode.Create))
+                    using (var stream = new FileStream(path +"/" + filenmae, FileMode.Create))
                     {
                         file.CopyTo(stream);
                     }
