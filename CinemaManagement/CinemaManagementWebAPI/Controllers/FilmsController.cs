@@ -43,10 +43,10 @@ namespace CinemaWebAPI.Controllers
                 var film = mapper.Map<Film>(filmDTO);
 
                 filmRepository.CreateFilm(film, imageFile);
-                return Ok();
+                return Ok("Create new Film has been success!");
             }catch (Exception ex) 
             {
-                return Conflict(ex);
+                return Conflict(ex.Message);
             }
         }
     }

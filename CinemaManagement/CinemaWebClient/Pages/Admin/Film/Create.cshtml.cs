@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using static Google.Apis.Requests.BatchRequest;
 
 namespace CinemaWebClient.Pages.Admin.Film
 {
@@ -16,9 +17,9 @@ namespace CinemaWebClient.Pages.Admin.Film
     {
         [BindProperty]
         public FilmDTO FilmDTO { get; set; }
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public List<Genre>Genres { get; set; }
-        [BindProperty] 
+        [BindProperty(SupportsGet = true)] 
         public List<CountryDTO> Countries { get; set; }
 
         [BindProperty]
@@ -38,8 +39,6 @@ namespace CinemaWebClient.Pages.Admin.Film
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             Message = string.Empty;
             StatusRequest = false;
-            Genres = new List<Genre>(); 
-            Countries = new List<CountryDTO>();    
         }
         public async Task<IActionResult> OnGet()
         {
@@ -73,7 +72,7 @@ namespace CinemaWebClient.Pages.Admin.Film
             ModelState.Remove("FilmDTO.FilmDuration");
             if (!ModelState.IsValid) return Page();
 
-            
+            HttpResponseMessage responeSubmitData = null;
 
             if (ImageFile != null && ImageFile.Length > 0)
             {
@@ -86,29 +85,18 @@ namespace CinemaWebClient.Pages.Admin.Film
 
                     var apiUrl = "http://localhost:5001/api/Films";
                     var response = await httpClient.PostAsync(apiUrl, formData);
+                    responeSubmitData = response;
+                    Message = await response.Content.ReadAsStringAsync();
                 }
             }
 
 
-            var options = new JsonSerializerOptions()
+            if (responeSubmitData.StatusCode != System.Net.HttpStatusCode.Conflict && responeSubmitData.StatusCode != System.Net.HttpStatusCode.OK)
             {
-                PropertyNameCaseInsensitive = true
-            };
-            try
-            {
-                HttpResponseMessage responeGenre = await client.GetAsync("http://localhost:5001/api/Genres");
-                var strDataGenre = await responeGenre.Content.ReadAsStringAsync();
-
-                HttpResponseMessage responeCountry = await client.GetAsync("http://localhost:5001/api/Countries");
-                var strDataCountry = await responeCountry.Content.ReadAsStringAsync();
-
-                Genres = JsonSerializer.Deserialize<List<Genre>>(strDataGenre, options);
-                Countries = JsonSerializer.Deserialize<List<CountryDTO>>(strDataCountry, options);
+                Message = "Some thing went wrong! Try again!";
             }
-            catch (Exception)
-            {
-                Message = "Cannot connect to server!";
-            }
+            if (responeSubmitData.IsSuccessStatusCode) StatusRequest = true;
+
             return Page();
         }
     }
