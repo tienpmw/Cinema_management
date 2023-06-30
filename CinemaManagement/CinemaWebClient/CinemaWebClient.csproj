@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DTOs\DTOs.csproj" />
+    <Compile Remove="Utilities\**" />
+    <Content Remove="Utilities\**" />
+    <EmbeddedResource Remove="Utilities\**" />
+    <None Remove="Utilities\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Utilities\" />
+    <ProjectReference Include="..\DTOs\DTOs.csproj" />
   </ItemGroup>
 
   <ItemGroup>
