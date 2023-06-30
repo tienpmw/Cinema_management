@@ -10,10 +10,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - eBookStore</title>
+    <title>Hehe</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/eBookStore.styles.css" asp-append-version="true" />
 
 
     <link rel="stylesheet" href="~/css/sb-admin-2.min.css" asp-append-version="true" />
@@ -24,6 +23,8 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
+
 
 </head>
 <body>
@@ -37,7 +38,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="~/Home/Index">
                 <div class="sidebar-brand-icon">
-                    <i class="fa-solid fa-film"></i>
+                    <i class="fa-solid fa-video"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Cinema</div>
             </a>
@@ -69,6 +70,14 @@
                 <a class="nav-link" href="~/Admin/Room">
                     <i class="fa-solid fa-door-open"></i>
                     <span>Room</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - User -->
+            <li class="nav-item">
+                <a class="nav-link" href="~/Admin/Film">
+                    <i class="fa-solid fa-film"></i>
+                    <span>Film</span>
                 </a>
             </li>
 

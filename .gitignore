@@ -6,7 +6,7 @@
 ## Ignore folders
 CinemaManagement/BusinessObject/Migrations/
 CinemaManagement/CinemaManagementWebAPI/bin/
-CinemaManagement/CinemaManagementWebAPI/bin/
+CinemaManagement/CinemaManagementWebAPI/Data/Images
 CinemaManagement/CinemaWebClient/bin/
 CinemaManagement/DataAccess/bin/
 CinemaManagement/DTOs/bin/

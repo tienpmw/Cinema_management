@@ -1,4 +1,7 @@
-﻿using DataAccess.IRepositories;
+﻿using BusinessObject;
+using DataAccess.DAOs;
+using DataAccess.IRepositories;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +10,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-	public class FilmRepository : IFilmRepository
-	{
-	}
+    public class FilmRepository : IFilmRepository
+    {
+        public void CreateFilm(Film film, IFormFile? image)
+        {
+            FilmDAO.Instance.CreateFilm(film, image);  
+        }
+    }
 }

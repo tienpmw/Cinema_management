@@ -1,0 +1,108 @@
+﻿@page
+@model CinemaWebClient.Pages.Admin.Film.IndexModel
+@{
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div style="display:flex; margin-bottom:50px">
+    <i class="fa-solid fa-film" style="font-size:50px; margin-right:5px"></i>
+    <h1>Film</h1>
+</div>
+
+<hr />
+
+<div class="create-link">
+    <a href="~/Admin/Film/Create" class="btn btn-primary btn active disable-user" role="button" aria-pressed="true">
+        Create new Film
+    </a>
+</div>
+
+<div class="userTable" style="margin-top:30px;">
+    <table id="myTable" class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Number of chairs</th>
+            </tr>
+        </thead>
+        <tbody id="tableContent">
+            <tr>
+                <td>1</td>
+                <td>heeh</td>
+                <td>100</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+
+<script>
+
+
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "searching": true,
+            "lengthChange": false,
+            "info": false,
+            "ordering": false,
+        });
+
+        //LoadData('http://localhost:5001/api/Rooms');
+
+    });
+
+    function LoadData(link) {
+        var tableContent = document.getElementById('tableContent');
+        tableContent.innerHTML = "";
+        $.ajax({
+            url: link,
+            type: 'GET',
+            data: {
+
+            },
+            success: (data) => {
+                var tr = '';
+                for (var i = 0; i < data.length; i++) {
+                    tr += ` <tr>`;
+                    tr +=
+                        `
+                            <tr>
+                                <td>${data[i].roomId}</td>
+                                <td>${data[i].roomName}</td>
+                                <td>${data[i].numberRow * data[i].numberColumn}</td>
+                            `;
+                    tr += ` </tr>`;
+                }
+                tableContent.innerHTML = tr;
+            },
+            error: (err) => {
+                NotificationMessageError("Server not respone!");
+            }
+        });
+    }
+
+    var querySearch = "http://localhost:5001/api/Rooms ";
+    function Search() {
+        LoadData(querySearch + query);
+    }
+</script>
+
+<style>
+    .userTable {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .create-link {
+        margin-left: 5%;
+    }
+
+    .mt-10 {
+        margin-top: 10px;
+    }
+</style>

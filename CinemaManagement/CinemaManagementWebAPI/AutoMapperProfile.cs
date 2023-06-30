@@ -12,6 +12,7 @@ namespace CinemaWebAPI
             CreateMap<User, UserDTO>().ReverseMap();
             CreateMap<Transaction, TransactionDTO>().ReverseMap();
             CreateMap<Room, RoomDTO>().ReverseMap();
+            CreateMap<Film, FilmDTO>().ReverseMap();
             CreateMap<Role, RoleDTO>().ReverseMap();
         }
     }

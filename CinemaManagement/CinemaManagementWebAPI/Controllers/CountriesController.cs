@@ -10,15 +10,15 @@ namespace CinemaWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GenresController : ControllerBase
+    public class CountriesController : ControllerBase
     {
-        private readonly IGenreRepository genreRepository;
-        private readonly IMapper _mapper;
+        private readonly ICountryRepository countryRepository;
+        private readonly IMapper mapper;
 
-        public GenresController(IGenreRepository genreRepository, IMapper mapper)
+        public CountriesController(ICountryRepository countryRepository, IMapper mapper)
         {
-            this.genreRepository = genreRepository;
-            _mapper = mapper;
+            this.countryRepository = countryRepository;
+            this.mapper = mapper;
         }
 
         [EnableQuery]
@@ -26,7 +26,7 @@ namespace CinemaWebAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(CinemaContext.Instance.Genre.AsQueryable());
+            return Ok(CinemaContext.Instance.Country.AsQueryable());
         }
     }
 }
