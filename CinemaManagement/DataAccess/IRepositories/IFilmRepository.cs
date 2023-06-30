@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace DataAccess.IRepositories
 {
 	public interface IFilmRepository
 	{
-		void CreateFilm(Film film);
+		void CreateFilm(Film film, IFormFile? imgage);
 	}
 }

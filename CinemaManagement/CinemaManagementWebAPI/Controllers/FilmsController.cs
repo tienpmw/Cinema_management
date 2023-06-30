@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Attributes;
+using System.Text.Json;
 
 namespace CinemaWebAPI.Controllers
 {
@@ -31,11 +32,17 @@ namespace CinemaWebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromForm] IFormFile imageFile, [FromForm] FilmDTO filmDTO) 
+        public IActionResult Post() 
         {
+
             try
             {
-                var film = mapper.Map<FilmDTO>(filmDTO);    
+                var imageFile = Request.Form.Files["imageFile"];
+                var filmDTOJson = Request.Form["filmDTO"];
+                var filmDTO = JsonSerializer.Deserialize<FilmDTO>(filmDTOJson);
+                var film = mapper.Map<Film>(filmDTO);
+
+                filmRepository.CreateFilm(film, imageFile);
                 return Ok();
             }catch (Exception ex) 
             {

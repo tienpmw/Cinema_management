@@ -66,21 +66,28 @@ namespace CinemaWebClient.Pages.Admin.Film
             return Page();
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             ModelState.Remove("Message");
             ModelState.Remove("ImageFile");
-            if(!ModelState.IsValid) return Page();
+            ModelState.Remove("FilmDTO.FilmDuration");
+            if (!ModelState.IsValid) return Page();
 
-
-            using (var multipartFormContent = new MultipartFormDataContent())
-            {
-                multipartFormContent.Add(new StreamContent(ImageFile.OpenReadStream()), "imageFile");
-                var jsonData = JsonSerializer.Serialize(FilmDTO);
-                multipartFormContent.Add(new StringContent(jsonData, Encoding.UTF8, "application/json"), "filmDTO");
-                var response = await client.PostAsync("http://localhost:5001/api/Films", multipartFormContent);
-            }
             
+
+            if (ImageFile != null && ImageFile.Length > 0)
+            {
+                using (var httpClient = client)
+                {
+                    var formData = new MultipartFormDataContent();
+                    formData.Add(new StreamContent(ImageFile.OpenReadStream()), "imageFile", ImageFile.FileName);
+                    var jsonData = JsonSerializer.Serialize(FilmDTO);
+                    formData.Add(new StringContent(jsonData, Encoding.UTF8, "application/json"), "filmDTO");
+
+                    var apiUrl = "http://localhost:5001/api/Films";
+                    var response = await httpClient.PostAsync(apiUrl, formData);
+                }
+            }
 
 
             var options = new JsonSerializerOptions()
