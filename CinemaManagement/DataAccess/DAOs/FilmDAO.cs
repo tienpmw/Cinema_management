@@ -32,6 +32,7 @@ namespace DataAccess.DAOs
 
         public void CreateFilm(Film film, IFormFile? image)
         {
+            CinemaContext cinemaContext = new CinemaContext();
             if (IsFilmTitleExisted(film.Title)) throw new Exception("Film's title was existed!");
             Util util = new Util();
             string pathFolder = "\\Data\\Images";
@@ -40,13 +41,14 @@ namespace DataAccess.DAOs
             util.SaveFile(image, pathSaveImage, fileName);
             film.DateRelease = DateTime.Now;
             film.Image = fileName;
-            CinemaContext.Instance.Film.Add(film);
-            CinemaContext.Instance.SaveChanges();
+            cinemaContext.Film.Add(film);
+            cinemaContext.SaveChanges();
         }
 
         public bool IsFilmTitleExisted(string title)
         {
-            return CinemaContext.Instance.Film.FirstOrDefault(x => x.Title == title) != null;
+            CinemaContext cinemaContext = new CinemaContext();
+            return cinemaContext.Film.FirstOrDefault(x => x.Title == title) != null;
         }
     }
 }

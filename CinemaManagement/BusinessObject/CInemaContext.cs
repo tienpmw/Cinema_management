@@ -11,21 +11,6 @@ namespace BusinessObject
 	public class CinemaContext : DbContext
 	{
 
-		//add singleton
-		private static CinemaContext instance = null;
-		private static readonly object instanceLook = new object();
-
-		public static CinemaContext Instance
-		{
-			get
-			{
-				lock (instanceLook)
-				{
-					if (instance == null) instance = new CinemaContext();
-				}
-				return instance;
-			}
-		}
 		public CinemaContext()
 		{
 		}
