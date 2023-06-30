@@ -7,7 +7,7 @@
 
 <div style="display:flex; margin-bottom:50px">
 	<i class="fa-solid fa-door-open" style="font-size:50px; margin-right:5px"></i>
-	<h1>Create Room</h1>
+	<h1>Create Show</h1>
 </div>
 
 <hr />
@@ -35,56 +35,58 @@
 
 	<input type="submit" class="btn btn-primary" value="Save" />
 </form>
-@{
-	await Html.RenderPartialAsync("_ValidationScriptsPartial");
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	<script>
+		$(document).ready(function () {
+			LoadDataFilm();
+			LoadDataRoom();
+
+			function LoadDataRoom() {
+				var optionRoom = document.getElementById('Show_RoomId');
+				optionRoom.innerHTML = "";
+				$.ajax({
+					url: 'http://localhost:5001/api/Rooms',
+					type: 'GET',
+					data: {
+					},
+					success: (data) => {
+						var tr = '';
+						for (var i = 0; i < data.length; i++) {
+							tr += `<option value="${data[i].roomId}">${data[i].roomName}</option>`;
+						}
+						optionRoom.innerHTML = tr;
+					},
+					error: (err) => {
+						NotificationMessageError("Server not respone!");
+					}
+				});
+			}
+			function LoadDataFilm() {
+				var optionFilm = document.getElementById('Show_FilmId');
+				optionFilm.innerHTML = "";
+				$.ajax({
+					url: 'http://localhost:5001/api/Films',
+					type: 'GET',
+					data: {
+					},
+					success: (data) => {
+						console.log(data)
+						var tr = '';
+						for (var i = 0; i < data.length; i++) {
+							tr += `<option value="${data[i].filmId}">${data[i].title}</option>`;
+						}
+						optionFilm.innerHTML = tr;
+					},
+					error: (err) => {
+						NotificationMessageError("Server not respone!");
+					}
+				});
+			}
+		});
+
+
+	</script>
 }
-<script>
-	$(document).ready(function () {
-		LoadDataFilm();
-		LoadDataRoom();
-
-		function LoadDataRoom() {
-			var optionRoom = document.getElementById('Show_RoomId');
-			optionRoom.innerHTML = "";
-			$.ajax({
-				url: 'http://localhost:5001/api/Rooms',
-				type: 'GET',
-				data: {
-				},
-				success: (data) => {
-					var tr = '';
-					for (var i = 0; i < data.length; i++) {
-						tr += `<option value="${data[i].roomId}">${data[i].roomName}</option>`;
-					}
-					optionRoom.innerHTML = tr;
-				},
-				error: (err) => {
-					NotificationMessageError("Server not respone!");
-				}
-			});
-		}
-		function LoadDataFilm() {
-			var optionFilm = document.getElementById('Show_FilmId');
-			optionFilm.innerHTML = "";
-			$.ajax({
-				url: 'http://localhost:5001/api/Films',
-				type: 'GET',
-				data: {
-				},
-				success: (data) => {
-					console.log(data)
-					var tr = '';
-					for (var i = 0; i < data.length; i++) {
-						tr += `<option value="${data[i].filmId}">${data[i].title}</option>`;
-					}
-					optionFilm.innerHTML = tr;
-				},
-				error: (err) => {
-					NotificationMessageError("Server not respone!");
-				}
-			});
-		}
-	});
-
-	
-</script>
