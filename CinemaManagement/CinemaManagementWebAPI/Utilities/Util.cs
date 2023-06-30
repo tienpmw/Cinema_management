@@ -9,28 +9,9 @@ using System.Text.Json;
 
 namespace CinemaWebAPI.Utilities
 {
-    public class Util
+    public static class Util
     {
-        //Using Singleton Pattern
-        private static Util instance = null;
-        private static readonly object instanceLock = new object();
-        public static Util Instance
-        {
-            get
-            {
-                lock (instanceLock)
-                {
-                    if (instance == null)
-                    {
-                        instance = new Util();
-                    }
-                }
-                return instance;
-            }
-        }
-
-
-        public string GetRandomString(int length)
+        public static string GetRandomString(int length)
         {
             StringBuilder str_build = new StringBuilder();
             Random random = new Random();
@@ -47,7 +28,8 @@ namespace CinemaWebAPI.Utilities
             return str_build.ToString();
         }
 
-        public void WriteFile(string fileName, object data)
+        public static void WriteFile(string fileName, object data)
+
         {
             string fullPath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
             var options = new JsonSerializerOptions { WriteIndented = true };
@@ -55,14 +37,14 @@ namespace CinemaWebAPI.Utilities
             File.WriteAllText(fullPath, json);
         }
 
-        public string ReadFile(string fileName)
+        public static string ReadFile(string fileName)
         {
             string fullPath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
             string text = File.ReadAllText(fullPath);
             return text;
         }
 
-		public string GetHexDeviceId()
+		public static string GetHexDeviceId()
 		{
 			// asciiBytes will have your MAC address in decimal
 			byte[] unicodeBytes = Encoding.Unicode.GetBytes(GetDeviceId());
@@ -70,7 +52,7 @@ namespace CinemaWebAPI.Utilities
 			// show the MAC address in hex
 			return BitConverter.ToString(asciiBytes);
 		}
-		private string GetDeviceId()
+		private static string GetDeviceId()
 		{
 			string macAddresses = string.Empty;
 

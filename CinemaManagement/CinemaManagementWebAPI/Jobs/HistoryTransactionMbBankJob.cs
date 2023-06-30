@@ -53,7 +53,7 @@ namespace CinemaWebAPI.Jobs
 
             if (data.result.responseCode == "00")// get data success
             {
-                string dataPreviousText = Util.Instance.ReadFile("Data/historyTransactionMbBank.json");
+                string dataPreviousText = Util.ReadFile("Data/historyTransactionMbBank.json");
                 List<TransactionHistory>? dataPrevious = JsonSerializer.Deserialize<List<TransactionHistory>>(dataPreviousText);
 
                 // compare previous data with current data
@@ -62,7 +62,7 @@ namespace CinemaWebAPI.Jobs
 
                 //have new recharge info
                 // save new data into file
-                Util.Instance.WriteFile("Data/historyTransactionMbBank.json", transactionHistoryCreditList);
+                Util.WriteFile("Data/historyTransactionMbBank.json", transactionHistoryCreditList);
                 //update DB
                 TransactionDAO.Instance.CheckingRecharge(transactionHistoryCreditList);
             }
