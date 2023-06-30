@@ -65,7 +65,7 @@
 										<td><a href="/Admin/User/Edit/${data[i].UserId}">Edit</a></td>
 									</tr>`;
 				}
-				tableContent.innerHTML = tr;
+				tableContent.innerHTML += tr;
 			},
 			error: (err) => {
 				NotificationMessageError("Server not respone!");
