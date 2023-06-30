@@ -9,14 +9,14 @@ namespace DataAccess.Utilities
 {
     public class Util
     {
-        public void SaveFile(IFormFile file, string path)
+        public void SaveFile(IFormFile file, string path, string fileName)
         {
-            string filenmae = Guid.NewGuid().ToString()+ file.FileName.Substring(file.FileName.LastIndexOf("."));            
+            
             try
             {
                 if (file != null && file.Length > 0)
                 {
-                    using (var stream = new FileStream(path +"/" + filenmae, FileMode.Create))
+                    using (var stream = new FileStream(path +"/" + fileName, FileMode.Create))
                     {
                         file.CopyTo(stream);
                     }

@@ -24,15 +24,21 @@
         <thead class="thead-dark">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Number of chairs</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Gerne</th>
+                <th>Duration</th>
+                <th></th>
             </tr>
         </thead>
         <tbody id="tableContent">
             <tr>
                 <td>1</td>
-                <td>heeh</td>
+                <td><img src="http://localhost:5001/api/Images/ba90770e-28e0-4abe-a201-5035b2125d2a.png" alt="thumbnail" class="img-thumbnail"></td>
                 <td>100</td>
+                <td>100</td>
+                <td>100</td>
+                <td></td>
             </tr>
 
         </tbody>
@@ -52,12 +58,13 @@
             "ordering": false,
         });
 
-        //LoadData('http://localhost:5001/api/Rooms');
+        LoadData('http://localhost:5001/api/Films?$expand=genre');
 
     });
 
     function LoadData(link) {
         var tableContent = document.getElementById('tableContent');
+        var imageAPI = "http://localhost:5001/api/Images/";
         tableContent.innerHTML = "";
         $.ajax({
             url: link,
@@ -72,12 +79,15 @@
                     tr +=
                         `
                             <tr>
-                                <td>${data[i].roomId}</td>
-                                <td>${data[i].roomName}</td>
-                                <td>${data[i].numberRow * data[i].numberColumn}</td>
+                                <td>${data[i].FilmId}</td>
+                                <td><img src="${imageAPI + data[i].Image}" alt="thumbnail" class="img-thumbnail"></td>
+                                <td>${data[i].Title}</td>
+                                <td>${data[i].Genre.GenreName}</td>
+                                    <td>${data[i].FilmDuration} minutes</td>
+                                <td><a class="btn btn-primary" href="/Film/Edit?id=${data[i].FilmId}" role="button">Edit</a></td>
                             `;
                     tr += ` </tr>`;
-                }
+                } 
                 tableContent.innerHTML = tr;
             },
             error: (err) => {
@@ -86,10 +96,6 @@
         });
     }
 
-    var querySearch = "http://localhost:5001/api/Rooms ";
-    function Search() {
-        LoadData(querySearch + query);
-    }
 </script>
 
 <style>
