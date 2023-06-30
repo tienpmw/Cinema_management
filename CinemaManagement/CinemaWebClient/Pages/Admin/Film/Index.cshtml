@@ -83,8 +83,8 @@
                                 <td><img src="${imageAPI + data[i].Image}" alt="thumbnail" class="img-thumbnail"></td>
                                 <td>${data[i].Title}</td>
                                 <td>${data[i].Genre.GenreName}</td>
-                                    <td>${data[i].FilmDuration} minutes</td>
-                                <td><a class="btn btn-primary" href="/Film/Edit?id=${data[i].FilmId}" role="button">Edit</a></td>
+                                <td>${data[i].FilmDuration} minutes</td>
+                                <td><a class="btn btn-primary" href="Film/Edit?id=${data[i].FilmId}" role="button">Edit</a></td>
                             `;
                     tr += ` </tr>`;
                 } 

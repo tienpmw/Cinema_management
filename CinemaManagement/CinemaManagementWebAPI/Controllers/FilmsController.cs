@@ -31,6 +31,17 @@ namespace CinemaWebAPI.Controllers
             return Ok(new CinemaContext().Film.AsQueryable());
         }
 
+
+        [HttpGet("GetFilmById/{id}")]
+        public IActionResult Get(int id)
+        {
+            var result = new CinemaContext().Film.FirstOrDefault(x => x.FilmId == id);
+            if (result == null) return NotFound();
+            FilmDTO filmDTO = mapper.Map<FilmDTO>(result);  
+            return Ok(filmDTO);
+        }
+
+
         [HttpPost]
         public IActionResult Post() 
         {
@@ -48,6 +59,20 @@ namespace CinemaWebAPI.Controllers
             {
                 return Conflict(ex.Message);
             }
+        }
+
+
+        [HttpPut]
+        public IActionResult Put(FilmDTO filmDTO) 
+        {
+            try
+            {
+
+            }catch(Exception ex) 
+            {
+
+            }
+            return Ok();
         }
     }
 
