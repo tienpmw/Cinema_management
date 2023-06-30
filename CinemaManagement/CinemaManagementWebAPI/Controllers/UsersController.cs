@@ -270,7 +270,7 @@ namespace CinemaWebAPI.Controllers
 				// check device Id
 				string? deviceId = tokenVerification.Claims.FirstOrDefault(x => x.Type == "DeviceId").Value;
 
-				if (string.IsNullOrEmpty(deviceId) || deviceId != Util.Instance.GetHexDeviceId())
+				if (string.IsNullOrEmpty(deviceId) || deviceId != Util.GetHexDeviceId())
 				{
 					return Conflict("Device Id not match!");
 				}
@@ -357,7 +357,7 @@ namespace CinemaWebAPI.Controllers
 				new Claim(JwtRegisteredClaimNames.Email, model.Email),
 				new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
 				new Claim("Id", model.UserId.ToString()),
-				new Claim("DeviceId", Util.Instance.GetHexDeviceId()),
+				new Claim("DeviceId", Util.GetHexDeviceId()),
 				new Claim(ClaimTypes.Role, model.Role.RoleName)
 			};
 			var tokenDescription = new SecurityTokenDescriptor

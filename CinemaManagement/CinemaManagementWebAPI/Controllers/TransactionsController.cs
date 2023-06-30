@@ -39,7 +39,7 @@ namespace CinemaWebAPI.Controllers
             try
             {
                 var transaction = _mapper.Map<Transaction>(transactionDTO);
-                transaction.Code = Util.Instance.GetRandomString(10);
+                transaction.Code = Util.GetRandomString(10);
                 _transactionRepository.CreateTransaction(transaction);
                 return Ok(transaction.Code);
             }           
