@@ -13,7 +13,7 @@
 <hr />
 
 <div class="create-link">
-    <a href="~/Admin/Room/Create" class="btn btn-primary btn active disable-user" role="button" aria-pressed="true">
+    <a asp-page="/Admin/Show/Create" class="btn btn-primary btn active disable-user" role="button" aria-pressed="true">
         Create new Show
     </a>
 </div>
@@ -23,17 +23,14 @@
         <thead class="thead-dark">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Number of chairs</th>
+                <th>Film</th>
+                <th>Room</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Show Date</th>
             </tr>
         </thead>
         <tbody id="tableContent">
-            <tr>
-                <td>1</td>
-                <td>heeh</td>
-                <td>100</td>
-            </tr>
-
         </tbody>
     </table>
 </div>

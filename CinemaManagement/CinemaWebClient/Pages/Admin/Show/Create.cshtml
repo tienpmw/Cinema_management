@@ -1,4 +1,90 @@
 ﻿@page
 @model CinemaWebClient.Pages.Admin.Show.CreateModel
 @{
+	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
 }
+
+
+<div style="display:flex; margin-bottom:50px">
+	<i class="fa-solid fa-door-open" style="font-size:50px; margin-right:5px"></i>
+	<h1>Create Room</h1>
+</div>
+
+<hr />
+<form method="post" class="col-md-4" style="margin-left:10%">
+	<div class="mb-3">
+		<label class="form-label"><b>Film</b></label>
+		<select asp-for="Show.FilmId" class="form-control"></select>
+		<span asp-validation-for="Show.FilmId" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label class="form-label"><b>Room</b></label>
+		<select asp-for="Show.RoomId" class="form-control"></select>
+		<span asp-validation-for="Show.RoomId" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label class="form-label"><b>Price</b></label>
+		<input asp-for="Show.Price" class="form-control">
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label"><b>ShowDate</b></label>
+		<input asp-for="Show.ShowDate" class="form-control">
+		<span asp-validation-for="Show.ShowDate" class="text-danger"></span>
+	</div>
+
+	<input type="submit" class="btn btn-primary" value="Save" />
+</form>
+@{
+	await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+<script>
+	$(document).ready(function () {
+		LoadDataFilm();
+		LoadDataRoom();
+
+		function LoadDataRoom() {
+			var optionRoom = document.getElementById('Show_RoomId');
+			optionRoom.innerHTML = "";
+			$.ajax({
+				url: 'http://localhost:5001/api/Rooms',
+				type: 'GET',
+				data: {
+				},
+				success: (data) => {
+					var tr = '';
+					for (var i = 0; i < data.length; i++) {
+						tr += `<option value="${data[i].roomId}">${data[i].roomName}</option>`;
+					}
+					optionRoom.innerHTML = tr;
+				},
+				error: (err) => {
+					NotificationMessageError("Server not respone!");
+				}
+			});
+		}
+		function LoadDataFilm() {
+			var optionFilm = document.getElementById('Show_FilmId');
+			optionFilm.innerHTML = "";
+			$.ajax({
+				url: 'http://localhost:5001/api/Films',
+				type: 'GET',
+				data: {
+				},
+				success: (data) => {
+					console.log(data)
+					var tr = '';
+					for (var i = 0; i < data.length; i++) {
+						tr += `<option value="${data[i].filmId}">${data[i].title}</option>`;
+					}
+					optionFilm.innerHTML = tr;
+				},
+				error: (err) => {
+					NotificationMessageError("Server not respone!");
+				}
+			});
+		}
+	});
+
+	
+</script>

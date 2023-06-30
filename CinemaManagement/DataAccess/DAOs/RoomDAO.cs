@@ -40,6 +40,6 @@ namespace DataAccess.DAOs
             return CinemaContext.Instance.Room.FirstOrDefault(x => x.RoomName == roomName) != null; 
         }
 
- 
+        
     }
 }
