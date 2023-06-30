@@ -12,7 +12,7 @@ namespace DTOs
 {
     public class FilmDTO
     {
-
+        public long FilmId { get; set; }
         public long GenreId { get; set; }
         [Required(ErrorMessage = "Film's cuountry must be not empty!")]
         public string? CountryCode { get; set; }

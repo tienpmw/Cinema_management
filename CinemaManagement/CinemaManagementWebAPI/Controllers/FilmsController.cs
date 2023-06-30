@@ -28,8 +28,19 @@ namespace CinemaWebAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(new CinemaContext().Film.ToList());
+            return Ok(new CinemaContext().Film.AsQueryable());
         }
+
+
+        [HttpGet("GetFilmById/{id}")]
+        public IActionResult Get(int id)
+        {
+            var result = new CinemaContext().Film.FirstOrDefault(x => x.FilmId == id);
+            if (result == null) return NotFound();
+            FilmDTO filmDTO = mapper.Map<FilmDTO>(result);  
+            return Ok(filmDTO);
+        }
+
 
         [HttpPost]
         public IActionResult Post() 
@@ -43,11 +54,25 @@ namespace CinemaWebAPI.Controllers
                 var film = mapper.Map<Film>(filmDTO);
 
                 filmRepository.CreateFilm(film, imageFile);
-                return Ok();
+                return Ok("Create new Film has been success!");
             }catch (Exception ex) 
             {
-                return Conflict(ex);
+                return Conflict(ex.Message);
             }
+        }
+
+
+        [HttpPut]
+        public IActionResult Put(FilmDTO filmDTO) 
+        {
+            try
+            {
+
+            }catch(Exception ex) 
+            {
+
+            }
+            return Ok();
         }
     }
 

@@ -31,34 +31,36 @@ namespace DataAccess.DAOs
 
         public void Create(Transaction rechargeRequest) 
         {
+            CinemaContext cinemaContext = new CinemaContext();  
             rechargeRequest.RequestDate = DateTime.Now;
             rechargeRequest.PaidDate = null;
             rechargeRequest.IsPay = false;
             rechargeRequest.UserId = 1;
-            CinemaContext.Instance.Transaction.Add(rechargeRequest);
-            CinemaContext.Instance.SaveChanges();
+            cinemaContext.Transaction.Add(rechargeRequest);
+            cinemaContext.SaveChanges();
         }
 
         public void CheckingRecharge(List<TransactionHistory> transactionHistoryCreditList)
         {
-            var transaction = CinemaContext.Instance.Database.BeginTransaction();
+            CinemaContext cinemaContext = new CinemaContext();
+            var transaction = cinemaContext.Database.BeginTransaction();
             try
             {
                 foreach (var item in transactionHistoryCreditList)
                 {
                     if (IsRechargeRequestExisted(item.description, item.creditAmount))
                     {
-                        var recharge = CinemaContext.Instance.Transaction.First(x => item.description.Contains(x.Code) && x.Amount == item.creditAmount);
+                        var recharge = cinemaContext.Transaction.First(x => item.description.Contains(x.Code) && x.Amount == item.creditAmount);
                         if (recharge.IsPay == true) continue;
                         //update sataus recharge
                         recharge.IsPay = true;
                         recharge.PaidDate = System.DateTime.Now;
                         //update accout balace user
-                        var user = CinemaContext.Instance.User.First(x => x.UserId == recharge.UserId);
+                        var user = cinemaContext.User.First(x => x.UserId == recharge.UserId);
                         user.AccountBalance = user.AccountBalance + item.creditAmount;  
                     }
                 }
-                CinemaContext.Instance.SaveChanges();
+                cinemaContext.SaveChanges();
                 transaction.Commit();
             }
             catch(Exception ex) 
@@ -69,7 +71,8 @@ namespace DataAccess.DAOs
 
         public bool IsRechargeRequestExisted(string desription, long amount)
         {
-            var recharge = CinemaContext.Instance.Transaction.FirstOrDefault(x => desription.Contains(x.Code) && x.Amount == amount);
+            CinemaContext cinemaContext = new CinemaContext();
+            var recharge = cinemaContext.Transaction.FirstOrDefault(x => desription.Contains(x.Code) && x.Amount == amount);
             return recharge != null;
         }
 

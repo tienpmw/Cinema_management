@@ -29,7 +29,7 @@ namespace CinemaWebAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(CinemaContext.Instance.Transaction.AsQueryable());
+            return Ok(new CinemaContext().Transaction.AsQueryable());
         }
 
         [HttpPost]
@@ -39,7 +39,7 @@ namespace CinemaWebAPI.Controllers
             try
             {
                 var transaction = _mapper.Map<Transaction>(transactionDTO);
-                transaction.Code = Util.Instance.GetRandomString(10);
+                transaction.Code = Util.GetRandomString(10);
                 _transactionRepository.CreateTransaction(transaction);
                 return Ok(transaction.Code);
             }           

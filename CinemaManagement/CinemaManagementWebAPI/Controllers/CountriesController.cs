@@ -26,7 +26,7 @@ namespace CinemaWebAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(CinemaContext.Instance.Country.AsQueryable());
+            return Ok(new CinemaContext().Country.AsQueryable());
         }
     }
 }

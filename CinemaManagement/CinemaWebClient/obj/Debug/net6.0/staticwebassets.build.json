@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dpxEihXT7Md2lWXThSbRsKBZojcXwWOYygnxYDaS6KQ=",
+  "Hash": "mr0sbhJZnSbvoqWFsrCH0oKCmtG+XajSAqm34vL+lBY=",
   "Source": "CinemaWebClient",
   "BasePath": "_content/CinemaWebClient",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CinemaWebClient\\wwwroot",
       "Source": "CinemaWebClient",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CinemaWebClient.styles.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CinemaWebClient.styles.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "CinemaWebClient.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CinemaWebClient.styles.css"
+      "OriginalItemSpec": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CinemaWebClient.styles.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CinemaWebClient.bundle.scp.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CinemaWebClient.bundle.scp.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "CinemaWebClient.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CinemaWebClient.bundle.scp.css"
+      "OriginalItemSpec": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CinemaWebClient.bundle.scp.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\sb-admin-2.min.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\sb-admin-2.min.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "css/sb-admin-2.min.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\sb-admin-2.min.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\site.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\site.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\style.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\style.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\favicon.ico",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\favicon.ico",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg.jpg",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg.jpg",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "images/bg.jpg",
       "AssetKind": "All",
@@ -136,6 +136,7 @@
       "OriginalItemSpec": "wwwroot\\images\\bg.jpg"
     },
     {
+<<<<<<< HEAD
       "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\main.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
@@ -171,9 +172,46 @@
     },
     {
       "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\sb-admin-2.min.js",
+=======
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\main.js",
+>>>>>>> c106a7a13e3d8826adb2813f39da1ce0eb04f555
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "BasePath": "_content/CinemaWebClient",
+      "RelativePath": "js/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\main.js"
+    },
+    {
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\popper.js",
+      "SourceId": "CinemaWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "BasePath": "_content/CinemaWebClient",
+      "RelativePath": "js/popper.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\popper.js"
+    },
+    {
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\sb-admin-2.min.js",
+      "SourceId": "CinemaWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "js/sb-admin-2.min.js",
       "AssetKind": "All",
@@ -187,10 +225,10 @@
       "OriginalItemSpec": "wwwroot\\js\\sb-admin-2.min.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\signin.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\signin.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "js/signin.js",
       "AssetKind": "All",
@@ -204,10 +242,10 @@
       "OriginalItemSpec": "wwwroot\\js\\signin.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\site.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\site.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -221,10 +259,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -238,10 +276,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -255,10 +293,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -272,10 +310,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -289,10 +327,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -306,10 +344,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -323,10 +361,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -340,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -357,10 +395,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -374,10 +412,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -391,10 +429,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -408,10 +446,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -425,10 +463,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -442,10 +480,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -459,10 +497,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -476,10 +514,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -493,10 +531,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -510,10 +548,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -527,10 +565,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -544,10 +582,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -561,10 +599,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -578,10 +616,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -595,10 +633,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -612,10 +650,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -629,10 +667,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -646,10 +684,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -663,10 +701,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -680,10 +718,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -697,10 +735,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -714,10 +752,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -731,10 +769,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -748,10 +786,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -765,10 +803,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -782,10 +820,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -799,10 +837,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -816,10 +854,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -833,10 +871,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -850,10 +888,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -867,10 +905,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -884,10 +922,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -901,10 +939,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -918,10 +956,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -935,10 +973,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -952,10 +990,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -969,10 +1007,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -986,10 +1024,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1003,10 +1041,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -1020,10 +1058,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -1037,10 +1075,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -1054,10 +1092,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -1071,10 +1109,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -1088,10 +1126,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1105,10 +1143,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1122,10 +1160,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1139,10 +1177,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1156,10 +1194,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1173,10 +1211,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -1190,10 +1228,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\vendor\\css\\all.min.css",
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\vendor\\css\\all.min.css",
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
       "BasePath": "_content/CinemaWebClient",
       "RelativePath": "vendor/css/all.min.css",
       "AssetKind": "All",

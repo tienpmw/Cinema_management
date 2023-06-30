@@ -30,14 +30,16 @@ namespace DataAccess.DAOs
 
         public void CreateRoom(Room room)
         {
+            CinemaContext cinemaContext = new CinemaContext();
             if (RoomNameExisted(room.RoomName)) throw new Exception("Room's name was existed!");
-            CinemaContext.Instance.Add(room);
-            CinemaContext.Instance.SaveChanges();   
+            cinemaContext.Add(room);
+            cinemaContext.SaveChanges();   
         }
 
         private bool RoomNameExisted(string roomName) 
         {
-            return CinemaContext.Instance.Room.FirstOrDefault(x => x.RoomName == roomName) != null; 
+            CinemaContext cinemaContext = new CinemaContext();
+            return cinemaContext.Room.FirstOrDefault(x => x.RoomName == roomName) != null; 
         }
 
         

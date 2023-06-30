@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DAOs
 {
-	public class FilmDAO
-	{
+    public class FilmDAO
+    {
         //Using Singleton Pattern
         private static FilmDAO instance = null;
         private static readonly object instanceLock = new object();
@@ -32,20 +32,23 @@ namespace DataAccess.DAOs
 
         public void CreateFilm(Film film, IFormFile? image)
         {
+            CinemaContext cinemaContext = new CinemaContext();
             if (IsFilmTitleExisted(film.Title)) throw new Exception("Film's title was existed!");
             Util util = new Util();
-            string pathFolder = "Data/Images";
-            string pathSaveImage = Path.Combine(Directory.GetCurrentDirectory(), pathFolder);
-            util.SaveFile(image, pathSaveImage);
+            string pathFolder = "\\Data\\Images";
+            string pathSaveImage = Directory.GetCurrentDirectory() + pathFolder;
+            string fileName = Guid.NewGuid().ToString() + image.FileName.Substring(image.FileName.LastIndexOf("."));
+            util.SaveFile(image, pathSaveImage, fileName);
             film.DateRelease = DateTime.Now;
-            film.Image = pathFolder + "/" + image.FileName;
-            CinemaContext.Instance.Film.Add(film);
-            CinemaContext.Instance.SaveChanges();
+            film.Image = fileName;
+            cinemaContext.Film.Add(film);
+            cinemaContext.SaveChanges();
         }
 
-        public bool IsFilmTitleExisted(string title) 
+        public bool IsFilmTitleExisted(string title)
         {
-            return CinemaContext.Instance.Film.FirstOrDefault(x => x.Title == title) != null;   
+            CinemaContext cinemaContext = new CinemaContext();
+            return cinemaContext.Film.FirstOrDefault(x => x.Title == title) != null;
         }
     }
 }

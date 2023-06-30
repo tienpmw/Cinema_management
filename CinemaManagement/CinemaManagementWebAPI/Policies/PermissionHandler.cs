@@ -29,7 +29,7 @@ namespace CinemaWebAPI.Policies
 				}
 				else
 				{
-					if (deviceId != Util.Instance.GetHexDeviceId())
+					if (deviceId != Util.GetHexDeviceId())
 					{
 						context.Fail();
 					}
