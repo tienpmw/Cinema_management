@@ -45,10 +45,46 @@ namespace DataAccess.DAOs
             cinemaContext.SaveChanges();
         }
 
+        public void UpdateFilm(Film film, IFormFile? image)
+        {
+            CinemaContext cinemaContext = new CinemaContext();
+            var filmUpdate = cinemaContext.Film.First(x => x.FilmId == film.FilmId);
+
+            if (GetFilmById(film.FilmId) == null) throw new Exception("Film was not existed!");
+            if(IsFilmTitleExisted(film.Title) && film.Title != filmUpdate.Title) throw new Exception("Film's title was existed!");
+
+            // change image
+            //add new image
+            Util util = new Util();
+            string pathFolder = "\\Data\\Images";
+            string pathFolderImage = Directory.GetCurrentDirectory() + pathFolder;
+            string fileNameNewImage = Guid.NewGuid().ToString() + image.FileName.Substring(image.FileName.LastIndexOf("."));
+            util.SaveFile(image, pathFolderImage, fileNameNewImage);
+            // remove old image
+            util.DeleteFile(image, pathFolderImage, film.Image);
+
+            
+            //updae film info
+            filmUpdate.GenreId = film.GenreId;
+            filmUpdate.CountryCode = film.CountryCode;  
+            filmUpdate.Title = film.Title;
+            filmUpdate.Description = film.Description;
+            filmUpdate.Image = fileNameNewImage;
+            filmUpdate.FilmDuration = film.FilmDuration;
+            cinemaContext.Film.Update(filmUpdate);
+            cinemaContext.SaveChanges();
+        }
+
         public bool IsFilmTitleExisted(string title)
         {
             CinemaContext cinemaContext = new CinemaContext();
             return cinemaContext.Film.FirstOrDefault(x => x.Title == title) != null;
         }
+
+        public Film? GetFilmById(long id)
+        {
+            return new CinemaContext().Film.FirstOrDefault(x => x.FilmId == id);
+        }
+
     }
 }

@@ -28,5 +28,22 @@ namespace DataAccess.Utilities
             }
 
         }
+
+        public void DeleteFile(IFormFile file, string path, string fileName)
+        {
+            var filePath = Path.Combine(path, fileName);    
+            try
+            {
+                // Check if the file exists before attempting to delete it
+                File.Delete(filePath);
+            }
+            catch (IOException ex)
+            {
+                throw new Exception("File was not existed!");
+            }
+
+        }
+
+
     }
 }

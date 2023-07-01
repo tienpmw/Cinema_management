@@ -63,16 +63,22 @@ namespace CinemaWebAPI.Controllers
 
 
         [HttpPut]
-        public IActionResult Put(FilmDTO filmDTO) 
+        public IActionResult Put() 
         {
             try
             {
+                var imageFile = Request.Form.Files["imageFile"];
+                var filmDTOJson = Request.Form["filmDTO"];
+                var filmDTO = JsonSerializer.Deserialize<FilmDTO>(filmDTOJson);
+                var film = mapper.Map<Film>(filmDTO);
 
-            }catch(Exception ex) 
-            {
-
+                filmRepository.UpdateFilm(film, imageFile);
+                return Ok("Update Film's info has been success!");
             }
-            return Ok();
+            catch(Exception ex) 
+            {
+                return Conflict(ex.Message);
+            }
         }
     }
 

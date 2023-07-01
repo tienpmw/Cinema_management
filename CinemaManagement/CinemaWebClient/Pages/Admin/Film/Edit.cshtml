@@ -13,6 +13,9 @@
 <hr />
 <form method="post" class="col-md-5" style="margin-left:10%" enctype="multipart/form-data">
 
+    <input asp-for="@Model.FilmDTO.FilmId" type="hidden" class="form-control">
+    <input asp-for="@Model.FilmDTO.Image" type="hidden" class="form-control">
+
     <div class="mb-3">
         <label class="form-label"><b>Title</b></label>
         <input asp-for="@Model.FilmDTO.Title" type="text" class="form-control">
@@ -32,7 +35,7 @@
 
     <div class="mb-3">
         <label class="form-label"><b>Duration</b></label>
-        <input asp-for="@Model.FilmDTO.FilmDuration" type="number" class="form-control" placeholder="Input number column" value="0">
+        <input asp-for="@Model.FilmDTO.FilmDuration" type="number" class="form-control" placeholder="Input number column">
         <span asp-validation-for="@Model.FilmDTO.FilmDuration" class="text-danger"></span>
     </div>
 

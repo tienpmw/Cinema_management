@@ -10,6 +10,7 @@ namespace DataAccess.IRepositories
 {
 	public interface IFilmRepository
 	{
-		void CreateFilm(Film film, IFormFile? imgage);
+		void CreateFilm(Film film, IFormFile? image);
+		void UpdateFilm(Film film, IFormFile? image);
 	}
 }
