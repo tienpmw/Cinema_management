@@ -63,7 +63,10 @@ namespace CinemaWebClient.Pages.Admin.User
 			{
 				TempData["ErrorMsg"] = "Edit User Failed.";
 			}
-			TempData["SuccessMsg"] = "Edit User Success.";
+			else
+			{
+				TempData["SuccessMsg"] = "Edit User Success.";
+			}
 			return RedirectToPage("/Admin/User/Index");
 		}
 	}

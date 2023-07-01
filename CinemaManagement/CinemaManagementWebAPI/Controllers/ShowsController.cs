@@ -30,7 +30,7 @@ namespace CinemaWebAPI.Controllers
 			Show newShow = new Show
 			{
 				ShowDate = show.ShowDate,
-				FilmId = show.ShowId,
+				FilmId = show.FilmId,
 				RoomId = show.RoomId,
 				Price = show.Price,
 			};

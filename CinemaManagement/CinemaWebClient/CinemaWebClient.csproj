@@ -14,6 +14,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\js\demo\chart-area-demo.js" />
+    <None Include="wwwroot\js\demo\chart-bar-demo.js" />
+    <None Include="wwwroot\js\demo\chart-pie-demo.js" />
+    <None Include="wwwroot\js\demo\datatables-demo.js" />
+    <None Include="wwwroot\vendor\chart.js\Chart.bundle.js" />
+    <None Include="wwwroot\vendor\chart.js\Chart.bundle.min.js" />
+    <None Include="wwwroot\vendor\chart.js\Chart.js" />
+    <None Include="wwwroot\vendor\chart.js\Chart.min.js" />
+    <None Include="wwwroot\vendor\jquery-easing\jquery.easing.compatibility.js" />
+    <None Include="wwwroot\vendor\jquery-easing\jquery.easing.js" />
+    <None Include="wwwroot\vendor\jquery-easing\jquery.easing.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DTOs\DTOs.csproj" />
   </ItemGroup>
 

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -25,22 +26,23 @@ namespace CinemaWebClient.Pages.Admin.Show
 			FilmApi = "http://localhost:5001/api/Films";
 		}
 
-		[BindProperty]
+		[BindProperty(SupportsGet = true)]
 		public ShowCreateDTO Show { get; set; }
-		[ViewData]
-		public SelectList? Rooms { get; set; }
-		[ViewData]
-		public SelectList? Films { get; set; }
+		[BindProperty(SupportsGet = true)]
+		public List<RoomDTO>? Rooms { get; set; }
+		[BindProperty(SupportsGet = true)]
+		public List<FilmDTO>? Films { get; set; }
 		public async Task<IActionResult> OnGet()
 		{
-			//HttpResponseMessage response = await _httpClient.GetAsync(RoomApi);
-			//string dataStr = await response.Content.ReadAsStringAsync();
+			Show.ShowDate = DateTime.Now.Date;
+			await LoadData();
 			return Page();
 		}
 		public async Task<IActionResult> OnPost()
 		{
-			if(!ModelState.IsValid)
+			if (!ModelState.IsValid)
 			{
+				await LoadData();
 				return Page();
 			}
 			var content = new StringContent(JsonSerializer.Serialize(Show), Encoding.UTF8, "application/json");
@@ -49,8 +51,26 @@ namespace CinemaWebClient.Pages.Admin.Show
 			{
 				TempData["ErrorMsg"] = "Create Show Failed!";
 			}
-			TempData["SuccessMsg"] = "Create Show Success!";
+			else
+			{
+				TempData["SuccessMsg"] = "Create Show Success!";
+			}
 			return RedirectToPage("/Admin/Show/Index");
+		}
+
+		private async Task LoadData()
+		{
+			HttpResponseMessage response = await _httpClient.GetAsync(RoomApi);
+			string dataStr = await response.Content.ReadAsStringAsync();
+			var options = new JsonSerializerOptions
+			{
+				PropertyNameCaseInsensitive = true
+			};
+			Rooms = JsonSerializer.Deserialize<List<RoomDTO>>(dataStr, options);
+			response = await _httpClient.GetAsync(FilmApi);
+			dataStr = await response.Content.ReadAsStringAsync();
+			Films = JsonSerializer.Deserialize<List<FilmDTO>>(dataStr, options);
+
 		}
 	}
 }

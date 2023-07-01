@@ -39,7 +39,6 @@
 				<th>Film</th>
 				<th>Room</th>
 				<th>Price</th>
-				<th>Status</th>
 				<th>Show Date</th>
 			</tr>
 		</thead>
@@ -76,9 +75,11 @@
 					for (var i = 0; i < data.length; i++) {
 						tr +=
 							`<tr>
-								<td>${data[i].roomId}</td>
-								<td>${data[i].roomName}</td>
-								<td>${data[i].numberRow * data[i].numberColumn}</td>
+								<td>${data[i].showId}</td>
+								<td>${data[i].film.title}</td>
+								<td>${data[i].room.roomName}</td>
+								<td>${data[i].price}</td>
+								<td>${data[i].showDate}</td>
 							</tr>`;
 					}
 					tableContent.innerHTML = tr;
@@ -89,7 +90,7 @@
 			});
 		}
 
-		var querySearch = "http://localhost:5001/api/Rooms ";
+		var querySearch = "http://localhost:5001/api/Shows ";
 		function Search() {
 			LoadData(querySearch + query);
 		}
@@ -98,7 +99,7 @@
 	{
 		<script>
 			$(document).ready(function () {
-				NotificationMessageFail('@TempData["ErrorMsg"].ToString()');
+				NotificationMessageError('@TempData["ErrorMsg"].ToString()');
 			});
 		</script>
 	}

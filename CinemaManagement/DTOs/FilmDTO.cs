@@ -22,7 +22,7 @@ namespace DTOs
         public string? Description { get; set; }
         public string? Image { get; set; }
         [Required(ErrorMessage = "Film's Duration must be not empty!")]
-        [Range(1, 100, ErrorMessage = "Column must be greater than 0!")]
+        [Range(1, long.MaxValue, ErrorMessage = "Film's Duration must be greater than 0!")]
         public long FilmDuration { get; set; }
     }
 }

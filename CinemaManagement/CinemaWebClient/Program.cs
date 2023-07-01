@@ -16,7 +16,7 @@ namespace CinemaWebClient
 			builder.Services.AddMvc()
 				.AddRazorPagesOptions(options =>
 				{
-					options.Conventions.AddPageRoute("/SignIn", "");
+					options.Conventions.AddPageRoute("/Home", "");
 				});
 
 			// add session

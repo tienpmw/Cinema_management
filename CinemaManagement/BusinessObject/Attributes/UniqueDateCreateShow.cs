@@ -14,11 +14,6 @@ namespace BusinessObject.Attributes
 		{
 		}
 
-		public override string FormatErrorMessage(string name)
-		{
-			return string.Format(CultureInfo.InvariantCulture, ErrorMessage, name);
-		}
-
 		protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
 		{
 			CinemaContext context = new CinemaContext();
@@ -28,6 +23,7 @@ namespace BusinessObject.Attributes
 			int? roomId = (int)instance.RoomId;
 			if (value == null) return new ValidationResult("Show date not blank.");
 			Film? film = context.Film.FirstOrDefault(x => x.FilmId == filmId);
+			if (film == null) return new ValidationResult("");
 			long duration = film.FilmDuration;
 			DateTime date = (DateTime)value;
 			if (DateTime.Compare(date, film.DateRelease) < 0) return new ValidationResult($"Choose date greater {film.DateRelease.ToString("dd/MM/yyyy hh:mm tt")}.");

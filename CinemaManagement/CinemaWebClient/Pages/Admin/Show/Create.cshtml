@@ -14,12 +14,37 @@
 <form method="post" class="col-md-4" style="margin-left:10%">
 	<div class="mb-3">
 		<label class="form-label"><b>Film</b></label>
-		<select asp-for="Show.FilmId" class="form-control"></select>
+		<select asp-for="Show.FilmId" class="form-control">
+			@foreach (var item in Model.Films)
+			{
+				if (item.FilmId == Model.Show.FilmId)
+				{
+					<option value="@item.FilmId" selected>@item.Title</option>
+				}
+				else
+				{
+					<option value="@item.FilmId">@item.Title</option>
+
+				}
+			}
+		</select>
 		<span asp-validation-for="Show.FilmId" class="text-danger"></span>
 	</div>
 	<div class="mb-3">
 		<label class="form-label"><b>Room</b></label>
-		<select asp-for="Show.RoomId" class="form-control"></select>
+		<select asp-for="Show.RoomId" class="form-control">
+			@foreach (var item in Model.Rooms)
+			{
+				if (item.RoomId == Model.Show.RoomId)
+				{
+					<option value="@item.RoomId" selected>@item.RoomName</option>
+				}
+				else
+				{
+					<option value="@item.RoomId">@item.RoomName</option>
+				}
+			}
+		</select>
 		<span asp-validation-for="Show.RoomId" class="text-danger"></span>
 	</div>
 	<div class="mb-3">
@@ -42,8 +67,8 @@
 	}
 	<script>
 		$(document).ready(function () {
-			LoadDataFilm();
-			LoadDataRoom();
+			//LoadDataFilm();
+			//LoadDataRoom();
 
 			function LoadDataRoom() {
 				var optionRoom = document.getElementById('Show_RoomId');

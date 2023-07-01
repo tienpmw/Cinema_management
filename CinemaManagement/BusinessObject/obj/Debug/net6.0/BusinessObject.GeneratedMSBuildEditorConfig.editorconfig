@@ -8,8 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BusinessObject
-<<<<<<< HEAD
 build_property.ProjectDir = E:\cinema-management\CinemaManagement\BusinessObject\
-=======
-build_property.ProjectDir = D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\BusinessObject\
->>>>>>> 9fc0dbbfc3f021360f024de588879564c8aff9b6
