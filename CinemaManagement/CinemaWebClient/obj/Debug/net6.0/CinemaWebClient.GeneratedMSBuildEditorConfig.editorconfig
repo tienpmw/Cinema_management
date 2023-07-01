@@ -68,6 +68,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/cinema-management/CinemaManagement/CinemaWebClient/Pages/Film/Booking/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmlsbVxCb29raW5nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/cinema-management/CinemaManagement/CinemaWebClient/Pages/Film/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmlsbVxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/cinema-management/CinemaManagement/CinemaWebClient/Pages/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -86,6 +94,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/cinema-management/CinemaManagement/CinemaWebClient/Pages/SignIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbkluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/cinema-management/CinemaManagement/CinemaWebClient/Pages/SignOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbk91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/cinema-management/CinemaManagement/CinemaWebClient/Pages/SignUp.cshtml]

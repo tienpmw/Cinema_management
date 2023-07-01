@@ -20,7 +20,34 @@
 </style>*@
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Shows</h1>
+		<h1 class="h3 mb-0 text-gray-800" style="text-shadow: 0px 5px 20px gray;">Shows</h1>
+	</div>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">Search Show</h6>
+		</div>
+		<div class="card-body row">
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<div class="d-flex mt-3">
+					<label class="form-label" style="width:15%"><b>ID</b></label>
+					<input id="txtSearchById" class="form-control" type="text" />
+				</div>
+				<div class="d-flex mt-3">
+					<label class="form-label" style="width:15%"><b>Title</b></label>
+					<input id="txtSearchByTitle" class="form-control" type="text" />
+				</div>
+				<div class="d-flex mt-3">
+					<label class="form-label" style="width:15%"><b>Room</b></label>
+					<select id="txtSearchByRoom" class="form-control">
+						<option value="-1" selected>Select option</option>
+						<option value="1">Paid</option>
+						<option value="0">UnPaid</option>
+					</select>
+				</div>
+				<button class="btn btn-primary" style="margin-top:15px; margin-left: 80%;" onclick="Search()">Search</button>
+			</div>
+		</div>
 	</div>
 	<div class="create-link mb-4">
 		<a asp-page="/Admin/Show/Create" class="btn btn-primary btn active disable-user" role="button" aria-pressed="true">

@@ -1,48 +1,46 @@
 ﻿@page
 @model CinemaWebClient.Pages.Admin.Room.CreateModel
 @{
-    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
 }
 
+<div class="container-fluid">
+	<div class="d-sm-flex align-items-center mb-4">
+		<h1 class="h3 mb-0 text-gray-800" style="text-shadow: 0px 5px 20px gray;">Create Room</h1>
+	</div>
+	<form method="post" class="col-md-4" style="margin-left:10%">
 
-<div style="display:flex; margin-bottom:50px">
-    <i class="fa-solid fa-door-open" style="font-size:50px; margin-right:5px"></i>
-    <h1>Create Room</h1>
+		<div class="mb-3">
+			<label class="form-label"><b>Name</b></label>
+			<input asp-for="@Model.RoomDTO.RoomName" type="text" class="form-control" placeholder="Input room's name'">
+			<span asp-validation-for="@Model.RoomDTO.RoomName" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label class="form-label"><b>Number of Rows</b></label>
+			<input asp-for="@Model.RoomDTO.NumberRow" type="number" class="form-control" placeholder="Input number row" value="0">
+			<span asp-validation-for="@Model.RoomDTO.NumberRow" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label"><b>Number of Columns</b></label>
+			<input asp-for="@Model.RoomDTO.NumberColumn" type="number" class="form-control" placeholder="Input number column" value="0">
+			<span asp-validation-for="@Model.RoomDTO.NumberColumn" class="text-danger"></span>
+		</div>
+
+		@if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == false)
+		{
+			<div class="mb-3 d-flex">
+				<span class="text-danger">@Model.Message</span>
+			</div>
+		}
+		<input type="submit" class="btn btn-primary" value="Save" />
+	</form>
 </div>
-
-<hr/>
-<form method="post" class="col-md-4" style="margin-left:10%">
-
-    <div class="mb-3">
-        <label class="form-label"><b>Name</b></label>
-        <input asp-for="@Model.RoomDTO.RoomName" type="text" class="form-control" placeholder="Input room's name'">
-        <span asp-validation-for="@Model.RoomDTO.RoomName" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label"><b>Number of Rows</b></label>
-        <input asp-for="@Model.RoomDTO.NumberRow" type="number" class="form-control" placeholder="Input number row" value="0">
-        <span asp-validation-for="@Model.RoomDTO.NumberRow" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label class="form-label"><b>Number of Columns</b></label>
-        <input asp-for="@Model.RoomDTO.NumberColumn" type="number" class="form-control" placeholder="Input number column" value="0">
-        <span asp-validation-for="@Model.RoomDTO.NumberColumn" class="text-danger"></span>
-    </div>
-
-    @if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == false)
-    {
-        <div class="mb-3 d-flex">
-            <span class="text-danger">@Model.Message</span>
-        </div>
-    }
-    <input type="submit" class="btn btn-primary" value="Save" />
-</form>
 @if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == true)
 {
-    <script>
-        $(document).ready(function () {
-            NotificationMessageSuccess('@Model.Message.ToString()');
-        });
-    </script>
+	<script>
+		$(document).ready(function () {
+			NotificationMessageSuccess('@Model.Message.ToString()');
+		});
+	</script>
 }

@@ -3,33 +3,51 @@
 @{
 	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
 }
-@*<style>
-	.userTable {
-		width: 90%;
-		margin: 0 auto;
-	}
 
-	.create-link {
-		margin-left: 5%;
-	}
-
-	.mt-10 {
-		margin-top: 10px;
-	}
-</style>*@
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Users</h1>
+		<h1 class="h3 mb-0 text-gray-800" style="text-shadow: 0px 5px 20px gray;">Users</h1>
 	</div>
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">List User</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">Search User</h6>
+		</div>
+		<div class="card-body row">
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<div class="d-flex mt-3">
+					<label class="form-label" style="width:15%"><b>ID</b></label>
+					<input id="txtSearchById" class="form-control" type="text" />
+				</div>
+				<div class="d-flex mt-3">
+					<label class="form-label" style="width:15%"><b>Email</b></label>
+					<input id="txtSearchByEmail" class="form-control" type="text" />
+				</div>
+				<div class="d-flex mt-3">
+					<label class="form-label" style="width:15%"><b>Role</b></label>
+					<input id="txtSearchByRole" class="form-control" type="text" />
+				</div>
+				<div class="d-flex mt-3">
+					<label class="form-label" style="width:15%"><b>Status</b></label>
+					<select id="txtSearchByStatus" class="form-control">
+						<option value="-1" selected>Select option</option>
+						<option value="1">Active</option>
+						<option value="0">Ban</option>
+					</select>
+				</div>
+				<button class="btn btn-primary" style="margin-top:15px; margin-left: 80%;" onclick="Search()">Search</button>
+			</div>
+		</div>
+	</div>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">List User</h6>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
 				<table class="table table-bordered" id="userTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
+					<thead>
+						<tr>
 							<th>ID</th>
 							<th>Email</th>
 							<th>FirstName</th>
@@ -38,15 +56,14 @@
 							<th>Role</th>
 							<th>Status</th>
 							<th>Actions</th>
-                        </tr>
-                    </thead>
+						</tr>
+					</thead>
 					<tbody id="tableContent">
-                        
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
 
 @section Scripts{
@@ -77,16 +94,16 @@
 					for (var i = 0; i < data.length; i++) {
 						tr +=
 							`
-															<tr>
-																<td>${data[i].UserId}</td>
-																<td>${data[i].Email}</td>
-																<td>${data[i].FirstName}</td>
-																<td>${data[i].LastName}</td>
-																<td>${data[i].AccountBalance}</td>
-																<td>${data[i].Role.RoleName}</td>
-																<td>${data[i].IsActive == true ? "Actived" : "Banned"}</td>
-																<td><a href="/Admin/User/Edit/${data[i].UserId}">Edit</a></td>
-															</tr>`;
+																	<tr>
+																		<td>${data[i].UserId}</td>
+																		<td>${data[i].Email}</td>
+																		<td>${data[i].FirstName}</td>
+																		<td>${data[i].LastName}</td>
+																		<td>${data[i].AccountBalance}</td>
+																		<td>${data[i].Role.RoleName}</td>
+																		<td>${data[i].IsActive == true ? "Actived" : "Banned"}</td>
+																		<td><a class="btn btn-primary" href="/Admin/User/Edit/${data[i].UserId}">Edit</a></td>
+																	</tr>`;
 					}
 					tableContent.innerHTML += tr;
 				},

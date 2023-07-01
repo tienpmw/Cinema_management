@@ -4,63 +4,62 @@
 	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
 }
 
+<div class="container-fluid">
 
-<div style="display:flex; margin-bottom:50px">
-	<i class="fa-solid fa-camera-retro" style="font-size:50px; margin-right:5px"></i>
-	<h1>Create Show</h1>
+	<div class="d-sm-flex align-items-center mb-4">
+		<h1 class="h3 mb-0 text-gray-800" style="text-shadow: 0px 5px 20px gray;">Create Show</h1>
+	</div>
+	<form method="post" class="col-md-4" style="margin-left:10%">
+		<div class="mb-3">
+			<label class="form-label"><b>Film</b></label>
+			<select asp-for="Show.FilmId" class="form-control">
+				@foreach (var item in Model.Films)
+				{
+					if (item.FilmId == Model.Show.FilmId)
+					{
+						<option value="@item.FilmId" selected>@item.Title</option>
+					}
+					else
+					{
+						<option value="@item.FilmId">@item.Title</option>
+
+					}
+				}
+			</select>
+			<span asp-validation-for="Show.FilmId" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label class="form-label"><b>Room</b></label>
+			<select asp-for="Show.RoomId" class="form-control">
+				@foreach (var item in Model.Rooms)
+				{
+					if (item.RoomId == Model.Show.RoomId)
+					{
+						<option value="@item.RoomId" selected>@item.RoomName</option>
+					}
+					else
+					{
+						<option value="@item.RoomId">@item.RoomName</option>
+					}
+				}
+			</select>
+			<span asp-validation-for="Show.RoomId" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label class="form-label"><b>Price</b></label>
+			<input asp-for="Show.Price" class="form-control">
+			<span asp-validation-for="Show.Price" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label"><b>ShowDate</b></label>
+			<input asp-for="Show.ShowDate" class="form-control">
+			<span asp-validation-for="Show.ShowDate" class="text-danger"></span>
+		</div>
+
+		<input type="submit" class="btn btn-primary" value="Save" />
+	</form>
 </div>
-
-<hr />
-<form method="post" class="col-md-4" style="margin-left:10%">
-	<div class="mb-3">
-		<label class="form-label"><b>Film</b></label>
-		<select asp-for="Show.FilmId" class="form-control">
-			@foreach (var item in Model.Films)
-			{
-				if (item.FilmId == Model.Show.FilmId)
-				{
-					<option value="@item.FilmId" selected>@item.Title</option>
-				}
-				else
-				{
-					<option value="@item.FilmId">@item.Title</option>
-
-				}
-			}
-		</select>
-		<span asp-validation-for="Show.FilmId" class="text-danger"></span>
-	</div>
-	<div class="mb-3">
-		<label class="form-label"><b>Room</b></label>
-		<select asp-for="Show.RoomId" class="form-control">
-			@foreach (var item in Model.Rooms)
-			{
-				if (item.RoomId == Model.Show.RoomId)
-				{
-					<option value="@item.RoomId" selected>@item.RoomName</option>
-				}
-				else
-				{
-					<option value="@item.RoomId">@item.RoomName</option>
-				}
-			}
-		</select>
-		<span asp-validation-for="Show.RoomId" class="text-danger"></span>
-	</div>
-	<div class="mb-3">
-		<label class="form-label"><b>Price</b></label>
-		<input asp-for="Show.Price" class="form-control">
-		<span asp-validation-for="Show.Price" class="text-danger"></span>
-	</div>
-
-	<div class="mb-3">
-		<label class="form-label"><b>ShowDate</b></label>
-		<input asp-for="Show.ShowDate" class="form-control">
-		<span asp-validation-for="Show.ShowDate" class="text-danger"></span>
-	</div>
-
-	<input type="submit" class="btn btn-primary" value="Save" />
-</form>
 @section Scripts {
 	@{
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");
