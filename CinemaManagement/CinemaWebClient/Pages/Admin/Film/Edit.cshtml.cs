@@ -83,7 +83,7 @@ namespace CinemaWebClient.Pages.Admin.Film
                     formData.Add(new StringContent(jsonData, Encoding.UTF8, "application/json"), "filmDTO");
 
                     var apiUrl = "http://localhost:5001/api/Films";
-                    var response = await httpClient.PostAsync(apiUrl, formData);
+                    var response = await httpClient.PutAsync(apiUrl, formData);
                     responeSubmitData = response;
                     Message = await response.Content.ReadAsStringAsync();
                 }

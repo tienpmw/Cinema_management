@@ -16,5 +16,10 @@ namespace DataAccess.Repositories
         {
             FilmDAO.Instance.CreateFilm(film, image);  
         }
+
+        public void UpdateFilm(Film film, IFormFile? image)
+        {
+            FilmDAO.Instance.UpdateFilm(film, image);
+        }
     }
 }

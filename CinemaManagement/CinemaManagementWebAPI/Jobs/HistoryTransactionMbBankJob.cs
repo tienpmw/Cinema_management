@@ -64,7 +64,7 @@ namespace CinemaWebAPI.Jobs
                 // save new data into file
                 Util.WriteFile("Data/historyTransactionMbBank.json", transactionHistoryCreditList);
                 //update DB
-                TransactionDAO.Instance.CheckingRecharge(transactionHistoryCreditList);
+                TransactionDAO.Instance.CheckingCreditTransactions(transactionHistoryCreditList);
             }
 
         }
