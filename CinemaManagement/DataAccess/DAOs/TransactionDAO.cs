@@ -29,18 +29,18 @@ namespace DataAccess.DAOs
             }
         }
 
-        public void Create(Transaction rechargeRequest) 
+        public void Create(Transaction transaction) 
         {
             CinemaContext cinemaContext = new CinemaContext();  
-            rechargeRequest.RequestDate = DateTime.Now;
-            rechargeRequest.PaidDate = null;
-            rechargeRequest.IsPay = false;
-            rechargeRequest.UserId = 1;
-            cinemaContext.Transaction.Add(rechargeRequest);
+            transaction.RequestDate = DateTime.Now;
+            transaction.PaidDate = null;
+            transaction.IsPay = false;
+            transaction.UserId = 1;
+            cinemaContext.Transaction.Add(transaction);
             cinemaContext.SaveChanges();
         }
 
-        public void CheckingRecharge(List<TransactionHistory> transactionHistoryCreditList)
+        public void CheckingCreditTransactions(List<TransactionHistory> transactionHistoryCreditList)
         {
             CinemaContext cinemaContext = new CinemaContext();
             var transaction = cinemaContext.Database.BeginTransaction();
@@ -48,7 +48,7 @@ namespace DataAccess.DAOs
             {
                 foreach (var item in transactionHistoryCreditList)
                 {
-                    if (IsRechargeRequestExisted(item.description, item.creditAmount))
+                    if (IsTransactionExisted(item.description, item.creditAmount))
                     {
                         var recharge = cinemaContext.Transaction.First(x => item.description.Contains(x.Code) && x.Amount == item.creditAmount);
                         if (recharge.IsPay == true) continue;
@@ -69,11 +69,11 @@ namespace DataAccess.DAOs
             }
         }
 
-        public bool IsRechargeRequestExisted(string desription, long amount)
+        public bool IsTransactionExisted(string desription, long amount)
         {
             CinemaContext cinemaContext = new CinemaContext();
-            var recharge = cinemaContext.Transaction.FirstOrDefault(x => desription.Contains(x.Code) && x.Amount == amount);
-            return recharge != null;
+            var transaction = cinemaContext.Transaction.FirstOrDefault(x => desription.Contains(x.Code) && x.Amount == amount);
+            return transaction != null;
         }
 
     }
