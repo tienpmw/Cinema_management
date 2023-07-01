@@ -4,48 +4,47 @@
     Layout = "~/Pages/Shared/_AdminLayout.cshtml";
 }
 
-
-
-<div style="display:flex; margin-bottom:50px">
-    <i class="fa-solid fa-film" style="font-size:50px; margin-right:5px"></i>
-    <h1>Film</h1>
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Film</h1>
+    </div>
+    <div class="create-link mb-4">
+        <a asp-page="/Admin/Film/Create" class="btn btn-primary btn active disable-user" role="button" aria-pressed="true">
+            Add Film
+        </a>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">List Film</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Gerne</th>
+                            <th>Duration</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableContent">
+                        <tr>
+                            <td>1</td>
+                            <td><img src="http://localhost:5001/api/Images/ba90770e-28e0-4abe-a201-5035b2125d2a.png" alt="thumbnail" class="img-thumbnail"></td>
+                            <td>100</td>
+                            <td>100</td>
+                            <td>100</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-
-<hr />
-
-<div class="create-link">
-    <a href="~/Admin/Film/Create" class="btn btn-primary btn active disable-user" role="button" aria-pressed="true">
-        Create new Film
-    </a>
-</div>
-
-<div class="userTable" style="margin-top:30px;">
-    <table id="myTable" class="table table-bordered">
-        <thead class="thead-dark">
-            <tr>
-                <th>ID</th>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Gerne</th>
-                <th>Duration</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody id="tableContent">
-            <tr>
-                <td>1</td>
-                <td><img src="http://localhost:5001/api/Images/ba90770e-28e0-4abe-a201-5035b2125d2a.png" alt="thumbnail" class="img-thumbnail"></td>
-                <td>100</td>
-                <td>100</td>
-                <td>100</td>
-                <td></td>
-            </tr>
-
-        </tbody>
-    </table>
-</div>
-
-
 
 <script>
 
@@ -58,7 +57,7 @@
             "ordering": false,
         });
 
-        LoadData('http://localhost:5001/api/Films?$expand=genre');
+        LoadData('http://localhost:5001/api/Films');
 
     });
 
@@ -74,17 +73,18 @@
             },
             success: (data) => {
                 var tr = '';
+                console.log(data)
                 for (var i = 0; i < data.length; i++) {
                     tr += ` <tr>`;
                     tr +=
                         `
                             <tr>
-                                <td>${data[i].FilmId}</td>
+                                <td>${data[i].filmId}</td>
                                 <td><img src="${imageAPI + data[i].Image}" alt="thumbnail" class="img-thumbnail" style='height:150px'></td>
-                                <td>${data[i].Title}</td>
-                                <td>${data[i].Genre.GenreName}</td>
-                                <td>${data[i].FilmDuration} minutes</td>
-                                <td><a class="btn btn-primary" href="Film/Edit?id=${data[i].FilmId}" role="button">Edit</a></td>
+                                <td>${data[i].title}</td>
+                                <td>${data[i].genre.genreName}</td>
+                                <td>${data[i].filmDuration} minutes</td>
+                                <td><a class="btn btn-primary" href="Film/Edit?id=${data[i].filmId}" role="button">Edit</a></td>
                             `;
                     tr += ` </tr>`;
                 } 
@@ -98,7 +98,7 @@
 
 </script>
 
-<style>
+@*<style>
     .userTable {
         width: 90%;
         margin: 0 auto;
@@ -111,4 +111,4 @@
     .mt-10 {
         margin-top: 10px;
     }
-</style>
+</style>*@

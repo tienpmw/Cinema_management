@@ -1,104 +1,99 @@
 ﻿@page
 @model CinemaWebClient.Pages.Admin.Room.IndexModel
 @{
-    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
 }
-
-
-<div style="display:flex; margin-bottom:50px">
-    <i class="fa-solid fa-door-open" style="font-size:50px; margin-right:5px"></i>
-    <h1>Room</h1>
+<div class="container-fluid">
+	<div class="d-sm-flex align-items-center mb-4">
+		<h1 class="h3 mb-0 text-gray-800">Room</h1>
+	</div>
+	<div class="create-link mb-4">
+		<a asp-page="/Admin/Room/Create" class="btn btn-primary btn active disable-user" role="button" aria-pressed="true">
+			Add Room
+		</a>
+	</div>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">List Room</h6>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Seats</th>
+						</tr>
+					</thead>
+					<tbody id="tableContent">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
-
-<hr />
-
-<div class="create-link">
-    <a href="~/Admin/Room/Create" class="btn btn-primary btn active disable-user" role="button" aria-pressed="true">
-        Create new Room
-    </a>
-</div>
-
-<div class="userTable" style="margin-top:30px;">
-    <table id="myTable" class="table table-bordered">
-        <thead class="thead-dark">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Number of chairs</th>
-            </tr>
-        </thead>
-        <tbody id="tableContent">
-            <tr>
-                <td>1</td>
-                <td>heeh</td>
-                <td>100</td>
-            </tr>
-
-        </tbody>
-    </table>
-</div>
-
 
 <script>
-    $(document).ready(function () {
-        $('#myTable').DataTable({
-            "searching": true,
-            "lengthChange": false,
-            "info": false,
-            "ordering": false,
-        });
+	$(document).ready(function () {
+		$('#myTable').DataTable({
+			"searching": true,
+			"lengthChange": false,
+			"info": false,
+			"ordering": false,
+		});
 
-        LoadData('http://localhost:5001/api/Rooms');
+		LoadData('http://localhost:5001/api/Rooms');
 
-    });
+	});
 
-    function LoadData(link) {
-        var tableContent = document.getElementById('tableContent');
-        tableContent.innerHTML = "";
-        $.ajax({
-            url: link,
-            type: 'GET',
-            data: {
+	function LoadData(link) {
+		var tableContent = document.getElementById('tableContent');
+		tableContent.innerHTML = "";
+		$.ajax({
+			url: link,
+			type: 'GET',
+			data: {
 
-            },
-            success: (data) => {
-                var tr = '';
-                for (var i = 0; i < data.length; i++) {
-                    tr += ` <tr>`;
-                    tr +=
-                        `
-                        <tr>
-                            <td>${data[i].roomId}</td>
-                            <td>${data[i].roomName}</td>
-                            <td>${data[i].numberRow * data[i].numberColumn}</td>
-                        `;
-                    tr += ` </tr>`;
-                }
-                tableContent.innerHTML = tr;
-            },
-            error: (err) => {
-                NotificationMessageError("Server not respone!");
-            }
-        });
-    }
+			},
+			success: (data) => {
+				var tr = '';
+				for (var i = 0; i < data.length; i++) {
+					tr += ` <tr>`;
+					tr +=
+						`
+							<tr>
+								<td>${data[i].roomId}</td>
+								<td>${data[i].roomName}</td>
+								<td>${data[i].numberRow * data[i].numberColumn}</td>
+							`;
+					tr += ` </tr>`;
+				}
+				tableContent.innerHTML = tr;
+			},
+			error: (err) => {
+				NotificationMessageError("Server not respone!");
+			}
+		});
+	}
 
-    var querySearch = "http://localhost:5001/api/Rooms ";
-    function Search() {
-        LoadData(querySearch + query);
-    }
+	var querySearch = "http://localhost:5001/api/Rooms ";
+	function Search() {
+		LoadData(querySearch + query);
+	}
 </script>
 
-<style>
-    .userTable {
-        width: 90%;
-        margin: 0 auto;
-    }
+@*<style>
+	.userTable {
+		width: 90%;
+		margin: 0 auto;
+	}
 
-    .create-link {
-        margin-left: 5%;
-    }
+	.create-link {
+		margin-left: 5%;
+	}
 
-    .mt-10 {
-        margin-top: 10px;
-    }
-</style>
+	.mt-10 {
+		margin-top: 10px;
+	}
+</style>*@

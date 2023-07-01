@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Attributes;
+using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
 namespace CinemaWebAPI.Controllers
@@ -28,7 +29,7 @@ namespace CinemaWebAPI.Controllers
 		[HttpGet]
 		public IActionResult Get()
 		{
-			return Ok(_mapper.Map<List<FilmDTO>>(new CinemaContext().Film.ToList()));
+			return Ok(_mapper.Map<List<FilmDTO>>(new CinemaContext().Film.Include(x => x.Genre).ToList()));
 		}
 
 

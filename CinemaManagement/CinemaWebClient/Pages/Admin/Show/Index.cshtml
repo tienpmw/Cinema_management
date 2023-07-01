@@ -4,7 +4,7 @@
 	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
 }
 
-<style>
+@*<style>
 	.userTable {
 		width: 90%;
 		margin: 0 auto;
@@ -17,41 +17,45 @@
 	.mt-10 {
 		margin-top: 10px;
 	}
-</style>
-<div style="display:flex; margin-bottom:50px">
-	<i class="fa-solid fa-door-open" style="font-size:50px; margin-right:5px"></i>
-	<h1>Show</h1>
-</div>
-
-<hr />
-
-<div class="create-link">
-	<a asp-page="/Admin/Show/Create" class="btn btn-primary btn active disable-user" role="button" aria-pressed="true">
-		Create new Show
-	</a>
-</div>
-
-<div class="userTable" style="margin-top:30px;">
-	<table id="myTable" class="table table-bordered">
-		<thead class="thead-dark">
-			<tr>
-				<th>ID</th>
-				<th>Film</th>
-				<th>Room</th>
-				<th>Price</th>
-				<th>Show Date</th>
-			</tr>
-		</thead>
-		<tbody id="tableContent">
-		</tbody>
-	</table>
+</style>*@
+<div class="container-fluid">
+	<div class="d-sm-flex align-items-center mb-4">
+		<h1 class="h3 mb-0 text-gray-800">Shows</h1>
+	</div>
+	<div class="create-link mb-4">
+		<a asp-page="/Admin/Show/Create" class="btn btn-primary btn active disable-user" role="button" aria-pressed="true">
+			Add Show
+		</a>
+	</div>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">List Show</h6>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="showTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Film</th>
+							<th>Room</th>
+							<th>Price</th>
+							<th>Show Date</th>
+						</tr>
+					</thead>
+					<tbody id="tableContent">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
 
 @section Scripts{
 	<script>
 		$(document).ready(function () {
-			$('#myTable').DataTable({
-				"searching": true,
+			$('#showTable').DataTable({
+				"searching": false,
 				"lengthChange": false,
 				"info": false,
 				"ordering": false,
