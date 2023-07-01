@@ -112,7 +112,6 @@ namespace CinemaManagementWebAPI
 					};
 				});
 
-
 			// Add authorization policy
 			builder.Services.AddSingleton<IAuthorizationHandler, PermissionHandler>();
 			builder.Services.AddAuthorization(opts =>

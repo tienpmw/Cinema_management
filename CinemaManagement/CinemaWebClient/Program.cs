@@ -1,4 +1,6 @@
 using CinemaWebClient.Filters;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace CinemaWebClient
 {

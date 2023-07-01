@@ -11,6 +11,8 @@ namespace DataAccess.Repositories
 {
     public class ShowRepository : IShowRepository
     {
-        public List<Show> GetShows() => ShowDAO.Instance.GetShows();
+		public void AddShow(Show show) => ShowDAO.Instance.AddShow(show);
+
+		public List<Show> GetShows() => ShowDAO.Instance.GetShows();
     }
 }

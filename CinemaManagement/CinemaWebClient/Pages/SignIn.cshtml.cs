@@ -41,10 +41,15 @@ namespace CinemaWebClient.Pages
 
 			}
 			string jsonData = await response.Content.ReadAsStringAsync();
-			UserSignInResponseDTO? userDTO = JsonSerializer.Deserialize<UserSignInResponseDTO>(jsonData);
+			var options = new JsonSerializerOptions
+			{
+				PropertyNameCaseInsensitive = true
+			};
+			UserSignInResponseDTO? userDTO = JsonSerializer.Deserialize<UserSignInResponseDTO>(jsonData, options);
+			HttpContext.Session.SetString("info", JsonSerializer.Serialize(userDTO));
 			if (userDTO.RoleName == "Admin")
 			{
-				return RedirectToPage("/Admin");
+				return RedirectToPage("/Admin/Index");
 			}
 			else
 			{
@@ -71,10 +76,15 @@ namespace CinemaWebClient.Pages
 
 			}
 			string jsonData = await response.Content.ReadAsStringAsync();
-			UserSignInResponseDTO? userDTO = JsonSerializer.Deserialize<UserSignInResponseDTO>(jsonData);
+			var options = new JsonSerializerOptions
+			{
+				PropertyNameCaseInsensitive = true
+			};
+			UserSignInResponseDTO? userDTO = JsonSerializer.Deserialize<UserSignInResponseDTO>(jsonData, options);
+			HttpContext.Session.SetString("info", JsonSerializer.Serialize(userDTO));
 			if (userDTO.RoleName == "Admin")
 			{
-				return RedirectToPage("/Admin");
+				return RedirectToPage("/Admin/Index");
 			}
 			else
 			{

@@ -9,6 +9,7 @@ namespace DataAccess.IRepositories
 {
     public interface IShowRepository
     {
-        List<Show> GetShows();
+		void AddShow(Show show);
+		List<Show> GetShows();
     }
 }

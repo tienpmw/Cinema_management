@@ -8,15 +8,17 @@ using System.Threading.Tasks;
 
 namespace DTOs
 {
-    public class ShowCreateDTO
-    {
-        [Required]
-        public long RoomId { get; set; }
-        [Required]
-        public long FilmId { get; set; }
-        [Required]
-        public long Price { get; set; }
-        [UniqueDateCreateShow]
-        public DateTime ShowDate { get; set; }
-    }
+	public class ShowCreateDTO
+	{
+		[Required]
+		public long RoomId { get; set; }
+		[Required]
+		public long FilmId { get; set; }
+		[Required(ErrorMessage = "Price not blank.")]
+		[Range(0, long.MaxValue, ErrorMessage = "Price is an integer number.")]
+		public long Price { get; set; }
+		[Required(ErrorMessage = "Show date not blank.")]
+		[UniqueDateCreateShow]
+		public DateTime ShowDate { get; set; }
+	}
 }
