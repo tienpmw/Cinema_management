@@ -58,8 +58,7 @@
 							<th>Actions</th>
 						</tr>
 					</thead>
-					<tbody id="tableContent">
-					</tbody>
+					<tbody id="tableContent"></tbody>
 				</table>
 			</div>
 		</div>
@@ -70,18 +69,12 @@
 
 	<script>
 		$(document).ready(function () {
-
-			$('#userTable').DataTable({
-				"searching": false,
-				"lengthChange": false,
-				"info": false,
-				"ordering": false,
-			});
 			LoadData('http://localhost:5001/odata/Users?$expand=Role');
 		});
 
 		function LoadData(link) {
 			var tableContent = document.getElementById('tableContent');
+			var initedDataTable = tableContent.innerHTML != "";
 			tableContent.innerHTML = "";
 			$.ajax({
 				url: link,
@@ -94,18 +87,26 @@
 					for (var i = 0; i < data.length; i++) {
 						tr +=
 							`
-																	<tr>
-																		<td>${data[i].UserId}</td>
-																		<td>${data[i].Email}</td>
-																		<td>${data[i].FirstName}</td>
-																		<td>${data[i].LastName}</td>
-																		<td>${data[i].AccountBalance}</td>
-																		<td>${data[i].Role.RoleName}</td>
-																		<td>${data[i].IsActive == true ? "Actived" : "Banned"}</td>
-																		<td><a class="btn btn-primary" href="/Admin/User/Edit/${data[i].UserId}">Edit</a></td>
-																	</tr>`;
+									<tr>
+										<td>${data[i].UserId}</td>
+										<td>${data[i].Email}</td>
+										<td>${data[i].FirstName}</td>
+										<td>${data[i].LastName}</td>
+										<td>${data[i].AccountBalance}</td>
+										<td>${data[i].Role.RoleName}</td>
+										<td>${data[i].IsActive == true ? "Actived" : "Banned"}</td>
+										<td><a class="btn btn-primary" href="/Admin/User/Edit/${data[i].UserId}">Edit</a></td>
+										</tr>`;
 					}
 					tableContent.innerHTML += tr;
+					if (!initedDataTable) {
+						$(document).ready(function () {
+							$('#myTable').DataTable({
+								pagingType: 'full',
+								"lengthChange": false,
+							});
+						});
+					}
 				},
 				error: (err) => {
 					NotificationMessageError("Server not respone!");
@@ -113,8 +114,21 @@
 			});
 		}
 
-		var querySearch = "http://localhost:5001/odata/Users?$expand=Role ";
+		var querySearch = "http://localhost:5001/odata/Users?$expand=Role & ";
 		function Search() {
+			var valueID = document.getElementById("txtSearchById").value;
+			var valueEmail = document.getElementById("txtSearchByEmail").value;
+			var valueRole = document.getElementById("txtSearchByRole").value;
+			var rawValueStautus = document.getElementById("txtSearchByStatus").value;
+
+
+			var query = "";
+			query += MakeQueryConditionContainStringCastingNumToString("UserId", valueID, true);
+			query += MakeQueryConditionContainString("Email", valueEmail, false);
+			query += MakeQueryConditionContainString("Role/RoleName", valueRole, false);
+			if (rawValueStautus != -1) {
+				query += MakeQueryEqual("IsActive", rawValueStautus === '1', false);
+			}
 			LoadData(querySearch + query);
 		}
 	</script>

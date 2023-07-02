@@ -81,15 +81,7 @@
 @section Scripts{
 	<script>
 		$(document).ready(function () {
-			$('#showTable').DataTable({
-				"searching": false,
-				"lengthChange": false,
-				"info": false,
-				"ordering": false,
-			});
-
 			LoadData('http://localhost:5001/api/Shows');
-
 		});
 
 		function LoadData(link) {
@@ -114,6 +106,12 @@
 							</tr>`;
 					}
 					tableContent.innerHTML = tr;
+					$(document).ready(function () {
+						$('#myTable').DataTable({
+							pagingType: 'full',
+							"lengthChange": false,
+						});
+					});
 				},
 				error: (err) => {
 					NotificationMessageError("Server not respone!");

@@ -20,11 +20,9 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Description</label>
-        <textarea id="w3review" name="w3review" rows="4" cols="50" 
-            placeholder="Input description of the deposit"
+        <textarea id="editor"  rows="4" cols="50"
             class="form-control"
         >
-
         </textarea>
     </div>
 </form>
@@ -47,7 +45,13 @@
         }
     });
 
- 
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable', 'imageUpload', 'undo', 'redo'],
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
     //prevent key
     document.getElementById("amount").addEventListener("keydown", (event) => {

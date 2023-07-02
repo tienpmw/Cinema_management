@@ -50,20 +50,13 @@
 
 
     $(document).ready(function () {
-        $('#myTable').DataTable({
-            "searching": true,
-            "lengthChange": false,
-            "info": false,
-            "ordering": false,
-        });
-
         LoadData('http://localhost:5001/api/Films');
-
     });
 
     function LoadData(link) {
         var tableContent = document.getElementById('tableContent');
         var imageAPI = "http://localhost:5001/api/Images/";
+        var initedDataTable = tableContent.innerHTML != "";
         tableContent.innerHTML = "";
         $.ajax({
             url: link,
@@ -78,9 +71,8 @@
                     tr += ` <tr>`;
                     tr +=
                         `
-                            <tr>
                                 <td>${data[i].filmId}</td>
-                                <td><img src="${imageAPI + data[i].Image}" alt="thumbnail" class="img-thumbnail" style='height:150px'></td>
+                                <td><img src="${imageAPI + data[i].image}" alt="thumbnail" class="img-thumbnail" style='height:150px'></td>
                                 <td>${data[i].title}</td>
                                 <td>${data[i].genre.genreName}</td>
                                 <td>${data[i].filmDuration} minutes</td>
@@ -89,6 +81,14 @@
                     tr += ` </tr>`;
                 } 
                 tableContent.innerHTML = tr;
+                if (!initedDataTable) {
+                    $(document).ready(function () {
+                        $('#myTable').DataTable({
+                            pagingType: 'full',
+                            "lengthChange": false,
+                        });
+                    });
+                }
             },
             error: (err) => {
                 NotificationMessageError("Server not respone!");

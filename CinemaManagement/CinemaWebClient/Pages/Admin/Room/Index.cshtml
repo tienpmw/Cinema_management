@@ -36,15 +36,7 @@
 
 <script>
 	$(document).ready(function () {
-		$('#myTable').DataTable({
-			"searching": true,
-			"lengthChange": false,
-			"info": false,
-			"ordering": false,
-		});
-
 		LoadData('http://localhost:5001/api/Rooms');
-
 	});
 
 	function LoadData(link) {
@@ -62,7 +54,6 @@
 					tr += ` <tr>`;
 					tr +=
 						`
-							<tr>
 								<td>${data[i].roomId}</td>
 								<td>${data[i].roomName}</td>
 								<td>${data[i].numberRow * data[i].numberColumn}</td>
@@ -70,6 +61,12 @@
 					tr += ` </tr>`;
 				}
 				tableContent.innerHTML = tr;
+				$(document).ready(function () {
+					$('#myTable').DataTable({
+						pagingType: 'full',
+						"lengthChange": false,
+					});
+				});
 			},
 			error: (err) => {
 				NotificationMessageError("Server not respone!");
