@@ -7,7 +7,7 @@
 
 <h2 class="text-center">Request Recharge</h2>
 
-<form style="margin: 0 auto; width:400px;" action="~/Transaction/Payment">
+<form style="margin: 0 auto; width:400px;" action="~/Transaction/Payment" id="form">
     <input type="hidden" name="id" value="1"/>
     <div class="mb-3">
         <label class="form-label">Amount <span style="color:red;font-weight:bold">*</span></></label>
@@ -27,32 +27,25 @@
 
         </textarea>
     </div>
-    <input type="submit" class="btn btn-info btn-lg" value="Submit"/>
 </form>
+<input type="submit" class="btn btn-info btn-lg" id="btnSubmit" value="Submit" />
 
 
 
 <script>
 
-    function payButtonClick() {
+    document.getElementById("btnSubmit").addEventListener("click", (event) => {
         var amount = document.querySelector("#amount").value;
-        var info = "";
-        //getCodeRecharge(1, parseInt(amount.replaceAll(",", "")))
-
-        var vietQrUrl = "https://img.vietqr.io/image/MB-0336687454-compact.png?accountName=LE%20DUC%20HIEU";
-        vietQrUrl += "&amount=" + amount.replaceAll(",", "");
-        vietQrUrl += "&addInfo=" + info;
-
-
-        var img = `<img src='` + vietQrUrl + `' alt="QR Thanh toán" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">`;
-        $(document).ready(function () {
-            document.getElementById("qrCode").innerHTML = img;
-            document.getElementById("qrAmount").innerHTML = amount + " VND";
-            document.getElementById("qrContent").innerHTML = info;
-        });
-       
-       
-    }
+        var amountValue = parseInt(amount.replaceAll(",", ""));
+        if (amountValue < 10000) {
+            NotificationMessageError("Amount must be grater than 10,000 VND");
+            event.preventDefault()
+            return;
+        }else{
+            console.log("submit");
+            document.querySelector("#form").submit();
+        }
+    });
 
  
 
@@ -71,12 +64,13 @@
     function inputAmount(){
         var amount = document.querySelector("#amount").value;
         amount = amount.replaceAll(",", "");
-        
+        /*
         if(amount.length === 0 || parseInt(amount) < 10000){
             amount = "10,000";
             document.querySelector("#amount").value = amount;
             return;
         }
+        */
         var formatVND = formatStringToCurrencyVND(amount);
         document.querySelector("#amount").value = formatVND;
     }
@@ -85,4 +79,5 @@
 
 
 </script>
+
 
