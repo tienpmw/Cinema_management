@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N4/MuJV+kwF9DQgSOgBtnA9N030bvdwTrqtEiNnJr3ns0686E7ewekzU+Wkd7JkTIzdscVs9B4OjEDK6nHwYZw==",
+  "dgSpecHash": "NDawgoNEZIhpSWHnwydRyau4eses3qIF1ZbM5GBfZ0u/7Htpma1y3fgziG+84ljouMFYYa2ajZDlNgpD7YAh8A==",
   "success": true,
-  "projectFilePath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj",
+  "projectFilePath": "E:\\cinema-management\\CinemaManagement\\BusinessObject\\BusinessObject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

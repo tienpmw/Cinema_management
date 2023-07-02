@@ -25,7 +25,8 @@
 				</div>
 				<div class="d-flex mt-3">
 					<label class="form-label" style="width:15%"><b>Role</b></label>
-					<input id="txtSearchByRole" class="form-control" type="text" />
+					<select id="txtSearchByRole" class="form-control" asp-items="Model.Roles">
+					</select>
 				</div>
 				<div class="d-flex mt-3">
 					<label class="form-label" style="width:15%"><b>Status</b></label>
@@ -45,7 +46,7 @@
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
-				<table class="table table-bordered" id="userTable" width="100%" cellspacing="0">
+				<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
 							<th>ID</th>
@@ -87,16 +88,16 @@
 					for (var i = 0; i < data.length; i++) {
 						tr +=
 							`
-									<tr>
-										<td>${data[i].UserId}</td>
-										<td>${data[i].Email}</td>
-										<td>${data[i].FirstName}</td>
-										<td>${data[i].LastName}</td>
-										<td>${data[i].AccountBalance}</td>
-										<td>${data[i].Role.RoleName}</td>
-										<td>${data[i].IsActive == true ? "Actived" : "Banned"}</td>
-										<td><a class="btn btn-primary" href="/Admin/User/Edit/${data[i].UserId}">Edit</a></td>
-										</tr>`;
+											<tr>
+												<td>${data[i].UserId}</td>
+												<td>${data[i].Email}</td>
+												<td>${data[i].FirstName}</td>
+												<td>${data[i].LastName}</td>
+												<td>${data[i].AccountBalance}</td>
+												<td>${data[i].Role.RoleName}</td>
+												<td>${data[i].IsActive == true ? "Actived" : "Banned"}</td>
+												<td><a class="btn btn-primary" href="/Admin/User/Edit/${data[i].UserId}">Edit</a></td>
+												</tr>`;
 					}
 					tableContent.innerHTML += tr;
 					if (!initedDataTable) {
@@ -104,6 +105,8 @@
 							$('#myTable').DataTable({
 								pagingType: 'full',
 								"lengthChange": false,
+								searching: false,
+								"bDestroy": true
 							});
 						});
 					}
@@ -125,7 +128,10 @@
 			var query = "";
 			query += MakeQueryConditionContainStringCastingNumToString("UserId", valueID, true);
 			query += MakeQueryConditionContainString("Email", valueEmail, false);
-			query += MakeQueryConditionContainString("Role/RoleName", valueRole, false);
+			//query += MakeQueryConditionContainString("Role/RoleName", valueRole, false);
+			if (valueRole != -1) {
+				query += MakeQueryEqual("RoleId", valueRole, false);
+			}
 			if (rawValueStautus != -1) {
 				query += MakeQueryEqual("IsActive", rawValueStautus === '1', false);
 			}

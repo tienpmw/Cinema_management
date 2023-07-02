@@ -5,59 +5,62 @@
 }
 
 <div class="container-fluid">
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">Edit Film</h6>
+		</div>
+		<div class="card-body row">
+			<form method="post" class="col-md-5" enctype="multipart/form-data">
 
+				<input asp-for="@Model.FilmDTO.FilmId" type="hidden" class="form-control">
+				<input asp-for="@Model.FilmDTO.Image" type="hidden" class="form-control">
 
-	<div class="d-sm-flex align-items-center mb-4">
-		<h1 class="h3 mb-0 text-gray-800" style="text-shadow: 0px 5px 20px gray;">Edit Film</h1>
+				<div class="mb-3">
+					<label class="form-label"><b>Title</b></label>
+					<input asp-for="@Model.FilmDTO.Title" type="text" class="form-control">
+					<span asp-validation-for="@Model.FilmDTO.Title" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label for="formFile" class="form-label">Image</label>
+					<input class="form-control" type="file" id="formFile" asp-for="@Model.ImageFile" name="imageFile">
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label"><b>Genre</b></label>
+					<select asp-items="@(new SelectList(Model.Genres,"GenreId","GenreName"))" asp-for="@Model.FilmDTO.GenreId" class="form-control"></select>
+					<span asp-validation-for="@Model.FilmDTO.GenreId" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label"><b>Duration</b></label>
+					<input asp-for="@Model.FilmDTO.FilmDuration" type="number" class="form-control" placeholder="Input number column">
+					<span asp-validation-for="@Model.FilmDTO.FilmDuration" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label"><b>Country</b></label>
+					<select asp-items="@(new SelectList(Model.Countries,"CountryCode","CountryName"))" asp-for="@Model.FilmDTO.CountryCode" class="form-control"></select>
+					<span asp-validation-for="@Model.FilmDTO.CountryCode" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label"><b>Description</b></label>
+					<textarea asp-for="@Model.FilmDTO.Description" id="editor"></textarea>
+					<span asp-validation-for="@Model.FilmDTO.Description" class="text-danger"></span>
+				</div>
+
+				@if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == false)
+				{
+					<div class="mb-3 d-flex">
+						<span class="text-danger">@Model.Message</span>
+					</div>
+				}
+				<input type="submit" class="btn btn-primary" value="Save" />
+			</form>
+		</div>
 	</div>
-	<form method="post" class="col-md-5" style="margin-left:10%" enctype="multipart/form-data">
 
-		<input asp-for="@Model.FilmDTO.FilmId" type="hidden" class="form-control">
-		<input asp-for="@Model.FilmDTO.Image" type="hidden" class="form-control">
-
-		<div class="mb-3">
-			<label class="form-label"><b>Title</b></label>
-			<input asp-for="@Model.FilmDTO.Title" type="text" class="form-control">
-			<span asp-validation-for="@Model.FilmDTO.Title" class="text-danger"></span>
-		</div>
-
-		<div class="mb-3">
-			<label for="formFile" class="form-label">Image</label>
-			<input class="form-control" type="file" id="formFile" asp-for="@Model.ImageFile" name="imageFile">
-		</div>
-
-		<div class="mb-3">
-			<label class="form-label"><b>Genre</b></label>
-			<select asp-items="@(new SelectList(Model.Genres,"GenreId","GenreName"))" asp-for="@Model.FilmDTO.GenreId" class="form-control"></select>
-			<span asp-validation-for="@Model.FilmDTO.GenreId" class="text-danger"></span>
-		</div>
-
-		<div class="mb-3">
-			<label class="form-label"><b>Duration</b></label>
-			<input asp-for="@Model.FilmDTO.FilmDuration" type="number" class="form-control" placeholder="Input number column">
-			<span asp-validation-for="@Model.FilmDTO.FilmDuration" class="text-danger"></span>
-		</div>
-
-		<div class="mb-3">
-			<label class="form-label"><b>Country</b></label>
-			<select asp-items="@(new SelectList(Model.Countries,"CountryCode","CountryName"))" asp-for="@Model.FilmDTO.CountryCode" class="form-control"></select>
-			<span asp-validation-for="@Model.FilmDTO.CountryCode" class="text-danger"></span>
-		</div>
-
-		<div class="mb-3">
-			<label class="form-label"><b>Description</b></label>
-			<textarea asp-for="@Model.FilmDTO.Description" id="editor"></textarea>
-			<span asp-validation-for="@Model.FilmDTO.Description" class="text-danger"></span>
-		</div>
-
-		@if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == false)
-		{
-			<div class="mb-3 d-flex">
-				<span class="text-danger">@Model.Message</span>
-			</div>
-		}
-		<input type="submit" class="btn btn-primary" value="Save" />
-	</form>
 </div>
 @if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == true)
 {

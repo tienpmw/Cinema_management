@@ -4,20 +4,6 @@
 	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
 }
 
-@*<style>
-	.userTable {
-		width: 90%;
-		margin: 0 auto;
-	}
-
-	.create-link {
-		margin-left: 5%;
-	}
-
-	.mt-10 {
-		margin-top: 10px;
-	}
-</style>*@
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center mb-4">
 		<h1 class="h3 mb-0 text-gray-800" style="text-shadow: 0px 5px 20px gray;">Shows</h1>
@@ -41,8 +27,10 @@
 					<label class="form-label" style="width:15%"><b>Room</b></label>
 					<select id="txtSearchByRoom" class="form-control">
 						<option value="-1" selected>Select option</option>
-						<option value="1">Paid</option>
-						<option value="0">UnPaid</option>
+						@foreach (var item in Model.Rooms)
+						{
+							<option value="@item.RoomId">@item.RoomName</option>
+						}
 					</select>
 				</div>
 				<button class="btn btn-primary" style="margin-top:15px; margin-left: 80%;" onclick="Search()">Search</button>
@@ -60,7 +48,7 @@
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
-				<table class="table table-bordered" id="showTable" width="100%" cellspacing="0">
+				<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
 							<th>ID</th>
@@ -68,6 +56,7 @@
 							<th>Room</th>
 							<th>Price</th>
 							<th>Show Date</th>
+							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody id="tableContent">
@@ -98,18 +87,21 @@
 					for (var i = 0; i < data.length; i++) {
 						tr +=
 							`<tr>
-								<td>${data[i].showId}</td>
-								<td>${data[i].film.title}</td>
-								<td>${data[i].room.roomName}</td>
-								<td>${data[i].price}</td>
-								<td>${data[i].showDate}</td>
-							</tr>`;
+														<td>${data[i].showId}</td>
+														<td>${data[i].film.title}</td>
+														<td>${data[i].room.roomName}</td>
+														<td>${data[i].price}</td>
+														<td>${data[i].showDate}</td>
+														<td><a href="/Admin/Show/Edit?id=${data[i].showId}" class="btn btn-primary">Edit</a></td>
+													</tr>`;
 					}
 					tableContent.innerHTML = tr;
 					$(document).ready(function () {
 						$('#myTable').DataTable({
 							pagingType: 'full',
 							"lengthChange": false,
+							searching: false,
+							"bDestroy": true
 						});
 					});
 				},
@@ -119,8 +111,20 @@
 			});
 		}
 
-		var querySearch = "http://localhost:5001/api/Shows ";
+		var querySearch = "http://localhost:5001/api/Shows?";
 		function Search() {
+			var valueID = document.getElementById("txtSearchById").value;
+			var valueTitle = document.getElementById("txtSearchByTitle").value;
+			var valueRoom = document.getElementById("txtSearchByRoom").value;
+
+
+			var query = "";
+			query += MakeQueryConditionContainStringCastingNumToString("ShowId", valueID, true);
+			query += MakeQueryConditionContainString("Film/Title", valueTitle, false);
+			if (valueRoom != -1) {
+				query += MakeQueryEqual("RoomId", valueRoom, false);
+			}
+			console.log(querySearch + query);
 			LoadData(querySearch + query);
 		}
 	</script>

@@ -5,36 +5,39 @@
 }
 
 <div class="container-fluid">
-	<div class="d-sm-flex align-items-center mb-4">
-		<h1 class="h3 mb-0 text-gray-800" style="text-shadow: 0px 5px 20px gray;">Create Room</h1>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">Create Room</h6>
+		</div>
+		<div class="card-body row">
+			<form method="post" class="col-md-4">
+				<div class="mb-3">
+					<label class="form-label"><b>Name</b></label>
+					<input asp-for="@Model.RoomDTO.RoomName" type="text" class="form-control" placeholder="Input room's name'">
+					<span asp-validation-for="@Model.RoomDTO.RoomName" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label class="form-label"><b>Number of Rows</b></label>
+					<input asp-for="@Model.RoomDTO.NumberRow" type="number" class="form-control" placeholder="Input number row" value="0">
+					<span asp-validation-for="@Model.RoomDTO.NumberRow" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label"><b>Number of Columns</b></label>
+					<input asp-for="@Model.RoomDTO.NumberColumn" type="number" class="form-control" placeholder="Input number column" value="0">
+					<span asp-validation-for="@Model.RoomDTO.NumberColumn" class="text-danger"></span>
+				</div>
+
+				@if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == false)
+				{
+					<div class="mb-3 d-flex">
+						<span class="text-danger">@Model.Message</span>
+					</div>
+				}
+				<input type="submit" class="btn btn-primary" value="Save" />
+			</form>
+		</div>
 	</div>
-	<form method="post" class="col-md-4" style="margin-left:10%">
-
-		<div class="mb-3">
-			<label class="form-label"><b>Name</b></label>
-			<input asp-for="@Model.RoomDTO.RoomName" type="text" class="form-control" placeholder="Input room's name'">
-			<span asp-validation-for="@Model.RoomDTO.RoomName" class="text-danger"></span>
-		</div>
-		<div class="mb-3">
-			<label class="form-label"><b>Number of Rows</b></label>
-			<input asp-for="@Model.RoomDTO.NumberRow" type="number" class="form-control" placeholder="Input number row" value="0">
-			<span asp-validation-for="@Model.RoomDTO.NumberRow" class="text-danger"></span>
-		</div>
-
-		<div class="mb-3">
-			<label class="form-label"><b>Number of Columns</b></label>
-			<input asp-for="@Model.RoomDTO.NumberColumn" type="number" class="form-control" placeholder="Input number column" value="0">
-			<span asp-validation-for="@Model.RoomDTO.NumberColumn" class="text-danger"></span>
-		</div>
-
-		@if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == false)
-		{
-			<div class="mb-3 d-flex">
-				<span class="text-danger">@Model.Message</span>
-			</div>
-		}
-		<input type="submit" class="btn btn-primary" value="Save" />
-	</form>
 </div>
 @if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == true)
 {

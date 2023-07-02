@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using BusinessObject.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,6 +16,7 @@ namespace DTOs
         public long FilmId { get; set; }
         public long Price { get; set; }
         public string? SeatStatus { get; set; }
+        [UniqueDateEditShow]
         public DateTime ShowDate { get; set; }
         public virtual RoomDTO? Room { get; set; } = null!;
         public virtual FilmDTO? Film { get; set; } = null!;

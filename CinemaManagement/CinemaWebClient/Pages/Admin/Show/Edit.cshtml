@@ -1,0 +1,47 @@
+﻿@page
+@model CinemaWebClient.Pages.Admin.Show.EditModel
+@{
+	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">Edit Show</h6>
+		</div>
+		<div class="card-body row">
+			<form method="post" class="col-md-4">
+				<div class="mb-3">
+					<label class="form-label"><b>Show ID</b></label>
+					<input asp-for="Show.ShowId" class="form-control" readonly />
+				</div>
+				<div class="mb-3">
+					<label class="form-label"><b>Film</b></label>
+					<input asp-for="Show.Film.Title" class="form-control" readonly />
+				</div>
+				<div class="mb-3">
+					<label class="form-label"><b>Room</b></label>
+					<input asp-for="Show.Room.RoomName" class="form-control" readonly />
+				</div>
+				<div class="mb-3">
+					<label class="form-label"><b>Price</b></label>
+					<input asp-for="Show.Price" class="form-control" readonly />
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label"><b>ShowDate</b></label>
+					<input asp-for="Show.ShowDate" class="form-control">
+					<span asp-validation-for="Show.ShowDate" class="text-danger"></span>
+				</div>
+
+				<input type="submit" class="btn btn-primary" value="Save" />
+			</form>
+		</div>
+	</div>
+
+</div>
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

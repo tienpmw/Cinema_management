@@ -10,6 +10,10 @@ namespace DataAccess.IRepositories
     public interface IShowRepository
     {
 		void AddShow(Show show);
+		List<dynamic> GetEarningAnnual();
+		long GetEarningMonthly();
+		Show? GetShowById(long id);
 		List<Show> GetShows();
-    }
+		void UpdateShow(Show show);
+	}
 }
