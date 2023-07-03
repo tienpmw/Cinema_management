@@ -21,8 +21,6 @@ namespace CinemaWebClient.Pages.Admin.Film
         public IFormFile ImageFile { get; set; }
 
         [BindProperty]
-        public bool StatusRequest { get; set; }
-        [BindProperty]
         public string Message { get; set; }
 
         private readonly HttpClient client = null;
@@ -33,7 +31,6 @@ namespace CinemaWebClient.Pages.Admin.Film
             client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             Message = string.Empty;
-            StatusRequest = false;
         }
         public async Task<IActionResult> OnGet(int id)
         {
@@ -73,30 +70,31 @@ namespace CinemaWebClient.Pages.Admin.Film
 
             HttpResponseMessage responeSubmitData = null;
 
-            if (ImageFile != null && ImageFile.Length > 0)
+            using (var httpClient = client)
             {
-                using (var httpClient = client)
+                var formData = new MultipartFormDataContent();
+                if (ImageFile != null && ImageFile.Length > 0)
                 {
-                    var formData = new MultipartFormDataContent();
                     formData.Add(new StreamContent(ImageFile.OpenReadStream()), "imageFile", ImageFile.FileName);
-                    var jsonData = JsonSerializer.Serialize(FilmDTO);
-                    formData.Add(new StringContent(jsonData, Encoding.UTF8, "application/json"), "filmDTO");
-
-                    var apiUrl = "http://localhost:5001/api/Films";
-                    var response = await httpClient.PutAsync(apiUrl, formData);
-                    responeSubmitData = response;
-                    Message = await response.Content.ReadAsStringAsync();
                 }
+                var jsonData = JsonSerializer.Serialize(FilmDTO);
+                formData.Add(new StringContent(jsonData, Encoding.UTF8, "application/json"), "filmDTO");
+
+                var apiUrl = "http://localhost:5001/api/Films";
+                var response = await httpClient.PutAsync(apiUrl, formData);
+                responeSubmitData = response;
+                Message = await response.Content.ReadAsStringAsync();
             }
 
 
             if (responeSubmitData.StatusCode != System.Net.HttpStatusCode.Conflict && responeSubmitData.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 Message = "Some thing went wrong! Try again!";
+                return Page();
             }
-            if (responeSubmitData.IsSuccessStatusCode) StatusRequest = true;
 
-            return Page();
+            TempData["SuccessMsg"] = Message;
+            return RedirectToPage("/Admin/Film/Index");
         }
     }
 }

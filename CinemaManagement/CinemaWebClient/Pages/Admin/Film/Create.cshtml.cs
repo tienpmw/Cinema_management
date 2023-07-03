@@ -26,8 +26,6 @@ namespace CinemaWebClient.Pages.Admin.Film
         public IFormFile ImageFile { get; set; }    
 
         [BindProperty]
-        public bool StatusRequest { get; set; }
-        [BindProperty]
         public string Message { get; set; }
 
         private readonly HttpClient client = null;
@@ -38,7 +36,6 @@ namespace CinemaWebClient.Pages.Admin.Film
             client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             Message = string.Empty;
-            StatusRequest = false;
         }
         public async Task<IActionResult> OnGet()
         {
@@ -94,10 +91,10 @@ namespace CinemaWebClient.Pages.Admin.Film
             if (responeSubmitData.StatusCode != System.Net.HttpStatusCode.Conflict && responeSubmitData.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 Message = "Some thing went wrong! Try again!";
+                return Page();
             }
-            if (responeSubmitData.IsSuccessStatusCode) StatusRequest = true;
-
-            return Page();
+            TempData["SuccessMsg"] = Message;
+            return RedirectToPage("/Admin/Film/Index");
         }
     }
 }

@@ -54,22 +54,25 @@ namespace DataAccess.DAOs
             if(IsFilmTitleExisted(film.Title) && film.Title != filmUpdate.Title) throw new Exception("Film's title was existed!");
 
             // change image
-            //add new image
-            Util util = new Util();
-            string pathFolder = "\\Data\\Images";
-            string pathFolderImage = Directory.GetCurrentDirectory() + pathFolder;
-            string fileNameNewImage = Guid.NewGuid().ToString() + image.FileName.Substring(image.FileName.LastIndexOf("."));
-            util.SaveFile(image, pathFolderImage, fileNameNewImage);
-            // remove old image
-            util.DeleteFile(image, pathFolderImage, film.Image);
+            if(image != null)
+            {
+                Util util = new Util();
+                string pathFolder = "\\Data\\Images";
+                string pathFolderImage = Directory.GetCurrentDirectory() + pathFolder;
+                string fileNameNewImage = Guid.NewGuid().ToString() + image.FileName.Substring(image.FileName.LastIndexOf("."));
+                util.SaveFile(image, pathFolderImage, fileNameNewImage);
+                // remove old image
+                util.DeleteFile(image, pathFolderImage, film.Image);
 
-            
+                // update file name img of film info
+                filmUpdate.Image = fileNameNewImage;
+            }
+          
             //updae film info
             filmUpdate.GenreId = film.GenreId;
             filmUpdate.CountryCode = film.CountryCode;  
             filmUpdate.Title = film.Title;
             filmUpdate.Description = film.Description;
-            filmUpdate.Image = fileNameNewImage;
             filmUpdate.FilmDuration = film.FilmDuration;
             cinemaContext.Film.Update(filmUpdate);
             cinemaContext.SaveChanges();
