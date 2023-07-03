@@ -35,7 +35,7 @@
     document.getElementById("btnSubmit").addEventListener("click", (event) => {
         var amount = document.querySelector("#amount").value;
         var amountValue = parseInt(amount.replaceAll(",", ""));
-        if (amountValue < 10000) {
+        if (amountValue < 10000 || amount.length === 0) {
             NotificationMessageError("Amount must be grater than 10,000 VND");
             event.preventDefault()
             return;
