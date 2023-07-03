@@ -3,37 +3,29 @@
 @{
 }
 <div class="row py-3">
-	<div class="col-md-4" style="height: 380px;">
-		<img class="w-100 h-100" style="object-fit:cover; border-radius: 10px;" src="http://localhost:5001/images/@Model.Film.Image" />
+	<div class="col-md-3" style="height: 380px;">
+		<img class="w-100 h-100" style="object-fit:cover; border-radius: 10px;" src="http://localhost:5001/api/Images/@Model.Film.Image" />
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-9">
 		<h4>@Model.Film.Title</h4>
-		<dl class="row">
-			<dt class="col-sm-2">
-				Description
-			</dt>
-			<dd class="col-sm-10">
-				@Model.Film.Description
-			</dd>
-			<dt class="col-sm-2">
-				Genre
-			</dt>
-			<dd class="col-sm-10">
-				@Model.Film.Genre.GenreName
-			</dd>
-			<dt class="col-sm-2">
-				Duration
-			</dt>
-			<dd class="col-sm-10">
-				@(Model.Film.FilmDuration) Minutes
-			</dd>
-			<dt class="col-sm-2">
-				Release Date
-			</dt>
-			<dd class="col-sm-10">
-				@(Model.Film.DateRelease?.ToString("dd/MM/yyyy") ?? "")
-			</dd>
-		</dl>
+		<table class="table-responsive">
+            <tr>
+                <th>Description &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                <td>@Model.Film.Description</td>
+            </tr>
+            <tr>
+                <th>Genre &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                <td>@Model.Film.Genre.GenreName</td>
+            </tr>
+            <tr>
+                <th>Duration &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                <td>@(Model.Film.FilmDuration) Minutes</td>
+            </tr>
+            <tr>
+                <th>Date Release &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+                <td>@(Model.Film.DateRelease?.ToString("dd/MM/yyyy") ?? "")</td>
+            </tr>
+        </table>
 	</div>
 	<hr class="dropdown-divider my-3" />
 	@if (Model.Film.Shows.Count > 0)
@@ -59,7 +51,6 @@
         <div class="text-center">Don't have any show!</div>
     }
 </div>
-
 @*<div class="container">
     <h3 class="margin-bottom-20">Home &gt; <span style="color:#03599D" id="filmTitleNavigation"></span></h3>
     <div class="row">

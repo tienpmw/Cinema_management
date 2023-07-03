@@ -133,3 +133,11 @@ function ParseDateTime(inputDate) {
     const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
     return formattedDate;
 }
+function CompareValueGreaterDateNow(value) {
+    const dateNow = new Date();
+    const dateValue = new Date(value);
+    if (dateValue > dateNow) {
+        return true;
+    }
+    return false;
+}

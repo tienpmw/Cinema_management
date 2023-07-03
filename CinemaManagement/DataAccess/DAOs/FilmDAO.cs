@@ -92,6 +92,6 @@ namespace DataAccess.DAOs
 
 		public long CountFilm() => GetAll().Count();
 
-		public List<Film> GetAll() => new CinemaContext().Film.ToList();
+		public List<Film> GetAll() => new CinemaContext().Film.Include(x => x.Genre).Include(x => x.Shows).ToList();
 	}
 }

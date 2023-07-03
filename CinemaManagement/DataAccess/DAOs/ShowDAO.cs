@@ -141,28 +141,29 @@ namespace DataAccess.DAOs
 					Earning = 0
 				},
 			};
-			var lsEarningByMonth = from b in context.Booking
+            List<dynamic> lsEarningByMonth = (from b in context.Booking
 								   where b.DateBooking.Year == DateTime.Now.Year && b.DateBooking.Month == DateTime.Now.Month && b.IsPay == true
 								   group b by new { b.DateBooking.Month } into tb1
 								   select new
 								   {
 									   Month = tb1.Key.Month,
 									   Earning = tb1.Sum(x => x.Amount)
-								   };
+								   }).ToList<dynamic>();
 			if (lsEarningByMonth.Count() == 0)
 			{
 				return list;
 			}
-			var result = from l in list
-						 join e in lsEarningByMonth.ToList()
-						 on l.Month equals e.Month into tb2
-						 from tb3 in tb2.DefaultIfEmpty()
-						 select new
-						 {
-							 Month = l.Month,
-							 Earning = tb3.Earning
-						 };
-			return result.ToList<dynamic>();
+
+			List < dynamic > result = (from l in list
+									   join e in lsEarningByMonth
+									   on l.Month equals e.Month into tb2
+									   from tb3 in tb2.DefaultIfEmpty()
+									   select new
+									   {
+										   Month = l.Month,
+										   Earning = tb3?.Earning ?? 0
+									   }).ToList<dynamic>();
+			return result;
 		}
 
 		public Show? GetShowById(long id)

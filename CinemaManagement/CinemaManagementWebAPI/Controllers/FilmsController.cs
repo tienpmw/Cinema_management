@@ -29,7 +29,7 @@ namespace CinemaWebAPI.Controllers
 		[HttpGet]
 		public IActionResult Get()
 		{
-			return Ok(_mapper.Map<List<FilmDTO>>(new CinemaContext().Film.Include(x => x.Genre).ToList()));
+			return Ok(_mapper.Map<List<FilmDTO>>(_filmRepository.GetAll())) ;
 		}
 
 
