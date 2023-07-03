@@ -69,6 +69,15 @@ namespace DataAccess.DAOs
             }
         }
 
+        public void RemoveExpiredTransaction(int days)
+        {
+            CinemaContext cinemaContext = new CinemaContext();
+            var transactionsExpired = cinemaContext.Transaction.Where(x => x.RequestDate < DateTime.Now.AddDays(-days) && x.IsPay == false).ToList();
+            if (transactionsExpired.Count() == 0) return;
+            cinemaContext.Transaction.RemoveRange(transactionsExpired);
+            cinemaContext.SaveChanges();
+        }
+
         public bool IsTransactionExisted(string desription, long amount)
         {
             CinemaContext cinemaContext = new CinemaContext();

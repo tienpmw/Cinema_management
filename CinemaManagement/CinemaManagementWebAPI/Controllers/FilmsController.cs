@@ -42,8 +42,14 @@ namespace CinemaWebAPI.Controllers
 			return Ok(filmDTO);
 		}
 
+        [HttpGet("TotalFilms")]
+        public IActionResult GetTotalFilm()
+        {
+            return Ok(new CinemaContext().Film.ToList().Count());
+        }
 
-		[HttpPost]
+
+        [HttpPost]
 		public IActionResult Post()
 		{
 

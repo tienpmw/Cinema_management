@@ -85,13 +85,14 @@
 				success: (data) => {
 					var tr = '';
 					for (var i = 0; i < data.length; i++) {
+						var formatShowDate = ParseDateTime(data[i].showDate);
 						tr +=
 							`<tr>
 														<td>${data[i].showId}</td>
 														<td>${data[i].film.title}</td>
 														<td>${data[i].room.roomName}</td>
 														<td>${data[i].price}</td>
-														<td>${data[i].showDate}</td>
+														<td>${formatShowDate}</td>
 														<td><a href="/Admin/Show/Edit?id=${data[i].showId}" class="btn btn-primary">Edit</a></td>
 													</tr>`;
 					}

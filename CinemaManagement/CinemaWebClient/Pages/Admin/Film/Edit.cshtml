@@ -50,7 +50,7 @@
 					<span asp-validation-for="@Model.FilmDTO.Description" class="text-danger"></span>
 				</div>
 
-				@if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == false)
+				@if (!string.IsNullOrEmpty(Model.Message))
 				{
 					<div class="mb-3 d-flex">
 						<span class="text-danger">@Model.Message</span>
@@ -62,14 +62,7 @@
 	</div>
 
 </div>
-@if (!string.IsNullOrEmpty(Model.Message) && Model.StatusRequest == true)
-{
-	<script>
-		$(document).ready(function () {
-			NotificationMessageSuccess('@Model.Message.ToString()');
-		});
-	</script>
-}
+
 
 <script>
 	ClassicEditor

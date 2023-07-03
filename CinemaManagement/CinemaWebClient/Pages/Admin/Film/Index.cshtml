@@ -98,17 +98,12 @@
 
 </script>
 
-@*<style>
-    .userTable {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .create-link {
-        margin-left: 5%;
-    }
-
-    .mt-10 {
-        margin-top: 10px;
-    }
-</style>*@
+@if (TempData["SuccessMsg"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            NotificationMessageSuccess('@TempData["SuccessMsg"].ToString()');
+        });
+    </script>
+}
+}

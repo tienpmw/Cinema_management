@@ -5,7 +5,7 @@ namespace CinemaWebClient.Pages.Film
 {
     public class DetailModel : PageModel
     {
-        public void OnGet()
+        public void OnGet(int id)
         {
         }
     }

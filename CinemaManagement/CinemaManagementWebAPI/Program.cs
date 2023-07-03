@@ -44,23 +44,34 @@ namespace CinemaManagementWebAPI
 			builder.Services.AddQuartz(q =>
 			{
 				q.UseMicrosoftDependencyInjectionScopedJobFactory();
-				var jobKey = new JobKey("GetHistoryTransactionJob");
-				q.AddJob<HistoryTransactionMbBankJob>(opts => opts.WithIdentity(jobKey));
+				var jobKeyGetHistoryTransaction = new JobKey("GetHistoryTransactionJob");
+				q.AddJob<HistoryTransactionMbBankJob>(opts => opts.WithIdentity(jobKeyGetHistoryTransaction));
 				q.AddTrigger(opts => opts
-					.ForJob(jobKey)
+					.ForJob(jobKeyGetHistoryTransaction)
 					.StartNow()
 					.WithSimpleSchedule(x =>
-						x.WithIntervalInMinutes(5)
+						x.WithIntervalInMinutes(1)
 						.RepeatForever()
 						)
 					);
-			});
+				var jobKeyRemoveExpiredTransaction = new JobKey("RemoveExpiredTransaction");
+				q.AddJob<RemoveExpiredTransactionJob>(opts => opts.WithIdentity(jobKeyRemoveExpiredTransaction));
+                q.AddTrigger(opts => opts
+                    .ForJob(jobKeyRemoveExpiredTransaction)
+                    .StartNow()
+                    .WithSimpleSchedule(x =>
+                        x.WithIntervalInHours(24)
+                        .RepeatForever()
+                        )
+                    );
+            });
 
-			builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+            builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
 
-			//Add Auto Mapper
-			var configAutoMapper = new MapperConfiguration(config =>
+
+            //Add Auto Mapper
+            var configAutoMapper = new MapperConfiguration(config =>
 			{
 				config.AddProfile(new AutoMapperProfile());
 			});
