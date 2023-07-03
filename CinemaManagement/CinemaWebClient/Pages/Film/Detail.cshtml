@@ -3,8 +3,7 @@
 @{
 }
 <div class="row py-3">
-	<div class="col-md-4" style="height: 380px;">
-		<img class="w-100 h-100" style="object-fit:cover; border-radius: 10px;" src="http://localhost:5001/images/@Model.Film.Image" />
+	<div class="col-md-4" style="height: 380px;" id="image">
 	</div>
 	<div class="col-md-8">
 		<h4>@Model.Film.Title</h4>
@@ -59,6 +58,19 @@
         <div class="text-center">Don't have any show!</div>
     }
 </div>
+
+<script src="~/lib/bootstrap//dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/scripts.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<script>
+    $(document).ready(function () {
+        var image = `<img class="w-100 h-100" style="object-fit:cover; border-radius: 10px;"  src="http://localhost:5001/api/Images/@Model.Film.Image">`
+        document.querySelector("#image").innerHTML = image;
+    });
+</script>
 
 @*<div class="container">
     <h3 class="margin-bottom-20">Home &gt; <span style="color:#03599D" id="filmTitleNavigation"></span></h3>
