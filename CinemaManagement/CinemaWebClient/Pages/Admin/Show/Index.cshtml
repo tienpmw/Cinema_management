@@ -95,9 +95,10 @@
 								<td>${formatShowDate}</td>`;
 						var dateNow = new Date();
 						console.log(new Date(data[i].showDate))
-						if ((dateNow.setTime(dateNow.getTime() + 1 * 60 * 60 * 1000) - new Date(data[i].showDate)) / (60 * 60 * 1000) <= 1) {
-
-							tr += `<td><a href="/Admin/Show/Edit?id=${data[i].showId}" class="btn btn-primary">Edit</a></td>`
+						if (new Date(data[i].showDate) > dateNow.setDate(dateNow.getDate() + 1)) {
+							tr += `<td><a href="/Admin/Show/Edit?id=${data[i].showId}" class="btn btn-primary">Edit</a>
+									<a href="/Admin/Show/Delete?id=${data[i].showId}" class="btn btn-primary">Delete</a>
+							</td>`
 						} else {
 							tr += `<td></td>`
 						}

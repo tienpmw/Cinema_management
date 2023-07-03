@@ -200,5 +200,31 @@ namespace DataAccess.DAOs
 				throw new Exception();
 			}
 		}
+
+		public void DeleteShow(Show show)
+		{
+			try
+			{
+				var context = new CinemaContext();
+				List<Booking> bookings = context.Booking.Where(x => x.ShowId == show.ShowId).ToList();
+				if (bookings.Count > 0)
+				{
+					foreach (var b in bookings)
+					{
+						User? user = context.User.FirstOrDefault(x => x.UserId == b.UserId);
+						user.AccountBalance += b.Amount;
+						context.User.Update(user);
+					}
+					context.Booking.RemoveRange(bookings);
+				}
+				context.Show.Remove(show);
+				context.SaveChanges();
+			}
+			catch (Exception)
+			{
+
+				throw new Exception();
+			}
+		}
 	}
 }

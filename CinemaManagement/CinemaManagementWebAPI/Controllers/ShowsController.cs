@@ -80,10 +80,42 @@ namespace CinemaWebAPI.Controllers
 		[HttpPut]
 		public IActionResult UpdateShow(ShowDTO show)
 		{
+			Show? show1 = _showRepository.GetShowById(show.ShowId);
+			if (show == null)
+			{
+				return NotFound();
+			}
+			if (DateTime.Compare(show1.ShowDate, new DateTime().AddDays(1)) <= 0)
+			{
+				return Conflict();
+			}
 			Show newShow = _mapper.Map<Show>(show);
 			try
 			{
 				_showRepository.UpdateShow(newShow);
+			}
+			catch (Exception)
+			{
+
+				return Conflict();
+			}
+			return Ok();
+		}
+		[HttpDelete("{id}")]
+		public IActionResult DeleteShow(long id)
+		{
+			Show? show = _showRepository.GetShowById(id);
+			if (show == null)
+			{
+				return NotFound();
+			}
+			if (DateTime.Compare(show.ShowDate, new DateTime().AddDays(1)) <= 0)
+			{
+				return Conflict();
+			}
+			try
+			{
+				_showRepository.DeleteShow(show);
 			}
 			catch (Exception)
 			{

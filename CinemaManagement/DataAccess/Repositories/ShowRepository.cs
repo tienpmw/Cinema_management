@@ -13,6 +13,8 @@ namespace DataAccess.Repositories
     {
 		public void AddShow(Show show) => ShowDAO.Instance.AddShow(show);
 
+		public void DeleteShow(Show show) => ShowDAO.Instance.DeleteShow(show);
+
 		public List<dynamic> GetEarningAnnual() => ShowDAO.Instance.GetEarningAnnual();
 
 		public long GetEarningMonthly() => ShowDAO.Instance.GetEarningMonthly();
