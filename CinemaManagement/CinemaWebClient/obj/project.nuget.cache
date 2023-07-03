@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WxS3SMqI5LtO0kGPU39s4CS1p+Nl8rZpsy6xniBCb8qt318DoFIoC7xjw1WYK5cuyi97pz0ioqmlGl6NzXrcFA==",
+  "dgSpecHash": "0LLvJdRhqx6guw4mkHlW9WUOrqINcFBOqvMoWGIA9fknH3Uxsgo/+JH5NpNjdwqlwMo0Lnmp7co6MDdxueUaEg==",
   "success": true,
-  "projectFilePath": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj",
+  "projectFilePath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\CinemaWebClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\google.apis\\1.61.0\\google.apis.1.61.0.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\google.apis.auth\\1.61.0\\google.apis.auth.1.61.0.nupkg.sha512",

@@ -76,7 +76,7 @@
                 for (var i = 0; i < data.length; i++) {
                     tr += `<div class="col mb-3 filmInfo">`
                     tr += `<div class="card h-150">`;
-                    tr += `<a class="text-decoration-none" href="/Film/Detail?id=${data[i].filmId}"><img class="" src="http://localhost:5001/api/Images/${data[i].image}" alt="..." style="width=300px; height=400px"/></a>`
+                    tr += `<img class="" src="http://localhost:5001/api/Images/${data[i].image}" alt="..." style="width=300px; height=400px"/>`
                     tr += `<div class="card-body p-4">`
                     tr += `<div class="">`
                     tr += `<a class="text-decoration-none" href='Film/Detail?id=${data[i].filmId}'><b>${data[i].title}</b></a>`
