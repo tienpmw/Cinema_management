@@ -29,7 +29,8 @@ namespace DTOs
 		[Required(ErrorMessage = "Film's Duration must be not empty!")]
 		[Range(1, long.MaxValue, ErrorMessage = "Film's Duration must be greater than 0!")]
 		public long FilmDuration { get; set; }
-		public GenreDTO? Genre { get; set; }
+        public DateTime? DateRelease { get; set; }
+        public GenreDTO? Genre { get; set; }
 		public List<ShowDTO> Shows { get; set; }
 	}
 }
