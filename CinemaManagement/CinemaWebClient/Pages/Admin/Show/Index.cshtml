@@ -88,13 +88,20 @@
 						var formatShowDate = ParseDateTime(data[i].showDate);
 						tr +=
 							`<tr>
-																				<td>${data[i].showId}</td>
-																				<td>${data[i].film.title}</td>
-																				<td>${data[i].room.roomName}</td>
-																				<td>${data[i].price}</td>
-																				<td>${formatShowDate}</td>
-																				<td><a href="/Admin/Show/Edit?id=${data[i].showId}" class="btn btn-primary">Edit</a></td>
-																			</tr>`;
+								<td>${data[i].showId}</td>
+								<td>${data[i].film.title}</td>
+								<td>${data[i].room.roomName}</td>
+								<td>${data[i].price}</td>
+								<td>${formatShowDate}</td>`;
+						var dateNow = new Date();
+						console.log(new Date(data[i].showDate))
+						if ((dateNow.setTime(dateNow.getTime() + 1 * 60 * 60 * 1000) - new Date(data[i].showDate)) / (60 * 60 * 1000) <= 1) {
+
+							tr += `<td><a href="/Admin/Show/Edit?id=${data[i].showId}" class="btn btn-primary">Edit</a></td>`
+						} else {
+							tr += `<td></td>`
+						}
+						tr += `</tr>`
 					}
 					tableContent.innerHTML = tr;
 					if (!initedDataTable) {

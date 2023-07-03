@@ -30,6 +30,7 @@ namespace BusinessObject.Attributes
 			if (film == null) return new ValidationResult("");
 			long duration = film.FilmDuration;
 			DateTime date = (DateTime)value;
+			if(DateTime.Compare(date, DateTime.Now) <= 0) return new ValidationResult("Please choose date greater date now.");
 			if (DateTime.Compare(date, new DateTime(date.Year, date.Month, date.Day, 8, 0, 0)) < 0 || DateTime.Compare(date, new DateTime(date.Year, date.Month, date.Day, 20, 0, 0)) > 0)
 			{
 				return new ValidationResult("Please choose time in range 08:00:00 AM - 08:00:00 PM.");
