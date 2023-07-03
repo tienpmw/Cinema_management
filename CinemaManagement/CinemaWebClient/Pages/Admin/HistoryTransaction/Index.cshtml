@@ -102,6 +102,8 @@
 
                     var formatAmount = formatStringToCurrencyVND(data[i].Amount + "");
                     var status = data[i].IsPay === true ? "Paid" : "UnPaid";
+                    var formatRequestDate = ParseDateTime(data[i].RequestDate);
+                    var formatPaidDate = data[i].PaidDate === null ? "TBD" : ParseDateTime(data[i].PaidDate);
                     tr +=
                         `
                         <tr>
@@ -110,7 +112,7 @@
                         `;
                     tr+=
                         `
-                            <td>${data[i].RequestDate}</td>
+                            <td>${formatRequestDate}</td>
                         `;
                     tr+=
                         `
@@ -123,7 +125,7 @@
                         `;
                     tr+=
                         `
-                            <td>${data[i].PaidDate}</td>
+                            <td>${formatPaidDate}</td>
                         `;
                     if (data[i].IsPay === true){
                         tr +=
