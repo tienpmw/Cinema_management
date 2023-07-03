@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessObject;
 using DataAccess.IRepositories;
+using DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -12,12 +13,12 @@ namespace CinemaWebAPI.Controllers
     [ApiController]
     public class GenresController : ControllerBase
     {
-        private readonly IGenreRepository genreRepository;
+        private readonly IGenreRepository _genreRepository;
         private readonly IMapper _mapper;
 
         public GenresController(IGenreRepository genreRepository, IMapper mapper)
         {
-            this.genreRepository = genreRepository;
+            _genreRepository = genreRepository;
             _mapper = mapper;
         }
 
@@ -26,7 +27,7 @@ namespace CinemaWebAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(new CinemaContext().Genre.AsQueryable());
+            return Ok(_mapper.Map<List<GenreDTO>>(_genreRepository.GetAll()));
         }
     }
 }

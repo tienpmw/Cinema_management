@@ -15,12 +15,12 @@ namespace CinemaWebAPI.Controllers
 	[ApiController]
 	public class FilmsController : ControllerBase
 	{
-		private readonly IFilmRepository filmRepository;
+		private readonly IFilmRepository _filmRepository;
 		private readonly IMapper _mapper;
 
 		public FilmsController(IFilmRepository filmRepository, IMapper mapper)
 		{
-			this.filmRepository = filmRepository;
+			_filmRepository = filmRepository;
 			_mapper = mapper;
 		}
 
@@ -34,22 +34,22 @@ namespace CinemaWebAPI.Controllers
 
 
 		[HttpGet("GetFilmById/{id}")]
-		public IActionResult Get(int id)
+		public IActionResult Get(long id)
 		{
-			var result = new CinemaContext().Film.FirstOrDefault(x => x.FilmId == id);
+			var result = _filmRepository.GetFilmById(id);
 			if (result == null) return NotFound();
 			FilmDTO filmDTO = _mapper.Map<FilmDTO>(result);
 			return Ok(filmDTO);
 		}
 
-        [HttpGet("TotalFilms")]
-        public IActionResult GetTotalFilm()
-        {
-            return Ok(new CinemaContext().Film.ToList().Count());
-        }
+		[HttpGet("TotalFilms")]
+		public IActionResult GetTotalFilm()
+		{
+			return Ok(_filmRepository.CountFilm());
+		}
 
 
-        [HttpPost]
+		[HttpPost]
 		public IActionResult Post()
 		{
 
@@ -60,7 +60,7 @@ namespace CinemaWebAPI.Controllers
 				var filmDTO = JsonSerializer.Deserialize<FilmDTO>(filmDTOJson);
 				var film = _mapper.Map<Film>(filmDTO);
 
-				filmRepository.CreateFilm(film, imageFile);
+				_filmRepository.CreateFilm(film, imageFile);
 				return Ok("Create new Film has been success!");
 			}
 			catch (Exception ex)
@@ -80,7 +80,7 @@ namespace CinemaWebAPI.Controllers
 				var filmDTO = JsonSerializer.Deserialize<FilmDTO>(filmDTOJson);
 				var film = _mapper.Map<Film>(filmDTO);
 
-				filmRepository.UpdateFilm(film, imageFile);
+				_filmRepository.UpdateFilm(film, imageFile);
 				return Ok("Update Film's info has been success!");
 			}
 			catch (Exception ex)

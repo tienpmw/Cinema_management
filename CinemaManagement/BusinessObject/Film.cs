@@ -10,6 +10,11 @@ namespace BusinessObject
 {
 	public class Film
 	{
+		public Film()
+		{
+			Shows = new List<Show>();
+		}
+
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public long FilmId { get; set; }
@@ -25,7 +30,7 @@ namespace BusinessObject
 		public virtual Genre? Genre { get; set; } = null!;
 		[ForeignKey(nameof(CountryCode))]
 		public virtual Country? Country { get; set; } = null!;
-
+		public virtual ICollection<Show> Shows { get; set;}
 
 	}
 }

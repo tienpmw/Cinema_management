@@ -27,7 +27,7 @@
 	<script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>*@
 
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container px-4 px-lg-5">
@@ -50,36 +50,36 @@
 				<div class="d-flex justify-content-end">
 					@*@if (Context.Session.GetString("info") != null)
 					{*@
-						<ul class="navbar-nav">
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" id="menuDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									Hello, Guy!
-								</a>
-								<ul class="dropdown-menu" aria-labelledby="menuDropdown">
-									<li><a class="dropdown-item" href="#!">Profile</a></li>
-									<li><hr class="dropdown-divider" /></li>
-									<li><a class="dropdown-item" asp-page="/Admin/Index">Admin Dasboard</a></li>
-									<li><a class="dropdown-item" asp-page="/SignOut">Sign Out</a></li>
-								</ul>
-							</li>
-						</ul>
+					<ul class="navbar-nav">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" id="menuDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Hello, Guy!
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="menuDropdown">
+								<li><a class="dropdown-item" href="#!">Profile</a></li>
+								<li><hr class="dropdown-divider" /></li>
+								<li><a class="dropdown-item" asp-page="/Admin/Index">Admin Dasboard</a></li>
+								<li><a class="dropdown-item" asp-page="/SignOut">Sign Out</a></li>
+							</ul>
+						</li>
+					</ul>
 					@*}
 					else
 					{
-						<ul class="navbar-nav">
-							<li class="nav-item">
-								<a class="nav-link" asp-page="/SignIn">
-									Sign In
-								</a>
-							</li>
-						</ul>
+					<ul class="navbar-nav">
+					<li class="nav-item">
+					<a class="nav-link" asp-page="/SignIn">
+					Sign In
+					</a>
+					</li>
+					</ul>
 					}*@
 
 				</div>
 			</div>
 		</div>
 	</nav>
-	<div class="container">
+	<div class="container flex-fill">
 		<main role="main" class="pb-3">
 			@RenderBody()
 		</main>

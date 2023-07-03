@@ -2,3 +2,45 @@
 @model CinemaWebClient.Pages.Film.DetailModel
 @{
 }
+<div class="row">
+	<div class="col-md-4">
+		<img class="w-100" style="height:fit-content" src="http://localhost:5001/images/@Model.Film.Image" />
+	</div>
+	<div class="col-md-8">
+		<h4>@Model.Film.Title</h4>
+		<dl class="row">
+			<dt class="col-sm-2">
+				Genre
+			</dt>
+			<dd class="col-sm-10">
+				@Model.Film.Genre.GenreName
+			</dd>
+			<dt class="col-sm-2">
+				Description
+			</dt>
+			<dd class="col-sm-10">
+				@Model.Film.Description
+			</dd>
+		</dl>
+	</div>
+	<hr class="dropdown-divider" />
+	@if (Model.Film.Shows.Count > 0)
+	{
+		@foreach (var item in Model.Film.Shows)
+		{
+			<div class="d-flex">
+				<a class="btn">
+					<div>@item.ShowDate.ToString("dd/MM/yyyy hh:mm tt")</div>
+					@{
+						long remainSeats = 0;
+						if (item.SeatStatus != new string('1', item.SeatStatus.Length))
+						{
+							remainSeats = item.SeatStatus.Count(x => x == '0');
+						}
+					}
+					<div>Remain: @(remainSeats) Seats</div>
+				</a>
+			</div>
+		}
+	}
+</div>

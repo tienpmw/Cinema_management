@@ -12,5 +12,8 @@ namespace DataAccess.IRepositories
 	{
 		void CreateFilm(Film film, IFormFile? image);
 		void UpdateFilm(Film film, IFormFile? image);
+		Film? GetFilmById(long id);
+		List<Film> GetAll();
+		long CountFilm();
 	}
 }

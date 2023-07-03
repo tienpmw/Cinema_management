@@ -88,23 +88,25 @@
 						var formatShowDate = ParseDateTime(data[i].showDate);
 						tr +=
 							`<tr>
-														<td>${data[i].showId}</td>
-														<td>${data[i].film.title}</td>
-														<td>${data[i].room.roomName}</td>
-														<td>${data[i].price}</td>
-														<td>${formatShowDate}</td>
-														<td><a href="/Admin/Show/Edit?id=${data[i].showId}" class="btn btn-primary">Edit</a></td>
-													</tr>`;
+																				<td>${data[i].showId}</td>
+																				<td>${data[i].film.title}</td>
+																				<td>${data[i].room.roomName}</td>
+																				<td>${data[i].price}</td>
+																				<td>${formatShowDate}</td>
+																				<td><a href="/Admin/Show/Edit?id=${data[i].showId}" class="btn btn-primary">Edit</a></td>
+																			</tr>`;
 					}
 					tableContent.innerHTML = tr;
-					$(document).ready(function () {
-						$('#myTable').DataTable({
-							pagingType: 'full',
-							"lengthChange": false,
-							searching: false,
-							"bDestroy": true
+					if (!initedDataTable) {
+						$(document).ready(function () {
+							$('#myTable').DataTable({
+								pagingType: 'full',
+								"lengthChange": false,
+								searching: false,
+								"bDestroy": true
+							});
 						});
-					});
+					}
 				},
 				error: (err) => {
 					NotificationMessageError("Server not respone!");

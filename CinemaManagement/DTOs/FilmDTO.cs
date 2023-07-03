@@ -10,20 +10,26 @@ using Microsoft.AspNetCore.Http;
 
 namespace DTOs
 {
-    public class FilmDTO
-    {
-        public long FilmId { get; set; }
-        public long GenreId { get; set; }
-        [Required(ErrorMessage = "Film's cuountry must be not empty!")]
-        public string? CountryCode { get; set; }
-        [Required(ErrorMessage = "Film's Title must be not empty!")]
-        public string? Title { get; set; }
-        [Required(ErrorMessage = "Film's Description must be not empty!")]
-        public string? Description { get; set; }
-        public string? Image { get; set; }
-        [Required(ErrorMessage = "Film's Duration must be not empty!")]
-        [Range(1, long.MaxValue, ErrorMessage = "Film's Duration must be greater than 0!")]
-        public long FilmDuration { get; set; }
-        public GenreDTO? Genre { get; set; } 
-    }
+	public class FilmDTO
+	{
+		public FilmDTO()
+		{
+			Shows = new List<ShowDTO>();
+		}
+
+		public long FilmId { get; set; }
+		public long GenreId { get; set; }
+		[Required(ErrorMessage = "Film's cuountry must be not empty!")]
+		public string? CountryCode { get; set; }
+		[Required(ErrorMessage = "Film's Title must be not empty!")]
+		public string? Title { get; set; }
+		[Required(ErrorMessage = "Film's Description must be not empty!")]
+		public string? Description { get; set; }
+		public string? Image { get; set; }
+		[Required(ErrorMessage = "Film's Duration must be not empty!")]
+		[Range(1, long.MaxValue, ErrorMessage = "Film's Duration must be greater than 0!")]
+		public long FilmDuration { get; set; }
+		public GenreDTO? Genre { get; set; }
+		public List<ShowDTO> Shows { get; set; }
+	}
 }

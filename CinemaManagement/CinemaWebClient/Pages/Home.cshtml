@@ -10,7 +10,7 @@
     <div class="container">
         @*px-4 px-lg-5 my-5*@
         <div class="text-center text-white" style="height:400px">
-            <img class="w-100 h-100" style="object-fit:cover;" src="https://images.pexels.com/photos/375885/pexels-photo-375885.jpeg?cs=srgb&dl=pexels-clem-onojeghuo-375885.jpg&fm=jpg" />
+            <img class="w-100 h-100" style="object-fit:cover; border-radius:10px;" src="https://images.pexels.com/photos/375885/pexels-photo-375885.jpeg?cs=srgb&dl=pexels-clem-onojeghuo-375885.jpg&fm=jpg" />
             @*<h1 class="display-4 fw-bolder">Cinema</h1>
             <p class="lead fw-normal text-white-50 mb-0">With more amazing</p>*@
         </div>
@@ -76,10 +76,10 @@
                 for (var i = 0; i < data.length; i++) {
                     tr += `<div class="col mb-3 filmInfo">`
                     tr += `<div class="card h-150">`;
-                    tr += `<img class="" src="http://localhost:5001/api/Images/${data[i].image}" alt="..." style="width=300px; height=400px"/>`
+                    tr += `<a class="text-decoration-none" href="/Film/Detail?id=${data[i].filmId}"><img class="" src="http://localhost:5001/api/Images/${data[i].image}" alt="..." style="width=300px; height=400px"/></a>`
                     tr += `<div class="card-body p-4">`
                     tr += `<div class="">`
-                    tr += `<h4 class="fw-bolder text-center">${data[i].title}</h5>`
+                    tr += `<a class="text-decoration-none" href="/Film/Detail?id=${data[i].filmId}"><h4 class="fw-bolder text-center">${data[i].title}</h5></a>`
                     tr += `<ul class = "list-unstyled">`
                     tr += `<li><span><b>Genre: </b></span> ${data[i].genre.genreName}</li>`
                     tr += `<li><span><b>Duration: </b></span> ${data[i].filmDuration} minues</li>`
