@@ -32,7 +32,7 @@ namespace CinemaWebAPI.Controllers
             return Ok(new CinemaContext().Transaction.AsQueryable());
         }
 
-        [HttpPost]
+		[HttpPost]
         public IActionResult Post(TransactionDTO transactionDTO)
 
         {

@@ -13,7 +13,7 @@
             <a class="btn btn-primary" href="#" role="button">History buy tickets</a>
         </li>
         <li class="text-center mr-10">
-            <a class="btn btn-primary" href="/User/HistoryRecharge" role="button">History recharge</a>
+            <a class="btn btn-primary" href="/User/HistoryRecharges" role="button">History recharge</a>
         </li>
     </ul>
 </div>
@@ -30,7 +30,7 @@
             <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-						<th></th>
+						<th style="width:100px"></th>
                         <th>Film</th>
                         <th>Show date</th>
                         <th>Date booking</th>
@@ -46,6 +46,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 
 <script>
 
@@ -91,6 +92,7 @@
 						$('#myTable').DataTable({
 							pagingType: 'full',
 							"lengthChange": false,
+							searching: false,
 						});
 					});
 				}
@@ -107,3 +109,10 @@
 
 
 </script>
+
+
+<style>
+	.mr-10 {
+		margin-right: 10px;
+	}
+</style>
