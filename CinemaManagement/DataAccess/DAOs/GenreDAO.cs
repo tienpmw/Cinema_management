@@ -32,5 +32,12 @@ namespace DataAccess.DAOs
         {
             return new CinemaContext().Genre.ToList();
         }
-    }
+
+		public void AddGenre(string nameGenre)
+		{
+			var context = new CinemaContext();
+            context.Genre.Add(new Genre { GenreName = nameGenre});
+            context.SaveChanges();
+		}
+	}
 }

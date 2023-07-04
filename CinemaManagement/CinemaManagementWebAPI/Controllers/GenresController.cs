@@ -29,5 +29,15 @@ namespace CinemaWebAPI.Controllers
         {
             return Ok(_mapper.Map<List<GenreDTO>>(_genreRepository.GetAll()));
         }
-    }
+		[HttpPost]
+		public IActionResult AddGenre([FromBody]string nameGenre)
+		{
+            if(string.IsNullOrEmpty(nameGenre.Trim()))
+            {
+                return Conflict();
+            }
+            _genreRepository.AddGenre(nameGenre);
+            return Ok();
+		}
+	}
 }

@@ -80,6 +80,12 @@
 					<span>Film</span>
 				</a>
 			</li>
+			<li class="@(url.StartsWith("/admin/genre")?"active":"") nav-item">
+				<a class="nav-link" href="~/Admin/Genre">
+					<i class="fa-solid fa-list"></i>
+					<span>Genre</span>
+				</a>
+			</li>
 			<li class="@(url.StartsWith("/admin/show")?"active":"") nav-item">
 				<a class="nav-link" asp-page="/Admin/Show/Index">
 					<i class="fa-solid fa-camera-retro"></i>

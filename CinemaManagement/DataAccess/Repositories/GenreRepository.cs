@@ -11,6 +11,8 @@ namespace DataAccess.Repositories
 {
     public class GenreRepository : IGenreRepository
     {
-        public List<Genre> GetAll() => GenreDAO.Instance.GetAll();
+        public void AddGenre(string nameGenre) => GenreDAO.Instance.AddGenre(nameGenre);
+
+		public List<Genre> GetAll() => GenreDAO.Instance.GetAll();
     }
 }

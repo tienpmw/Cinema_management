@@ -1,0 +1,164 @@
+﻿@page
+@model CinemaWebClient.Pages.Admin.Genre.IndexModel
+@{
+	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+	<div class="d-sm-flex align-items-center mb-4">
+		<h1 class="h3 mb-0 text-gray-800" style="text-shadow: 0px 5px 20px gray;">Genre</h1>
+	</div>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">Search Genre</h6>
+		</div>
+		<div class="card-body row">
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<div class="d-flex mt-3">
+					<label class="form-label" style="width:15%"><b>ID</b></label>
+					<input id="txtSearchById" class="form-control" type="text" />
+				</div>
+				<div class="d-flex mt-3">
+					<label class="form-label" style="width:15%"><b>Name</b></label>
+					<input id="txtSearchByName" class="form-control" type="text" />
+				</div>
+				<button class="btn btn-primary" style="margin-top:15px; margin-left: 80%;" onclick="Search()">Search</button>
+			</div>
+		</div>
+	</div>
+	<button type="button" class="btn btn-primary py-3" data-bs-toggle="modal" data-bs-target="#addGenreModal">
+		Add Genre
+	</button>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">List Genre</h6>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="tableContent">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="addGenreModal" tabindex="-1" aria-labelledby="addGenreModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="addGenreModalLabel">Add Genre</h5>
+					<button type="button" id="closeModel" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<label class="form-label"><b>Genre Name</b></label>
+					<input class="form-control" type="text" id="genreName" placeholder="Enter Genre Name"/>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" onclick="SaveGenre()">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+
+
+	$(document).ready(function () {
+		LoadData('http://localhost:5001/api/Genres');
+		
+	});
+
+	function LoadData(link) {
+		var tableContent = document.getElementById('tableContent');
+		var initedDataTable = tableContent.innerHTML != "";
+		tableContent.innerHTML = "";
+		$.ajax({
+			url: link,
+			type: 'GET',
+			data: {
+
+			},
+			success: (data) => {
+				var tr = '';
+				console.log(data)
+				for (var i = 0; i < data.length; i++) {
+					tr += ` <tr>`;
+					tr +=
+						`
+											<td>${data[i].genreId}</td>
+											<td>${data[i].genreName}</td>
+											<td></td>
+										`;
+					tr += ` </tr>`;
+				}
+				tableContent.innerHTML = tr;
+				if (!initedDataTable) {
+					$(document).ready(function () {
+						$('#myTable').DataTable({
+							pagingType: 'full',
+							"lengthChange": false,
+							searching: false,
+							"bDestroy": true
+						});
+					});
+				}
+			},
+			error: (err) => {
+				NotificationMessageError("Server not respone!");
+			}
+		});
+	}
+	function SaveGenre() {
+		var nameGenre = $("#genreName").val();
+		if (nameGenre.trim != '') {
+			$.ajax({
+				url: 'http://localhost:5001/api/Genres',
+				type: 'POST',
+				data: JSON.stringify(nameGenre),
+				contentType: "application/json; charset=utf-8",
+				success: (data) => {
+					$("#closeModel").click();
+					NotificationMessageSuccess("Add Genre Success!");
+					LoadData('http://localhost:5001/api/Genres');
+					$("#genreName").val("")
+				},
+				error: (err) => {
+					NotificationMessageError("Server not respone!");
+				}
+			});
+		} else {
+			NotificationMessageError("Name Genre not blank!");
+		}
+	}
+	var querySearch = "http://localhost:5001/api/Genres?";
+	function Search() {
+		var valueID = document.getElementById("txtSearchById").value;
+		var valueName = document.getElementById("txtSearchByName").value;
+
+		var query = "";
+		query += MakeQueryConditionContainStringCastingNumToString("GenreId", valueID, true);
+		query += MakeQueryConditionContainString("GenreName", valueName, false);
+		console.log(querySearch + query);
+		LoadData(querySearch + query);
+	}
+
+</script>
+
+@if (TempData["SuccessMsg"] != null)
+{
+	<script>
+		$(document).ready(function () {
+			NotificationMessageSuccess('@TempData["SuccessMsg"].ToString()');
+		});
+	</script>
+}

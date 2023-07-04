@@ -18,7 +18,7 @@ namespace CinemaWebClient.Pages.Admin.Film
         [BindProperty]
         public FilmDTO FilmDTO { get; set; }
         [BindProperty(SupportsGet = true)]
-        public List<Genre>Genres { get; set; }
+        public List<BusinessObject.Genre> Genres { get; set; }
         [BindProperty(SupportsGet = true)] 
         public List<CountryDTO> Countries { get; set; }
 
@@ -52,7 +52,7 @@ namespace CinemaWebClient.Pages.Admin.Film
                 HttpResponseMessage responeCountry = await client.GetAsync("http://localhost:5001/api/Countries");
                 var strDataCountry = await responeCountry.Content.ReadAsStringAsync();
 
-                Genres = JsonSerializer.Deserialize<List<Genre>>(strDataGenre, options);
+                Genres = JsonSerializer.Deserialize<List<BusinessObject.Genre>>(strDataGenre, options);
                 Countries = JsonSerializer.Deserialize<List<CountryDTO>>(strDataCountry, options);
             }
             catch (Exception)

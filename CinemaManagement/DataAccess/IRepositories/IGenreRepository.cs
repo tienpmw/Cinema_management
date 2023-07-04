@@ -9,6 +9,7 @@ namespace DataAccess.IRepositories
 {
 	public interface IGenreRepository
 	{
+		void AddGenre(string nameGenre);
 		List<Genre> GetAll();
 	}
 }
