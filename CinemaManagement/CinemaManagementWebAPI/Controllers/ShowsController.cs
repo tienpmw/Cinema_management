@@ -85,7 +85,7 @@ namespace CinemaWebAPI.Controllers
 			{
 				return NotFound();
 			}
-			if (DateTime.Compare(show1.ShowDate, new DateTime().AddDays(1)) <= 0)
+			if (show1.ShowDate.Subtract(DateTime.Now) <= new TimeSpan(1,0,0))
 			{
 				return Conflict();
 			}
@@ -109,7 +109,7 @@ namespace CinemaWebAPI.Controllers
 			{
 				return NotFound();
 			}
-			if (DateTime.Compare(show.ShowDate, new DateTime().AddDays(1)) <= 0)
+			if (show.ShowDate.Subtract(DateTime.Now) <= new TimeSpan(1, 0, 0))
 			{
 				return Conflict();
 			}

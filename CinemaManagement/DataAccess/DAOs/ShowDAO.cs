@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,8 @@ namespace DataAccess.DAOs
 				Film? film = context.Film.FirstOrDefault(x => x.FilmId == show.FilmId);
 				Room? room = context.Room.FirstOrDefault(x => x.RoomId == show.RoomId);
 				if (film == null || room == null) throw new Exception();
+				if (show.ShowDate.Subtract(DateTime.Now) < new TimeSpan(2, 0, 0)) throw new Exception();
+
 				if (DateTime.Compare(show.ShowDate, new DateTime(show.ShowDate.Year, show.ShowDate.Month, show.ShowDate.Day, 8, 0, 0)) < 0
 					|| DateTime.Compare(show.ShowDate, new DateTime(show.ShowDate.Year, show.ShowDate.Month, show.ShowDate.Day, 20, 0, 0)) > 0)
 				{
@@ -53,7 +56,10 @@ namespace DataAccess.DAOs
 				if (DateTime.Compare(show.ShowDate, film.DateRelease) < 0) throw new Exception();
 				DateTime dateBefore = show.ShowDate.AddMinutes(-1 * film.FilmDuration);
 				DateTime dateAfter = show.ShowDate.AddMinutes(film.FilmDuration);
-				bool isAnyShow = context.Show.Any(x => x.RoomId == show.RoomId && x.FilmId == show.FilmId && x.ShowDate >= dateBefore && x.ShowDate <= dateAfter);
+				bool isAnyShow = context.Show.Include(x => x.Film).Any(x => x.RoomId == show.RoomId
+					&& x.ShowDate.Date == show.ShowDate.Date
+					&& (x.ShowDate.AddMinutes(x.Film.FilmDuration) > show.ShowDate && x.ShowDate <= dateAfter));
+				//bool isAnyShow = context.Show.Any(x => x.RoomId == show.RoomId && x.FilmId == show.FilmId && x.ShowDate >= dateBefore && x.ShowDate <= dateAfter);
 				if (isAnyShow) throw new Exception();
 				show.SeatStatus = new string('0', room.NumberColumn * room.NumberRow);
 				context.Show.Add(show);
@@ -181,6 +187,7 @@ namespace DataAccess.DAOs
 				Film? film = context.Film.FirstOrDefault(x => x.FilmId == show1.FilmId);
 				Room? room = context.Room.FirstOrDefault(x => x.RoomId == show1.RoomId);
 				if (film == null || room == null) throw new Exception();
+				if (show.ShowDate.Subtract(DateTime.Now) < new TimeSpan(2, 0, 0)) throw new Exception();
 				if (DateTime.Compare(show.ShowDate, new DateTime(show.ShowDate.Year, show.ShowDate.Month, show.ShowDate.Day, 8, 0, 0)) < 0
 					|| DateTime.Compare(show.ShowDate, new DateTime(show.ShowDate.Year, show.ShowDate.Month, show.ShowDate.Day, 20, 0, 0)) > 0)
 				{
@@ -189,7 +196,10 @@ namespace DataAccess.DAOs
 				if (DateTime.Compare(show.ShowDate, film.DateRelease) < 0) throw new Exception();
 				DateTime dateBefore = show.ShowDate.AddMinutes(-1 * film.FilmDuration);
 				DateTime dateAfter = show.ShowDate.AddMinutes(film.FilmDuration);
-				bool isAnyShow = context.Show.Any(x => x.RoomId == show.RoomId && x.FilmId == show.FilmId && x.ShowDate >= dateBefore && x.ShowDate <= dateAfter && x.ShowId != show.ShowId);
+				bool isAnyShow = context.Show.Include(x => x.Film).Any(x => x.RoomId == show.RoomId
+					&& x.ShowDate.Date == show.ShowDate.Date
+					&& (x.ShowDate.AddMinutes(x.Film.FilmDuration) > show.ShowDate && x.ShowDate <= dateAfter));
+				//bool isAnyShow = context.Show.Any(x => x.RoomId == show.RoomId && x.FilmId == show.FilmId && x.ShowDate >= dateBefore && x.ShowDate <= dateAfter && x.ShowId != show.ShowId);
 				if (isAnyShow) throw new Exception();
 				show1.ShowDate = show.ShowDate;
 				context.Show.Update(show1);

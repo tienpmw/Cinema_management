@@ -30,7 +30,8 @@ namespace BusinessObject.Attributes
 			if (film == null) return new ValidationResult("");
 			long duration = film.FilmDuration;
 			DateTime date = (DateTime)value;
-			if(DateTime.Compare(date, DateTime.Now) <= 0) return new ValidationResult("Please choose date greater date now.");
+			//if(DateTime.Compare(date, DateTime.Now) <= 0) return new ValidationResult("Please choose date greater date now.");
+			if (date.Subtract(DateTime.Now) < new TimeSpan(2, 0, 0)) return new ValidationResult("Please choose date with gap greater than 2 hours of current time");
 			if (DateTime.Compare(date, new DateTime(date.Year, date.Month, date.Day, 8, 0, 0)) < 0 || DateTime.Compare(date, new DateTime(date.Year, date.Month, date.Day, 20, 0, 0)) > 0)
 			{
 				return new ValidationResult("Please choose time in range 08:00:00 AM - 08:00:00 PM.");
@@ -38,7 +39,10 @@ namespace BusinessObject.Attributes
 			if (DateTime.Compare(date, film.DateRelease) < 0) return new ValidationResult($"Choose date greater {film.DateRelease.ToString("dd/MM/yyyy hh:mm tt")}.");
 			DateTime dateBefore = date.AddMinutes(-1 * duration);
 			DateTime dateAfter = date.AddMinutes(duration);
-			bool isExisted = context.Show.Any(x => x.RoomId == show.RoomId && x.FilmId == show.FilmId && x.ShowDate >= dateBefore && x.ShowDate <= dateAfter && x.ShowId != showId);
+			bool isExisted = context.Show.Include(x => x.Film).Any(x => x.RoomId == show.RoomId && x.ShowId != showId
+			&& x.ShowDate.Date == date.Date
+			&& (x.ShowDate.AddMinutes(x.Film.FilmDuration) > date && x.ShowDate <= dateAfter));
+			//bool isExisted = context.Show.Any(x => x.RoomId == show.RoomId && x.FilmId == show.FilmId && x.ShowDate >= dateBefore && x.ShowDate <= dateAfter && x.ShowId != showId);
 			if (isExisted) return new ValidationResult($"Let's choose other date.");
 			return ValidationResult.Success;
 		}
