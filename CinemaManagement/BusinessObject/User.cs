@@ -31,7 +31,7 @@ namespace BusinessObject
         [ForeignKey(nameof(RoleId))]
 		public virtual Role? Role { get; set; } = null!;
 		public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual ICollection<Transaction> RechargeRequests { get; set; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
 
 
     }

@@ -13,6 +13,8 @@ namespace DataAccess.Repositories
     {
         public void AddUser(User user) => UserDAO.Instance.AddUser(user);
 
+       
+
         public List<User> GetAll() => UserDAO.Instance.GetAll();
 
         public User? GetUserByEmail(string email) => UserDAO.Instance.GetUserByEmail(email);
@@ -22,5 +24,9 @@ namespace DataAccess.Repositories
         public void Update(User user) => UserDAO.Instance.Update(user);
 
 		public void UpdateConfirmEmail(string email) => UserDAO.Instance.UpdateConfirmEmail(email);
-	}
+
+        public List<Booking> GetAllSeatBookedByUserId(int id) => UserDAO.Instance.GetAllSeatBookedByUserId(id);
+
+
+    }
 }

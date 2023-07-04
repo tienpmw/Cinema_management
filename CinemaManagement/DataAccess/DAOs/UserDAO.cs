@@ -93,5 +93,10 @@ namespace DataAccess.DAOs
 				throw new Exception(ex.Message);
 			}
 		}
-	}
+
+        public List<Booking> GetAllSeatBookedByUserId(int id)
+        {
+            return new CinemaContext().Booking.Include(x => x.Show).Include(x => x.Show.Film).Where(x => x.UserId == id).ToList();
+        }
+    }
 }

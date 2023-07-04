@@ -1,0 +1,109 @@
+﻿@page
+@model CinemaWebClient.Pages.User.HistoryBuyTicketsModel
+@{
+}
+
+
+<div class="container">
+    <ul class="nav nav-tabs text-uppercase" style="margin: 20px 0;">
+        <li class="text-center active mr-10">
+            <a class="btn btn-primary" href="/User/Index" role="button">Account's info</a>
+        </li>
+        <li class="text-center mr-10">
+            <a class="btn btn-primary" href="#" role="button">History buy tickets</a>
+        </li>
+        <li class="text-center mr-10">
+            <a class="btn btn-primary" href="/User/HistoryRecharge" role="button">History recharge</a>
+        </li>
+    </ul>
+</div>
+
+<div class="d-sm-flex align-items-center mb-4">
+    <h1 class="h3 mb-0 text-gray-800" style="text-shadow: 0px 5px 20px gray;">HISTORY BUY TICKETS</h1>
+</div>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary"></h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+						<th></th>
+                        <th>Film</th>
+                        <th>Show date</th>
+                        <th>Date booking</th>
+                        <th>Total Seat</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="tableContent"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+<script>
+
+
+	$(document).ready(function () {
+		LoadData('http://localhost:5001/api/users/GetAllSeatBookedByUserId/1');
+	});
+
+	function LoadData(link) {
+		var tableContent = document.getElementById('tableContent');
+		var imageAPI = "http://localhost:5001/api/Images/";
+		var initedDataTable = tableContent.innerHTML != "";
+		tableContent.innerHTML = "";
+		$.ajax({
+			url: link,
+			type: 'GET',
+			data: {
+
+			},
+			success: (data) => {
+				var tr = '';
+				console.log(data)
+				for (var i = 0; i < data.length; i++) {
+					var totalSeat = data[i].seatBooking.split("1").length - 1;
+					var amount = formatStringToCurrencyVND(data[i].amount + "");
+					var showdate = ParseDateTime(data[i].show.showDate)
+					var datebooking = ParseDateTime(data[i].dateBooking)
+					tr += ` <tr>`;
+					tr +=
+						`
+							<td><img src="${imageAPI + data[i].show.film.image}" alt="thumbnail" class="img-thumbnail" style='height:150px'></td>
+							<td>${data[i].show.film.title}</td>
+							<td>${showdate}</td>
+							<td>${datebooking}</td>
+							<td>${totalSeat}</td>
+							<td>${amount} VND</td>
+						`;
+					tr += ` </tr>`;
+				}
+				tableContent.innerHTML = tr;
+				if (!initedDataTable) {
+					$(document).ready(function () {
+						$('#myTable').DataTable({
+							pagingType: 'full',
+							"lengthChange": false,
+						});
+					});
+				}
+			},
+			error: (err) => {
+				NotificationMessageError("Server not respone!");
+			}
+		});
+	}
+
+	function getTotalSeat(seat){
+		return seat.split("1").length - 1;
+	}
+
+
+</script>
