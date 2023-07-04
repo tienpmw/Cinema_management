@@ -73,6 +73,7 @@ namespace CinemaWebAPI.Controllers
 			return Ok();
 		}
 
+
 		[HttpPost("SignIn")]
 		public async Task<IActionResult> SignIn(UserSignInRequestDTO userSignIn)
 		{
@@ -408,5 +409,45 @@ namespace CinemaWebAPI.Controllers
 			dateTimeInterval = dateTimeInterval.AddSeconds(utcExpireDate).ToUniversalTime();
 			return dateTimeInterval;
 		}
-	}
+
+        [HttpPost("EditUsername")]
+        public IActionResult EditUserName(UserDTO userEdit)
+        {
+            User? user = _userRepository.GetUserById(userEdit.UserId);
+            if (user == null)
+            {
+                return Conflict();
+            }
+            try
+            {
+				user.FirstName = userEdit.FirstName;	
+				user.LastName = userEdit.LastName;	
+                _userRepository.Update(user);
+            }
+            catch (Exception)
+            {
+                return Conflict();
+            }
+
+            return Ok();
+        }
+
+        [HttpGet("GetAllSeatBookedByUserId/{id}")]
+        public IActionResult GetAllSeatBookedByUserId(int id)
+        {
+            User? user = _userRepository.GetUserById(id);
+            if (user == null)
+            {
+                return Conflict();
+            }
+            try
+            {
+                return Ok(_mapper.Map<List<BookingDTO>>(_userRepository.GetAllSeatBookedByUserId(id)));
+            }
+            catch (Exception)
+            {
+                return Conflict();
+            }
+        }
+    }
 }
