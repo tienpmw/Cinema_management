@@ -69,7 +69,7 @@ namespace CinemaWebClient.Pages.Film.Booking
 			HttpResponseMessage response = await _httpClient.PostAsync($"{BookingApi}/{id}", content);
 			if(!response.IsSuccessStatusCode)
 			{
-				TempData["ErrorMsg"] = response.Content.ReadAsStringAsync();
+				TempData["ErrorMsg"] = await response.Content.ReadAsStringAsync();
 			} else
 			{
 				TempData["SuccessMsg"] = "Booking seats success!";
