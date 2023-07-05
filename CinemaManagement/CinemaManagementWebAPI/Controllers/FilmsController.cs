@@ -2,6 +2,7 @@
 using BusinessObject;
 using DataAccess.IRepositories;
 using DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -50,6 +51,7 @@ namespace CinemaWebAPI.Controllers
 
 
 		[HttpPost]
+		[Authorize("Admin")]
 		public IActionResult Post()
 		{
 
@@ -69,7 +71,7 @@ namespace CinemaWebAPI.Controllers
 			}
 		}
 
-
+		[Authorize("Admin")]
 		[HttpPut]
 		public IActionResult Put()
 		{

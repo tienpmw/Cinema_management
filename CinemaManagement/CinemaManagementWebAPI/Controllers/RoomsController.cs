@@ -2,6 +2,7 @@
 using BusinessObject;
 using DataAccess.IRepositories;
 using DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -29,8 +30,8 @@ namespace CinemaWebAPI.Controllers
         {
             return Ok(_mapper.Map<List<RoomDTO>>(new CinemaContext().Room.ToList()));
         }
-
-        [HttpPost]
+		[Authorize("Admin")]
+		[HttpPost]
         public IActionResult Post(RoomDTO roomDTO) 
         {
             try

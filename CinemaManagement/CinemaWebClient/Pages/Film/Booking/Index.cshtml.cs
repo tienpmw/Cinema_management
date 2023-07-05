@@ -1,7 +1,9 @@
+using CinemaWebClient.Utils;
 using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Net.Http.Headers;
 using System.Text;
@@ -25,8 +27,10 @@ namespace CinemaWebClient.Pages.Film.Booking
 		}
 		[BindProperty]
 		public ShowDTO? Show { get; set; }
+
 		public async Task<IActionResult> OnGet(long id)
 		{
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
 			HttpResponseMessage response = await _httpClient.GetAsync($"{ShowApi}/{id}");
 			if (!response.IsSuccessStatusCode)
 			{
@@ -42,6 +46,7 @@ namespace CinemaWebClient.Pages.Film.Booking
 		}
 		public async Task<IActionResult> OnPost(long id)
 		{
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
 			string?[] seats = Request.Form["seats"].ToArray();
 			if (seats == null || seats.Length == 0)
 			{
@@ -67,10 +72,11 @@ namespace CinemaWebClient.Pages.Film.Booking
 			};
 			var content = new StringContent(JsonSerializer.Serialize(booking), Encoding.UTF8, "application/json");
 			HttpResponseMessage response = await _httpClient.PostAsync($"{BookingApi}/{id}", content);
-			if(!response.IsSuccessStatusCode)
+			if (!response.IsSuccessStatusCode)
 			{
 				TempData["ErrorMsg"] = await response.Content.ReadAsStringAsync();
-			} else
+			}
+			else
 			{
 				TempData["SuccessMsg"] = "Booking seats success!";
 			}

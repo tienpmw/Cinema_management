@@ -1,3 +1,4 @@
+using CinemaWebClient.Utils;
 using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -22,6 +23,7 @@ namespace CinemaWebClient.Pages.Admin.User
 		public SelectList Roles { get; set; }
 		public async Task OnGet()
 		{
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
 			HttpResponseMessage response = await _httpClient.GetAsync(RoleApi);
 			var dataStr = await response.Content.ReadAsStringAsync();
 			var options = new JsonSerializerOptions

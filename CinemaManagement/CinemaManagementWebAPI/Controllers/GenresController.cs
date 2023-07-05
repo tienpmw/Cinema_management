@@ -2,6 +2,7 @@
 using BusinessObject;
 using DataAccess.IRepositories;
 using DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -29,6 +30,7 @@ namespace CinemaWebAPI.Controllers
         {
             return Ok(_mapper.Map<List<GenreDTO>>(_genreRepository.GetAll()));
         }
+		[Authorize("Admin")]
 		[HttpPost]
 		public IActionResult AddGenre([FromBody]string nameGenre)
 		{

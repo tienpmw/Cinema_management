@@ -1,6 +1,7 @@
 ﻿using BusinessObject;
 using DataAccess.IRepositories;
 using DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace CinemaWebAPI.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize]
 	public class BookingsController : ControllerBase
 	{
 		private readonly IShowRepository _showRepository;
@@ -20,11 +22,15 @@ namespace CinemaWebAPI.Controllers
 			_bookRepository = bookRepository;
 			_userRepository = userRepository;
 		}
+
+		
 		[HttpGet("{idShow}/{idUser}")]
 		public IActionResult GetBookingByUserId(long idShow, long idUser)
 		{
 			return Ok(_bookRepository.FindBookingByUserId(idShow, idUser));
 		}
+
+		
 		[HttpPost("{id}")]
 		public IActionResult AddBooking(long id, BookingRequestDTO booking)
 		{

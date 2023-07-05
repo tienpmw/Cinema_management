@@ -1,7 +1,9 @@
 using BusinessObject;
+using CinemaWebClient.Utils;
 using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Options;
 using Microsoft.VisualBasic;
 using System.Collections.Generic;
@@ -30,16 +32,18 @@ namespace CinemaWebClient.Pages.Admin.Film
 
         private readonly HttpClient client = null;
 
-
-        public CreateModel()
+		
+		public CreateModel()
         {
             client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            Message = string.Empty;
+			Message = string.Empty;
         }
-        public async Task<IActionResult> OnGet()
+		
+		public async Task<IActionResult> OnGet()
         {
-            var options = new JsonSerializerOptions()
+            Util.SetAuthenticationToken(client, HttpContext);
+			var options = new JsonSerializerOptions()
             {
                 PropertyNameCaseInsensitive = true
             };
@@ -64,7 +68,8 @@ namespace CinemaWebClient.Pages.Admin.Film
 
         public async Task<IActionResult> OnPostAsync()
         {
-            ModelState.Remove("Message");
+			Util.SetAuthenticationToken(client, HttpContext);
+			ModelState.Remove("Message");
             ModelState.Remove("ImageFile");
             ModelState.Remove("FilmDTO.FilmDuration");
             if (!ModelState.IsValid) return Page();

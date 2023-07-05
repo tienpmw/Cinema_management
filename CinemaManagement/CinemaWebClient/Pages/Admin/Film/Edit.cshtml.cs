@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Text;
+using System.Net.Http;
+using CinemaWebClient.Utils;
 
 namespace CinemaWebClient.Pages.Admin.Film
 {
@@ -30,18 +32,19 @@ namespace CinemaWebClient.Pages.Admin.Film
         {
             client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            Message = string.Empty;
+			Message = string.Empty;
         }
-        public async Task<IActionResult> OnGet(int id)
+		
+		public async Task<IActionResult> OnGet(int id)
         {
-            var options = new JsonSerializerOptions()
+			Util.SetAuthenticationToken(client, HttpContext);
+			var options = new JsonSerializerOptions()
             {
                 PropertyNameCaseInsensitive = true
             };
 
             try
             {
-
                 HttpResponseMessage responeFilm = await client.GetAsync("http://localhost:5001/api/Films/GetFilmById/" + id);
                 var strDataFilm = await responeFilm.Content.ReadAsStringAsync();
 
@@ -63,7 +66,8 @@ namespace CinemaWebClient.Pages.Admin.Film
 
         public async Task<IActionResult> OnPostAsync()
         {
-            ModelState.Remove("Message");
+			Util.SetAuthenticationToken(client, HttpContext);
+			ModelState.Remove("Message");
             ModelState.Remove("ImageFile");
             ModelState.Remove("FilmDTO.FilmDuration");
             if (!ModelState.IsValid) return Page();

@@ -1,3 +1,4 @@
+using CinemaWebClient.Utils;
 using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -34,12 +35,14 @@ namespace CinemaWebClient.Pages.Admin.Show
 		public List<FilmDTO>? Films { get; set; }
 		public async Task<IActionResult> OnGet()
 		{
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
 			Show.ShowDate = DateTime.Now.Date;
 			await LoadData();
 			return Page();
 		}
 		public async Task<IActionResult> OnPost()
 		{
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
 			if (!ModelState.IsValid)
 			{
 				await LoadData();

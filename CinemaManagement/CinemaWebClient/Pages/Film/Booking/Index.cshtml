@@ -1,6 +1,15 @@
 ﻿@page
+@using DTOs;
+@using System.Text.Json;
 @model CinemaWebClient.Pages.Film.Booking.IndexModel
 @{
+    var strData = HttpContext.Session.GetString("info");
+
+    var options = new JsonSerializerOptions()
+            {
+                PropertyNameCaseInsensitive = true
+            };
+    UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(strData, options) ?? null;
 }
 <div class="row py-3">
 	<div class="col-md-12 py-3 text-center">
@@ -73,7 +82,7 @@
 			}
 			let params = new URLSearchParams(document.location.search);
 			let idShow = params.get("id");
-			let idUser = 1;
+			let idUser = @(user.UserId);
 			$.ajax({
 				url: "http://localhost:5001/api/Bookings/" + idShow + "/" + idUser,
 				type: 'GET',

@@ -1,3 +1,4 @@
+using CinemaWebClient.Utils;
 using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -33,6 +34,7 @@ namespace CinemaWebClient.Pages.Admin.User
 		public Dictionary<int, string> Status { get; set; }
 		public async Task<IActionResult> OnGet(int id)
 		{
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
 			var response = await _httpClient.GetAsync($"{UserApi}/{id}");
 			if (!response.IsSuccessStatusCode)
 			{
@@ -56,7 +58,7 @@ namespace CinemaWebClient.Pages.Admin.User
 		}
 		public async Task<IActionResult> OnPost()
 		{
-
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
 			var content = new StringContent(JsonSerializer.Serialize<UserDTO>(User), Encoding.UTF8, "application/json");
 			var response = await _httpClient.PostAsync($"{UserApi}/Edit", content);
 			if (!response.IsSuccessStatusCode)

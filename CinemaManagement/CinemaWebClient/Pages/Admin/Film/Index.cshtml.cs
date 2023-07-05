@@ -1,3 +1,4 @@
+using CinemaWebClient.Utils;
 using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -16,12 +17,13 @@ namespace CinemaWebClient.Pages.Admin.Film
             _httpClient = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             _httpClient.DefaultRequestHeaders.Accept.Add(contentType);
-            GenreApi = "http://localhost:5001/api/Genres";
+			GenreApi = "http://localhost:5001/api/Genres";
         }
         public SelectList Genres { get; set; }
         public async Task OnGet()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync(GenreApi);
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
+			HttpResponseMessage response = await _httpClient.GetAsync(GenreApi);
             string data = await response.Content.ReadAsStringAsync();
             var option = new JsonSerializerOptions
             {

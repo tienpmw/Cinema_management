@@ -1,8 +1,10 @@
+using CinemaWebClient.Utils;
 using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualBasic;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -28,16 +30,17 @@ namespace CinemaWebClient.Pages.Admin.Room
             client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             Message = null;
-            StatusRequest = false;
+			
+			StatusRequest = false;
         }
 
         public void OnGet()
         {
-
-        }
+		}
 
         public async Task<IActionResult> OnPost()
         {
+			Util.SetAuthenticationToken(client, HttpContext);
             ModelState.Remove("Message");
             if (!ModelState.IsValid) return Page();
             

@@ -51,6 +51,8 @@ namespace CinemaWebAPI.Controllers
 		{
 			return Ok(_mapper.Map<UserDTO>(_userRepository.GetUserById(id)));
 		}
+
+		[Authorize("Admin")]
 		[HttpPost("Edit")]
 		public IActionResult Edit(UserDTO userEdit)
 		{

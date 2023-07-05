@@ -1,6 +1,9 @@
+using CinemaWebClient.Utils;
+using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Http.Headers;
+using System.Text.Json;
 
 namespace CinemaWebClient.Pages.Admin.Show
 {
@@ -17,6 +20,7 @@ namespace CinemaWebClient.Pages.Admin.Show
 		}
 		public async Task<IActionResult> OnGet(long id)
 		{
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
 			HttpResponseMessage response = await _httpClient.DeleteAsync($"{ShowApi}/{id}");
 			if (!response.IsSuccessStatusCode)
 			{

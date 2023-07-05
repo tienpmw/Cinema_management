@@ -2,6 +2,7 @@
 using BusinessObject;
 using DataAccess.IRepositories;
 using DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -36,6 +37,7 @@ namespace CinemaWebAPI.Controllers
 			}
 			return Ok(_mapper.Map<ShowDTO>(show));
 		}
+		[Authorize("Admin")]
 		[HttpGet("GetEarningMonthly")]
 		public IActionResult GetEarningMonthly()
 		{
@@ -46,6 +48,7 @@ namespace CinemaWebAPI.Controllers
 				earning = earning
 			});
 		}
+		[Authorize("Admin")]
 		[HttpGet("GetEarningAnnual")]
 		public IActionResult GetEarningAnnual()
 		{
@@ -56,6 +59,8 @@ namespace CinemaWebAPI.Controllers
 				earning = earning
 			});
 		}
+
+		[Authorize("Admin")]
 		[HttpPost]
 		public IActionResult AddShow(ShowDTO show)
 		{
@@ -77,6 +82,8 @@ namespace CinemaWebAPI.Controllers
 			}
 			return Ok();
 		}
+
+		[Authorize("Admin")]
 		[HttpPut]
 		public IActionResult UpdateShow(ShowDTO show)
 		{
@@ -101,6 +108,7 @@ namespace CinemaWebAPI.Controllers
 			}
 			return Ok();
 		}
+		[Authorize("Admin")]
 		[HttpDelete("{id}")]
 		public IActionResult DeleteShow(long id)
 		{

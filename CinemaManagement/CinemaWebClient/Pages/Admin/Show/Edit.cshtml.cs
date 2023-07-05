@@ -1,3 +1,4 @@
+using CinemaWebClient.Utils;
 using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -29,6 +30,7 @@ namespace CinemaWebClient.Pages.Admin.Show
 		public ShowDTO Show { get; set; }
 		public async Task<IActionResult> OnGet(long id)
 		{
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
 			HttpResponseMessage response = await _httpClient.GetAsync(ShowApi + "/" + id);
 			if (!response.IsSuccessStatusCode)
 			{
@@ -43,6 +45,7 @@ namespace CinemaWebClient.Pages.Admin.Show
 		}
 		public async Task<IActionResult> OnPost(long id)
 		{
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
 			if (ModelState["Show.ShowId"].Errors.Count != 0 || ModelState["Show.ShowDate"].Errors.Count != 0)
 			{
 				return Page();

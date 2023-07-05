@@ -1,3 +1,5 @@
+using CinemaWebClient.Utils;
+using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Http.Headers;
@@ -21,6 +23,7 @@ namespace CinemaWebClient.Pages.Admin
 
 		public async Task OnGet()
 		{
+			Util.SetAuthenticationToken(_httpClient, HttpContext);
 			HttpResponseMessage response = await _httpClient.GetAsync(ShowApi + "/GetEarningMonthly");
 			string dataStr = await response.Content.ReadAsStringAsync();
 			var options = new JsonSerializerOptions
