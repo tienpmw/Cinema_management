@@ -35,7 +35,14 @@ namespace CinemaWebClient.Filters
 			allowAnonymous.Add("/Film/Detail");
 
 			allowUser.Add("/Film/Booking/Index");
-			allowAdmin.Add("/Admin/Index");
+            allowUser.Add("/Transaction/Index");
+            allowUser.Add("/Transaction/Payment");
+            allowUser.Add("/User/Index");
+            allowUser.Add("/User/HistoryBuyTickets");
+            allowUser.Add("/User/HistoryRecharges");
+
+
+            allowAdmin.Add("/Admin/Index");
 			allowAdmin.Add("/Admin/Genre/Index");
 			allowAdmin.Add("/Admin/Show/Index");
 			allowAdmin.Add("/Admin/Room/Index");
