@@ -35,7 +35,6 @@ namespace CinemaWebClient.Filters
 			allowAnonymous.Add("/Film/Detail");
 
 			allowUser.Add("/Film/Booking/Index");
-
 			allowAdmin.Add("/Admin/Index");
 			allowAdmin.Add("/Admin/Genre/Index");
 			allowAdmin.Add("/Admin/Show/Index");
@@ -85,25 +84,15 @@ namespace CinemaWebClient.Filters
 				}
 			}
 
-
 			// check user
 			string? userInfo = context.HttpContext.Session.GetString("info");
-			//if (string.IsNullOrEmpty(userInfo))
-			//{
-			//	foreach (string urlFilter in allowAnonymous)
-			//	{
-			//		if (urlFilter.Contains(url))
-			//		{
-			//			await next.Invoke();
-			//			return;
-			//		}
-			//	}
-			//	context.Result = new RedirectToPageResult(previousUrl, dictinaryQuery);
-			//	return;
-			//}
+			if (userInfo == null)
+			{
+				context.Result = new RedirectToPageResult("/AccessDenied");
+				return;
+			}
 
-
-			UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(userInfo);
+            UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(userInfo);
 			// check token expire then refresh token
 			if (!string.IsNullOrEmpty(userInfo))
 			{
