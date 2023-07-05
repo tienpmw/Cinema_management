@@ -30,7 +30,8 @@ namespace CinemaWebAPI.Controllers
 			return Ok(_bookRepository.FindBookingByUserId(idShow, idUser));
 		}
 
-		
+
+		[Authorize]
 		[HttpPost("{id}")]
 		public IActionResult AddBooking(long id, BookingRequestDTO booking)
 		{

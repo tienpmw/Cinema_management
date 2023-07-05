@@ -37,7 +37,7 @@ namespace CinemaWebAPI.Controllers
 			}
 			return Ok(_mapper.Map<ShowDTO>(show));
 		}
-		[Authorize("Admin")]
+		[Authorize(Roles = "Admin")]
 		[HttpGet("GetEarningMonthly")]
 		public IActionResult GetEarningMonthly()
 		{
@@ -48,7 +48,7 @@ namespace CinemaWebAPI.Controllers
 				earning = earning
 			});
 		}
-		[Authorize("Admin")]
+		[Authorize(Roles = "Admin")]
 		[HttpGet("GetEarningAnnual")]
 		public IActionResult GetEarningAnnual()
 		{
@@ -60,7 +60,7 @@ namespace CinemaWebAPI.Controllers
 			});
 		}
 
-		[Authorize("Admin")]
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
 		public IActionResult AddShow(ShowDTO show)
 		{
@@ -83,7 +83,7 @@ namespace CinemaWebAPI.Controllers
 			return Ok();
 		}
 
-		[Authorize("Admin")]
+		[Authorize(Roles = "Admin")]
 		[HttpPut]
 		public IActionResult UpdateShow(ShowDTO show)
 		{
@@ -108,7 +108,7 @@ namespace CinemaWebAPI.Controllers
 			}
 			return Ok();
 		}
-		[Authorize("Admin")]
+		[Authorize(Roles = "Admin")]
 		[HttpDelete("{id}")]
 		public IActionResult DeleteShow(long id)
 		{

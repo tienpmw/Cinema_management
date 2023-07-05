@@ -2,6 +2,7 @@
 @model CinemaWebClient.Pages.Admin.IndexModel
 @{
 	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+	string accessToken = await Util.GetAccessToken(HttpContext);
 }
 <div class="container-fluid">
 
@@ -184,7 +185,10 @@
 @section Scripts {
 	<!-- Core plugin JavaScript-->
 	<script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+	<script>
+		var token = '@accessToken';
+	</script>
+	
 	<!-- Custom scripts for all pages-->
 	<script src="~/js/sb-admin-2.min.js"></script>
 

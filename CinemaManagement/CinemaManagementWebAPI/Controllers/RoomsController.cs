@@ -30,7 +30,7 @@ namespace CinemaWebAPI.Controllers
         {
             return Ok(_mapper.Map<List<RoomDTO>>(new CinemaContext().Room.ToList()));
         }
-		[Authorize("Admin")]
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
         public IActionResult Post(RoomDTO roomDTO) 
         {

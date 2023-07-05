@@ -30,7 +30,7 @@ namespace CinemaWebAPI.Controllers
         {
             return Ok(_mapper.Map<List<GenreDTO>>(_genreRepository.GetAll()));
         }
-		[Authorize("Admin")]
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
 		public IActionResult AddGenre([FromBody]string nameGenre)
 		{

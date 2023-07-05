@@ -1,4 +1,5 @@
-﻿using DTOs;
+﻿using CinemaWebClient.Utils;
+using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net.Http.Headers;
@@ -14,15 +15,8 @@ namespace CinemaWebClient.Filters
 		private List<string> allowUser = new List<string>();
 		private List<string> allowAdmin = new List<string>();
 
-		private HttpClient _httpClient;
-		private readonly string UserApi = string.Empty;
-
 		public AuthorizationUserPageFilter()
 		{
-			_httpClient = new HttpClient();
-			var contentType = new MediaTypeWithQualityHeaderValue("application/json");
-			_httpClient.DefaultRequestHeaders.Accept.Add(contentType);
-			UserApi = "http://localhost:5001/api/Users/RefreshToken";
 			AddRequestAccept();
 		}
 
@@ -43,7 +37,7 @@ namespace CinemaWebClient.Filters
 			allowAdmin.Add("/Admin/Booking/Index");
 			allowAdmin.Add("/Admin/User/Index");
 			allowAdmin.Add("/Admin/Film/Index");
-			allowAdmin.Add("/Admin/Transaction/Index");
+			allowAdmin.Add("/Admin/HistoryTransaction/Index");
 		}
 
 
@@ -87,6 +81,7 @@ namespace CinemaWebClient.Filters
 
 
 			// check user
+			await Util.RefreshToken(context.HttpContext);
 			string? userInfo = context.HttpContext.Session.GetString("info");
 			//if (string.IsNullOrEmpty(userInfo))
 			//{
@@ -103,12 +98,12 @@ namespace CinemaWebClient.Filters
 			//}
 
 
-			UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(userInfo);
-			// check token expire then refresh token
-			if (!string.IsNullOrEmpty(userInfo))
+			if (string.IsNullOrEmpty(userInfo))
 			{
-				await RefreshToken(context);
+				context.Result = new RedirectToPageResult(previousUrl, dictinaryQuery);
+				return;
 			}
+			UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(userInfo);
 
 			// check request for user's role user
 			if (user.RoleName.ToLower() == "user")
@@ -130,7 +125,14 @@ namespace CinemaWebClient.Filters
 			// check request for user's role admin
 			if (user.RoleName.ToLower() == "admin")
 			{
-				await RefreshToken(context);
+				foreach (string urlFilter in allowUser)
+				{
+					if (urlFilter.Contains(url))
+					{
+						await next.Invoke();
+						return;
+					}
+				}
 				foreach (string urlFilter in allowAdmin)
 				{
 					if (urlFilter.Contains(url))
@@ -145,29 +147,7 @@ namespace CinemaWebClient.Filters
 
 			await next.Invoke();
 		}
-		private async Task RefreshToken(PageHandlerExecutingContext context)
-		{
-			if (context.HttpContext.Session.GetString("info") != null)
-			{
-				var options = new JsonSerializerOptions
-				{
-					PropertyNameCaseInsensitive = true
-				};
-				UserSignInResponseDTO userInfo = JsonSerializer.Deserialize<UserSignInResponseDTO>(context.HttpContext.Session.GetString("info"), options) ?? new UserSignInResponseDTO();
-				_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(userInfo.AccessToken ?? "");
-				RefreshTokenRequestDTO rf = new RefreshTokenRequestDTO
-				{
-					AccessToken = userInfo.AccessToken,
-					RefreshToken = userInfo.RefreshToken
-				};
-				var content = new StringContent(JsonSerializer.Serialize(rf), Encoding.UTF8, "application/json");
-				HttpResponseMessage response = await _httpClient.PostAsync(UserApi, content);
-				if (response.IsSuccessStatusCode)
-				{
-					context.HttpContext.Session.SetString("info", await response.Content.ReadAsStringAsync());
-				}
-			}
-		}
+		
 		public Task OnPageHandlerSelectionAsync(PageHandlerSelectedContext context)
 		{
 			return Task.CompletedTask;

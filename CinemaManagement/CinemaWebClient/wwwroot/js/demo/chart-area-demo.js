@@ -5,10 +5,14 @@ $(document).ready(function () {
     var vMonths = [];
     getData();
     function getData() {
+        console.log(token)
         $.ajax({
             url: 'http://localhost:5001/api/Shows/GetEarningAnnual',
             type: 'GET',
             data: {
+            },
+            beforeSend: function (xhr, settings) {
+                xhr.setRequestHeader('Authorization', token);
             },
             success: (response) => {
                 var data = response.earning;

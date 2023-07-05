@@ -1,7 +1,9 @@
 ﻿@page
+@using CinemaWebClient.Utils;
 @model CinemaWebClient.Pages.Admin.Film.IndexModel
 @{
-	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+    string accessToken = await Util.GetAccessToken(HttpContext);
 }
 
 <div class="container-fluid">
@@ -78,6 +80,7 @@
 	});
 
 	function LoadData(link) {
+		var token = '@(accessToken)';
 		var tableContent = document.getElementById('tableContent');
 		var imageAPI = "http://localhost:5001/api/Images/";
 		var initedDataTable = tableContent.innerHTML != "";
@@ -87,6 +90,9 @@
 			type: 'GET',
 			data: {
 
+			},
+			beforeSend: function (xhr, settings) {
+				xhr.setRequestHeader('Authorization', token);
 			},
 			success: (data) => {
 				var tr = '';

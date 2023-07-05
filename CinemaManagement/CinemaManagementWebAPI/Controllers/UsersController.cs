@@ -52,7 +52,7 @@ namespace CinemaWebAPI.Controllers
 			return Ok(_mapper.Map<UserDTO>(_userRepository.GetUserById(id)));
 		}
 
-		[Authorize("Admin")]
+		[Authorize(Roles = "Admin")]
 		[HttpPost("Edit")]
 		public IActionResult Edit(UserDTO userEdit)
 		{
@@ -435,7 +435,7 @@ namespace CinemaWebAPI.Controllers
         }
 
         [HttpGet("GetAllSeatBookedByUserId/{id}")]
-        public IActionResult GetAllSeatBookedByUserId(int id)
+        public IActionResult GetAllSeatBookedByUserId(long id)
         {
             User? user = _userRepository.GetUserById(id);
             if (user == null)

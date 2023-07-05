@@ -15,6 +15,6 @@ namespace DataAccess.IRepositories
 		User? GetUserById(long userId);
 		void Update(User user);
 		void UpdateConfirmEmail(string email);
-        List<Booking> GetAllSeatBookedByUserId(int id);
+        List<Booking> GetAllSeatBookedByUserId(long id);
 	}
 }

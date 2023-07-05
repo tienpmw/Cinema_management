@@ -25,7 +25,7 @@ namespace DataAccess.Repositories
 
 		public void UpdateConfirmEmail(string email) => UserDAO.Instance.UpdateConfirmEmail(email);
 
-        public List<Booking> GetAllSeatBookedByUserId(int id) => UserDAO.Instance.GetAllSeatBookedByUserId(id);
+        public List<Booking> GetAllSeatBookedByUserId(long id) => UserDAO.Instance.GetAllSeatBookedByUserId(id);
 
 
     }

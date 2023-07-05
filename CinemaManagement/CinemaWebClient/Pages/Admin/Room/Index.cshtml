@@ -2,6 +2,7 @@
 @model CinemaWebClient.Pages.Admin.Room.IndexModel
 @{
 	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+	string accessToken = await Util.GetAccessToken(HttpContext);
 }
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center mb-4">
@@ -38,7 +39,7 @@
 	$(document).ready(function () {
 		LoadData('http://localhost:5001/api/Rooms');
 	});
-
+	var token = '@(accessToken)'
 	function LoadData(link) {
 		var tableContent = document.getElementById('tableContent');
 		tableContent.innerHTML = "";
@@ -47,6 +48,9 @@
 			type: 'GET',
 			data: {
 
+			},
+			beforeSend: function (xhr, settings) {
+				xhr.setRequestHeader('Authorization', token);
 			},
 			success: (data) => {
 				var tr = '';

@@ -50,8 +50,8 @@ namespace CinemaWebAPI.Controllers
 		}
 
 
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
-		[Authorize("Admin")]
 		public IActionResult Post()
 		{
 
@@ -71,7 +71,7 @@ namespace CinemaWebAPI.Controllers
 			}
 		}
 
-		[Authorize("Admin")]
+		[Authorize(Roles = "Admin")]
 		[HttpPut]
 		public IActionResult Put()
 		{

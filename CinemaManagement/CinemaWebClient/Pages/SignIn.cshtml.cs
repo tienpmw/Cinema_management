@@ -25,7 +25,7 @@ namespace CinemaWebClient.Pages
 		}
 		[BindProperty(SupportsGet = true)]
 		public UserSignInRequestDTO UserSignIn { get; set; }
-		public async Task OnGetAsync()
+		public void OnGet()
 		{
 
 		}

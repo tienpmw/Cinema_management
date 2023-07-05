@@ -4,10 +4,12 @@ using CinemaWebAPI.Utilities;
 using DataAccess.IRepositories;
 using DataAccess.Repositories;
 using DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Attributes;
+using System.Data;
 
 namespace CinemaWebAPI.Controllers
 {
@@ -33,7 +35,8 @@ namespace CinemaWebAPI.Controllers
         }
 
 		[HttpPost]
-        public IActionResult Post(TransactionDTO transactionDTO)
+		[Authorize]
+		public IActionResult Post(TransactionDTO transactionDTO)
 
         {
             try
