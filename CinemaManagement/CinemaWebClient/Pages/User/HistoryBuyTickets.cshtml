@@ -1,6 +1,15 @@
 ﻿@page
+@using System.Text.Json;
+@using DTOs;
 @model CinemaWebClient.Pages.User.HistoryBuyTicketsModel
 @{
+    Layout = "_Layout";
+    var strData = HttpContext.Session.GetString("info");
+    var options = new JsonSerializerOptions()
+            {
+                PropertyNameCaseInsensitive = true
+            };
+    UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(strData, options);
 }
 
 
@@ -52,7 +61,8 @@
 
 
     $(document).ready(function () {
-        LoadData('http://localhost:5001/api/users/GetAllSeatBookedByUserId/1');
+        var userId = @(user.UserId);
+        LoadData('http://localhost:5001/api/users/GetAllSeatBookedByUserId/' + userId);
     });
 
     function LoadData(link) {
@@ -77,13 +87,13 @@
                     tr += ` <tr>`;
                     tr +=
                         `
-                                <td><img src="${imageAPI + data[i].show.film.image}" alt="thumbnail" class="img-thumbnail" style='height:150px'></td>
-                                <td>${data[i].show.film.title}</td>
-                                <td>${showdate}</td>
-                                <td>${datebooking}</td>
-                                <td>${totalSeat}</td>
-                                <td>${amount} VND</td>
-                            `;
+                                    <td><img src="${imageAPI + data[i].show.film.image}" alt="thumbnail" class="img-thumbnail" style='height:150px'></td>
+                                    <td>${data[i].show.film.title}</td>
+                                    <td>${showdate}</td>
+                                    <td>${datebooking}</td>
+                                    <td>${totalSeat}</td>
+                                    <td>${amount} VND</td>
+                                `;
                     tr += ` </tr>`;
                 }
                 tableContent.innerHTML = tr;

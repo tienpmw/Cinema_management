@@ -1,4 +1,5 @@
 using DTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Http;
@@ -22,8 +23,8 @@ namespace CinemaWebClient.Pages.User
         }
         public async Task<IActionResult> OnGet()
         {
-            int userId = 1;
-            var request = await client.GetAsync("http://localhost:5001/api/Users/" + userId);
+            var user = JsonSerializer.Deserialize<UserSignInResponseDTO>(HttpContext.Session.GetString("info"));
+            var request = await client.GetAsync("http://localhost:5001/api/Users/" + user.UserId);
             var dataStr = await request.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions
             {

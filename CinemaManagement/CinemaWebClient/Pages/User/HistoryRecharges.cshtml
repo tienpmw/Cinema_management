@@ -1,6 +1,15 @@
 ﻿@page
+@using System.Text.Json;
+@using DTOs;
 @model CinemaWebClient.Pages.User.HistoryRechargesModel
 @{
+	Layout = "_Layout";
+	var strData = HttpContext.Session.GetString("info");
+	var options = new JsonSerializerOptions()
+			{
+				PropertyNameCaseInsensitive = true
+			};
+	UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(strData, options);
 }
 
 
@@ -50,7 +59,8 @@
 
 
 	$(document).ready(function () {
-		LoadData('http://localhost:5001/api/transactions?$expand=user & $filter=IsPay eq true and user/userId eq 1 ');
+		var userId = @(user.UserId);
+		LoadData('http://localhost:5001/api/transactions?$expand=user & $filter=IsPay eq true and user/userId eq ' + userId);
 	});
 
 	function LoadData(link) {

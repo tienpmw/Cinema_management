@@ -24,7 +24,8 @@ namespace CinemaWebClient.Filters
 		{
 			allowAnonymous.Add("/SignIn");
 			allowAnonymous.Add("/SignUp");
-			allowAnonymous.Add("/AccessDenied");
+            allowAnonymous.Add("/SignOut");
+            allowAnonymous.Add("/AccessDenied");
 			allowAnonymous.Add("/Home");
 			allowAnonymous.Add("/Film/Detail");
 
@@ -39,11 +40,18 @@ namespace CinemaWebClient.Filters
             allowAdmin.Add("/Admin/Index");
 			allowAdmin.Add("/Admin/Genre/Index");
 			allowAdmin.Add("/Admin/Show/Index");
-			allowAdmin.Add("/Admin/Room/Index");
-			allowAdmin.Add("/Admin/Booking/Index");
+            allowAdmin.Add("/Admin/Show/Create");
+            allowAdmin.Add("/Admin/Show/Edit");
+            allowAdmin.Add("/Admin/Show/Delete");
+            allowAdmin.Add("/Admin/Room/Index");
+            allowAdmin.Add("/Admin/Room/Create");
+            allowAdmin.Add("/Admin/Booking/Index");
 			allowAdmin.Add("/Admin/User/Index");
-			allowAdmin.Add("/Admin/Film/Index");
-			allowAdmin.Add("/Admin/HistoryTransaction/Index");
+            allowAdmin.Add("/Admin/User/Edit");
+            allowAdmin.Add("/Admin/Film/Index");
+            allowAdmin.Add("/Admin/Film/Create");
+            allowAdmin.Add("/Admin/Film/Edit");
+            allowAdmin.Add("/Admin/HistoryTransaction/Index");
 		}
 
 
@@ -95,13 +103,13 @@ namespace CinemaWebClient.Filters
 			}
 
             UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(userInfo);
-			
+			/*
 			if (!string.IsNullOrEmpty(userInfo))
 			{
 				context.Result = new RedirectToPageResult(previousUrl, dictinaryQuery);
 				return;
 			}
-			UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(userInfo);
+			*/
 
 			// check request for user's role user
 			if (user.RoleName.ToLower() == "user")
