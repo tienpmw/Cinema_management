@@ -29,8 +29,14 @@ namespace CinemaWebClient.Filters
 			allowAnonymous.Add("/Film/Detail");
 
 			allowUser.Add("/Film/Booking/Index");
+            allowUser.Add("/Transaction/Index");
+            allowUser.Add("/Transaction/Payment");
+            allowUser.Add("/User/Index");
+            allowUser.Add("/User/HistoryBuyTickets");
+            allowUser.Add("/User/HistoryRecharges");
 
-			allowAdmin.Add("/Admin/Index");
+
+            allowAdmin.Add("/Admin/Index");
 			allowAdmin.Add("/Admin/Genre/Index");
 			allowAdmin.Add("/Admin/Show/Index");
 			allowAdmin.Add("/Admin/Room/Index");
@@ -79,26 +85,18 @@ namespace CinemaWebClient.Filters
 				}
 			}
 
-
 			// check user
 			await Util.RefreshToken(context.HttpContext);
 			string? userInfo = context.HttpContext.Session.GetString("info");
-			//if (string.IsNullOrEmpty(userInfo))
-			//{
-			//	foreach (string urlFilter in allowAnonymous)
-			//	{
-			//		if (urlFilter.Contains(url))
-			//		{
-			//			await next.Invoke();
-			//			return;
-			//		}
-			//	}
-			//	context.Result = new RedirectToPageResult(previousUrl, dictinaryQuery);
-			//	return;
-			//}
+			if (userInfo == null)
+			{
+				context.Result = new RedirectToPageResult("/AccessDenied");
+				return;
+			}
 
-
-			if (string.IsNullOrEmpty(userInfo))
+            UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(userInfo);
+			
+			if (!string.IsNullOrEmpty(userInfo))
 			{
 				context.Result = new RedirectToPageResult(previousUrl, dictinaryQuery);
 				return;

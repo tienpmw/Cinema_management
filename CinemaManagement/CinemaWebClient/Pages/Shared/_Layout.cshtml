@@ -49,12 +49,17 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="#!">CINEMA</a>
+			<a class="navbar-brand" asp-page="/Home">CINEMA</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 flex-fill">
 					<li class="nav-item"><a class="nav-link active" aria-current="page" asp-page="/Home">Home</a></li>
-					@*<li class="nav-item"><a class="nav-link" href="#!">About</a></li>*@
+					@{
+						if(user != null && user.RoleName.ToLower() == "admin"){
+							<li class="nav-item"><a class="nav-link" asp-page="/Admin/Index">Adminstrator</a></li>
+						}
+					}
+					
 					@*<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -96,7 +101,7 @@
 	{
 		<script>
 			var userId = @(user.UserId)
-				LoadUserInfo('http://localhost:5001/api/users/' + userId);
+			LoadUserInfo('http://localhost:5001/api/users/' + userId);
 			function LoadUserInfo(link) {
 				var tag = document.querySelector("#navigation");
 				$.ajax({
