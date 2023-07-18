@@ -27,7 +27,7 @@
 			</div>
 		</div>
 	</div>
-	<button type="button" class="btn btn-primary py-3" data-bs-toggle="modal" data-bs-target="#addGenreModal">
+	<button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addGenreModal">
 		Add Genre
 	</button>
 	<div class="card shadow mb-4">
@@ -81,8 +81,8 @@
 	var token = '@(accessToken)'
 	function LoadData(link) {
 		var tableContent = document.getElementById('tableContent');
-		var initedDataTable = tableContent.innerHTML != "";
 		tableContent.innerHTML = "";
+		var initedDataTable = tableContent.innerHTML != "";
 		$.ajax({
 			url: link,
 			type: 'GET',

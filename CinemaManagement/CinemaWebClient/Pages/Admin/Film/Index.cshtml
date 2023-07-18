@@ -83,8 +83,8 @@
 		var token = '@(accessToken)';
 		var tableContent = document.getElementById('tableContent');
 		var imageAPI = "http://localhost:5001/api/Images/";
-		var initedDataTable = tableContent.innerHTML != "";
 		tableContent.innerHTML = "";
+		var initedDataTable = tableContent.innerHTML != "";
 		$.ajax({
 			url: link,
 			type: 'GET',
