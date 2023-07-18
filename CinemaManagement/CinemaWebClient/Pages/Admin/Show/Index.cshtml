@@ -76,6 +76,7 @@
 		function LoadData(link) {
 			var tableContent = document.getElementById('tableContent');
 			tableContent.innerHTML = "";
+			var initedDataTable = tableContent.innerHTML != "";
 			$.ajax({
 				url: link,
 				type: 'GET',
