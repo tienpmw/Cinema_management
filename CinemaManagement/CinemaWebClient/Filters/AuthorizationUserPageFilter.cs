@@ -81,14 +81,6 @@ namespace CinemaWebClient.Filters
 			}
 
             UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(userInfo);
-			/*
-			if (!string.IsNullOrEmpty(userInfo))
-			{
-				context.Result = new RedirectToPageResult(previousUrl, dictinaryQuery);
-				return;
-			}
-			*/
-
 
 			// check request for user's role user
 			if (user.RoleName.ToLower() == "user")

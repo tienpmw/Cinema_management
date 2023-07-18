@@ -19,7 +19,7 @@ namespace CinemaWebClient
 					options.Conventions.AddPageRoute("/Home", "");
 				});
 
-			// add session
+			// Add Session
 			builder.Services.AddSession(options =>
 			{
 				options.IdleTimeout = TimeSpan.FromMinutes(60);
