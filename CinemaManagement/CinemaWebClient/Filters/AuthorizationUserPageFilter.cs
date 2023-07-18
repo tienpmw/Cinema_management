@@ -98,7 +98,7 @@ namespace CinemaWebClient.Filters
 			string? userInfo = context.HttpContext.Session.GetString("info");
 			if (userInfo == null)
 			{
-				context.Result = new RedirectToPageResult("/AccessDenied");
+				context.Result = new RedirectToPageResult("/SignIn");
 				return;
 			}
 
