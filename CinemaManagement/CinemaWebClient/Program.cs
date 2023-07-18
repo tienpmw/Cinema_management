@@ -39,6 +39,17 @@ namespace CinemaWebClient
 				app.UseExceptionHandler("/Error");
 			}
 
+			//Handle 404 not found page
+			app.Use(async (context, next) =>
+			{
+                await next();
+                if (context.Response.StatusCode == 404)
+                {
+                    context.Request.Path = "/NotFound";
+                    await next();
+                }
+            });
+
 			app.UseSession();
 
 			app.UseStaticFiles();
