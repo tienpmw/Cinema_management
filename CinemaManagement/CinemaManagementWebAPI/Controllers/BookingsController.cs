@@ -4,12 +4,12 @@ using DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 
 namespace CinemaWebAPI.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	[Authorize]
 	public class BookingsController : ControllerBase
 	{
 		private readonly IShowRepository _showRepository;
@@ -23,7 +23,15 @@ namespace CinemaWebAPI.Controllers
 			_userRepository = userRepository;
 		}
 
-		
+
+		[HttpGet]
+		[EnableQuery]
+		public IActionResult GetShows()
+		{
+			return Ok(new CinemaContext().Booking.AsQueryable());
+		}
+
+
 		[HttpGet("{idShow}/{idUser}")]
 		public IActionResult GetBookingByUserId(long idShow, long idUser)
 		{

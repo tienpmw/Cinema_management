@@ -98,11 +98,12 @@
 						//console.log((new Date(data[i].showDate) - dateNow) / (60 * 60 * 1000))
 						if ((new Date(data[i].showDate) - dateNow) / (60 * 60 * 1000) > 1) {
 							tr += `<td>
+										<a href="/Admin/Show/Detail?id=${data[i].showId}" class="btn btn-primary">Detail</a>
 										<a href="/Admin/Show/Edit?id=${data[i].showId}" class="btn btn-primary">Edit</a>
 										<a href="/Admin/Show/Delete?id=${data[i].showId}" class="btn btn-primary">Delete</a>
 									</td>`
 						} else {
-							tr += `<td></td>`
+							tr += `<td><a href="/Admin/Show/Detail?id=${data[i].showId}" class="btn btn-primary">Detail</a></td>`
 						}
 						tr += `</tr>`
 					}
