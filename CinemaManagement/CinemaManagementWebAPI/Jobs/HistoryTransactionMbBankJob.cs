@@ -26,7 +26,6 @@ namespace CinemaWebAPI.Jobs
 
         public async Task Execute(IJobExecutionContext context)
         {
-            return;
             MbBankRequestBodyHistoryTransactionDTO mbBank = new MbBankRequestBodyHistoryTransactionDTO()
             {
                 accountNo = Appsettings["MbBank:AccountNo"],

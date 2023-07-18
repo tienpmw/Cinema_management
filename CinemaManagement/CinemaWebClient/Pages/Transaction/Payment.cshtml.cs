@@ -1,3 +1,4 @@
+using CinemaWebClient.Utils;
 using DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -31,6 +32,9 @@ namespace CinemaWebClient.Pages.Recharge
                 UserId = id,
                 Amount= amount
             };
+            
+            string accessToken = await Util.GetAccessToken(HttpContext);
+            client.DefaultRequestHeaders.Add("Authorization", accessToken);
 
             var jsonData = JsonSerializer.Serialize(data);
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
