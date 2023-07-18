@@ -3,6 +3,7 @@
 @using DTOs;
 @model CinemaWebClient.Pages.Admin.Show.DetailModel
 @{
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
     var strData = HttpContext.Session.GetString("info");
 
     var options = new JsonSerializerOptions()
@@ -103,7 +104,7 @@
                                 </td>
                                 <td>${date}</td>
                                 <td>
-                                   <p style="word-wrap: break-word; width=39%">${seatBooked}</p>
+                                       <p style="word-wrap: break-word; word-break: break-all;">${seatBooked}</p>
                                 </td>
                                 <td>${totalSeat}</td>
                                 <td>${amount} VND</td>
