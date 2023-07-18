@@ -1,0 +1,148 @@
+﻿@page
+@using System.Text.Json;
+@using DTOs;
+@model CinemaWebClient.Pages.Admin.Show.DetailModel
+@{
+    var strData = HttpContext.Session.GetString("info");
+
+    var options = new JsonSerializerOptions()
+            {
+                PropertyNameCaseInsensitive = true
+            };
+    UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(strData, options) ?? null;
+}
+<div class="row py-3">
+    <div class="col-md-12 py-3 text-center">
+        <h3>@(Model.Show.Film.Title) <br /> @(Model.Show.ShowDate.ToString("dd/MM/yyyy hh:mm tt"))</h3>
+        <h4>Price: @(Model.Show.Price.ToString("C0").Substring(1)) VNĐ</h4>
+    </div>
+    <div class="col-md-12 pb-3">
+        <div class="form-group d-flex flex-column justify-content-center align-items-center">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div>
+                @for (int i = 0; i < Model.Show.Room.NumberRow; i++)
+                {
+                    <div class="d-flex">
+                        @for (int j = 0; j < Model.Show.Room.NumberColumn; j++)
+                        {
+                            if (Model.Show.SeatStatus[i * Model.Show.Room.NumberColumn + j] == '1')
+                            {
+                                <div class="d-flex flex-column">
+                                    <label class="form-label"><b>@((i * Model.Show.Room.NumberColumn + j) + 1)</b></label>
+                                    <input class="form-check-inline seats" style="width:20px; height:20px" value="@(i * Model.Show.Room.NumberColumn + j)" type="checkbox" name="seats" checked disabled />
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex flex-column">
+                                    <label class="form-label"><b>@((i * Model.Show.Room.NumberColumn + j) + 1)</b></label>
+                                    <input class="form-check-inline seats" style="width:20px; height:20px" value="@(i * Model.Show.Room.NumberColumn + j)" type="checkbox" name="seats" disabled />
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">HISTORY USER BY TICKETS</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="20%">Email</th>
+                            <th width="15%">Date</th>
+                            <th width="39%">Seat booked</th>
+                            <th width="10%">Total seats</th>
+                            <th width="15%">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableContent">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        var userId = @(user.UserId);
+        LoadData(`http://localhost:5001/api/Bookings?$filter=ShowId eq @(Model.Show.ShowId) &$select=SeatBooking,Amount,DateBooking &$expand=User($select=Email,FirstName,LastName)`);
+    });
+
+    function LoadData(link) {
+        var tableContent = document.getElementById('tableContent');
+        var initedDataTable = tableContent.innerHTML != "";
+        tableContent.innerHTML = "";
+        $.ajax({
+            url: link,
+            type: 'GET',
+            data: {
+
+            },
+            success: (data) => {
+                var tr = '';
+                for (var i = 0; i < data.length; i++) {
+                    var totalSeat = data[i].SeatBooking.split("1").length - 1;
+                    var date = ParseDateTime(data[i].DateBooking);
+                    var amount = formatStringToCurrencyVND(data[i].Amount + "");
+                    var seatBooked = ToStringSeatBooked(data[i].SeatBooking);
+
+                    tr += ` <tr>`;
+                    tr +=
+                        `
+                                <td>
+                                    <p style="margin-bottom: 0px;">${data[i].User.Email}</p>
+                                    <span style="font-size:15px">(${data[i].User.FirstName} ${data[i].User.LastName})</span>
+                                </td>
+                                <td>${date}</td>
+                                <td>
+                                   <p style="word-wrap: break-word; width=39%">${seatBooked}</p>
+                                </td>
+                                <td>${totalSeat}</td>
+                                <td>${amount} VND</td>
+                            `;
+                    tr += ` </tr>`;
+                }
+                tableContent.innerHTML = tr;
+                if (!initedDataTable) {
+                    $(document).ready(function () {
+                        $('#myTable').DataTable({
+                            pagingType: 'full',
+                            "lengthChange": false,
+                            searching: false,
+                        });
+                    });
+                }
+            },
+            error: (err) => {
+                NotificationMessageError("Server not respone!");
+            }
+        });
+    }
+
+    function getTotalSeat(seat) {
+        return seat.split("1").length - 1;
+    }
+
+    function ToStringSeatBooked(data){
+        var dataSeatSplit = data.split('');
+        var listSeatBooked = [];
+        for (let i = 0; i < dataSeatSplit.length; i++) {
+            if (dataSeatSplit[i] === '1') listSeatBooked.push(i + 1);
+        }
+        var seatBooked = listSeatBooked.join(",");
+        return seatBooked;
+    }
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>

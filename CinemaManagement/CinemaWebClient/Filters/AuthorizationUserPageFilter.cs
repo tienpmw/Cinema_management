@@ -40,7 +40,8 @@ namespace CinemaWebClient.Filters
             allowAdmin.Add("/Admin/Index");
 			allowAdmin.Add("/Admin/Genre/Index");
 			allowAdmin.Add("/Admin/Show/Index");
-            allowAdmin.Add("/Admin/Show/Create");
+			allowAdmin.Add("/Admin/Show/Detail");
+			allowAdmin.Add("/Admin/Show/Create");
             allowAdmin.Add("/Admin/Show/Edit");
             allowAdmin.Add("/Admin/Show/Delete");
             allowAdmin.Add("/Admin/Room/Index");
