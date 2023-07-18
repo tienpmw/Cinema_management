@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\notfound.css"
     },
     {
+      "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\preview-image.css",
+      "PackagePath": "staticwebassets\\css\\preview-image.css"
+    },
+    {
       "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\sb-admin-2.min.css",
       "PackagePath": "staticwebassets\\css\\sb-admin-2.min.css"
     },
@@ -31,6 +35,10 @@
     {
       "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg.jpg",
       "PackagePath": "staticwebassets\\images\\bg.jpg"
+    },
+    {
+      "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\default-thumbnail.jpg",
+      "PackagePath": "staticwebassets\\images\\default-thumbnail.jpg"
     },
     {
       "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\demo\\chart-area-demo.js",

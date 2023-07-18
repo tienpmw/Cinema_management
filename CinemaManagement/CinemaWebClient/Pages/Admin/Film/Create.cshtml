@@ -19,8 +19,9 @@
 				</div>
 
 				<div class="mb-3">
-					<label for="formFile" class="form-label">Image</label>
-					<input class="form-control" type="file" id="formFile" asp-for="@Model.ImageFile" name="imageFile">
+					<label for="file-input" class="form-label">Image</label>
+					<img id="img-preview" src="/images/default-thumbnail.jpg" />
+					<input class="form-control" accept="image/*" type="file" id="file-input" asp-for="@Model.ImageFile" name="imageFile" required>
 				</div>
 
 				<div class="mb-3">
@@ -57,9 +58,20 @@
 			</form>
 		</div>
 	</div>
+	
 </div>
 
+<style>
+
+	img {
+		width: 100%;
+		object-fit: cover;
+		margin-bottom: 20px;
+	}
+</style>
+
 <script>
+
 	ClassicEditor
 		.create(document.querySelector('#editor'), {
 			toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable', 'imageUpload', 'undo', 'redo'],
@@ -67,4 +79,14 @@
 		.catch(error => {
 			console.error(error);
 		});
+
+	const input = document.getElementById('file-input');
+	const image = document.getElementById('img-preview');
+
+	input.addEventListener('change', (e) => {
+		if (e.target.files.length) {
+			const src = URL.createObjectURL(e.target.files[0]);
+			image.src = src;
+		}
+	});
 </script>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3+uHFeZebn6SMqj6H17TbA3R5IA7SPjWQ123wTvTgTI=",
+  "Hash": "uMM2N+bmuLpfScRf3SNu3aJk5zkXoAK42BDR0nE+eGU=",
   "Source": "CinemaWebClient",
   "BasePath": "_content/CinemaWebClient",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\notfound.css"
+    },
+    {
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\preview-image.css",
+      "SourceId": "CinemaWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "BasePath": "_content/CinemaWebClient",
+      "RelativePath": "css/preview-image.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\preview-image.css"
     },
     {
       "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\sb-admin-2.min.css",
@@ -168,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\bg.jpg"
+    },
+    {
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\default-thumbnail.jpg",
+      "SourceId": "CinemaWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "BasePath": "_content/CinemaWebClient",
+      "RelativePath": "images/default-thumbnail.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\default-thumbnail.jpg"
     },
     {
       "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\demo\\chart-area-demo.js",

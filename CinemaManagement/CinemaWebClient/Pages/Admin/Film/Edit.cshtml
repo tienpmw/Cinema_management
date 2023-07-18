@@ -22,8 +22,10 @@
 				</div>
 
 				<div class="mb-3">
-					<label for="formFile" class="form-label">Image</label>
-					<input class="form-control" type="file" id="formFile" asp-for="@Model.ImageFile" name="imageFile">
+					<label for="file-input" class="form-label">Image</label>
+					<div id="wrapper-image-preview">
+					</div>
+					<input class="form-control" accept="image/*" type="file" id="file-input" asp-for="@Model.ImageFile" name="imageFile" required>
 				</div>
 
 				<div class="mb-3">
@@ -64,7 +66,29 @@
 </div>
 
 
+<style>
+
+	img {
+		width: 100%;
+		object-fit: cover;
+		margin-bottom: 20px;
+	}
+</style>
+
+
 <script>
+
+	$(document).ready(function () {
+		LoadImage();
+	});
+
+	function LoadImage() {
+		var wrapperImagePreview = document.querySelector("#wrapper-image-preview");
+		wrapperImagePreview.innerHTML = `
+			<img id="img-preview" src="http://localhost:5001/api/Images/@Model.FilmDTO.Image"/>
+		`;
+	}
+
 	ClassicEditor
 		.create(document.querySelector('#editor'), {
 			toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable', 'imageUpload', 'undo', 'redo'],
@@ -72,4 +96,13 @@
 		.catch(error => {
 			console.error(error);
 		});
+
+	const input = document.getElementById('file-input');
+	input.addEventListener('change', (e) => {
+		const image = document.getElementById('img-preview');
+		if (e.target.files.length) {
+			const src = URL.createObjectURL(e.target.files[0]);
+			image.src = src;
+		}
+	});
 </script>
