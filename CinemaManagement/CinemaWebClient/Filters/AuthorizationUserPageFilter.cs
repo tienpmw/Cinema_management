@@ -28,8 +28,9 @@ namespace CinemaWebClient.Filters
             allowAnonymous.Add("/AccessDenied");
 			allowAnonymous.Add("/Home");
 			allowAnonymous.Add("/Film/Detail");
+            allowAnonymous.Add("/NotFound");
 
-			allowUser.Add("/Film/Booking/Index");
+            allowUser.Add("/Film/Booking/Index");
             allowUser.Add("/Transaction/Index");
             allowUser.Add("/Transaction/Payment");
             allowUser.Add("/User/Index");
@@ -58,34 +59,10 @@ namespace CinemaWebClient.Filters
 
 		public async Task OnPageHandlerExecutionAsync(PageHandlerExecutingContext context, PageHandlerExecutionDelegate next)
 		{
-			//not check request
-			//await next.Invoke();
-			//return;
-
-
 			string? url = context.HttpContext.Request.RouteValues["page"].ToString();
-			string previousUrl = context.HttpContext.Request.Headers["Referer"].ToString();
-			if (previousUrl == "http://localhost:5006/")
-			{
-				previousUrl = "/Home";
-			}
-			else
-			{
-				previousUrl = previousUrl.Replace("http://localhost:5006", "");
-			}
-			var dictinaryQuery = new Dictionary<string, string>();
-			if (previousUrl.Contains("?"))
-			{
-				string[] queries = previousUrl.Replace(previousUrl.Substring(0, previousUrl.IndexOf("?") + 1), "").Split("&");
-				foreach (string query in queries)
-				{
-					string[] pairKeyValue = query.Split("=");
-					dictinaryQuery.Add(pairKeyValue[0], pairKeyValue[1]);
-				}
-				previousUrl = previousUrl.Substring(0, previousUrl.IndexOf("?"));
-			}
-			// check request for Anonymous
-			foreach (string urlFilter in allowAnonymous)
+
+            // check request for Anonymous
+            foreach (string urlFilter in allowAnonymous)
 			{
 				if (urlFilter == url)
 				{
@@ -104,13 +81,6 @@ namespace CinemaWebClient.Filters
 			}
 
             UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(userInfo);
-			/*
-			if (!string.IsNullOrEmpty(userInfo))
-			{
-				context.Result = new RedirectToPageResult(previousUrl, dictinaryQuery);
-				return;
-			}
-			*/
 
 			// check request for user's role user
 			if (user.RoleName.ToLower() == "user")
@@ -136,9 +106,9 @@ namespace CinemaWebClient.Filters
 				{
 					if (urlFilter.Contains(url))
 					{
-						await next.Invoke();
-						return;
-					}
+                        context.Result = new RedirectToPageResult("/AccessDenied");
+                        return;
+                    }
 				}
 				foreach (string urlFilter in allowAdmin)
 				{

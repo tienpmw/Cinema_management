@@ -19,7 +19,7 @@ namespace CinemaWebClient
 					options.Conventions.AddPageRoute("/Home", "");
 				});
 
-			// add session
+			// Add Session
 			builder.Services.AddSession(options =>
 			{
 				options.IdleTimeout = TimeSpan.FromMinutes(60);
@@ -38,6 +38,17 @@ namespace CinemaWebClient
 			{
 				app.UseExceptionHandler("/Error");
 			}
+
+			//Handle 404 not found page
+			app.Use(async (context, next) =>
+			{
+                await next();
+                if (context.Response.StatusCode == 404)
+                {
+                    context.Request.Path = "/NotFound";
+                    await next();
+                }
+            });
 
 			app.UseSession();
 

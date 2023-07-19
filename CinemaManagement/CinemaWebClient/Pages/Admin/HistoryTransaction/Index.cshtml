@@ -89,8 +89,8 @@
     var token = '@(accessToken)'
     function LoadData(link) {
         var tableContent = document.getElementById('tableContent');
-        tableContent.innerHTML = "";
         var initedDataTable = tableContent.innerHTML != "";
+        tableContent.innerHTML = "";
         $.ajax({
             url: link,
             type: 'GET',

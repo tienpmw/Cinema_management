@@ -21,35 +21,31 @@
     </ul>
 </div>
 
-<div class="d-sm-flex align-items-center mb-4">
+<div class="d-sm-flex align-items-center mb-4 content-center">
     <h1 class="h3 mb-0 text-gray-800" style="text-shadow: 0px 5px 20px gray;">ACCOUNT'S INFO</h1>
 </div>
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" style="width:50%; margin: 0 auto">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary"></h6>
     </div>
-    <div class="card-body d-flex justify-content-center">
-        <form class="row" method="post">
+    <div class="card-body justify-content-center">
+        <form class="" method="post">
             <input type="hidden" class="form-control" asp-for="@Model.userDTO.Email">
             <input type="hidden" class="form-control" asp-for="@Model.userDTO.UserId">
             <input type="hidden" class="form-control" asp-for="@Model.userDTO.AccountBalance" >
-            <div class="col-md-12">
-                <label for="" class="form-label">Email</label>
-                <input type="email" class="form-control" value="@Model.userDTO.Email" disabled>
+            <div class="">
+                <label for="" class="form-label">Email: <span>@Model.userDTO.Email</span></label>
             </div>
-            <div class="d-flex">
-                <div class="col-md-5 mr-10">
-                    <label for="" class="form-label">First name</label>
-                    <input type="text" class="form-control" asp-for="@Model.userDTO.FirstName">
-                </div>
-                <div class="col-md-5">
-                    <label for="" class="form-label">Last name</label>
-                    <input type="text" class="form-control" asp-for="@Model.userDTO.LastName">
-                </div>
+            <div class="">
+                <label for="" class="form-label">First name</label>
+                <input type="text" class="form-control" asp-for="@Model.userDTO.FirstName">
             </div>
-            <div class="col-md-5">
-                <label for="" class="form-label">Baclance</label>
-                <input type="text" class="form-control" value="@Model.userDTO.AccountBalance" disabled>
+            <div class="">
+                <label for="" class="form-label">Last name</label>
+                <input type="text" class="form-control" asp-for="@Model.userDTO.LastName">
+            </div>
+            <div class="">
+                <p class="form-label">Baclance: <b>@Model.userDTO.AccountBalance VND</b></p>
             </div>
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary btn-2 btn-mua-ve">Update</button>

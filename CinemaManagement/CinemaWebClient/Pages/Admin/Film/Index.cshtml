@@ -82,9 +82,9 @@
 	function LoadData(link) {
 		var token = '@(accessToken)';
 		var tableContent = document.getElementById('tableContent');
+		var initedDataTable = tableContent.innerHTML != "";
 		var imageAPI = "http://localhost:5001/api/Images/";
 		tableContent.innerHTML = "";
-		var initedDataTable = tableContent.innerHTML != "";
 		$.ajax({
 			url: link,
 			type: 'GET',
