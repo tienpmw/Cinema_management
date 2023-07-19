@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -93,5 +94,31 @@ namespace DataAccess.DAOs
 		public long CountFilm() => GetAll().Count();
 
 		public List<Film> GetAll() => new CinemaContext().Film.Include(x => x.Genre).Include(x => x.Shows).ToList();
+
+		public List<Film> GetFilmHaveShow()
+		{
+			List<Film> films = GetAll().Where(x => x.Shows.Any(s => DateTime.Compare(s.ShowDate, DateTime.Now) > 0))
+				.Select(x => new Film
+				{
+					Country = x.Country,
+					CountryCode = x.CountryCode,
+					DateRelease = x.DateRelease,
+					Description = x.Description,
+					FilmDuration = x.FilmDuration,
+					FilmId = x.FilmId,
+					Genre = x.Genre,
+					GenreId = x.GenreId,
+					Image = x.Image,
+					Title = x.Title,
+					Shows = x.Shows.Where(s => DateTime.Compare(s.ShowDate, DateTime.Now) > 0).ToList()
+				}).ToList();
+			return films.Where(x => x.Shows.Count > 0).ToList();
+		}
+
+		public List<Film> GetFilmNoShow()
+		{
+			List<Film> films = GetAll().Where(x => x.Shows.All(s => DateTime.Compare(s.ShowDate, DateTime.Now) <= 0)).ToList();
+			return films;
+		}
 	}
 }

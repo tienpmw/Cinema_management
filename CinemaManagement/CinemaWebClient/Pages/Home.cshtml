@@ -5,23 +5,31 @@
 }
 
 <!-- Header-->
+<!--
 <header class="py-5">
-	@*bg-dark *@
+@*bg-dark *@
 	<div class="container">
-		@*px-4 px-lg-5 my-5*@
+@*px-4 px-lg-5 my-5*@
 		<div class="text-center text-white" style="height:400px">
 			<img class="w-100 h-100" style="object-fit:cover; border-radius:10px;" src="https://images.pexels.com/photos/375885/pexels-photo-375885.jpeg?cs=srgb&dl=pexels-clem-onojeghuo-375885.jpg&fm=jpg" />
-			@*<h1 class="display-4 fw-bolder">Cinema</h1>
+@*<h1 class="display-4 fw-bolder">Cinema</h1>
 			<p class="lead fw-normal text-white-50 mb-0">With more amazing</p>*@
 		</div>
 	</div>
 </header>
+-->
 <!-- Section-->
 <section class="py-5">
-	<div class="container px-4 px-lg-5 mt-5" id="content"></div>
-	<div class="d-flex justify-content-center">
-		<button type="button" class="btn btn-info btn-lg" id="btnLoadMore">Load more</button>
+	<div class="text-center">
+		<button id="filmHS" class="btn active btn-primary">Phim sắp diễn ra</button>
+		<button id="filmNS" class="btn active">phim chưa diễn ra</button>
 	</div>
+	<div class="container px-4 px-lg-5 mt-5" id="content"></div>
+
+	@*<div class="container px-4 px-lg-5 mt-5" id="content"></div>
+	<div class="d-flex justify-content-center">
+	<button type="button" class="btn btn-info btn-lg" id="btnLoadMore">Load more</button>
+	</div>*@
 </section>
 
 
@@ -29,8 +37,96 @@
 <script src="~/js/scripts.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
 <script>
+	var link = "http://localhost:5001/api/Films";
+	$(document).ready(function () {
+		GetFilmHaveShow();
+		$("#filmNS").on('click', function() {
+			GetFilmNoShow();
+			$("#filmNS").addClass("btn-primary")
+			$("#filmHS").removeClass("btn-primary")
+		})
+		$("#filmHS").on('click', function () {
+			GetFilmHaveShow();
+			$("#filmHS").addClass("btn-primary")
+			$("#filmNS").removeClass("btn-primary")
+		})
+	})
+	function GetFilmNoShow() {
+		var tableContent = document.getElementById('content');
+		tableContent.innerHTML = "";
+		$.ajax({
+			url: `${link}/GetFilmNoShow`,
+			type: 'GET',
+			data: {
+			},
+			success: (data) => {
+				console.log(data)
+				var tr = '';
+				tr += `<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">`;
+				for (var i = 0; i < data.length; i++) {
+					tr += `<div class="col mb-3 filmInfo">`
+					tr += `<div class="card h-150 overflow-hidden" style="border-radius: 10px;">`;
+					tr += `<img class="" src="http://localhost:5001/api/Images/${data[i].image}" alt="..." style="width=300px; height=400px"/>`
+					tr += `<div class="card-body p-4">`
+					tr += `<div class="">`
+					tr += `<a class="text-decoration-none" href='/Film/Detail?id=${data[i].filmId}'><b>${data[i].title}</b></a>`
+					tr += `<ul class = "list-unstyled">`
+					tr += `<li><span><b>Genre: </b></span> ${data[i].genre.genreName}</li>`
+					tr += `<li><span><b>Duration: </b></span> ${data[i].filmDuration} minues</li>`
+					tr += `</ul>`
+					tr += `</div>`;
+					tr += `</div>`;
+					tr += `</div>`;
+					tr += `</div>`;
+				}
+				tr += `</div>`
+				tableContent.innerHTML += tr;
+			},
+			error: (err) => {
+				NotificationMessageError("Server not respone!");
+			}
+		});
+	}
+	function GetFilmHaveShow() {
+		var tableContent = document.getElementById('content');
+		tableContent.innerHTML = "";
+		$.ajax({
+			url: `${link}/GetFilmHaveShow`,
+			type: 'GET',
+			data: {
+			},
+			success: (data) => {
+				console.log(data)
+				var tr = '';
+				tr += `<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">`;
+				for (var i = 0; i < data.length; i++) {
+					tr += `<div class="col mb-3 filmInfo">`
+					tr += `<div class="card h-150 overflow-hidden" style="border-radius: 10px;">`;
+					tr += `<img class="" src="http://localhost:5001/api/Images/${data[i].image}" alt="..." style="width=300px; height=400px"/>`
+					tr += `<div class="card-body p-4">`
+					tr += `<div class="">`
+					tr += `<a class="text-decoration-none" href='/Film/Detail?id=${data[i].filmId}'><b>${data[i].title}</b></a>`
+					tr += `<ul class = "list-unstyled">`
+					tr += `<li><span><b>Genre: </b></span> ${data[i].genre.genreName}</li>`
+					tr += `<li><span><b>Duration: </b></span> ${data[i].filmDuration} minues</li>`
+					tr += `</ul>`
+					tr += `<a class="btn btn-primary" href="/Film/Detail?id=${data[i].filmId}" role="button" style="margin-left:26%">Đặt vé</a>`
+					tr += `</div>`;
+					tr += `</div>`;
+					tr += `</div>`;
+					tr += `</div>`;
+				}
+				tr += `</div>`
+				tableContent.innerHTML += tr;
+			},
+			error: (err) => {
+				NotificationMessageError("Server not respone!");
+			}
+		});
+	}
+</script>
+@*<script>
 	var api = "http://localhost:5001/api/Films?$orderby=filmId & $skip=0 & $top=4";
 	var totalFilm = 0;
 	$(document).ready(function () {
@@ -107,6 +203,6 @@
 			}
 		});
 	}
-</script>
+</script>*@
 
 

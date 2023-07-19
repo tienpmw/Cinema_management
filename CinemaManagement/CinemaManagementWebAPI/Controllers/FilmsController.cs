@@ -32,7 +32,16 @@ namespace CinemaWebAPI.Controllers
 		{
 			return Ok(_mapper.Map<List<FilmDTO>>(_filmRepository.GetAll())) ;
 		}
-
+		[HttpGet("GetFilmHaveShow")]
+		public IActionResult GetFilmHaveShow()
+		{
+			return Ok(_filmRepository.GetFilmHaveShow());
+		}
+		[HttpGet("GetFilmNoShow")]
+		public IActionResult GetFilmNoShow()
+		{
+			return Ok(_filmRepository.GetFilmNoShow());
+		}
 
 		[HttpGet("GetFilmById/{id}")]
 		public IActionResult Get(long id)

@@ -10,22 +10,26 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public class FilmRepository : IFilmRepository
-    {
+	public class FilmRepository : IFilmRepository
+	{
 		public long CountFilm() => FilmDAO.Instance.CountFilm();
 
 		public void CreateFilm(Film film, IFormFile? image)
-        {
-            FilmDAO.Instance.CreateFilm(film, image);  
-        }
+		{
+			FilmDAO.Instance.CreateFilm(film, image);
+		}
 
-        public List<Film> GetAll() => FilmDAO.Instance.GetAll();
+		public List<Film> GetAll() => FilmDAO.Instance.GetAll();
 
-        public Film? GetFilmById(long id) => FilmDAO.Instance.GetFilmById(id);
+		public Film? GetFilmById(long id) => FilmDAO.Instance.GetFilmById(id);
+
+		public List<Film> GetFilmHaveShow() => FilmDAO.Instance.GetFilmHaveShow();
+
+		public List<Film> GetFilmNoShow() => FilmDAO.Instance.GetFilmNoShow();
 
 		public void UpdateFilm(Film film, IFormFile? image)
-        {
-            FilmDAO.Instance.UpdateFilm(film, image);
-        }
-    }
+		{
+			FilmDAO.Instance.UpdateFilm(film, image);
+		}
+	}
 }

@@ -15,5 +15,7 @@ namespace DataAccess.IRepositories
 		Film? GetFilmById(long id);
 		List<Film> GetAll();
 		long CountFilm();
+		List<Film> GetFilmHaveShow();
+		List<Film> GetFilmNoShow();
 	}
 }
