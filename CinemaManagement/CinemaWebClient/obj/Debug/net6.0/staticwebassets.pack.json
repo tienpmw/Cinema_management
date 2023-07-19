@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\background-cinema.jpg",
+      "PackagePath": "staticwebassets\\images\\background-cinema.jpg"
+    },
+    {
       "Id": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg.jpg",
       "PackagePath": "staticwebassets\\images\\bg.jpg"
     },

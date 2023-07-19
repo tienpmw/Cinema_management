@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "apTymGIfNjuUo406IiK6SDCioDgLRfO8QIp9PY2X9TA=",
+  "Hash": "xr2T9KKl39NJOA12Rf3bemj9oBEo/ZzOBbH9/VpWSYs=",
   "Source": "CinemaWebClient",
   "BasePath": "_content/CinemaWebClient",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\background-cinema.jpg",
+      "SourceId": "CinemaWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "BasePath": "_content/CinemaWebClient",
+      "RelativePath": "images/background-cinema.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\background-cinema.jpg"
     },
     {
       "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg.jpg",
