@@ -5,21 +5,21 @@
 }
 
 <!-- Header-->
-<!--
-<header class="py-5">
+
+<header class="pt-5"> <!-- py-5-->
 @*bg-dark *@
 	<div class="container">
 @*px-4 px-lg-5 my-5*@
-		<div class="text-center text-white" style="height:400px">
-			<img class="w-100 h-100" style="object-fit:cover; border-radius:10px;" src="https://images.pexels.com/photos/375885/pexels-photo-375885.jpeg?cs=srgb&dl=pexels-clem-onojeghuo-375885.jpg&fm=jpg" />
+		<div class="text-center text-white" style="height: 690px;position: absolute;width: 100%;left: 0;">
+			<img class="w-100 h-100" style="object-fit:cover; border-radius:10px;" src="~/images//background-cinema.jpg" />
 @*<h1 class="display-4 fw-bolder">Cinema</h1>
 			<p class="lead fw-normal text-white-50 mb-0">With more amazing</p>*@
 		</div>
 	</div>
 </header>
--->
+
 <!-- Section-->
-<section class="py-5">
+<section class="py-5" style="margin-top: 660px;">
 	<div class="text-center">
 		<button id="filmHS" class="btn active btn-primary">Phim sắp diễn ra</button>
 		<button id="filmNS" class="btn active">phim chưa diễn ra</button>
@@ -36,7 +36,7 @@
 <script src="~/lib/bootstrap//dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/scripts.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>*@
 <script>
 	var link = "http://localhost:5001/api/Films";
 	$(document).ready(function () {

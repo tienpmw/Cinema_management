@@ -47,7 +47,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100" style="z-index: 1024;">
 		<div class="container px-4 px-lg-5">
 			<a class="navbar-brand" asp-page="/Home" style="font-weight: 900;">CINEMA</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -73,7 +73,7 @@
 				<div class="d-flex justify-content-end">
 					<ul class="navbar-nav" id="navigation">
 						<li class="nav-item dropdown">
-							<a href="/SignIn" style="text-decoration: solid">Login</a>
+							<a href="/SignIn" class="btn btn-primary" style="text-decoration: solid">Login</a>
 						</li>
 					</ul>
 				</div>
@@ -81,7 +81,7 @@
 		</div>
 	</nav>
 	<div class="container flex-fill">
-		<main role="main" class="pb-3">
+		<main role="main" class="pb-3 mt-3">
 			@RenderBody()
 		</main>
 	</div>

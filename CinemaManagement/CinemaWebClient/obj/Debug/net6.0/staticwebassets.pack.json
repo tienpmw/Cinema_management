@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\images\\background-cinema.jpg"
     },
     {
+      "Id": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg-lg.jpg",
+      "PackagePath": "staticwebassets\\images\\bg-lg.jpg"
+    },
+    {
       "Id": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg.jpg",
       "PackagePath": "staticwebassets\\images\\bg.jpg"
     },
