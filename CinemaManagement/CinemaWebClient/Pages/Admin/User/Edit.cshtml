@@ -39,7 +39,7 @@
 					<select asp-for="User.IsActive" class="form-control">
 						@foreach (var item in Model.Status)
 						{
-							if (item.Key == (Model.User.IsActive ? 1 : 0))
+							if (item.Key == (Model.User.IsActive))
 							{
 								<option value="@item.Key" selected>@item.Value</option>
 							}

@@ -31,7 +31,7 @@ namespace CinemaWebClient.Pages.Admin.User
 		[ViewData]
 		public SelectList Roles { get; set; }
 		[ViewData]
-		public Dictionary<int, string> Status { get; set; }
+		public Dictionary<bool, string> Status { get; set; }
 		public async Task<IActionResult> OnGet(int id)
 		{
 			Util.SetAuthenticationToken(_httpClient, HttpContext);
@@ -50,9 +50,9 @@ namespace CinemaWebClient.Pages.Admin.User
 			dataStr = await response.Content.ReadAsStringAsync();
 			List<RoleDTO> lsRole = JsonSerializer.Deserialize<List<RoleDTO>>(dataStr, options) ?? new List<RoleDTO>();
 			Roles = new SelectList(lsRole, "RoleId", "RoleName", lsRole.FirstOrDefault(x => x.RoleId == User.RoleId));
-			Status = new Dictionary<int, string>();
-			Status.Add(0, "Ban");
-			Status.Add(1, "Active");
+			Status = new Dictionary<bool, string>();
+			Status.Add(false, "Ban");
+			Status.Add(true, "Active");
 
 			return Page();
 		}
