@@ -9,6 +9,7 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CinemaWebClient
 build_property.RootNamespace = CinemaWebClient
+<<<<<<< HEAD
 build_property.ProjectDir = e:\cinema-management\CinemaManagement\CinemaWebClient\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
@@ -153,5 +154,151 @@ build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [e:/cinema-management/CinemaManagement/CinemaWebClient/Pages/Shared/_Layout.cshtml]
+=======
+build_property.ProjectDir = D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjZXNzRGVuaWVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Film/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRmlsbVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Film/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRmlsbVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Film/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRmlsbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Genre/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cR2VucmVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/HistoryTransaction/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSGlzdG9yeVRyYW5zYWN0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Room/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9vbVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Room/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9vbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Show/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Show/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Show/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd1xEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Show/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/Show/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/User/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Admin/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Film/Booking/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmlsbVxCb29raW5nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Film/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmlsbVxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/NotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90Rm91bmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbkluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/SignOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbk91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnblVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Transaction/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY3Rpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Transaction/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY3Rpb25cUGF5bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/User/HistoryBuyTickets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxIaXN0b3J5QnV5VGlja2V0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/User/HistoryRecharges.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxIaXN0b3J5UmVjaGFyZ2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU/Semester 8/PRN231/cinema-management/CinemaManagement/CinemaWebClient/Pages/Shared/_Layout.cshtml]
+>>>>>>> 11ee78f81b381dedf3167ae982cd34178fd73ce6
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6eugb3ub2w

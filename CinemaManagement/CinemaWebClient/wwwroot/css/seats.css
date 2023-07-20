@@ -1,0 +1,60 @@
+﻿.seat {
+    background-image: url(/images/seat-unselect-vip.png);
+    width: 40px;
+    /* float: left; */
+    height: 35px;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    font-size: 11px;
+    color: #494c62 !important;
+    background-color: transparent !important;
+    background-repeat: no-repeat;
+    background-size: 35px 35px;
+    background-position: center;
+    color: #FFF;
+    font-family: SFProText;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+}
+
+.seat-sold {
+    background-image: url(/images/seat-buy-vip.png);
+    width: 40px;
+    /* float: left; */
+    height: 35px;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    font-size: 11px;
+    color: #494c62 !important;
+    background-color: transparent !important;
+    background-repeat: no-repeat;
+    background-size: 35px 35px;
+    background-position: center;
+    font-family: SFProText;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+}
+
+.wrapper-seat{
+    margin-top: 10px;
+    margin-left:3px;
+    margin-right: 3px;
+}
+
+.seat-checkbox {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+}

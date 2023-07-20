@@ -28,16 +28,16 @@
 						{
 							if (Model.Show.SeatStatus[i * Model.Show.Room.NumberColumn + j] == '1')
 							{
-								<div class="d-flex flex-column">
-									<label class="form-label"><b>@((i * Model.Show.Room.NumberColumn + j) + 1)</b></label>
-									<input class="form-check-inline seats" style="width:20px; height:20px" value="@(i * Model.Show.Room.NumberColumn + j)" type="checkbox" name="seats" checked disabled />
+								<div class="d-flex flex-column wrapper-seat">
+									<label class="seat-sold">@((i * Model.Show.Room.NumberColumn + j) + 1)</label>
+									<input class="form-check-inline seat-checkbox seats" value="@(i * Model.Show.Room.NumberColumn + j)" type="hidden" name="seats" checked disabled />
 								</div>
 							}
 							else
 							{
-								<div class="d-flex flex-column">
-									<label class="form-label"><b>@((i * Model.Show.Room.NumberColumn + j) + 1)</b></label>
-									<input class="form-check-inline seats" style="width:20px; height:20px" value="@(i * Model.Show.Room.NumberColumn + j)" type="checkbox" name="seats" />
+								<div class="d-flex flex-column wrapper-seat">
+									<label class="seat">@((i * Model.Show.Room.NumberColumn + j) + 1)</label>
+									<input class="form-check-inline seat-checkbox seats" value="@(i * Model.Show.Room.NumberColumn + j)" type="checkbox" name="seats" />
 								</div>
 							}
 						}
@@ -68,6 +68,8 @@
 	</div>
 </div>
 
+
+<link href="~/css/seats.css" rel="stylesheet" />
 <script src="/lib/bootstrap//dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/scripts.js"></script>
 <script src="/lib/jquery/dist/jquery.min.js"></script>

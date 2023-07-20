@@ -96,7 +96,7 @@ namespace DataAccess.DAOs
 
         public List<Booking> GetAllSeatBookedByUserId(long id)
         {
-            return new CinemaContext().Booking.Include(x => x.Show).Include(x => x.Show.Film).Where(x => x.UserId == id).ToList();
+            return new CinemaContext().Booking.Include(x => x.Show).Include(x => x.Show.Film).Where(x => x.UserId == id).OrderByDescending(x => x.DateBooking).ToList();
         }
     }
 }

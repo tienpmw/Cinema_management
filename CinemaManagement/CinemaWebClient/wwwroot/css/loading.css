@@ -6,6 +6,7 @@
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin: 0 auto;
+    margin-top: 40vh;
 }
 
 @keyframes spin {
@@ -14,10 +15,11 @@
     }
 }
 
-.loading{
-    background: #000;
-    height: 100vh;
-    width: 100vw;
-    position:fixed;
+.loading {
+    background: #ffffffc6;
+    height: 120vh;
+    width: 94vw;
+    position: fixed;
     z-index: 100;
+    margin-top: -100vh;
 }

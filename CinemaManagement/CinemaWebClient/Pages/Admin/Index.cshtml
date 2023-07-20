@@ -234,7 +234,7 @@
 	</div>
 </div>
 
-<div class="loading">
+<div class="loading" id="loading">
 	<div class="spinner"></div>
 </div>
 
@@ -246,6 +246,14 @@
 <link href="~/css/loading.css" rel="stylesheet" />
 
 <script>
+	$(document).ready(function () {
+		SwitchLoading(false);
+	});
+
+	function SwitchLoading(isDisplay){
+		var loading = document.getElementById("loading");
+		loading.style.display = (isDisplay === true ? "block" : "none");
+	}
 	function DownLoadReport(){
 		if (document.getElementById('startDate').value === "" || document.getElementById('endDate').value === ""){
 			NotificationMessageError("Date must be not empty!");
@@ -258,6 +266,12 @@
 			return;
 		}
 
+		SwitchLoading(true);
+		var modal = document.getElementById("exampleModalCenter");
+		var modalBackground = document.getElementsByClassName("modal-backdrop")[0];
+		modalBackground.style.display = "none";
+		modal.style.display = "none";
+
 		$.ajax({
 			url: "http://localhost:5001/api/ExportExcel/DataShows",
 			type: 'POST',
@@ -269,6 +283,9 @@
 				responseType: 'blob' // Tell jQuery to expect a binary response (BLOB)
 			},
 			success: (data, textStatus, xhr) => {
+				setTimeout(function () {
+					SwitchLoading(false)
+				}, 2000);
 				// Get the filename from the response headers
 				var start = document.getElementById('startDate').value;
 				var end = document.getElementById('endDate').value;
@@ -288,6 +305,9 @@
 				$("body").remove(a);
 			},
 			error: (xhr, textStatus, error) => {
+				setTimeout(function () {
+					SwitchLoading(false)
+				}, 1000);
 				NotificationMessageError("Server not responding!");
 			}
 		});
