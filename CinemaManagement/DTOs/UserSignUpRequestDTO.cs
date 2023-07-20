@@ -20,8 +20,10 @@ namespace DTOs
 		[Compare(nameof(Password), ErrorMessage = "Confirm password not match with Password!")]
 		public string? ConfirmPassword { get; set; }
 		[Required(ErrorMessage = "Firstname not blank!")]
+		[MaxLength(50, ErrorMessage = "Firstname is maximum 50 character!")]
 		public string? FirstName { get; set; }
 		[Required(ErrorMessage = "Lastname not blank!")]
+		[MaxLength(50, ErrorMessage = "Lastname is maximum 50 character!")]
 		public string? LastName { get; set; }
 	}
 }

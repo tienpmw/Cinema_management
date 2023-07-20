@@ -8,6 +8,26 @@
 	<div class="d-sm-flex align-items-center mb-4">
 		<h1 class="h3 mb-0 text-gray-800" style="text-shadow: 0px 5px 20px gray;">Room</h1>
 	</div>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">Search Room</h6>
+		</div>
+		<div class="card-body row">
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<div class="d-flex mt-3">
+					<label class="form-label" style="width:50%"><b>ID</b></label>
+					<input id="txtSearchById" class="form-control" type="text" />
+				</div>
+				<div class="d-flex mt-3">
+					<label class="form-label" style="width:50%"><b>Room Name</b></label>
+					<input id="txtSearchByName" class="form-control" type="text" />
+				</div>
+				
+				<button class="btn btn-primary" style="margin-top:15px; margin-left: 80%;" onclick="Search()">Search</button>
+			</div>
+		</div>
+	</div>
 	<div class="create-link mb-4">
 		<a asp-page="/Admin/Room/Create" class="btn btn-primary btn active disable-user" role="button" aria-pressed="true">
 			Add Room
@@ -80,8 +100,14 @@
 		});
 	}
 
-	var querySearch = "http://localhost:5001/api/Rooms ";
+	var querySearch = "http://localhost:5001/odata/Rooms?";
 	function Search() {
+		var valueID = document.getElementById("txtSearchById").value;
+		var valueName = document.getElementById("txtSearchByName").value;
+
+		var query = "";
+		query += MakeQueryConditionContainStringCastingNumToString("RoomId", valueID, true);
+		query += MakeQueryConditionContainString("RoomName", valueName, false);
 		LoadData(querySearch + query);
 	}
 </script>

@@ -41,5 +41,20 @@ namespace CinemaWebAPI.Controllers
             _genreRepository.AddGenre(nameGenre);
             return Ok();
 		}
+		[Authorize(Roles = "Admin")]
+		[HttpPut("{id}")]
+		public IActionResult EditGenre(long id, [FromBody] Genre genre)
+		{
+            if(id != genre.GenreId)
+            {
+				return Conflict();
+			}
+			if (string.IsNullOrEmpty(genre.GenreName.Trim()))
+			{
+				return Conflict();
+			}
+			_genreRepository.EditGenre(genre);
+			return Ok();
+		}
 	}
 }

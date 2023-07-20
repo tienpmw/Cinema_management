@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\sb-admin-2.min.css"
     },
     {
+      "Id": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\signin.css",
+      "PackagePath": "staticwebassets\\css\\signin.css"
+    },
+    {
       "Id": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

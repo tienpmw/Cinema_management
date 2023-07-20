@@ -10,6 +10,7 @@ namespace DataAccess.IRepositories
 	public interface IGenreRepository
 	{
 		void AddGenre(string nameGenre);
+		void EditGenre(Genre genre);
 		List<Genre> GetAll();
 	}
 }

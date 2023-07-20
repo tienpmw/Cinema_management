@@ -13,6 +13,8 @@ namespace DataAccess.Repositories
     {
         public void AddGenre(string nameGenre) => GenreDAO.Instance.AddGenre(nameGenre);
 
+        public void EditGenre(Genre genre) => GenreDAO.Instance.EditGenre(genre);
+
 		public List<Genre> GetAll() => GenreDAO.Instance.GetAll();
     }
 }

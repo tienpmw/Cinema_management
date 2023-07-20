@@ -41,7 +41,7 @@
 						<tr>
 							<th>ID</th>
 							<th>Name</th>
-							<th></th>
+							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody id="tableContent">
@@ -61,11 +61,34 @@
 				</div>
 				<div class="modal-body">
 					<label class="form-label"><b>Genre Name</b></label>
-					<input class="form-control" type="text" id="genreName" placeholder="Enter Genre Name"/>
+					<input class="form-control" type="text" id="genreName" placeholder="Enter Genre Name" />
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary" onclick="SaveGenre()">Save changes</button>
+					<button type="button" class="btn btn-primary" onclick="SaveGenre()">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="editGenreModal" tabindex="-1" aria-labelledby="editGenreModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="addGenreModalLabel">Edit Genre</h5>
+					<button type="button" id="close1Model" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<label class="form-label"><b>ID Genre</b></label>
+					<input class="form-control" type="text" id="idGenre" readonly />
+				</div>
+				<div class="modal-body">
+					<label class="form-label"><b>Genre Name</b></label>
+					<input class="form-control" type="text" id="genreEditName" placeholder="Enter Genre Name" />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" onclick="EditGenre()">Save</button>
 				</div>
 			</div>
 		</div>
@@ -94,15 +117,14 @@
 			},
 			success: (data) => {
 				var tr = '';
-				console.log(data)
 				for (var i = 0; i < data.length; i++) {
 					tr += ` <tr>`;
 					tr +=
 						`
-											<td>${data[i].genreId}</td>
-											<td>${data[i].genreName}</td>
-											<td></td>
-										`;
+												<td>${data[i].genreId}</td>
+												<td>${data[i].genreName}</td>
+												<td><button class="edit btn btn-primary" data-id="${data[i].genreId}" data-bs-toggle="modal" data-bs-target="#editGenreModal">Edit</button></td>
+											`;
 					tr += ` </tr>`;
 				}
 				tableContent.innerHTML = tr;
@@ -115,6 +137,39 @@
 							"bDestroy": true
 						});
 					});
+				} 
+				BindEventEdit();
+			},
+			error: (err) => {
+				NotificationMessageError("Server not respone!");
+			}
+		});
+	}
+	function BindEventEdit() {
+		var items = $(".edit");
+		items.each(function (v, i) {
+			i.onclick = function (e) {
+				var id = e.target.dataset.id;
+				console.log(id);
+				GetGenreById('http://localhost:5001/api/Genres?$filter=GenreId eq ' + id + '&$top=1');
+			}
+		})
+	}
+	function GetGenreById(link) {
+		$.ajax({
+			url: link,
+			type: 'GET',
+			data: {
+
+			},
+			beforeSend: function (xhr, settings) {
+				xhr.setRequestHeader('Authorization', token);
+			},
+			success: (data) => {
+				console.log(data);
+				if (data.length > 0) {
+					var nameGenre = $("#genreEditName").val(data[0].genreName);
+					var idGenre = $("#idGenre").val(data[0].genreId);
 				}
 			},
 			error: (err) => {
@@ -138,6 +193,34 @@
 					NotificationMessageSuccess("Add Genre Success!");
 					LoadData('http://localhost:5001/api/Genres');
 					$("#genreName").val("")
+				},
+				error: (err) => {
+					NotificationMessageError("Server not respone!");
+				}
+			});
+		} else {
+			NotificationMessageError("Name Genre not blank!");
+		}
+	}
+	function EditGenre() {
+		var nameGenre = $("#genreEditName").val();
+		var idGenre = $("#idGenre").val();
+		if (nameGenre.trim != '') {
+			$.ajax({
+				url: 'http://localhost:5001/api/Genres/' + idGenre,
+				type: 'PUT',
+				headers: {
+					'Authorization': token,
+				},
+				data: JSON.stringify({
+					genreId: idGenre,
+					genreName: nameGenre
+				}),
+				contentType: "application/json; charset=utf-8",
+				success: (data) => {
+					$("#close1Model").click();
+					NotificationMessageSuccess("Edit Genre Success!");
+					LoadData('http://localhost:5001/api/Genres');
 				},
 				error: (err) => {
 					NotificationMessageError("Server not respone!");

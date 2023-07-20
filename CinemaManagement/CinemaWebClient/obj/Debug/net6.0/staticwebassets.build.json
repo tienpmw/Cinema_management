@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wfcTOkuX2YuIydbnLYwALdg89YF6JUO+Rrj3RR/wmv4=",
+  "Hash": "aZRfnNI3AmwZlxJ+TLkfVxxKubPMLSWZ9hn70GxxZ1s=",
   "Source": "CinemaWebClient",
   "BasePath": "_content/CinemaWebClient",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\sb-admin-2.min.css"
+    },
+    {
+      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\signin.css",
+      "SourceId": "CinemaWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "BasePath": "_content/CinemaWebClient",
+      "RelativePath": "css/signin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\signin.css"
     },
     {
       "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\site.css",
