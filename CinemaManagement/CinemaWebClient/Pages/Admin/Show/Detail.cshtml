@@ -20,6 +20,7 @@
     <div class="col-md-12 pb-3">
         <div class="form-group d-flex flex-column justify-content-center align-items-center">
             <div asp-validation-summary="All" class="text-danger"></div>
+            <img class="img-responsive" src="/images/ic-screen.png" style="width:40%">
             <div>
                 @for (int i = 0; i < Model.Show.Room.NumberRow; i++)
                 {
@@ -28,16 +29,14 @@
                         {
                             if (Model.Show.SeatStatus[i * Model.Show.Room.NumberColumn + j] == '1')
                             {
-                                <div class="d-flex flex-column">
-                                    <label class="form-label"><b>@((i * Model.Show.Room.NumberColumn + j) + 1)</b></label>
-                                    <input class="form-check-inline seats" style="width:20px; height:20px" value="@(i * Model.Show.Room.NumberColumn + j)" type="checkbox" name="seats" checked disabled />
+                                <div class="d-flex flex-column wrapper-seat">
+                                    <label class="seat-sold">@((i * Model.Show.Room.NumberColumn + j) + 1)</label>
                                 </div>
                             }
                             else
                             {
-                                <div class="d-flex flex-column">
-                                    <label class="form-label"><b>@((i * Model.Show.Room.NumberColumn + j) + 1)</b></label>
-                                    <input class="form-check-inline seats" style="width:20px; height:20px" value="@(i * Model.Show.Room.NumberColumn + j)" type="checkbox" name="seats" disabled />
+                                <div class="d-flex flex-column wrapper-seat">
+                                    <label class="seat">@((i * Model.Show.Room.NumberColumn + j) + 1)</label>
                                 </div>
                             }
                         }
@@ -143,7 +142,7 @@
     }
 </script>
 
-
+<link href="~/css/seats.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>

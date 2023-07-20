@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zCSaEvvp/X+ZrdQ2/NyFYlJz8CqS8BLVLUsFmAWv1XQ=",
+  "Hash": "HxlVBhPLg5fUNz+m2WFcCEI5ZHfcDVUPV86W0ae9Q38=",
   "Source": "CinemaWebClient",
   "BasePath": "_content/CinemaWebClient",
   "Mode": "Default",
@@ -287,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\default-thumbnail.jpg"
+    },
+    {
+      "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\ic-screen.png",
+      "SourceId": "CinemaWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "BasePath": "_content/CinemaWebClient",
+      "RelativePath": "images/ic-screen.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ic-screen.png"
     },
     {
       "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\seat-buy-vip.png",

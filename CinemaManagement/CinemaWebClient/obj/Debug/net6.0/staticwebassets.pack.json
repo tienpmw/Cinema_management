@@ -61,6 +61,10 @@
       "PackagePath": "staticwebassets\\images\\default-thumbnail.jpg"
     },
     {
+      "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\ic-screen.png",
+      "PackagePath": "staticwebassets\\images\\ic-screen.png"
+    },
+    {
       "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\seat-buy-vip.png",
       "PackagePath": "staticwebassets\\images\\seat-buy-vip.png"
     },

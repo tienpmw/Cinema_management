@@ -4,6 +4,10 @@
 	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
 	string accessToken = await Util.GetAccessToken(HttpContext);
 }
+
+<div class="loading" id="loading">
+	<div class="spinner"></div>
+</div>
 <div class="container-fluid">
 
 	<!-- Page Heading -->
@@ -114,7 +118,7 @@
 			<div class="card shadow mb-4">
 				<!-- Card Header - Dropdown -->
 				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-					<h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+					<h5 class="m-0 font-weight-bold text-primary">Earnings Overview</h5>
 					<div class="dropdown no-arrow">
 						<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
 						   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -181,15 +185,74 @@
 		</div>*@
 	</div>
 
+	<div class="row">
+		<div class="col-xl-12 col-lg-12">
+			<div class="card shadow mb-4">
+				<!-- Card Header - Dropdown -->
+				<div class="card-header py-3 d-flex flex-row align-items-center">
+					<h5 class="m-0 font-weight-bold text-primary">Statistics In </h5>
+					<div class="row" style="margin-left:10px; margin-top:10px">
+						<div class='col-sm-5'>
+							<div class="form-group">
+								<div class='input-group date'>
+									<input type='date' class="form-control" id='startDate' />
+									<span class="input-group-addon">
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-1"><p>-</p></div>
+						<div class='col-sm-5'>
+							<div class="form-group">
+								<div class='input-group date'>
+									<input type='date' class="form-control" id='endDate' />
+									<span class="input-group-addon">
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn-primary" onclick="GetReport()">Get report</button>
+				</div>
+				<!-- Card Body -->
+				<div class="card-body" id="bodyStatic">
+					<h6><b>I. List of movies shown:</b></h6>
+					<div class="table-responsive">
+						<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+							<thead>
+								<tr>
+									<th style="width:10%">No.</th>
+									<th style="width:20%">Date</th>
+									<th style="width:25%">Film's title'</th>
+									<th style="width:24%">Room</th>
+									<th style="width:10%">Number seats sold</th>
+									<th style="width:10%">Total seats</th>
+								</tr>
+							</thead>
+							<tbody id="tableContent"></tbody>
+						</table>
+					</div>
+					<h6><b>II. Other info:</b></h6>
+					<p>1.Revenue: <span id="revenue"></span> VND</p>
+					<p>2.Number of movies shown: <span id="totalFilmPublished"></span></p>
+					<p>3.Number of screening rooms created: <span id="totalShowCreated"></span></p>
+					<p>4.Sold seats/total vacancy ratio: <span id="percentageSoldTicketWithTotalTicket"></span>%</p>
+					<p>5.Total amount of money users have recharge into the application: <span id="totalAmountUserRecharge"></span> VND</p>
+					<div class="d-flex justify-content-end">
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="margin-right:10%;">
+							<i class="fa-solid fa-file-arrow-down"></i> Download
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </div>
 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-	<i class="fa-solid fa-file-arrow-down"></i> Download
-</button>
-
-<!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
@@ -200,29 +263,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<i>Please chose time you want to export!</i>
-					<div class="row">
-						<div class='col-sm-6'>
-							<div class="form-group">
-								<div class='input-group date' >
-								<input type='date' class="form-control" id='startDate'/>
-									<span class="input-group-addon">
-										<span class="glyphicon glyphicon-calendar"></span>
-									</span>
-								</div>
-							</div>
-						</div>
-					<div class='col-sm-6'>
-						<div class="form-group">
-							<div class='input-group date'>
-								<input type='date' class="form-control" id='endDate'/>
-								<span class="input-group-addon">
-									<span class="glyphicon glyphicon-calendar"></span>
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
+				<i>Are you sure to download this report?</i>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-success" onclick="DownLoadReport()">
@@ -234,9 +275,6 @@
 	</div>
 </div>
 
-<div class="loading" id="loading">
-	<div class="spinner"></div>
-</div>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -248,6 +286,7 @@
 <script>
 	$(document).ready(function () {
 		SwitchLoading(false);
+		document.getElementById("bodyStatic").style.display = "none";
 	});
 
 	function SwitchLoading(isDisplay){
@@ -313,6 +352,81 @@
 		});
 	}
 
+	function GetReport(){
+		if (document.getElementById('startDate').value === "" || document.getElementById('endDate').value === "") {
+			NotificationMessageError("Date must be not empty!");
+			return;
+		}
+		var startDate = new Date(document.getElementById('startDate').value).getTime();
+		var endDate = new Date(document.getElementById('endDate').value).getTime();
+		if (startDate > endDate) {
+			NotificationMessageError("Start date must less than end date!");
+			return;
+		}
+
+		document.getElementById("bodyStatic").style.display = "block";
+
+		SwitchLoading(true);
+
+		$.ajax({
+			url: "http://localhost:5001/api/ReportData/GetReportCompanyInRangeTime",
+			type: 'POST',
+			data: {
+				startDate: document.getElementById('startDate').value,
+				endDate: document.getElementById('endDate').value
+			},
+			success: (data, textStatus, xhr) => {
+				setTimeout(function () {
+					SwitchLoading(false)
+				}, 2000);
+				LoadDataReport(data);
+			},
+			error: (xhr, textStatus, error) => {
+				setTimeout(function () {
+					SwitchLoading(false)
+				}, 1000);
+				NotificationMessageError("Server not responding!");
+			}
+		});
+	}
+
+
+	function LoadDataReport(data) {
+		var tableContent = document.getElementById('tableContent');
+		var initedDataTable = tableContent.innerHTML != "";
+		tableContent.innerHTML = "";
+		var tr = '';
+		var shows = data.shows;
+		for (var i = 0; i < shows.length; i++) {
+			tr +=
+				`
+				<tr>
+					<td>${shows[i].index}</td>
+					<td>${shows[i].date}</td>
+					<td>${shows[i].title}</td>
+					<td>${shows[i].room}</td>
+					<td>${shows[i].numberTicketSold}</td>
+					<td>${shows[i].totalTicket}</td>
+				</tr>
+				`;
+		}
+		tableContent.innerHTML += tr;
+		if (!initedDataTable) {
+			$(document).ready(function () {
+				$('#myTable').DataTable({
+					pagingType: 'full',
+					"lengthChange": false,
+					searching: false,
+					"bDestroy": true
+				});
+			});
+		}
+		$("#revenue").html(formatStringToCurrencyVND(data.revenue + ""));
+		$("#totalFilmPublished").html(data.totalFilmPublished);
+		$("#totalShowCreated").html(data.totalShowCreated);
+		$("#percentageSoldTicketWithTotalTicket").html(data.percentageSoldTicketWithTotalTicket);
+		$("#totalAmountUserRecharge").html(formatStringToCurrencyVND(data.totalAmountUserRecharge + ""));
+	}
 	
 </script>
 
