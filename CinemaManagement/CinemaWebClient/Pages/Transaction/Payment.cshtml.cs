@@ -1,3 +1,4 @@
+using BusinessObject;
 using CinemaWebClient.Utils;
 using DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,15 @@ namespace CinemaWebClient.Pages.Recharge
         }
         public async Task<IActionResult> OnGet(long id, string rawAmount)
         {
+
+            var options = new JsonSerializerOptions()
+            {
+                PropertyNameCaseInsensitive = true
+            };
+            var strData = HttpContext.Session.Get("info");
+            var user = JsonSerializer.Deserialize<UserSignInResponseDTO>(strData, options);
+            id = user.UserId;
+
             string[] raws = rawAmount.Split(',');
             long amount = long.Parse(string.Join("", raws));
             TransactionDTO data = new TransactionDTO()

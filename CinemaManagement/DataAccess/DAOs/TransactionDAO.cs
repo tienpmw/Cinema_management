@@ -35,7 +35,7 @@ namespace DataAccess.DAOs
             transaction.RequestDate = DateTime.Now;
             transaction.PaidDate = null;
             transaction.IsPay = false;
-            transaction.UserId = 1;
+            transaction.UserId = transaction.UserId;
             cinemaContext.Transaction.Add(transaction);
             cinemaContext.SaveChanges();
         }

@@ -3,6 +3,7 @@ using DataAccess.DAOs;
 using DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CinemaWebAPI.Controllers
 {
@@ -22,13 +23,15 @@ namespace CinemaWebAPI.Controllers
 				return Conflict("You must be choose end time less than current time!");
 			}
 			if (endDate < startDate)
-			{
-				return Conflict("Chose again date");
-			}
+            {
+                return Conflict("Chose again date");
+            }
 
-			ReportCompanyInRangeTimeRespone report = new ReportCompanyInRangeTimeRespone()
+			var shows = ReportDAO.Instance.GetShowInMonth(startDate, endDate);
+            if (shows.Count == 0) return Conflict();
+            ReportCompanyInRangeTimeRespone report = new ReportCompanyInRangeTimeRespone()
 			{
-				Shows = ReportDAO.Instance.GetShowInMonth(startDate, endDate),
+				Shows = shows,
 				Revenue = ReportDAO.Instance.GetRevenue(startDate, endDate),
 				TotalFilmPublished = ReportDAO.Instance.TotalShowCreated(startDate, endDate),
 				TotalShowCreated = ReportDAO.Instance.TotalShowCreated(startDate, endDate),

@@ -72,6 +72,7 @@ namespace CinemaWebAPI.Controllers
 			var positionTable = "A8";
 			var table = ReportDAO.Instance.GetShowInMonth(startDate, endDate);
 			excel.Cells[positionTable].LoadFromCollection(table, true, TableStyles.Light1);
+			if (table.Count == 0) return Conflict();
 
 			//II. Statistics data
 			var marginTop = 3;
