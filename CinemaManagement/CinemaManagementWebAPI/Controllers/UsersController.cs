@@ -121,6 +121,8 @@ namespace CinemaWebAPI.Controllers
 					};
 					_userRepository.AddUser(newUser);
 					user = _userRepository.GetUserByEmail(userSignIn.Email);
+					string body = $"<div>Hello, {newUser.Email}!</div><div>Welcome to my cinema, Thank you for coming to us</div>";
+					await _sendMailRepository.SendEmailAsync(user.Email, "Welcome To Cinema.", body);
 				}
 				catch (Exception)
 				{
@@ -169,8 +171,8 @@ namespace CinemaWebAPI.Controllers
 				return Conflict("Something wrong, try later!");
 			}
 			string confirmToken = GenerateConfirmToken(user);
-			string body = $"<div>Please click <a href='http://localhost:5006/SignUp?confirmToken={confirmToken}&email={user.Email}&handler=ConfirmEmail'>here</a> to confirm email!</div>";
-			await _sendMailRepository.SendEmailAsync(user.Email, "Confirm SignUp Account", body);
+			string body = $"<div>Hello, {user.Email}!</div><div>Please click <a href='http://localhost:5006/SignUp?confirmToken={confirmToken}&email={user.Email}&handler=ConfirmEmail'>here</a> to confirm email!</div>";
+			await _sendMailRepository.SendEmailAsync(user.Email, "Welcome To Cinema, Confirm Email Sign Up Account.", body);
 			return Ok();
 		}
 
