@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\home.css"
     },
     {
+      "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\loading.css",
+      "PackagePath": "staticwebassets\\css\\loading.css"
+    },
+    {
       "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\notfound.css",
       "PackagePath": "staticwebassets\\css\\notfound.css"
     },
@@ -37,15 +41,11 @@
       "PackagePath": "staticwebassets\\images\\background-cinema.jpg"
     },
     {
-<<<<<<< HEAD
-      "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg.jpg",
-=======
-      "Id": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg-lg.jpg",
+      "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg-lg.jpg",
       "PackagePath": "staticwebassets\\images\\bg-lg.jpg"
     },
     {
-      "Id": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg.jpg",
->>>>>>> ab6ade8fae7b4019660f9fcbd63596e168284820
+      "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg.jpg",
       "PackagePath": "staticwebassets\\images\\bg.jpg"
     },
     {

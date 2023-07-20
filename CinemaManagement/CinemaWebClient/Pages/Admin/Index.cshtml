@@ -180,7 +180,123 @@
 			</div>
 		</div>*@
 	</div>
+
 </div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+	<i class="fa-solid fa-file-arrow-down"></i> Download
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">Download Report</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<i>Please chose time you want to export!</i>
+					<div class="row">
+						<div class='col-sm-6'>
+							<div class="form-group">
+								<div class='input-group date' >
+								<input type='date' class="form-control" id='startDate'/>
+									<span class="input-group-addon">
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
+								</div>
+							</div>
+						</div>
+					<div class='col-sm-6'>
+						<div class="form-group">
+							<div class='input-group date'>
+								<input type='date' class="form-control" id='endDate'/>
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" onclick="DownLoadReport()">
+					<i class="fa-solid fa-file-arrow-down"></i> Download
+				</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="loading">
+	<div class="spinner"></div>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="~/css/loading.css" rel="stylesheet" />
+
+<script>
+	function DownLoadReport(){
+		if (document.getElementById('startDate').value === "" || document.getElementById('endDate').value === ""){
+			NotificationMessageError("Date must be not empty!");
+			return;
+		}
+		var startDate = new Date(document.getElementById('startDate').value).getTime();
+		var endDate = new Date(document.getElementById('endDate').value).getTime();
+		if(startDate > endDate){
+			NotificationMessageError("Start date must less than end date!");
+			return;
+		}
+
+		$.ajax({
+			url: "http://localhost:5001/api/ExportExcel/DataShows",
+			type: 'POST',
+			data: {
+				startDate: document.getElementById('startDate').value,
+				endDate: document.getElementById('endDate').value
+			},
+			xhrFields: {
+				responseType: 'blob' // Tell jQuery to expect a binary response (BLOB)
+			},
+			success: (data, textStatus, xhr) => {
+				// Get the filename from the response headers
+				var start = document.getElementById('startDate').value;
+				var end = document.getElementById('endDate').value;
+				const filename = `Bang_Thong_Ke_${start}_${end}.xlsx`;
+
+				//Convert the Byte Data to BLOB object.
+				var blob = new Blob([data], { type: "application/octetstream" });
+
+				// Check the Browser type and download the File.
+				var url = window.URL || window.webkitURL;
+				link = url.createObjectURL(blob);
+				var a = $("<a />");
+				a.attr("download", filename);
+				a.attr("href", link);
+				$("body").append(a);
+				a[0].click();
+				$("body").remove(a);
+			},
+			error: (xhr, textStatus, error) => {
+				NotificationMessageError("Server not responding!");
+			}
+		});
+	}
+
+	
+</script>
+
+
 <!-- /.container-fluid -->
 @section Scripts {
 	<!-- Core plugin JavaScript-->
@@ -191,6 +307,7 @@
 	
 	<!-- Custom scripts for all pages-->
 	<script src="~/js/sb-admin-2.min.js"></script>
+	<script src="~/js/site.js"></script>
 
 	<!-- Page level plugins -->
 	<script src="~/vendor/chart.js/Chart.min.js"></script>

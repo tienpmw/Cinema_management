@@ -1,37 +1,3 @@
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\appsettings.Development.json
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\appsettings.json
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.staticwebassets.runtime.json
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.exe
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.deps.json
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.runtimeconfig.json
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.pdb
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\DTOs.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\DTOs.pdb
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.csproj.AssemblyReference.cache
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.GeneratedMSBuildEditorConfig.editorconfig
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.AssemblyInfoInputs.cache
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.AssemblyInfo.cs
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.csproj.CoreCompileInputs.cache
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.MvcApplicationPartsAssemblyInfo.cache
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.RazorAssemblyInfo.cache
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.RazorAssemblyInfo.cs
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.CinemaWebClient.Microsoft.AspNetCore.StaticWebAssets.props
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.build.CinemaWebClient.props
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CinemaWebClient.props
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.CinemaWebClient.props
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets.pack.json
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets.build.json
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets.development.json
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\scopedcss\bundle\CinemaWebClient.styles.css
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\scopedcss\projectbundle\CinemaWebClient.bundle.scp.css
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.csproj.CopyComplete
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\refint\CinemaWebClient.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.pdb
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.genruntimeconfig.cache
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\ref\CinemaWebClient.dll
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\appsettings.Development.json
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\appsettings.json
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.staticwebassets.runtime.json
@@ -71,11 +37,6 @@ E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Ap
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.Auth.dll
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.Core.dll
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Newtonsoft.Json.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.Auth.PlatformServices.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.Auth.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.Core.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Newtonsoft.Json.dll
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -123,6 +84,18 @@ E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\runtimes\
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\BusinessObject.dll
 E:\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\BusinessObject.pdb
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\appsettings.Development.json
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\appsettings.json
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.staticwebassets.runtime.json
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.exe
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.deps.json
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.runtimeconfig.json
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\CinemaWebClient.pdb
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.Auth.PlatformServices.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.Auth.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Google.Apis.Core.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -145,6 +118,7 @@ D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\D
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\System.Drawing.Common.dll
@@ -169,4 +143,30 @@ D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\D
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\BusinessObject.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\DTOs.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\DTOs.pdb
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\bin\Debug\net6.0\BusinessObject.pdb
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.csproj.AssemblyReference.cache
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.GeneratedMSBuildEditorConfig.editorconfig
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.AssemblyInfoInputs.cache
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.AssemblyInfo.cs
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.csproj.CoreCompileInputs.cache
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.MvcApplicationPartsAssemblyInfo.cache
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.RazorAssemblyInfo.cache
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.RazorAssemblyInfo.cs
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.CinemaWebClient.Microsoft.AspNetCore.StaticWebAssets.props
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.build.CinemaWebClient.props
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CinemaWebClient.props
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.CinemaWebClient.props
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets.pack.json
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets.build.json
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\staticwebassets.development.json
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\scopedcss\bundle\CinemaWebClient.styles.css
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\scopedcss\projectbundle\CinemaWebClient.bundle.scp.css
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.csproj.CopyComplete
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\refint\CinemaWebClient.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.pdb
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\CinemaWebClient.genruntimeconfig.cache
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\CinemaWebClient\obj\Debug\net6.0\ref\CinemaWebClient.dll

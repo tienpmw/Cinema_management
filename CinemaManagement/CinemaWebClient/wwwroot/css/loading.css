@@ -1,0 +1,23 @@
+﻿.spinner {
+    width: 4em;
+    height: 4em;
+    border: 0.5em solid rgba(0, 0, 0, 0.1);
+    border-left-color: #7983ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading{
+    background: #000;
+    height: 100vh;
+    width: 100vw;
+    position:fixed;
+    z-index: 100;
+}

@@ -1,15 +1,3 @@
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\DTOs.deps.json
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\DTOs.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\DTOs.pdb
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.csproj.AssemblyReference.cache
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.GeneratedMSBuildEditorConfig.editorconfig
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.AssemblyInfoInputs.cache
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.AssemblyInfo.cs
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.csproj.CoreCompileInputs.cache
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\refint\DTOs.dll
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.pdb
-D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\ref\DTOs.dll
 E:\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\DTOs.deps.json
 E:\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\DTOs.dll
 E:\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\DTOs.pdb
@@ -25,6 +13,18 @@ E:\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\ref\DTOs.dll
 E:\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\BusinessObject.dll
 E:\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\BusinessObject.pdb
 E:\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.csproj.CopyComplete
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\DTOs.deps.json
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\DTOs.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\DTOs.pdb
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\BusinessObject.dll
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\bin\Debug\net6.0\BusinessObject.pdb
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.csproj.AssemblyReference.cache
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.GeneratedMSBuildEditorConfig.editorconfig
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.AssemblyInfoInputs.cache
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.AssemblyInfo.cs
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.csproj.CoreCompileInputs.cache
 D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.csproj.CopyComplete
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\refint\DTOs.dll
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\DTOs.pdb
+D:\FU\Semester 8\PRN231\cinema-management\CinemaManagement\DTOs\obj\Debug\net6.0\ref\DTOs.dll

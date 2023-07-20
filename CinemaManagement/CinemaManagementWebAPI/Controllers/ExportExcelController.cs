@@ -19,9 +19,12 @@ namespace CinemaWebAPI.Controllers
 		}
 
 		[HttpPost("DataShows")]
-		public IActionResult ExportDataShows(DateTime startDate, DateTime endDate)
+		public IActionResult ExportDataShows([FromForm] DateTime startDate, [FromForm] DateTime endDate)
 		{
-			
+			if(startDate == new DateTime() || endDate == new DateTime())
+			{
+				return Conflict("Date cannot be empty!");
+			}
 			if(DateTime.Now < startDate) 
 			{
 				return Conflict("You must be choose end time less than current time!");
