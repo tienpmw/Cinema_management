@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "6lbcONlz0+Hvzs2KubnQIf6+JP1sQo6NKuc1+5JCETk=",
+=======
+  "Hash": "wfcTOkuX2YuIydbnLYwALdg89YF6JUO+Rrj3RR/wmv4=",
+>>>>>>> ab6ade8fae7b4019660f9fcbd63596e168284820
   "Source": "CinemaWebClient",
   "BasePath": "_content/CinemaWebClient",
   "Mode": "Default",
@@ -204,7 +208,28 @@
       "OriginalItemSpec": "wwwroot\\images\\bg.jpg"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\default-thumbnail.jpg",
+=======
+      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\bg-lg.jpg",
+      "SourceId": "CinemaWebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",
+      "BasePath": "_content/CinemaWebClient",
+      "RelativePath": "images/bg-lg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bg-lg.jpg"
+    },
+    {
+      "Identity": "E:\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\default-thumbnail.jpg",
+>>>>>>> ab6ade8fae7b4019660f9fcbd63596e168284820
       "SourceId": "CinemaWebClient",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\",

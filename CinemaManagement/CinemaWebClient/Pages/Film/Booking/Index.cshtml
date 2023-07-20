@@ -3,18 +3,19 @@
 @using System.Text.Json;
 @model CinemaWebClient.Pages.Film.Booking.IndexModel
 @{
-    var strData = HttpContext.Session.GetString("info");
+	var strData = HttpContext.Session.GetString("info");
 
-    var options = new JsonSerializerOptions()
-            {
-                PropertyNameCaseInsensitive = true
-            };
-    UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(strData, options) ?? null;
+	var options = new JsonSerializerOptions()
+			{
+				PropertyNameCaseInsensitive = true
+			};
+	UserSignInResponseDTO? user = JsonSerializer.Deserialize<UserSignInResponseDTO>(strData, options) ?? null;
 }
 <div class="row py-3">
 	<div class="col-md-12 py-3 text-center">
 		<h3>@(Model.Show.Film.Title) <br /> @(Model.Show.ShowDate.ToString("dd/MM/yyyy hh:mm tt"))</h3>
 		<h4>Price: @(Model.Show.Price.ToString("C0").Substring(1)) VNĐ</h4>
+		<h4 id="timeRemain">00:00:00</h4>
 	</div>
 	<div class="col-md-12 pb-3">
 		<form method="post" class="form-group d-flex flex-column justify-content-center align-items-center">
@@ -66,8 +67,36 @@
 		</table>
 	</div>
 </div>
+
+<script src="/lib/bootstrap//dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/scripts.js"></script>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
 @section Scripts {
 	<script>
+		var showDate = new Date('@(Model.Show.ShowDate)');
+		var hours = 0;
+		var minutes = 0;
+		var second = 0;
+		
+		const countTime = setInterval(function () {
+			var timeNow = new Date();
+			var miliSecond = showDate - timeNow;
+			if (miliSecond <= 0) {
+				$("#timeRemain").html(`${FormatNumberTo2Digit(0)}:${FormatNumberTo2Digit(0)}:${FormatNumberTo2Digit(0)}`);
+				StopCountTime();
+				return;
+			}
+			hours = Math.floor(miliSecond / (60 * 60 * 1000));
+			minutes = Math.floor(Math.floor(miliSecond % (60 * 60 * 1000)) / (60 * 1000));
+			second = Math.floor(Math.floor(Math.floor(miliSecond % (60 * 60 * 1000)) % (60 * 1000)) / 1000)
+			$("#timeRemain").html(`${FormatNumberTo2Digit(hours)}:${FormatNumberTo2Digit(minutes)}:${FormatNumberTo2Digit(second)}`);
+		}, 1000);
+		function StopCountTime() {
+			clearInterval(countTime);
+		}
+		function FormatNumberTo2Digit(number) {
+			return ("0" + number).slice(-2);
+		}
 		$(document).ready(function () {
 			var price = @(Model.Show.Price);
 			var seats = $("input.seats");
@@ -94,10 +123,10 @@
 						var tr = "";
 						response.forEach((value, index) => {
 							tr += `<tr>
-																<td>${GetNoSeat(value.seatBooking)}</td>
-																<td>${formatStringToCurrencyVND(value.amount + '')} VNĐ</td>
-																<td>${ParseDateTime(value.dateBooking)}</td>
-															</tr>`
+																												<td>${GetNoSeat(value.seatBooking)}</td>
+																												<td>${formatStringToCurrencyVND(value.amount + '')} VNĐ</td>
+																												<td>${ParseDateTime(value.dateBooking)}</td>
+																											</tr>`
 						});
 						$("#contentTable").html(tr);
 						$("#info-bk").addClass("d-block");
@@ -113,7 +142,7 @@
 				var seatBooked = [];
 				var rs = Array.from(seatsB).filter((value, index) => {
 					if (value == '1') {
-						seatBooked.push(index*1 + 1);
+						seatBooked.push(index * 1 + 1);
 						return true;
 					}
 					return false;

@@ -106,8 +106,8 @@ namespace CinemaWebClient.Filters
 				{
 					if (urlFilter.Contains(url))
 					{
-                        context.Result = new RedirectToPageResult("/AccessDenied");
-                        return;
+						await next.Invoke();
+						return;
                     }
 				}
 				foreach (string urlFilter in allowAdmin)

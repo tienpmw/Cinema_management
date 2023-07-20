@@ -65,9 +65,10 @@ namespace CinemaWebClient.Pages.Film.Booking
 				ModelState.AddModelError("", "Please select seat!");
 				return Page();
 			}
+			var userInfo = JsonSerializer.Deserialize<UserSignInResponseDTO>(HttpContext.Session.GetString("info"));
 			BookingRequestDTO booking = new BookingRequestDTO
 			{
-				UserId = 1,
+				UserId = userInfo.UserId,
 				SeatsBooking = seats
 			};
 			var content = new StringContent(JsonSerializer.Serialize(booking), Encoding.UTF8, "application/json");
