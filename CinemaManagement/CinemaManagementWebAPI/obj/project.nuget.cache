@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CsK7NVdDLnCwy7hsI1qthuTTiYz7v6w7QxmPogr0Ge+NyWNW4bmDj7oc8JBnMmjkqfb5YaGu3d4mGIGGLUpGmw==",
+  "dgSpecHash": "b7WJHI9v8BvLK1FN3Lc4P5FreO8NcbHeBwj3R4URJ61hX7slYoRYw5qYBGk82f5odoIB26oxMXD/Wnvrseu2Ag==",
   "success": true,
-  "projectFilePath": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\CinemaWebAPI.csproj",
+  "projectFilePath": "E:\\cinema-management\\CinemaManagement\\CinemaManagementWebAPI\\CinemaWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\epplus\\6.2.7\\epplus.6.2.7.nupkg.sha512",
