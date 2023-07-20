@@ -15,7 +15,7 @@
 		<table class="table-responsive">
             <tr>
                 <th>Description &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
-                <td>@Model.Film.Description</td>
+				<td>@Html.Raw(@Model.Film.Description)</td>
             </tr>
             <tr>
                 <th>Genre &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
@@ -47,7 +47,7 @@
 						}
 					}
 					<div>Remain: @(remainSeats) Seats</div>
-					<div>Cost: @(item.Price.ToString("C0").Substring(1)) VNĐ</div>
+					<div>Price: @(item.Price.ToString("C0").Substring(1)) VNĐ</div>
 				</a>
 			}
         </div>
