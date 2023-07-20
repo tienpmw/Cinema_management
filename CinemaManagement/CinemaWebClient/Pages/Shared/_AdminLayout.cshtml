@@ -3,6 +3,16 @@
 
 @{
 	string url = Context.Request.Path.ToString().ToLower();
+	UserSignInResponseDTO? user = null;
+	if (Context.Session.GetString("info") != null)
+	{
+		var options = new JsonSerializerOptions()
+				{
+					PropertyNameCaseInsensitive = true
+				};
+		var strData = Context.Session.GetString("info");
+		user = JsonSerializer.Deserialize<UserSignInResponseDTO>(strData, options);
+	}
 }
 
 <!DOCTYPE html>
@@ -136,7 +146,7 @@
 						<li class="nav-item dropdown no-arrow">
 							<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
 							   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="mr-2 d-none d-lg-inline text-gray-600 small">HieuLD6</span>
+								<span class="mr-2 d-none d-lg-inline text-gray-600 small">@(user.FirstName + " " + user.LastName)</span>
 								<img class="img-profile rounded-circle"
 									 src="https://kenh14cdn.com/203336854389633024/2023/3/13/photo-4-16787240259121374942737.jpg">
 							</a>
