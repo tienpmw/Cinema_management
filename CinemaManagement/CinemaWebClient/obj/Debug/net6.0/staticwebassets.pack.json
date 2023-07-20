@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\css\\sb-admin-2.min.css"
     },
     {
+      "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\seats.css",
+      "PackagePath": "staticwebassets\\css\\seats.css"
+    },
+    {
       "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\css\\signin.css",
       "PackagePath": "staticwebassets\\css\\signin.css"
     },
@@ -55,6 +59,14 @@
     {
       "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\default-thumbnail.jpg",
       "PackagePath": "staticwebassets\\images\\default-thumbnail.jpg"
+    },
+    {
+      "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\seat-buy-vip.png",
+      "PackagePath": "staticwebassets\\images\\seat-buy-vip.png"
+    },
+    {
+      "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\images\\seat-unselect-vip.png",
+      "PackagePath": "staticwebassets\\images\\seat-unselect-vip.png"
     },
     {
       "Id": "D:\\FU\\Semester 8\\PRN231\\cinema-management\\CinemaManagement\\CinemaWebClient\\wwwroot\\js\\demo\\chart-area-demo.js",
