@@ -95,7 +95,7 @@ namespace CinemaWebAPI.Controllers
 			excel.Cells["A" + (startPositionPart2 + indexPart2)].Value = "3.Số phòng chiếu đã được tạo: " + ReportDAO.Instance.TotalShowCreated(startDate, endDate);
 			indexPart2++;
 			//3.
-			excel.Cells["A" + (startPositionPart2 + indexPart2)].Value = "4.Tỉ lệ số ghế đã bán / tổng số ghế bỏ trống: " + ReportDAO.Instance.GetPercentageSoldTicketWithTotalTicket(startDate, endDate) + "%"; 
+			excel.Cells["A" + (startPositionPart2 + indexPart2)].Value = "4.Tỉ lệ số ghế đã bán / tổng số ghế: " + ReportDAO.Instance.GetPercentageSoldTicketWithTotalTicket(startDate, endDate) + "%"; 
 			indexPart2++;
 			//4.
 			excel.Cells["A" + (startPositionPart2 + indexPart2)].Value = "5. Tổng số tiền người dùng đã nạp vào ứng dụng: " + ReportDAO.Instance.TotalAmountUserRecharge(startDate, endDate) + "VND"; 

@@ -37,6 +37,7 @@ namespace DataAccess.DAOs
 				.Include(x => x.Room)
 				.Include(x => x.Film)
 				.Where(x => x.ShowDate >= startDate && x.ShowDate <= endDate)
+				.OrderByDescending(x => x.ShowDate)
 				.ToList();	
 
 			List<ShowReportDTO> reportData = new List<ShowReportDTO>();
