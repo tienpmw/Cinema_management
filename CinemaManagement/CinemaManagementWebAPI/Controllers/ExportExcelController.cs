@@ -33,6 +33,8 @@ namespace CinemaWebAPI.Controllers
 			{
 				return Conflict("Chose again date");
 			}
+			var shows = ReportDAO.Instance.GetShowInMonth(startDate, endDate);
+			if (shows.Count == 0) return Conflict("In this time is not have any data!");
 
 			string filename = $"Bang_Thong_Ke_{startDate.Day}/{startDate.Month}/{startDate.Year}-{endDate.Day}/{endDate.Month}/{endDate.Year}_{Guid.NewGuid():N}.xlsx";
 			using ExcelPackage pack = new ExcelPackage();
@@ -71,8 +73,7 @@ namespace CinemaWebAPI.Controllers
 
 			var positionTable = "A8";
 			var table = ReportDAO.Instance.GetShowInMonth(startDate, endDate);
-			excel.Cells[positionTable].LoadFromCollection(table, true, TableStyles.Light1);
-			if (table.Count == 0) return Conflict();
+			excel.Cells[positionTable].LoadFromCollection(shows, true, TableStyles.Light1);
 
 			//II. Statistics data
 			var marginTop = 3;

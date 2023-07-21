@@ -28,7 +28,7 @@ namespace CinemaWebAPI.Controllers
             }
 
 			var shows = ReportDAO.Instance.GetShowInMonth(startDate, endDate);
-            if (shows.Count == 0) return Conflict();
+            if (shows.Count == 0) return Conflict("In this time is not have any data!");
             ReportCompanyInRangeTimeRespone report = new ReportCompanyInRangeTimeRespone()
 			{
 				Shows = shows,
