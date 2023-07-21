@@ -148,7 +148,7 @@ namespace DataAccess.DAOs
 				},
 			};
             List<dynamic> lsEarningByMonth = (from b in context.Booking
-								   where b.DateBooking.Year == DateTime.Now.Year && b.DateBooking.Month == DateTime.Now.Month && b.IsPay == true
+								   where b.DateBooking.Year == DateTime.Now.Year && b.IsPay == true
 								   group b by new { b.DateBooking.Month } into tb1
 								   select new
 								   {

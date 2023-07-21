@@ -62,6 +62,7 @@
 	var token = '@(accessToken)'
 	function LoadData(link) {
 		var tableContent = document.getElementById('tableContent');
+		var initedDataTable = tableContent.innerHTML != "";
 		tableContent.innerHTML = "";
 		$.ajax({
 			url: link,
@@ -85,14 +86,16 @@
 					tr += ` </tr>`;
 				}
 				tableContent.innerHTML = tr;
-				$(document).ready(function () {
-					$('#myTable').DataTable({
-						pagingType: 'full',
-						"lengthChange": false,
-						searching: false,
-						"bDestroy": true
+				if (!initedDataTable) {
+					$(document).ready(function () {
+						$('#myTable').DataTable({
+							pagingType: 'full',
+							"lengthChange": false,
+							searching: false,
+							"bDestroy": true
+						});
 					});
-				});
+				}
 			},
 			error: (err) => {
 				NotificationMessageError("Server not respone!");
@@ -100,7 +103,7 @@
 		});
 	}
 
-	var querySearch = "http://localhost:5001/odata/Rooms?";
+	var querySearch = "http://localhost:5001/api/Rooms?";
 	function Search() {
 		var valueID = document.getElementById("txtSearchById").value;
 		var valueName = document.getElementById("txtSearchByName").value;
